@@ -1,0 +1,45 @@
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+
+# NV-Ingest for table extraction
+nv-ingest-client
+nv-ingest
+
+# LangChain and related dependencies
+langchain>=0.3.0
+langchain-core>=0.3.0
+langchain-community>=0.3.0
+langchain-text-splitters>=0.3.0
+langchain-openai>=0.2.0
+langchain-nvidia-ai-endpoints>=0.1.0
+langgraph>=0.0.20
+
+# Vector stores and embeddings
+faiss-cpu>=1.7.4
+
+# Document processing
+pypdf2>=3.0.0
+pypdf>=3.17.0
+pypdfium2>=4.26.0
+PyMuPDF>=1.23.0
+pymupdf4llm>=0.0.27
+camelot-py[cv]>=0.11.0
+opencv-python>=4.8.0
+Pillow>=10.0.0
+
+# Adobe PDF Services
+pdfservices-sdk>=4.0.0
+
+# Text cleaning (used by NeMo Curator)
+ftfy>=6.1.0
+
+# Data processing
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Environment and configuration
+python-dotenv>=1.0.0
+
+# CLI and UI
+rich>=13.0.0
+

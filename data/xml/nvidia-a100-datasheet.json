@@ -1,0 +1,5356 @@
+{
+  "version": {
+    "json_export": "226",
+    "page_segmentation": "55",
+    "schema": "1.1.0",
+    "structure": "1.1178.0",
+    "table_structure": "5"
+  },
+  "extended_metadata": {
+    "ID_instance": "AB 15 A4 03 1B BE B2 11 0A 00 DA 53 D8 16 0D 0B ",
+    "ID_permanent": "D1 47 FF A5 01 5B 47 5E A7 BD 46 D3 09 CE D3 B8 ",
+    "has_acroform": false,
+    "has_embedded_files": false,
+    "is_XFA": false,
+    "is_certified": false,
+    "is_encrypted": false,
+    "is_digitally_signed": false,
+    "language": "en-US",
+    "page_count": 3,
+    "pdf_version": "1.7",
+    "pdfa_compliance_level": "",
+    "pdfua_compliance_level": ""
+  },
+  "elements": [
+    {
+      "Bounds": [
+        36.04490661621094,
+        755.9911041259766,
+        87.5699462890625,
+        767.4931030273438
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Medium",
+        "subset": true,
+        "weight": 500
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 409,
+      "Page": 0,
+      "Path": "//Document/Sect/H1",
+      "Text": "DATASHEET ",
+      "TextSize": 9.0
+    },
+    {
+      "Bounds": [
+        35.750396728515625,
+        697.2501983642578,
+        90.49240112304688,
+        738.2501068115234
+      ],
+      "ClipBounds": [
+        35.750396728515625,
+        697.2501983642578,
+        90.49240112304688,
+        738.2501068115234
+      ],
+      "ObjectID": 410,
+      "Page": 0,
+      "Path": "//Document/Sect/Figure",
+      "attributes": {
+        "BBox": [
+          35.998499999999694,
+          697.4439999999886,
+          90.35629999999946,
+          738.0019999999786
+        ],
+        "Placement": "Block"
+      }
+    },
+    {
+      "Bounds": [
+        36.09979248046875,
+        615.3000030517578,
+        326.0067596435547,
+        640.8600006103516
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Regular",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 412,
+      "Page": 0,
+      "Path": "//Document/Sect[2]/H1",
+      "Text": "NVIDIA A100 TENSOR CORE GPU ",
+      "TextSize": 20.0,
+      "attributes": {
+        "LineHeight": 24
+      }
+    },
+    {
+      "Bounds": [
+        36.0,
+        595.7220001220703,
+        291.0957336425781,
+        613.6139984130859
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "WinAnsiEncoding",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Light",
+        "subset": true,
+        "weight": 300
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 414,
+      "Page": 0,
+      "Path": "//Document/Sect[2]/Sect/H2",
+      "Text": "Unprecedented Acceleration at Every Scale ",
+      "TextSize": 14.0,
+      "attributes": {
+        "LineHeight": 16.75
+      }
+    },
+    {
+      "Bounds": [
+        36.86610412597656,
+        501.71409606933594,
+        282.45167541503906,
+        534.964599609375
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Medium",
+        "subset": true,
+        "weight": 500
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 416,
+      "Page": 0,
+      "Path": "//Document/Sect[2]/Sect/Sect/H3",
+      "Text": "The Most Powerful Compute Platform for Every Workload ",
+      "TextSize": 13.5,
+      "attributes": {
+        "LineHeight": 16
+      }
+    },
+    {
+      "Bounds": [
+        36.86529541015625,
+        357.76210021972656,
+        293.074462890625,
+        495.2801055908203
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Regular",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 417,
+      "Page": 0,
+      "Path": "//Document/Sect[2]/Sect/Sect/P",
+      "Text": "The NVIDIA A100 Tensor Core GPU delivers unprecedented acceleration—at every scale—to power the world’s highest-performing elastic data centers for AI, data analytics, and high-performance computing (HPC) applications. As the engine of the NVIDIA data center platform, A100 provides up to 20X higher performance over the prior NVIDIA Volta™ generation. A100 can efficiently scale up or be partitioned into seven isolated GPU instances with Multi-Instance GPU (MIG), providing a unified platform that enables elastic data centers to dynamically adjust to shifting workload demands. ",
+      "TextSize": 9.0
+    },
+    {
+      "Bounds": [
+        36.86529541015625,
+        268.74310302734375,
+        299.45556640625,
+        350.2651062011719
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Regular",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 419,
+      "Page": 0,
+      "Path": "//Document/Sect[2]/Sect/Sect/P[2]",
+      "Text": "NVIDIA A100 Tensor Core technology supports a broad range of math precisions, providing a single accelerator for every workload. The latest generation A100 80GB doubles GPU memory and debuts the world’s fastest memory bandwidth at 2 terabytes per second (TB/s), speeding time to solution for the largest models and most massive datasets. ",
+      "TextSize": 9.0
+    },
+    {
+      "Bounds": [
+        36.86529541015625,
+        165.76609802246094,
+        292.2215118408203,
+        261.24609375
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Regular",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 420,
+      "Page": 0,
+      "Path": "//Document/Sect[2]/Sect/Sect/P[3]",
+      "Text": "A100 is part of the complete NVIDIA data center solution that incorporates building blocks across hardware, networking, software, libraries, and optimized AI models and applications from the NVIDIA NGC™ catalog. Representing the most powerful end-to-end AI and HPC platform for data centers, it allows researchers to deliver real-world results and deploy solutions into production at scale. ",
+      "TextSize": 9.0
+    },
+    {
+      "Bounds": [
+        324.03990173339844,
+        510.99310302734375,
+        529.511474609375,
+        533.4931030273438
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Medium",
+        "subset": true,
+        "weight": 500
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 423,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/H1",
+      "Text": "NVIDIA A100 TENSOR CORE GPU SPECIFICATIONS (SXM4 AND PCIE FORM FACTORS) ",
+      "TextSize": 9.0
+    },
+    {
+      "Bounds": [
+        324.0115966796875,
+        93.02900695800781,
+        569.4522552490234,
+        507.34010314941406
+      ],
+      "ObjectID": 424,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table",
+      "attributes": {
+        "BBox": [
+          322.5469999999914,
+          88.58859999999913,
+          576.0969999999797,
+          509.29199999998673
+        ],
+        "NumCol": 3,
+        "NumRow": 15,
+        "Placement": "Block",
+        "SpaceAfter": 18
+      },
+      "filePaths": [
+        "tables/fileoutpart0.xlsx"
+      ]
+    },
+    {
+      "ObjectID": 426,
+      "Path": "//Document/Sect[3]/Table/TR/TH",
+      "attributes": {
+        "BBox": [
+          323.9869999999937,
+          484.5729999999894,
+          378.3449999999866,
+          509.29199999998673
+        ],
+        "BlockAlign": "Before",
+        "BorderColor": [
+          null,
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null,
+          null
+        ],
+        "BorderStyle": [
+          "None",
+          "Solid",
+          "None",
+          "None"
+        ],
+        "BorderThickness": [
+          0,
+          0.5,
+          0,
+          0
+        ],
+        "ColIndex": 0,
+        "Height": 24.75,
+        "InlineAlign": "Start",
+        "RowIndex": 0,
+        "Width": 54.375
+      }
+    },
+    {
+      "Bounds": [
+        408.6195983886719,
+        487.11610412597656,
+        448.3012237548828,
+        507.34010314941406
+      ],
+      "ObjectID": 427,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR/TH[2]",
+      "attributes": {
+        "BBox": [
+          378.3449999999866,
+          484.5729999999894,
+          477.22099999999045,
+          509.29199999998673
+        ],
+        "BlockAlign": "Middle",
+        "BorderColor": [
+          null,
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null,
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ]
+        ],
+        "BorderStyle": [
+          "None",
+          "Solid",
+          "None",
+          "Solid"
+        ],
+        "BorderThickness": [
+          0,
+          0.5,
+          0,
+          0.25
+        ],
+        "ColIndex": 1,
+        "Height": 24.75,
+        "InlineAlign": "Center",
+        "RowIndex": 0,
+        "Width": 98.875
+      }
+    },
+    {
+      "Bounds": [
+        418.7635955810547,
+        497.11610412597656,
+        437.1954803466797,
+        507.34010314941406
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 428,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR/TH[2]/P",
+      "Text": "A100 ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 9.625
+      }
+    },
+    {
+      "Bounds": [
+        408.6195983886719,
+        487.11610412597656,
+        448.3012237548828,
+        497.34010314941406
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 429,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR/TH[2]/P[2]",
+      "Text": "80GB PCIe ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 9.625
+      }
+    },
+    {
+      "Bounds": [
+        507.9875946044922,
+        487.11610412597656,
+        546.7044372558594,
+        507.34010314941406
+      ],
+      "ObjectID": 430,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR/TH[3]",
+      "attributes": {
+        "BBox": [
+          476.6209999999992,
+          484.5729999999894,
+          576.0969999999797,
+          509.29199999998673
+        ],
+        "BlockAlign": "Middle",
+        "BorderColor": [
+          null,
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null
+        ],
+        "BorderStyle": [
+          "None",
+          "Solid",
+          "Solid",
+          "None"
+        ],
+        "BorderThickness": [
+          0,
+          0.5,
+          0.25,
+          0
+        ],
+        "ColIndex": 2,
+        "Height": 24.75,
+        "InlineAlign": "Center",
+        "RowIndex": 0,
+        "Width": 99.5
+      }
+    },
+    {
+      "Bounds": [
+        517.7635955810547,
+        497.11610412597656,
+        536.1954803466797,
+        507.34010314941406
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "ObjectID": 432,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR/TH[3]/P/Sub",
+      "Text": "A100 ",
+      "TextSize": 8.0,
+      "attributes": {
+        "Placement": "Block"
+      }
+    },
+    {
+      "Bounds": [
+        507.9875946044922,
+        487.11610412597656,
+        546.7044372558594,
+        497.34010314941406
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "ObjectID": 433,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR/TH[3]/P/Sub[2]",
+      "Text": "80GB SXM ",
+      "TextSize": 8.0,
+      "attributes": {
+        "Placement": "Block"
+      }
+    },
+    {
+      "Bounds": [
+        324.0355987548828,
+        472.68409729003906,
+        344.15565490722656,
+        482.90809631347656
+      ],
+      "ObjectID": 435,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[2]/TH",
+      "attributes": {
+        "BBox": [
+          322.5469999999914,
+          470.0529999999999,
+          378.3449999999866,
+          485.6519999999873
+        ],
+        "BlockAlign": "Middle",
+        "BorderColor": [
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null,
+          null
+        ],
+        "BorderStyle": [
+          "Solid",
+          "Solid",
+          "None",
+          "None"
+        ],
+        "BorderThickness": [
+          0.5,
+          0.25,
+          0,
+          0
+        ],
+        "ColIndex": 0,
+        "Height": 15.625,
+        "InlineAlign": "Start",
+        "RowIndex": 1,
+        "Width": 55.75
+      }
+    },
+    {
+      "Bounds": [
+        324.0355987548828,
+        472.68409729003906,
+        344.15565490722656,
+        482.90809631347656
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Regular",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 436,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[2]/TH/P",
+      "Text": "FP64 ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 9.625
+      }
+    },
+    {
+      "Bounds": [
+        456.55560302734375,
+        472.68409729003906,
+        499.29034423828125,
+        482.90809631347656
+      ],
+      "ObjectID": 437,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[2]/TD",
+      "attributes": {
+        "BBox": [
+          378.3449999999866,
+          470.0529999999999,
+          576.0969999999797,
+          485.6519999999873
+        ],
+        "BlockAlign": "Middle",
+        "BorderColor": [
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null,
+          null
+        ],
+        "BorderStyle": [
+          "Solid",
+          "Solid",
+          "None",
+          "None"
+        ],
+        "BorderThickness": [
+          0.5,
+          0.25,
+          0,
+          0
+        ],
+        "ColIndex": 1,
+        "ColSpan": 2,
+        "Height": 15.625,
+        "InlineAlign": "Center",
+        "RowIndex": 1,
+        "Width": 197.75
+      }
+    },
+    {
+      "Bounds": [
+        456.55560302734375,
+        472.68409729003906,
+        499.29034423828125,
+        482.90809631347656
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 438,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[2]/TD/P",
+      "Text": "9.7 TFLOPS ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 9.625
+      }
+    },
+    {
+      "Bounds": [
+        324.0355987548828,
+        447.9320983886719,
+        370.2315979003906,
+        468.1560974121094
+      ],
+      "ObjectID": 440,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[3]/TH",
+      "attributes": {
+        "BBox": [
+          322.5469999999914,
+          445.333999999988,
+          378.3449999999866,
+          470.65299999999115
+        ],
+        "BlockAlign": "Middle",
+        "BorderColor": [
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null,
+          null
+        ],
+        "BorderStyle": [
+          "Solid",
+          "Solid",
+          "None",
+          "None"
+        ],
+        "BorderThickness": [
+          0.25,
+          0.25,
+          0,
+          0
+        ],
+        "ColIndex": 0,
+        "Height": 25.375,
+        "InlineAlign": "Start",
+        "RowIndex": 2,
+        "Width": 55.75
+      }
+    },
+    {
+      "Bounds": [
+        324.0355987548828,
+        447.9320983886719,
+        370.2315979003906,
+        468.1560974121094
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Regular",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 441,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[3]/TH/P",
+      "Text": "FP64 Tensor Core ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 10
+      }
+    },
+    {
+      "Bounds": [
+        454.42759704589844,
+        457.9320983886719,
+        501.427978515625,
+        468.1560974121094
+      ],
+      "ObjectID": 442,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[3]/TD",
+      "attributes": {
+        "BBox": [
+          378.3449999999866,
+          445.333999999988,
+          576.0969999999797,
+          470.65299999999115
+        ],
+        "BlockAlign": "Before",
+        "BorderColor": [
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null,
+          null
+        ],
+        "BorderStyle": [
+          "Solid",
+          "Solid",
+          "None",
+          "None"
+        ],
+        "BorderThickness": [
+          0.25,
+          0.25,
+          0,
+          0
+        ],
+        "ColIndex": 1,
+        "ColSpan": 2,
+        "Height": 25.375,
+        "InlineAlign": "Center",
+        "RowIndex": 2,
+        "Width": 197.75
+      }
+    },
+    {
+      "Bounds": [
+        454.42759704589844,
+        457.9320983886719,
+        501.427978515625,
+        468.1560974121094
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 443,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[3]/TD/P",
+      "Text": "19.5 TFLOPS ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 9.625
+      }
+    },
+    {
+      "Bounds": [
+        324.0355987548828,
+        433.1800994873047,
+        344.66746520996094,
+        443.4040985107422
+      ],
+      "ObjectID": 445,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[4]/TH",
+      "attributes": {
+        "BBox": [
+          322.5469999999914,
+          430.5749999999971,
+          378.3449999999866,
+          445.93399999999383
+        ],
+        "BlockAlign": "Middle",
+        "BorderColor": [
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null,
+          null
+        ],
+        "BorderStyle": [
+          "Solid",
+          "Solid",
+          "None",
+          "None"
+        ],
+        "BorderThickness": [
+          0.25,
+          0.25,
+          0,
+          0
+        ],
+        "ColIndex": 0,
+        "Height": 15.375,
+        "InlineAlign": "Start",
+        "RowIndex": 3,
+        "Width": 55.75
+      }
+    },
+    {
+      "Bounds": [
+        324.0355987548828,
+        433.1800994873047,
+        344.66746520996094,
+        443.4040985107422
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Regular",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 446,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[4]/TH/P",
+      "Text": "FP32 ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 9.625
+      }
+    },
+    {
+      "Bounds": [
+        454.4196014404297,
+        433.1800994873047,
+        501.41998291015625,
+        443.4040985107422
+      ],
+      "ObjectID": 447,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[4]/TD",
+      "attributes": {
+        "BBox": [
+          378.3449999999866,
+          430.5749999999971,
+          576.0969999999797,
+          445.93399999999383
+        ],
+        "BlockAlign": "Middle",
+        "BorderColor": [
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null,
+          null
+        ],
+        "BorderStyle": [
+          "Solid",
+          "Solid",
+          "None",
+          "None"
+        ],
+        "BorderThickness": [
+          0.25,
+          0.25,
+          0,
+          0
+        ],
+        "ColIndex": 1,
+        "ColSpan": 2,
+        "Height": 15.375,
+        "InlineAlign": "Center",
+        "RowIndex": 3,
+        "Width": 197.75
+      }
+    },
+    {
+      "Bounds": [
+        454.4196014404297,
+        433.1800994873047,
+        501.41998291015625,
+        443.4040985107422
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 448,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[4]/TD/P",
+      "Text": "19.5 TFLOPS ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 9.625
+      }
+    },
+    {
+      "Bounds": [
+        324.02760314941406,
+        408.4281005859375,
+        370.23155212402344,
+        428.652099609375
+      ],
+      "ObjectID": 450,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[5]/TH",
+      "attributes": {
+        "BBox": [
+          322.5469999999914,
+          405.7359999999899,
+          378.3449999999866,
+          431.17499999998836
+        ],
+        "BlockAlign": "Middle",
+        "BorderColor": [
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null,
+          null
+        ],
+        "BorderStyle": [
+          "Solid",
+          "Solid",
+          "None",
+          "None"
+        ],
+        "BorderThickness": [
+          0.25,
+          0.25,
+          0,
+          0
+        ],
+        "ColIndex": 0,
+        "Height": 25.5,
+        "InlineAlign": "Start",
+        "RowIndex": 4,
+        "Width": 55.75
+      }
+    },
+    {
+      "Bounds": [
+        324.02760314941406,
+        418.4281005859375,
+        370.23155212402344,
+        428.652099609375
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Regular",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 451,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[5]/TH/P",
+      "Text": "Tensor Float ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 9.625
+      }
+    },
+    {
+      "Bounds": [
+        324.02760314941406,
+        408.4281005859375,
+        358.8232421875,
+        418.652099609375
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Regular",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 452,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[5]/TH/P[2]",
+      "Text": "32 (TF32) ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 9.625
+      }
+    },
+    {
+      "Bounds": [
+        426.5876007080078,
+        418.4281005859375,
+        478.2596740722656,
+        428.652099609375
+      ],
+      "ObjectID": 453,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[5]/TD",
+      "attributes": {
+        "BBox": [
+          378.3449999999866,
+          405.7359999999899,
+          476.98099999999977,
+          431.17499999998836
+        ],
+        "BlockAlign": "Before",
+        "BorderColor": [
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null,
+          null
+        ],
+        "BorderStyle": [
+          "Solid",
+          "Solid",
+          "None",
+          "None"
+        ],
+        "BorderThickness": [
+          0.25,
+          0.25,
+          0,
+          0
+        ],
+        "ColIndex": 1,
+        "Height": 25.5,
+        "InlineAlign": "Center",
+        "RowIndex": 4,
+        "Width": 98.625
+      }
+    },
+    {
+      "Bounds": [
+        426.5876007080078,
+        418.4281005859375,
+        478.2596740722656,
+        428.652099609375
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 454,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[5]/TD/P",
+      "Text": "156 TFLOPS | ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 9.625
+      }
+    },
+    {
+      "Bounds": [
+        480.4035949707031,
+        418.4281005859375,
+        529.0835876464844,
+        428.652099609375
+      ],
+      "ObjectID": 456,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[5]/TD[2]",
+      "attributes": {
+        "BBox": [
+          476.98099999999977,
+          405.7359999999899,
+          576.0969999999797,
+          431.17499999998836
+        ],
+        "BlockAlign": "Before",
+        "BorderColor": [
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null,
+          null
+        ],
+        "BorderStyle": [
+          "Solid",
+          "Solid",
+          "None",
+          "None"
+        ],
+        "BorderThickness": [
+          0.25,
+          0.25,
+          0,
+          0
+        ],
+        "ColIndex": 2,
+        "Height": 25.5,
+        "InlineAlign": "Start",
+        "RowIndex": 4,
+        "Width": 99.125
+      }
+    },
+    {
+      "Bounds": [
+        480.4035949707031,
+        418.4281005859375,
+        529.0835876464844,
+        428.652099609375
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 457,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[5]/TD[2]/P",
+      "Text": "312 TFLOPS* ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 9.625
+      }
+    },
+    {
+      "Bounds": [
+        324.02760314941406,
+        383.6761016845703,
+        369.0547790527344,
+        403.9001007080078
+      ],
+      "ObjectID": 460,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[6]/TH",
+      "attributes": {
+        "BBox": [
+          322.5469999999914,
+          381.01699999999255,
+          378.3449999999866,
+          406.3359999999957
+        ],
+        "BlockAlign": "Middle",
+        "BorderColor": [
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null,
+          null
+        ],
+        "BorderStyle": [
+          "Solid",
+          "Solid",
+          "None",
+          "None"
+        ],
+        "BorderThickness": [
+          0.25,
+          0.25,
+          0,
+          0
+        ],
+        "ColIndex": 0,
+        "Height": 25.375,
+        "InlineAlign": "Start",
+        "RowIndex": 5,
+        "Width": 55.75
+      }
+    },
+    {
+      "Bounds": [
+        324.02760314941406,
+        393.6761016845703,
+        362.1396179199219,
+        403.9001007080078
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Regular",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 461,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[6]/TH/P",
+      "Text": "BFLOAT16 ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 9.625
+      }
+    },
+    {
+      "Bounds": [
+        324.02760314941406,
+        383.6761016845703,
+        369.0547790527344,
+        393.9001007080078
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Regular",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 462,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[6]/TH/P[2]",
+      "Text": "Tensor Core ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 9.625
+      }
+    },
+    {
+      "Bounds": [
+        426.41160583496094,
+        393.6761016845703,
+        477.77166748046875,
+        403.9001007080078
+      ],
+      "ObjectID": 463,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[6]/TD",
+      "attributes": {
+        "BBox": [
+          378.3449999999866,
+          381.01699999999255,
+          476.98099999999977,
+          406.3359999999957
+        ],
+        "BlockAlign": "Before",
+        "BorderColor": [
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null,
+          null
+        ],
+        "BorderStyle": [
+          "Solid",
+          "Solid",
+          "None",
+          "None"
+        ],
+        "BorderThickness": [
+          0.25,
+          0.25,
+          0,
+          0
+        ],
+        "ColIndex": 1,
+        "Height": 25.375,
+        "InlineAlign": "Center",
+        "RowIndex": 5,
+        "Width": 98.625
+      }
+    },
+    {
+      "Bounds": [
+        426.41160583496094,
+        393.6761016845703,
+        477.77166748046875,
+        403.9001007080078
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 464,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[6]/TD/P",
+      "Text": "312 TFLOPS | ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 9.625
+      }
+    },
+    {
+      "Bounds": [
+        479.9156036376953,
+        393.6761016845703,
+        529.2515869140625,
+        403.9001007080078
+      ],
+      "ObjectID": 466,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[6]/TD[2]",
+      "attributes": {
+        "BBox": [
+          476.98099999999977,
+          381.01699999999255,
+          576.0969999999797,
+          406.3359999999957
+        ],
+        "BlockAlign": "Before",
+        "BorderColor": [
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null,
+          null
+        ],
+        "BorderStyle": [
+          "Solid",
+          "Solid",
+          "None",
+          "None"
+        ],
+        "BorderThickness": [
+          0.25,
+          0.25,
+          0,
+          0
+        ],
+        "ColIndex": 2,
+        "Height": 25.375,
+        "InlineAlign": "Start",
+        "RowIndex": 5,
+        "Width": 99.125
+      }
+    },
+    {
+      "Bounds": [
+        479.9156036376953,
+        393.6761016845703,
+        529.2515869140625,
+        403.9001007080078
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 467,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[6]/TD[2]/P",
+      "Text": "624 TFLOPS* ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 9.625
+      }
+    },
+    {
+      "Bounds": [
+        324.0196075439453,
+        358.9241027832031,
+        369.7099914550781,
+        379.1481018066406
+      ],
+      "ObjectID": 470,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[7]/TH",
+      "attributes": {
+        "BBox": [
+          322.5469999999914,
+          356.2979999999952,
+          378.3449999999866,
+          381.61699999999837
+        ],
+        "BlockAlign": "Middle",
+        "BorderColor": [
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null,
+          null
+        ],
+        "BorderStyle": [
+          "Solid",
+          "Solid",
+          "None",
+          "None"
+        ],
+        "BorderThickness": [
+          0.25,
+          0.25,
+          0,
+          0
+        ],
+        "ColIndex": 0,
+        "Height": 25.375,
+        "InlineAlign": "Start",
+        "RowIndex": 6,
+        "Width": 55.75
+      }
+    },
+    {
+      "Bounds": [
+        324.0196075439453,
+        358.9241027832031,
+        369.7099914550781,
+        379.1481018066406
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Regular",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 471,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[7]/TH/P",
+      "Text": "FP16 Tensor Core ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 10
+      }
+    },
+    {
+      "Bounds": [
+        426.4035949707031,
+        368.9241027832031,
+        477.763671875,
+        379.1481018066406
+      ],
+      "ObjectID": 472,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[7]/TD",
+      "attributes": {
+        "BBox": [
+          378.3449999999866,
+          356.2979999999952,
+          476.98099999999977,
+          381.61699999999837
+        ],
+        "BlockAlign": "Before",
+        "BorderColor": [
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null,
+          null
+        ],
+        "BorderStyle": [
+          "Solid",
+          "Solid",
+          "None",
+          "None"
+        ],
+        "BorderThickness": [
+          0.25,
+          0.25,
+          0,
+          0
+        ],
+        "ColIndex": 1,
+        "Height": 25.375,
+        "InlineAlign": "Center",
+        "RowIndex": 6,
+        "Width": 98.625
+      }
+    },
+    {
+      "Bounds": [
+        426.4035949707031,
+        368.9241027832031,
+        477.763671875,
+        379.1481018066406
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 473,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[7]/TD/P",
+      "Text": "312 TFLOPS | ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 9.625
+      }
+    },
+    {
+      "Bounds": [
+        479.9075927734375,
+        368.9241027832031,
+        529.2435913085938,
+        379.1481018066406
+      ],
+      "ObjectID": 475,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[7]/TD[2]",
+      "attributes": {
+        "BBox": [
+          476.98099999999977,
+          356.2979999999952,
+          576.0969999999797,
+          381.61699999999837
+        ],
+        "BlockAlign": "Before",
+        "BorderColor": [
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null,
+          null
+        ],
+        "BorderStyle": [
+          "Solid",
+          "Solid",
+          "None",
+          "None"
+        ],
+        "BorderThickness": [
+          0.25,
+          0.25,
+          0,
+          0
+        ],
+        "ColIndex": 2,
+        "Height": 25.375,
+        "InlineAlign": "Start",
+        "RowIndex": 6,
+        "Width": 99.125
+      }
+    },
+    {
+      "Bounds": [
+        479.9075927734375,
+        368.9241027832031,
+        529.2435913085938,
+        379.1481018066406
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 476,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[7]/TD[2]/P",
+      "Text": "624 TFLOPS* ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 9.625
+      }
+    },
+    {
+      "Bounds": [
+        324.0115966796875,
+        334.17210388183594,
+        368.8227996826172,
+        354.39610290527344
+      ],
+      "ObjectID": 479,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[8]/TH",
+      "attributes": {
+        "BBox": [
+          322.5469999999914,
+          331.5789999999979,
+          378.3449999999866,
+          356.8979999999865
+        ],
+        "BlockAlign": "Middle",
+        "BorderColor": [
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null,
+          null
+        ],
+        "BorderStyle": [
+          "Solid",
+          "Solid",
+          "None",
+          "None"
+        ],
+        "BorderThickness": [
+          0.25,
+          0.25,
+          0,
+          0
+        ],
+        "ColIndex": 0,
+        "Height": 25.375,
+        "InlineAlign": "Start",
+        "RowIndex": 7,
+        "Width": 55.75
+      }
+    },
+    {
+      "Bounds": [
+        324.0115966796875,
+        334.17210388183594,
+        368.8227996826172,
+        354.39610290527344
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Regular",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 480,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[8]/TH/P",
+      "Text": "INT8 Tensor Core ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 10
+      }
+    },
+    {
+      "Bounds": [
+        433.3636016845703,
+        344.17210388183594,
+        522.2835998535156,
+        354.39610290527344
+      ],
+      "ObjectID": 481,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[8]/TD",
+      "attributes": {
+        "BBox": [
+          378.3449999999866,
+          331.5789999999979,
+          576.0969999999797,
+          356.8979999999865
+        ],
+        "BlockAlign": "Before",
+        "BorderColor": [
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null,
+          null
+        ],
+        "BorderStyle": [
+          "Solid",
+          "Solid",
+          "None",
+          "None"
+        ],
+        "BorderThickness": [
+          0.25,
+          0.25,
+          0,
+          0
+        ],
+        "ColIndex": 1,
+        "ColSpan": 2,
+        "Height": 25.375,
+        "InlineAlign": "Center",
+        "RowIndex": 7,
+        "Width": 197.75
+      }
+    },
+    {
+      "Bounds": [
+        433.3636016845703,
+        344.17210388183594,
+        522.2835998535156,
+        354.39610290527344
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 482,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[8]/TD/P",
+      "Text": "624 TOPS | 1248 TOPS* ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 9.625
+      }
+    },
+    {
+      "Bounds": [
+        324.0196075439453,
+        319.42010498046875,
+        372.79405212402344,
+        329.64410400390625
+      ],
+      "ObjectID": 485,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[9]/TH",
+      "attributes": {
+        "BBox": [
+          322.5469999999914,
+          316.8189999999886,
+          378.3449999999866,
+          332.1789999999892
+        ],
+        "BlockAlign": "Middle",
+        "BorderColor": [
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null,
+          null
+        ],
+        "BorderStyle": [
+          "Solid",
+          "Solid",
+          "None",
+          "None"
+        ],
+        "BorderThickness": [
+          0.25,
+          0.25,
+          0,
+          0
+        ],
+        "ColIndex": 0,
+        "Height": 15.375,
+        "InlineAlign": "Start",
+        "RowIndex": 8,
+        "Width": 55.75
+      }
+    },
+    {
+      "Bounds": [
+        324.0196075439453,
+        319.42010498046875,
+        372.79405212402344,
+        329.64410400390625
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Regular",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 486,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[9]/TH/P",
+      "Text": "GPU Memory ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 9.625
+      }
+    },
+    {
+      "Bounds": [
+        404.12359619140625,
+        319.42010498046875,
+        452.6436462402344,
+        329.64410400390625
+      ],
+      "ObjectID": 487,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[9]/TD",
+      "attributes": {
+        "BBox": [
+          378.3449999999866,
+          316.8189999999886,
+          477.22099999999045,
+          332.1789999999892
+        ],
+        "BlockAlign": "Middle",
+        "BorderColor": [
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null,
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ]
+        ],
+        "BorderStyle": [
+          "Solid",
+          "Solid",
+          "None",
+          "Solid"
+        ],
+        "BorderThickness": [
+          0.25,
+          0.25,
+          0,
+          0.25
+        ],
+        "ColIndex": 1,
+        "Height": 15.375,
+        "InlineAlign": "Center",
+        "RowIndex": 8,
+        "Width": 98.875
+      }
+    },
+    {
+      "Bounds": [
+        404.12359619140625,
+        319.42010498046875,
+        452.6436462402344,
+        329.64410400390625
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 488,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[9]/TD/P",
+      "Text": "80GB HBM2e ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 9.625
+      }
+    },
+    {
+      "Bounds": [
+        503.12359619140625,
+        319.42010498046875,
+        551.6436462402344,
+        329.64410400390625
+      ],
+      "ObjectID": 489,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[9]/TD[2]",
+      "attributes": {
+        "BBox": [
+          476.6209999999992,
+          316.8189999999886,
+          576.0969999999797,
+          332.1789999999892
+        ],
+        "BlockAlign": "Middle",
+        "BorderColor": [
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null
+        ],
+        "BorderStyle": [
+          "Solid",
+          "Solid",
+          "Solid",
+          "None"
+        ],
+        "BorderThickness": [
+          0.25,
+          0.25,
+          0.25,
+          0
+        ],
+        "ColIndex": 2,
+        "Height": 15.375,
+        "InlineAlign": "Start",
+        "RowIndex": 8,
+        "Width": 99.5
+      }
+    },
+    {
+      "Bounds": [
+        503.12359619140625,
+        319.42010498046875,
+        551.6436462402344,
+        329.64410400390625
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 490,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[9]/TD[2]/P",
+      "Text": "80GB HBM2e ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 9.625
+      }
+    },
+    {
+      "Bounds": [
+        324.0196075439453,
+        294.66810607910156,
+        372.9107971191406,
+        314.89210510253906
+      ],
+      "ObjectID": 492,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[10]/TH",
+      "attributes": {
+        "BBox": [
+          322.5469999999914,
+          291.9799999999959,
+          378.3449999999866,
+          317.4189999999944
+        ],
+        "BlockAlign": "Middle",
+        "BorderColor": [
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null,
+          null
+        ],
+        "BorderStyle": [
+          "Solid",
+          "Solid",
+          "None",
+          "None"
+        ],
+        "BorderThickness": [
+          0.25,
+          0.25,
+          0,
+          0
+        ],
+        "ColIndex": 0,
+        "Height": 25.5,
+        "InlineAlign": "Start",
+        "RowIndex": 9,
+        "Width": 55.75
+      }
+    },
+    {
+      "Bounds": [
+        324.0196075439453,
+        294.66810607910156,
+        372.9107971191406,
+        314.89210510253906
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Regular",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 493,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[10]/TH/P",
+      "Text": "GPU Memory Bandwidth ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 10.125
+      }
+    },
+    {
+      "Bounds": [
+        409.20359802246094,
+        304.66810607910156,
+        447.0356140136719,
+        314.89210510253906
+      ],
+      "ObjectID": 494,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[10]/TD",
+      "attributes": {
+        "BBox": [
+          378.3449999999866,
+          291.9799999999959,
+          477.22099999999045,
+          317.4189999999944
+        ],
+        "BlockAlign": "Before",
+        "BorderColor": [
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null,
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ]
+        ],
+        "BorderStyle": [
+          "Solid",
+          "Solid",
+          "None",
+          "Solid"
+        ],
+        "BorderThickness": [
+          0.25,
+          0.25,
+          0,
+          0.25
+        ],
+        "ColIndex": 1,
+        "Height": 25.5,
+        "InlineAlign": "Center",
+        "RowIndex": 9,
+        "Width": 98.875
+      }
+    },
+    {
+      "Bounds": [
+        409.20359802246094,
+        304.66810607910156,
+        447.0356140136719,
+        314.89210510253906
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 495,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[10]/TD/P",
+      "Text": "1,935GB/s ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 9.625
+      }
+    },
+    {
+      "Bounds": [
+        507.8356018066406,
+        304.66810607910156,
+        547.1716766357422,
+        314.89210510253906
+      ],
+      "ObjectID": 496,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[10]/TD[2]",
+      "attributes": {
+        "BBox": [
+          476.6209999999992,
+          291.9799999999959,
+          576.0969999999797,
+          317.4189999999944
+        ],
+        "BlockAlign": "Before",
+        "BorderColor": [
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null
+        ],
+        "BorderStyle": [
+          "Solid",
+          "Solid",
+          "Solid",
+          "None"
+        ],
+        "BorderThickness": [
+          0.25,
+          0.25,
+          0.25,
+          0
+        ],
+        "ColIndex": 2,
+        "Height": 25.5,
+        "InlineAlign": "Start",
+        "RowIndex": 9,
+        "Width": 99.5
+      }
+    },
+    {
+      "Bounds": [
+        507.8356018066406,
+        304.66810607910156,
+        547.1716766357422,
+        314.89210510253906
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 497,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[10]/TD[2]/P",
+      "Text": "2,039GB/s ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 9.625
+      }
+    },
+    {
+      "Bounds": [
+        324.0196075439453,
+        259.9161071777344,
+        375.0179901123047,
+        290.1401062011719
+      ],
+      "ObjectID": 499,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[11]/TH",
+      "attributes": {
+        "BBox": [
+          322.5469999999914,
+          257.30199999999604,
+          378.3449999999866,
+          292.5799999999872
+        ],
+        "BlockAlign": "Before",
+        "BorderColor": [
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null,
+          null
+        ],
+        "BorderStyle": [
+          "Solid",
+          "Solid",
+          "None",
+          "None"
+        ],
+        "BorderThickness": [
+          0.25,
+          0.25,
+          0,
+          0
+        ],
+        "ColIndex": 0,
+        "Height": 35.25,
+        "InlineAlign": "Start",
+        "RowIndex": 10,
+        "Width": 55.75
+      }
+    },
+    {
+      "Bounds": [
+        324.0196075439453,
+        269.9161071777344,
+        375.0179901123047,
+        290.1401062011719
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Regular",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 500,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[11]/TH/P",
+      "Text": "Max Thermal Design Power ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 10,
+        "TextAlign": "Justify"
+      }
+    },
+    {
+      "Bounds": [
+        324.0196075439453,
+        259.9161071777344,
+        345.7394714355469,
+        270.1401062011719
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Regular",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 501,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[11]/TH/P[2]",
+      "Text": "(TDP) ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 9.625
+      }
+    },
+    {
+      "Bounds": [
+        417.2996063232422,
+        279.9161071777344,
+        439.7554931640625,
+        290.1401062011719
+      ],
+      "ObjectID": 502,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[11]/TD",
+      "attributes": {
+        "BBox": [
+          378.3449999999866,
+          257.30199999999604,
+          477.22099999999045,
+          292.5799999999872
+        ],
+        "BlockAlign": "Before",
+        "BorderColor": [
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null,
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ]
+        ],
+        "BorderStyle": [
+          "Solid",
+          "Solid",
+          "None",
+          "Solid"
+        ],
+        "BorderThickness": [
+          0.25,
+          0.25,
+          0,
+          0.25
+        ],
+        "ColIndex": 1,
+        "Height": 35.25,
+        "InlineAlign": "Center",
+        "RowIndex": 10,
+        "Width": 98.875
+      }
+    },
+    {
+      "Bounds": [
+        417.2996063232422,
+        279.9161071777344,
+        439.7554931640625,
+        290.1401062011719
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 503,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[11]/TD/P",
+      "Text": "300W ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 9.625
+      }
+    },
+    {
+      "Bounds": [
+        510.235595703125,
+        279.9161071777344,
+        544.7716369628906,
+        290.1401062011719
+      ],
+      "ObjectID": 504,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[11]/TD[2]",
+      "attributes": {
+        "BBox": [
+          476.6209999999992,
+          257.30199999999604,
+          576.0969999999797,
+          292.5799999999872
+        ],
+        "BlockAlign": "Before",
+        "BorderColor": [
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null
+        ],
+        "BorderStyle": [
+          "Solid",
+          "Solid",
+          "Solid",
+          "None"
+        ],
+        "BorderThickness": [
+          0.25,
+          0.25,
+          0.25,
+          0
+        ],
+        "ColIndex": 2,
+        "Height": 35.25,
+        "InlineAlign": "Start",
+        "RowIndex": 10,
+        "Width": 99.5
+      }
+    },
+    {
+      "Bounds": [
+        510.235595703125,
+        279.9161071777344,
+        544.7716369628906,
+        290.1401062011719
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 505,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[11]/TD[2]/P",
+      "Text": "400W*** ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 9.625
+      }
+    },
+    {
+      "Bounds": [
+        324.0196075439453,
+        235.16409301757812,
+        377.8115539550781,
+        255.3881072998047
+      ],
+      "ObjectID": 508,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[12]/TH",
+      "attributes": {
+        "BBox": [
+          322.5469999999914,
+          232.58299999999872,
+          378.3449999999866,
+          257.9019999999873
+        ],
+        "BlockAlign": "Middle",
+        "BorderColor": [
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null,
+          null
+        ],
+        "BorderStyle": [
+          "Solid",
+          "Solid",
+          "None",
+          "None"
+        ],
+        "BorderThickness": [
+          0.25,
+          0.25,
+          0,
+          0
+        ],
+        "ColIndex": 0,
+        "Height": 25.375,
+        "InlineAlign": "Start",
+        "RowIndex": 11,
+        "Width": 55.75
+      }
+    },
+    {
+      "Bounds": [
+        324.0196075439453,
+        245.16409301757812,
+        377.8115539550781,
+        255.3881072998047
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Regular",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 509,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[12]/TH/P",
+      "Text": "Multi-Instance ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 9.625
+      }
+    },
+    {
+      "Bounds": [
+        324.0196075439453,
+        235.16409301757812,
+        341.81153869628906,
+        245.3881072998047
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Regular",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 510,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[12]/TH/P[2]",
+      "Text": "GPU ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 9.625
+      }
+    },
+    {
+      "Bounds": [
+        390.4035949707031,
+        245.16409301757812,
+        466.2596893310547,
+        255.3881072998047
+      ],
+      "ObjectID": 511,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[12]/TD",
+      "attributes": {
+        "BBox": [
+          378.3449999999866,
+          232.58299999999872,
+          477.22099999999045,
+          257.9019999999873
+        ],
+        "BlockAlign": "Before",
+        "BorderColor": [
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null,
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ]
+        ],
+        "BorderStyle": [
+          "Solid",
+          "Solid",
+          "None",
+          "Solid"
+        ],
+        "BorderThickness": [
+          0.25,
+          0.25,
+          0,
+          0.25
+        ],
+        "ColIndex": 1,
+        "Height": 25.375,
+        "InlineAlign": "Center",
+        "RowIndex": 11,
+        "Width": 98.875
+      }
+    },
+    {
+      "Bounds": [
+        390.4035949707031,
+        245.16409301757812,
+        466.2596893310547,
+        255.3881072998047
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 512,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[12]/TD/P",
+      "Text": "Up to 7 MIGs @ 10GB ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 9.625
+      }
+    },
+    {
+      "Bounds": [
+        489.4035949707031,
+        245.16409301757812,
+        565.2596893310547,
+        255.3881072998047
+      ],
+      "ObjectID": 513,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[12]/TD[2]",
+      "attributes": {
+        "BBox": [
+          476.6209999999992,
+          232.58299999999872,
+          576.0969999999797,
+          257.9019999999873
+        ],
+        "BlockAlign": "Before",
+        "BorderColor": [
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null
+        ],
+        "BorderStyle": [
+          "Solid",
+          "Solid",
+          "Solid",
+          "None"
+        ],
+        "BorderThickness": [
+          0.25,
+          0.25,
+          0.25,
+          0
+        ],
+        "ColIndex": 2,
+        "Height": 25.375,
+        "InlineAlign": "Start",
+        "RowIndex": 11,
+        "Width": 99.5
+      }
+    },
+    {
+      "Bounds": [
+        489.4035949707031,
+        245.16409301757812,
+        565.2596893310547,
+        255.3881072998047
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 514,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[12]/TD[2]/P",
+      "Text": "Up to 7 MIGs @ 10GB ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 9.625
+      }
+    },
+    {
+      "Bounds": [
+        324.02760314941406,
+        220.41209411621094,
+        370.18190002441406,
+        230.63609313964844
+      ],
+      "ObjectID": 516,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[13]/TH",
+      "attributes": {
+        "BBox": [
+          322.5469999999914,
+          196.34399999999732,
+          378.3449999999866,
+          233.18299999999726
+        ],
+        "BlockAlign": "Before",
+        "BorderColor": [
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null,
+          null
+        ],
+        "BorderStyle": [
+          "Solid",
+          "Solid",
+          "None",
+          "None"
+        ],
+        "BorderThickness": [
+          0.25,
+          0.25,
+          0,
+          0
+        ],
+        "ColIndex": 0,
+        "Height": 36.875,
+        "InlineAlign": "Start",
+        "RowIndex": 12,
+        "Width": 55.75
+      }
+    },
+    {
+      "Bounds": [
+        324.02760314941406,
+        220.41209411621094,
+        370.18190002441406,
+        230.63609313964844
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Regular",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 517,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[13]/TH/P",
+      "Text": "Form Factor ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 9.625
+      }
+    },
+    {
+      "Bounds": [
+        380.235595703125,
+        200.41209411621094,
+        472.8342742919922,
+        230.63609313964844
+      ],
+      "ObjectID": 518,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[13]/TD",
+      "attributes": {
+        "BBox": [
+          378.3449999999866,
+          196.34399999999732,
+          477.22099999999045,
+          233.18299999999726
+        ],
+        "BlockAlign": "Middle",
+        "BorderColor": [
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null,
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ]
+        ],
+        "BorderStyle": [
+          "Solid",
+          "Solid",
+          "None",
+          "Solid"
+        ],
+        "BorderThickness": [
+          0.25,
+          0.25,
+          0,
+          0.25
+        ],
+        "ColIndex": 1,
+        "Height": 36.875,
+        "InlineAlign": "Center",
+        "RowIndex": 12,
+        "Width": 98.875
+      }
+    },
+    {
+      "Bounds": [
+        380.235595703125,
+        200.41209411621094,
+        472.8342742919922,
+        230.63609313964844
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 519,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[13]/TD/P",
+      "Text": "PCIe dual-slot air cooled or single-slot liquid cooled ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 10,
+        "TextAlign": "Center"
+      }
+    },
+    {
+      "Bounds": [
+        518.443603515625,
+        220.41209411621094,
+        536.5235748291016,
+        230.63609313964844
+      ],
+      "ObjectID": 520,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[13]/TD[2]",
+      "attributes": {
+        "BBox": [
+          476.6209999999992,
+          196.34399999999732,
+          576.0969999999797,
+          233.18299999999726
+        ],
+        "BlockAlign": "Before",
+        "BorderColor": [
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null
+        ],
+        "BorderStyle": [
+          "Solid",
+          "Solid",
+          "Solid",
+          "None"
+        ],
+        "BorderThickness": [
+          0.25,
+          0.25,
+          0.25,
+          0
+        ],
+        "ColIndex": 2,
+        "Height": 36.875,
+        "InlineAlign": "Start",
+        "RowIndex": 12,
+        "Width": 99.5
+      }
+    },
+    {
+      "Bounds": [
+        518.443603515625,
+        220.41209411621094,
+        536.5235748291016,
+        230.63609313964844
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 521,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[13]/TD[2]/P",
+      "Text": "SXM ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 9.625
+      }
+    },
+    {
+      "Bounds": [
+        324.0355987548828,
+        184.2200927734375,
+        371.0754699707031,
+        194.44410705566406
+      ],
+      "ObjectID": 523,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[14]/TH",
+      "attributes": {
+        "BBox": [
+          322.5469999999914,
+          157.5859999999957,
+          378.3449999999866,
+          196.94399999999587
+        ],
+        "BlockAlign": "Before",
+        "BorderColor": [
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null,
+          null
+        ],
+        "BorderStyle": [
+          "Solid",
+          "Solid",
+          "None",
+          "None"
+        ],
+        "BorderThickness": [
+          0.25,
+          0.25,
+          0,
+          0
+        ],
+        "ColIndex": 0,
+        "Height": 39.375,
+        "InlineAlign": "Start",
+        "RowIndex": 13,
+        "Width": 55.75
+      }
+    },
+    {
+      "Bounds": [
+        324.0355987548828,
+        184.2200927734375,
+        371.0754699707031,
+        194.44410705566406
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Regular",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 524,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[14]/TH/P",
+      "Text": "Interconnect ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 9.625
+      }
+    },
+    {
+      "Bounds": [
+        383.443603515625,
+        161.7248992919922,
+        473.3659973144531,
+        194.4449005126953
+      ],
+      "ObjectID": 525,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[14]/TD",
+      "attributes": {
+        "BBox": [
+          378.3449999999866,
+          157.5859999999957,
+          477.22099999999045,
+          196.94399999999587
+        ],
+        "BlockAlign": "Middle",
+        "BorderColor": [
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null,
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ]
+        ],
+        "BorderStyle": [
+          "Solid",
+          "Solid",
+          "None",
+          "Solid"
+        ],
+        "BorderThickness": [
+          0.25,
+          0.25,
+          0,
+          0.25
+        ],
+        "ColIndex": 1,
+        "Height": 39.375,
+        "InlineAlign": "Center",
+        "RowIndex": 13,
+        "Width": 98.875
+      }
+    },
+    {
+      "Bounds": [
+        383.443603515625,
+        161.7248992919922,
+        473.3659973144531,
+        194.4449005126953
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 526,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[14]/TD/P",
+      "Text": "NVIDIA® NVLink® Bridge for 2 GPUs: 600GB/s ** PCIe Gen4: 64GB/s ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 11.25,
+        "TextAlign": "Center"
+      }
+    },
+    {
+      "Bounds": [
+        492.7563934326172,
+        171.73289489746094,
+        561.9429016113281,
+        194.45289611816406
+      ],
+      "ObjectID": 530,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[14]/TD[2]",
+      "attributes": {
+        "BBox": [
+          476.6209999999992,
+          157.5859999999957,
+          576.0969999999797,
+          196.94399999999587
+        ],
+        "BlockAlign": "Before",
+        "BorderColor": [
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null
+        ],
+        "BorderStyle": [
+          "Solid",
+          "Solid",
+          "Solid",
+          "None"
+        ],
+        "BorderThickness": [
+          0.25,
+          0.25,
+          0.25,
+          0
+        ],
+        "ColIndex": 2,
+        "Height": 39.375,
+        "InlineAlign": "Start",
+        "RowIndex": 13,
+        "Width": 99.5
+      }
+    },
+    {
+      "Bounds": [
+        492.7563934326172,
+        171.73289489746094,
+        561.9429016113281,
+        194.45289611816406
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 531,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[14]/TD[2]/P",
+      "Text": "NVLink: 600GB/s PCIe Gen4: 64GB/s ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 12.5,
+        "TextAlign": "Center"
+      }
+    },
+    {
+      "Bounds": [
+        324.0444030761719,
+        145.5408935546875,
+        378.7651672363281,
+        155.764892578125
+      ],
+      "ObjectID": 533,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[15]/TH",
+      "attributes": {
+        "BBox": [
+          322.5469999999914,
+          87.5086999999985,
+          378.3449999999866,
+          158.18599999999424
+        ],
+        "BlockAlign": "Before",
+        "BorderColor": [
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null,
+          null
+        ],
+        "BorderStyle": [
+          "Solid",
+          "Solid",
+          "None",
+          "None"
+        ],
+        "BorderThickness": [
+          0.25,
+          1.125,
+          0,
+          0
+        ],
+        "ColIndex": 0,
+        "Height": 70.625,
+        "InlineAlign": "Start",
+        "RowIndex": 14,
+        "Width": 55.75
+      }
+    },
+    {
+      "Bounds": [
+        324.0444030761719,
+        145.5408935546875,
+        378.7651672363281,
+        155.764892578125
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Regular",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 534,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[15]/TH/P",
+      "Text": "Server Options ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 9.625
+      }
+    },
+    {
+      "Bounds": [
+        390.1484069824219,
+        125.52900695800781,
+        464.95701599121094,
+        155.764892578125
+      ],
+      "ObjectID": 535,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[15]/TD",
+      "attributes": {
+        "BBox": [
+          378.3449999999866,
+          87.5086999999985,
+          477.22099999999045,
+          158.18599999999424
+        ],
+        "BlockAlign": "Before",
+        "BorderColor": [
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null,
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ]
+        ],
+        "BorderStyle": [
+          "Solid",
+          "Solid",
+          "None",
+          "Solid"
+        ],
+        "BorderThickness": [
+          0.25,
+          1.125,
+          0,
+          0.25
+        ],
+        "ColIndex": 1,
+        "Height": 70.625,
+        "InlineAlign": "Center",
+        "RowIndex": 14,
+        "Width": 98.875
+      }
+    },
+    {
+      "Bounds": [
+        390.1484069824219,
+        125.52900695800781,
+        464.95701599121094,
+        155.764892578125
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 536,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[15]/TD/P",
+      "Text": "Partner and NVIDIA-Certified Systems™ with 1-8 GPUs ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 10,
+        "TextAlign": "Center"
+      }
+    },
+    {
+      "Bounds": [
+        485.3632049560547,
+        93.02900695800781,
+        569.4522552490234,
+        155.7530059814453
+      ],
+      "ObjectID": 538,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[15]/TD[2]",
+      "attributes": {
+        "BBox": [
+          476.6209999999992,
+          87.5086999999985,
+          576.0969999999797,
+          158.18599999999424
+        ],
+        "BlockAlign": "Before",
+        "BorderColor": [
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          [
+            0.4627379999999874,
+            0.721572999999978,
+            0
+          ],
+          null
+        ],
+        "BorderStyle": [
+          "Solid",
+          "Solid",
+          "Solid",
+          "None"
+        ],
+        "BorderThickness": [
+          0.25,
+          1.125,
+          0.25,
+          0
+        ],
+        "ColIndex": 2,
+        "Height": 70.625,
+        "InlineAlign": "Start",
+        "RowIndex": 14,
+        "Width": 99.5
+      }
+    },
+    {
+      "Bounds": [
+        491.4163055419922,
+        145.5290069580078,
+        561.1725769042969,
+        155.7530059814453
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 539,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[15]/TD[2]/P",
+      "Text": "NVIDIA HGX™ A100-",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 9.625
+      }
+    },
+    {
+      "Bounds": [
+        485.3632049560547,
+        115.52900695800781,
+        569.4522552490234,
+        145.7530059814453
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 541,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[15]/TD[2]/P[2]",
+      "Text": "Partner and NVIDIA-Certified Systems with 4,8, or 16 GPUs ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 10,
+        "SpaceAfter": 3,
+        "TextAlign": "Center"
+      }
+    },
+    {
+      "Bounds": [
+        493.2991943359375,
+        103.02900695800781,
+        561.0246124267578,
+        113.25700378417969
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 542,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[15]/TD[2]/P[3]",
+      "Text": "NVIDIA DGX™ A100 ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 9.625
+      }
+    },
+    {
+      "Bounds": [
+        505.0583953857422,
+        93.02900695800781,
+        549.640869140625,
+        103.25300598144531
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 544,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Table/TR[15]/TD[2]/P[4]",
+      "Text": "with 8 GPUs ",
+      "TextSize": 8.0,
+      "attributes": {
+        "LineHeight": 9.625
+      }
+    },
+    {
+      "Bounds": [
+        324.0399932861328,
+        79.15899658203125,
+        370.8693542480469,
+        86.82699584960938
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Regular",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 545,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Footnote",
+      "Text": "* With sparsity ",
+      "TextSize": 6.0,
+      "attributes": {
+        "LineHeight": 7.25
+      }
+    },
+    {
+      "Bounds": [
+        324.0399932861328,
+        68.95899963378906,
+        573.5950012207031,
+        76.62699890136719
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Regular",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 546,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Footnote[2]",
+      "Text": "** SXM4 GPUs via HGX A100 server boards; PCIe GPUs via NVLink Bridge for up to two GPUs ",
+      "TextSize": 6.0,
+      "attributes": {
+        "LineHeight": 7.25
+      }
+    },
+    {
+      "Bounds": [
+        324.0399932861328,
+        51.55900573730469,
+        564.7042083740234,
+        66.427001953125
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Regular",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 547,
+      "Page": 0,
+      "Path": "//Document/Sect[3]/Footnote[3]",
+      "Text": "*** 400W TDP for standard configuration. HGX A100-80GB CTS (Custom Thermal Solution) SKU can support TDPs up to 500W ",
+      "TextSize": 6.0,
+      "attributes": {
+        "LineHeight": 7.25,
+        "SpaceAfter": 9.875
+      }
+    },
+    {
+      "Bounds": [
+        35.25,
+        742.4866027832031,
+        287.56915283203125,
+        759.7395935058594
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Medium",
+        "subset": true,
+        "weight": 500
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 549,
+      "Page": 1,
+      "Path": "//Document/Sect[4]/H1",
+      "Text": "Incredible Performance Across Workloads ",
+      "TextSize": 13.5,
+      "attributes": {
+        "LineHeight": 16.25
+      }
+    },
+    {
+      "Bounds": [
+        35.79289245605469,
+        552.7728729248047,
+        164.91709899902344,
+        732.2071075439453
+      ],
+      "ClipBounds": [
+        35.79289245605469,
+        552.7728729248047,
+        164.91709899902344,
+        732.2071075439453
+      ],
+      "ObjectID": 550,
+      "Page": 1,
+      "Path": "//Document/Sect[4]/Figure",
+      "attributes": {
+        "BBox": [
+          35.998499999999694,
+          552.9699999999721,
+          164.63299999999435,
+          732.0019999999786
+        ],
+        "Placement": "Block"
+      }
+    },
+    {
+      "Bounds": [
+        35.79289245605469,
+        552.7728729248047,
+        164.91709899902344,
+        732.2071075439453
+      ],
+      "ClipBounds": [
+        35.79289245605469,
+        552.7728729248047,
+        164.91709899902344,
+        732.2071075439453
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Light",
+        "subset": true,
+        "weight": 300
+      },
+      "HasClip": false,
+      "ObjectID": 550,
+      "Page": 1,
+      "Path": "//Document/Sect[4]/Figure",
+      "Text": "A100 80GB FP16 A100 40GB FP16 0 1X 2X 3X Time Per 1,000 Iterations - Relative Performance 1X V100 FP16 0˝7X 3X Up to 3X Higher AI Training on Largest Models DLRM Training DLRM on HugeCTR framework, precision = FP16 | NVIDIA A100 80GB batch size = 48 | NVIDIA A100 40GB batch size = 32 | NVIDIA V100 32GB batch size = 32. ",
+      "TextSize": 6.8800048828125,
+      "attributes": {
+        "BBox": [
+          35.998499999999694,
+          552.9699999999721,
+          164.63299999999435,
+          732.0019999999786
+        ],
+        "Placement": "Block"
+      }
+    },
+    {
+      "Bounds": [
+        172.889892578125,
+        552.7728729248047,
+        302.0141143798828,
+        732.2071075439453
+      ],
+      "ClipBounds": [
+        172.889892578125,
+        552.7728729248047,
+        302.0141143798828,
+        732.2071075439453
+      ],
+      "ObjectID": 551,
+      "Page": 1,
+      "Path": "//Document/Sect[4]/Figure[2]",
+      "attributes": {
+        "BBox": [
+          173.15299999999843,
+          552.9699999999721,
+          301.7879999999859,
+          732.0019999999786
+        ],
+        "Placement": "Block"
+      }
+    },
+    {
+      "Bounds": [
+        172.889892578125,
+        552.7728729248047,
+        302.0141143798828,
+        732.2071075439453
+      ],
+      "ClipBounds": [
+        172.889892578125,
+        552.7728729248047,
+        302.0141143798828,
+        732.2071075439453
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Light",
+        "subset": true,
+        "weight": 300
+      },
+      "HasClip": false,
+      "ObjectID": 551,
+      "Page": 1,
+      "Path": "//Document/Sect[4]/Figure[2]",
+      "Text": "A100 80GBA100 40GB 0 50X 100X 150X 250X 200X Sequences Per Second - Relative Performance 245X CPU Only 1X 249X Up to 249X Higher AI Inference Performance over CPUs BERT-LARGE Inference BERT-Large Inference | CPU only: Dual Xeon Gold 6240 ƒ2.60 GHz, precision = FP32, batch size = 128 | V100: NVIDIA Tensor-RT™ (TRT) 7.2, precision = INT8, batch size = 256 | A100 40GB and 80GB, batch size = 256, precision = INT8 with sparsity. ",
+      "TextSize": 6.8800048828125,
+      "attributes": {
+        "BBox": [
+          173.15299999999843,
+          552.9699999999721,
+          301.7879999999859,
+          732.0019999999786
+        ],
+        "Placement": "Block"
+      }
+    },
+    {
+      "Bounds": [
+        309.9858856201172,
+        552.8008880615234,
+        439.11009216308594,
+        732.2071075439453
+      ],
+      "ClipBounds": [
+        309.9858856201172,
+        552.8008880615234,
+        439.11009216308594,
+        732.2071075439453
+      ],
+      "ObjectID": 552,
+      "Page": 1,
+      "Path": "//Document/Sect[4]/Figure[3]",
+      "attributes": {
+        "BBox": [
+          310.1869999999908,
+          553.0899999999965,
+          438.82199999998556,
+          732.0019999999786
+        ],
+        "Placement": "Block"
+      }
+    },
+    {
+      "Bounds": [
+        309.9858856201172,
+        552.8008880615234,
+        439.11009216308594,
+        732.2071075439453
+      ],
+      "ClipBounds": [
+        309.9858856201172,
+        552.8008880615234,
+        439.11009216308594,
+        732.2071075439453
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Light",
+        "subset": true,
+        "weight": 300
+      },
+      "HasClip": false,
+      "ObjectID": 552,
+      "Page": 1,
+      "Path": "//Document/Sect[4]/Figure[3]",
+      "Text": "A100 80GBA100 40GB 0 1X 2X Sequences Per Second - Relative Performance 1X 1˛25X Up to 1.25X Higher AI Inference Performance over A100 40GB RNN-T Inference: Single Stream MLPerf 0.7 RNN-T measured with (1/7) MIG slices. Frame-work: TensorRT 7.2, dataset = LibriSpeech, precision = FP16. ",
+      "TextSize": 6.8800048828125,
+      "attributes": {
+        "BBox": [
+          310.1869999999908,
+          553.0899999999965,
+          438.82199999998556,
+          732.0019999999786
+        ],
+        "Placement": "Block"
+      }
+    },
+    {
+      "Bounds": [
+        447.08290100097656,
+        552.8008880615234,
+        576.2071075439453,
+        732.2071075439453
+      ],
+      "ClipBounds": [
+        447.08290100097656,
+        552.8008880615234,
+        576.2071075439453,
+        732.2071075439453
+      ],
+      "ObjectID": 553,
+      "Page": 1,
+      "Path": "//Document/Sect[4]/Figure[4]",
+      "attributes": {
+        "BBox": [
+          447.34199999998964,
+          553.0899999999965,
+          575.9769999999844,
+          732.0019999999786
+        ],
+        "Placement": "Block"
+      }
+    },
+    {
+      "Bounds": [
+        447.08290100097656,
+        552.8008880615234,
+        576.2071075439453,
+        732.2071075439453
+      ],
+      "ClipBounds": [
+        447.08290100097656,
+        552.8008880615234,
+        576.2071075439453,
+        732.2071075439453
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Light",
+        "subset": true,
+        "weight": 300
+      },
+      "HasClip": false,
+      "ObjectID": 553,
+      "Page": 1,
+      "Path": "//Document/Sect[4]/Figure[4]",
+      "Text": "A100 80GBA100 40GB 0 1X 2X Time in Seconds - Relative Performance 1X 1˛8X Up to 1.8X Higher Performance for HPC Applications Quantum Espresso Quantum Espresso measured using CNT10POR8 dataset, precision = FP64. ",
+      "TextSize": 6.8800048828125,
+      "attributes": {
+        "BBox": [
+          447.34199999998964,
+          553.0899999999965,
+          575.9769999999844,
+          732.0019999999786
+        ],
+        "Placement": "Block"
+      }
+    },
+    {
+      "Bounds": [
+        35.79289245605469,
+        355.6728973388672,
+        301.88710021972656,
+        542.8471221923828
+      ],
+      "ClipBounds": [
+        35.79289245605469,
+        355.6728973388672,
+        301.88710021972656,
+        542.8471221923828
+      ],
+      "ObjectID": 554,
+      "Page": 1,
+      "Path": "//Document/Sect[4]/Figure[5]",
+      "attributes": {
+        "BBox": [
+          35.998499999999694,
+          355.93799999999464,
+          301.66799999999057,
+          542.6499999999942
+        ],
+        "Placement": "Block"
+      }
+    },
+    {
+      "Bounds": [
+        35.79289245605469,
+        355.6728973388672,
+        301.88710021972656,
+        542.8471221923828
+      ],
+      "ClipBounds": [
+        35.79289245605469,
+        355.6728973388672,
+        301.88710021972656,
+        542.8471221923828
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Light",
+        "subset": true,
+        "weight": 300
+      },
+      "HasClip": false,
+      "ObjectID": 554,
+      "Page": 1,
+      "Path": "//Document/Sect[4]/Figure[5]",
+      "Text": "V100 2017 P100 2016 0 1X 2X 3X 4X 7X 5X 11X 10X 9X 8X 6X 1X 2X V100 2018 3X V100 2019 4X A100 2020 11X Throughput - Relative Performance 11X More HPC Performance in Four Years Throughput for Top HPC Apps Geometric mean of application speedups vs. P100: Benchmark application: Amber [PME-Cellulose_NVE], Chroma [szscl21_24_128], GROMACS [ADH Dodec], MILC [Apex Medium], NAMD [stmv_nve_cuda], PyTorch (BERT-Large Fine Tuner], Quantum Espresso [AUSURF112-jR]; Random Forest FP32 [make_blobs (160000 x 64: 10)], TensorFlow [ResNet-50], VASP 6 [Si Huge] | GPU node with dual-socket CPUs with 4x NVIDIA P100, V100, or A100 GPUs. ",
+      "TextSize": 6.8800048828125,
+      "attributes": {
+        "BBox": [
+          35.998499999999694,
+          355.93799999999464,
+          301.66799999999057,
+          542.6499999999942
+        ],
+        "Placement": "Block"
+      }
+    },
+    {
+      "Bounds": [
+        310.11289978027344,
+        355.67189025878906,
+        576.2071075439453,
+        542.8471221923828
+      ],
+      "ClipBounds": [
+        310.11289978027344,
+        355.67189025878906,
+        576.2071075439453,
+        542.8471221923828
+      ],
+      "ObjectID": 555,
+      "Page": 1,
+      "Path": "//Document/Sect[4]/Figure[6]",
+      "attributes": {
+        "BBox": [
+          310.30699999998615,
+          355.93799999999464,
+          575.9769999999844,
+          542.6499999999942
+        ],
+        "Placement": "Block"
+      }
+    },
+    {
+      "Bounds": [
+        310.11289978027344,
+        355.67189025878906,
+        576.2071075439453,
+        542.8471221923828
+      ],
+      "ClipBounds": [
+        310.11289978027344,
+        355.67189025878906,
+        576.2071075439453,
+        542.8471221923828
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Light",
+        "subset": true,
+        "weight": 300
+      },
+      "HasClip": false,
+      "ObjectID": 555,
+      "Page": 1,
+      "Path": "//Document/Sect[4]/Figure[6]",
+      "Text": "0 1X 2X 3X 4X 5X 9X 8X 7X 6X Time to Solution - Relative Performance Up to 2X V100 32GB 1X A100 40GB A100 80GB 8X 4X 2X Faster than A100 40GB on Big Data Analytics Benchmark Big data analytics benchmark | GPU-BDB is derived from the TPCx-BB benchmark and is used for internal perfor-mance testing. Results from GPU-BDB are not comparable to TPCx-BB | 30 analytical retail queries, ETL, ML, NLP on 10TB dataset | V100 32GB, RAPIDS/Dask | A100 40GB and A100 80GB, RAPIDS/Dask/BlazingSQL ",
+      "TextSize": 6.8798980712890625,
+      "attributes": {
+        "BBox": [
+          310.30699999998615,
+          355.93799999999464,
+          575.9769999999844,
+          542.6499999999942
+        ],
+        "Placement": "Block"
+      }
+    },
+    {
+      "Bounds": [
+        36.00599670410156,
+        323.4736022949219,
+        204.68569946289062,
+        340.7265930175781
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Medium",
+        "subset": true,
+        "weight": 500
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 557,
+      "Page": 1,
+      "Path": "//Document/Sect[5]/H1",
+      "Text": "Groundbreaking Innovations ",
+      "TextSize": 13.5,
+      "attributes": {
+        "LineHeight": 16.25
+      }
+    },
+    {
+      "Bounds": [
+        35.75,
+        261.1978454589844,
+        82.29405212402344,
+        307.7239074707031
+      ],
+      "ClipBounds": [
+        35.75,
+        261.7239074707031,
+        81.75,
+        307.7239074707031
+      ],
+      "ObjectID": 558,
+      "Page": 1,
+      "Path": "//Document/Sect[5]/Figure",
+      "attributes": {
+        "BBox": [
+          35.998499999999694,
+          261.98199999998906,
+          81.47669999999925,
+          307.45999999999185
+        ],
+        "Placement": "Block"
+      }
+    },
+    {
+      "Bounds": [
+        88.74490356445312,
+        285.9821014404297,
+        156.98562622070312,
+        307.48309326171875
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 560,
+      "Page": 1,
+      "Path": "//Document/Sect[5]/Sect/H2",
+      "Text": "NVIDIA AMPERE ARCHITECTURE ",
+      "TextSize": 9.0
+    },
+    {
+      "Bounds": [
+        35.996002197265625,
+        195.0644989013672,
+        207.42739868164062,
+        282.0885009765625
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Regular",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 561,
+      "Page": 1,
+      "Path": "//Document/Sect[5]/Sect/P",
+      "Text": "Whether using MIG to partition an A100 GPU into smaller instances or NVLink to connect multiple GPUs to speed large-scale workloads, A100 can readily handle different-sized acceleration needs, from the smallest job to the biggest multi-node workload. A100’s versatility means IT managers can maximize the utility of every GPU in their data center, around the clock. ",
+      "TextSize": 8.0
+    },
+    {
+      "Bounds": [
+        35.10514831542969,
+        125.23432922363281,
+        82.10684204101562,
+        172.260498046875
+      ],
+      "ClipBounds": [
+        35.60600280761719,
+        125.75,
+        81.60600280761719,
+        171.75
+      ],
+      "ObjectID": 562,
+      "Page": 1,
+      "Path": "//Document/Sect[5]/Sect/Figure",
+      "attributes": {
+        "BBox": [
+          35.878499999998894,
+          126.02699999999822,
+          81.35669999999664,
+          171.50499999999738
+        ],
+        "Placement": "Block"
+      }
+    },
+    {
+      "Bounds": [
+        88.60090637207031,
+        162.84109497070312,
+        204.5878143310547,
+        174.3430938720703
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 564,
+      "Page": 1,
+      "Path": "//Document/Sect[5]/Sect[2]/H2",
+      "Text": "MULTI-INSTANCE GPU (MIG) ",
+      "TextSize": 9.0,
+      "attributes": {
+        "LineHeight": 10.75,
+        "TextAlign": "End"
+      }
+    },
+    {
+      "Bounds": [
+        36.003997802734375,
+        52.72450256347656,
+        202.7711944580078,
+        158.94850158691406
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Regular",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 565,
+      "Page": 1,
+      "Path": "//Document/Sect[5]/Sect[2]/P",
+      "Text": "An A100 GPU can be partitioned into as many as seven GPU instances, fully isolated at the hardware level with their own high-bandwidth memory, cache, and compute cores. MIG gives developers access to breakthrough acceleration for all their applications, and IT administrators can offer right-sized GPU acceleration for every job, optimizing utilization and expanding access to every user and application. ",
+      "TextSize": 8.0
+    },
+    {
+      "Bounds": [
+        221.72341918945312,
+        261.22039794921875,
+        268.7332763671875,
+        308.2302551269531
+      ],
+      "ClipBounds": [
+        222.22999572753906,
+        261.7239074707031,
+        268.22999572753906,
+        307.7239074707031
+      ],
+      "ObjectID": 566,
+      "Page": 1,
+      "Path": "//Document/Sect[5]/Sect[2]/Figure",
+      "attributes": {
+        "BBox": [
+          222.47099999999773,
+          261.98199999998906,
+          267.94899999999325,
+          307.45999999999185
+        ],
+        "Placement": "Block"
+      }
+    },
+    {
+      "Bounds": [
+        274.50489807128906,
+        285.9821014404297,
+        360.55389404296875,
+        307.48309326171875
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 568,
+      "Page": 1,
+      "Path": "//Document/Sect[5]/Sect[3]/H2",
+      "Text": "THIRD-GENERATION TENSOR CORES ",
+      "TextSize": 9.0
+    },
+    {
+      "Bounds": [
+        222.48399353027344,
+        204.6645050048828,
+        389.78819274902344,
+        282.0885009765625
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Regular",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 569,
+      "Page": 1,
+      "Path": "//Document/Sect[5]/Sect[3]/P",
+      "Text": "NVIDIA A100 delivers 312 teraFLOPS (TFLOPS) of deep learning performance. That’s 20X the Tensor floating-point operations per second (FLOPS) for deep learning training and 20X the Tensor tera operations per second (TOPS) for deep learning inference compared to NVIDIA Volta GPUs. ",
+      "TextSize": 8.0
+    },
+    {
+      "Bounds": [
+        221.7291259765625,
+        125.24604797363281,
+        268.73081970214844,
+        172.24774169921875
+      ],
+      "ClipBounds": [
+        222.22999572753906,
+        125.74679565429688,
+        268.22999572753906,
+        171.74679565429688
+      ],
+      "ObjectID": 570,
+      "Page": 1,
+      "Path": "//Document/Sect[5]/Sect[3]/Figure",
+      "attributes": {
+        "BBox": [
+          222.47099999999773,
+          126.02699999999822,
+          267.94899999999325,
+          171.50499999999738
+        ],
+        "Placement": "Block"
+      }
+    },
+    {
+      "Bounds": [
+        274.45989990234375,
+        152.84210205078125,
+        391.2841491699219,
+        174.3430938720703
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 572,
+      "Page": 1,
+      "Path": "//Document/Sect[5]/Sect[4]/H2",
+      "Text": "HIGH-BANDWIDTH MEMORY (HBM2E) ",
+      "TextSize": 9.0
+    },
+    {
+      "Bounds": [
+        222.48399353027344,
+        81.12449645996094,
+        391.7157897949219,
+        148.94850158691406
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Regular",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 573,
+      "Page": 1,
+      "Path": "//Document/Sect[5]/Sect[4]/P",
+      "Text": "With up to 80 gigabytes of HBM2e, A100 delivers the world’s fastest GPU memory bandwidth of over 2TB/s, as well as a dynamic random-access memory (DRAM) utilization efficiency of 95%. A100 delivers 1.7X higher memory bandwidth over the previous generation. ",
+      "TextSize": 8.0
+    },
+    {
+      "Bounds": [
+        460.264892578125,
+        295.98109436035156,
+        576.4041595458984,
+        307.48309326171875
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 575,
+      "Page": 1,
+      "Path": "//Document/Sect[5]/Sect[5]/H2",
+      "Text": "NEXT-GENERATION NVLINK ",
+      "TextSize": 9.0,
+      "attributes": {
+        "SpaceAfter": -7.124979999999823
+      }
+    },
+    {
+      "Bounds": [
+        407.4878234863281,
+        261.2131652832031,
+        454.4974365234375,
+        308.2489318847656
+      ],
+      "ClipBounds": [
+        407.99000549316406,
+        261.7239074707031,
+        453.99000549316406,
+        307.7239074707031
+      ],
+      "ObjectID": 576,
+      "Page": 1,
+      "Path": "//Document/Sect[5]/Sect[5]/Figure",
+      "attributes": {
+        "BBox": [
+          408.22299999999814,
+          261.98199999998906,
+          453.7019999999902,
+          307.45999999999185
+        ],
+        "Placement": "Block"
+      }
+    },
+    {
+      "Bounds": [
+        408.23699951171875,
+        195.4644012451172,
+        580.125,
+        292.0885009765625
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Regular",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 577,
+      "Page": 1,
+      "Path": "//Document/Sect[5]/Sect[5]/P",
+      "Text": "NVIDIA NVLink in A100 delivers 2X higher throughput compared to the previous generation. When combined with NVIDIA NVSwitch™, up to 16 A100 GPUs can be interconnected at up to 600 gigabytes per second (GB/sec), unleashing the highest application performance possible on a single server. NVLink is available in A100 SXM GPUs via HGX A100 server boards and in PCIe GPUs via an NVLink Bridge for up to 2 GPUs. ",
+      "TextSize": 8.0
+    },
+    {
+      "Bounds": [
+        460.26690673828125,
+        162.84109497070312,
+        561.2220916748047,
+        174.3430938720703
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 580,
+      "Page": 1,
+      "Path": "//Document/Sect[5]/Sect[6]/H2",
+      "Text": "STRUCTURAL SPARSITY ",
+      "TextSize": 9.0,
+      "attributes": {
+        "SpaceAfter": -4.249979999999823
+      }
+    },
+    {
+      "Bounds": [
+        407.47840881347656,
+        125.23457336425781,
+        454.4966583251953,
+        172.25282287597656
+      ],
+      "ClipBounds": [
+        407.99200439453125,
+        125.75,
+        453.99200439453125,
+        171.75
+      ],
+      "ObjectID": 581,
+      "Page": 1,
+      "Path": "//Document/Sect[5]/Sect[6]/Figure",
+      "attributes": {
+        "BBox": [
+          408.22299999999814,
+          126.02699999999822,
+          453.7019999999902,
+          171.50499999999738
+        ],
+        "Placement": "Block"
+      }
+    },
+    {
+      "Bounds": [
+        408.2380065917969,
+        52.72450256347656,
+        576.0945892333984,
+        158.94850158691406
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Regular",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 582,
+      "Page": 1,
+      "Path": "//Document/Sect[5]/Sect[6]/P",
+      "Text": "AI networks have millions to billions of parameters. Not all of these parameters are needed for accurate predictions, and some can be converted to zeros, making the models “sparse” without compromising accuracy. Tensor Cores in A100 can provide up to 2X higher performance for sparse models. While the sparsity feature more readily benefits AI inference, it can also improve the performance of model training. ",
+      "TextSize": 8.0,
+      "attributes": {
+        "SpaceAfter": 11.375
+      }
+    },
+    {
+      "Bounds": [
+        36.0,
+        690.2550964355469,
+        362.17852783203125,
+        757.7731018066406
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Regular",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 583,
+      "Page": 2,
+      "Path": "//Document/Sect[5]/Sect[6]/P[2]",
+      "Text": "The NVIDIA A100 Tensor Core GPU is the flagship product of the NVIDIA data center platform for deep learning, HPC, and data analytics. The platform accelerates over 2,000 applications, including every major deep learning framework. A100 is available everywhere, from desktops to servers to cloud services, delivering both dramatic performance gains and cost-saving opportunities. ",
+      "TextSize": 9.0
+    },
+    {
+      "Bounds": [
+        36.80979919433594,
+        631.0567016601562,
+        268.6833801269531,
+        674.0587005615234
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Medium",
+        "subset": true,
+        "weight": 500
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 585,
+      "Page": 2,
+      "Path": "//Document/Sect[6]/H1",
+      "Text": "OPTIMIZED SOFTWARE AND SERVICES FOR ENTERPRISE ",
+      "TextSize": 18.0,
+      "attributes": {
+        "LineHeight": 20,
+        "TextAlign": "Justify"
+      }
+    },
+    {
+      "Bounds": [
+        480.1743927001953,
+        627.5025939941406,
+        578.2373962402344,
+        671.6587982177734
+      ],
+      "ClipBounds": [
+        480.1743927001953,
+        627.5025939941406,
+        578.2373962402344,
+        671.6587982177734
+      ],
+      "ObjectID": 586,
+      "Page": 2,
+      "Path": "//Document/Sect[6]/Figure",
+      "attributes": {
+        "BBox": [
+          480.45999999999185,
+          627.6069999999891,
+          578.1359999999986,
+          671.4049999999988
+        ],
+        "Placement": "Block"
+      }
+    },
+    {
+      "Bounds": [
+        73.19009399414062,
+        544.4841003417969,
+        521.9781036376953,
+        601.3856048583984
+      ],
+      "ClipBounds": [
+        73.19009399414062,
+        544.4841003417969,
+        521.9781036376953,
+        601.3856048583984
+      ],
+      "ObjectID": 587,
+      "Page": 2,
+      "Path": "//Document/Sect[6]/Figure[2]",
+      "attributes": {
+        "BBox": [
+          73.43699999999808,
+          544.5699999999779,
+          521.8589999999967,
+          599.0479999999807
+        ],
+        "Placement": "Block"
+      }
+    },
+    {
+      "Bounds": [
+        73.19009399414062,
+        544.4841003417969,
+        521.9781036376953,
+        601.3856048583984
+      ],
+      "ClipBounds": [
+        73.19009399414062,
+        544.4841003417969,
+        521.9781036376953,
+        601.3856048583984
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "ObjectID": 587,
+      "Page": 2,
+      "Path": "//Document/Sect[6]/Figure[2]",
+      "Text": "EVERY DEEP LEARNING FRAMEWORK ",
+      "TextSize": 10.0,
+      "attributes": {
+        "BBox": [
+          73.43699999999808,
+          544.5699999999779,
+          521.8589999999967,
+          599.0479999999807
+        ],
+        "Placement": "Block"
+      }
+    },
+    {
+      "Bounds": [
+        83.04490661621094,
+        399.6125946044922,
+        523.2622833251953,
+        506.5567932128906
+      ],
+      "ObjectID": 588,
+      "Page": 2,
+      "Path": "//Document/Sect[6]/Figure[3]",
+      "attributes": {
+        "BBox": [
+          83.99659999999858,
+          400.5759999999864,
+          521.2589999999909,
+          504.25199999999313
+        ],
+        "Placement": "Block"
+      }
+    },
+    {
+      "Bounds": [
+        83.04490661621094,
+        399.6125946044922,
+        523.2622833251953,
+        506.5567932128906
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "ObjectID": 588,
+      "Page": 2,
+      "Path": "//Document/Sect[6]/Figure[3]",
+      "Text": "2,000+ GPU-ACCELERATED APPLICATIONS HPC AMBERAMBER HPC GAUSSIANGAUSSIAN HPCOpenFOAMOpenFOAMHPC HPC ANSYS FluentANSYS Fluent HPC GROMACSGROMACS HPCHPC VASPVASP HPC Altair nanoFluidXAltair nanoFluidX HPC DS SIMULIA AbaqusDS SIMULIA Abaqus HPC NAMDNAMD WRFWRFHPC HPC Altair ultraFluidXAltair ultraFluidX ",
+      "TextSize": 3.432098388671875,
+      "attributes": {
+        "BBox": [
+          83.99659999999858,
+          400.5759999999864,
+          521.2589999999909,
+          504.25199999999313
+        ],
+        "Placement": "Block"
+      }
+    },
+    {
+      "Bounds": [
+        36.0,
+        131.5301971435547,
+        149.84915161132812,
+        146.22720336914062
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 589,
+      "Page": 2,
+      "Path": "//Document/Sect[6]/P",
+      "Text": "Ready to Get Started? ",
+      "TextSize": 11.5,
+      "attributes": {
+        "SpaceAfter": 13.25
+      }
+    },
+    {
+      "Bounds": [
+        36.0,
+        94.91409301757812,
+        276.32432556152344,
+        118.41310119628906
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Bold",
+        "subset": true,
+        "weight": 700
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 590,
+      "Page": 2,
+      "Path": "//Document/Sect[6]/P[2]",
+      "Text": "To learn more about the NVIDIA A100 Tensor Core GPU, visit (<https://www.nvidia.com/a100>)www.nvidia.com/a100 ",
+      "TextSize": 9.0,
+      "attributes": {
+        "LineHeight": 12
+      }
+    },
+    {
+      "Bounds": [
+        36.0,
+        34.57200622558594,
+        383.71315002441406,
+        63.246002197265625
+      ],
+      "Font": {
+        "alt_family_name": "DIN Pro",
+        "embedded": true,
+        "encoding": "Custom",
+        "family_name": "DIN Pro",
+        "font_type": "Type1",
+        "italic": false,
+        "monospaced": false,
+        "name": "ENMIPE+DINPro-Regular",
+        "subset": true,
+        "weight": 400
+      },
+      "HasClip": false,
+      "Lang": "en",
+      "ObjectID": 592,
+      "Page": 2,
+      "Path": "//Document/Sect[6]/P[3]",
+      "Text": "© 2022 NVIDIA Corporation. All rights reserved. NVIDIA, the NVIDIA logo, DGX, HGX, NGC, NVIDIA-Certified Systems, NVLink, NVSwitch, and Volta are trademarks and/or registered trademarks of NVIDIA Corporation in the U.S. and other countries. Other company and product names may be trademarks of the respective companies with which they are associated. All other trademarks are property of their respective owners. 2188504. MAy22 ",
+      "TextSize": 6.0,
+      "attributes": {
+        "LineHeight": 7
+      }
+    },
+    {
+      "Bounds": [
+        522.9797058105469,
+        36.29829406738281,
+        576.1746978759766,
+        77.59480285644531
+      ],
+      "ClipBounds": [
+        522.9797058105469,
+        36.29829406738281,
+        576.1746978759766,
+        77.59480285644531
+      ],
+      "ObjectID": 593,
+      "Page": 2,
+      "Path": "//Document/Sect[6]/Figure[4]",
+      "attributes": {
+        "BBox": [
+          523.1789999999746,
+          36.510699999998906,
+          575.9769999999844,
+          77.42909999999756
+        ],
+        "BackgroundColor": [
+          0.4627379999999874,
+          0.721572999999978,
+          0
+        ],
+        "Placement": "Block"
+      }
+    }
+  ],
+  "pages": [
+    {
+      "boxes": {
+        "CropBox": [
+          0.0,
+          0.0,
+          612.0,
+          792.0
+        ],
+        "MediaBox": [
+          0.0,
+          0.0,
+          612.0,
+          792.0
+        ]
+      },
+      "height": 792.0,
+      "is_scanned": false,
+      "page_number": 0,
+      "rotation": 0,
+      "width": 612.0
+    },
+    {
+      "boxes": {
+        "CropBox": [
+          0.0,
+          0.0,
+          612.0,
+          792.0
+        ],
+        "MediaBox": [
+          0.0,
+          0.0,
+          612.0,
+          792.0
+        ]
+      },
+      "height": 792.0,
+      "is_scanned": false,
+      "page_number": 1,
+      "rotation": 0,
+      "width": 612.0
+    },
+    {
+      "boxes": {
+        "CropBox": [
+          0.0,
+          0.0,
+          612.0,
+          792.0
+        ],
+        "MediaBox": [
+          0.0,
+          0.0,
+          612.0,
+          792.0
+        ]
+      },
+      "height": 792.0,
+      "is_scanned": false,
+      "page_number": 2,
+      "rotation": 0,
+      "width": 612.0
+    }
+  ]
+}
