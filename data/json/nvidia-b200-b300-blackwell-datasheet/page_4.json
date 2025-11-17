@@ -1,0 +1,363 @@
+[
+  {
+    "page": 4,
+    "block_id": 0,
+    "type": "Section-header",
+    "text": "List of Figures",
+    "bbox_normalized": {
+      "xmin": 0.24228541666666661,
+      "ymin": 0.2375,
+      "xmax": 0.40150625,
+      "ymax": 0.257
+    },
+    "bbox_pixels": {
+      "x0": 372,
+      "y0": 486,
+      "x1": 616,
+      "y1": 526
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 1,
+    "type": "List-item",
+    "text": "Figure 1. NVIDIA Grace Blackwell Ultra Superchip with ConnectX-8 SuperNICs.....6",
+    "bbox_normalized": {
+      "xmin": 0.24228541666666661,
+      "ymin": 0.2578,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.268
+    },
+    "bbox_pixels": {
+      "x0": 372,
+      "y0": 527,
+      "x1": 1155,
+      "y1": 548
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 2,
+    "type": "List-item",
+    "text": "Figure 2. NVIDIA Blackwell Architecture’s Technological Breakthroughs .....7",
+    "bbox_normalized": {
+      "xmin": 0.24228541666666661,
+      "ymin": 0.2695,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.2789
+    },
+    "bbox_pixels": {
+      "x0": 372,
+      "y0": 551,
+      "x1": 1155,
+      "y1": 571
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 3,
+    "type": "List-item",
+    "text": "Figure 3. GB200 Grace Blackwell Database Join Query Using Decompression Engine.. 11",
+    "bbox_normalized": {
+      "xmin": 0.24228541666666661,
+      "ymin": 0.2805,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.2906
+    },
+    "bbox_pixels": {
+      "x0": 372,
+      "y0": 574,
+      "x1": 1155,
+      "y1": 595
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 4,
+    "type": "List-item",
+    "text": "Figure 4. NVIDIA GB300 NVL72.....14",
+    "bbox_normalized": {
+      "xmin": 0.24228541666666661,
+      "ymin": 0.2914,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.3016
+    },
+    "bbox_pixels": {
+      "x0": 372,
+      "y0": 596,
+      "x1": 1155,
+      "y1": 617
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 5,
+    "type": "List-item",
+    "text": "Figure 5. GB300 Delivers 50X AI Factory Output Increase for AI Reasoning .....15",
+    "bbox_normalized": {
+      "xmin": 0.24228541666666661,
+      "ymin": 0.3023,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.3125
+    },
+    "bbox_pixels": {
+      "x0": 372,
+      "y0": 619,
+      "x1": 1155,
+      "y1": 640
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 6,
+    "type": "List-item",
+    "text": "Figure 6. GB300 Delivers 35X Performance Improvement for AI Reasoning.....16",
+    "bbox_normalized": {
+      "xmin": 0.24228541666666661,
+      "ymin": 0.3148,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.3242
+    },
+    "bbox_pixels": {
+      "x0": 372,
+      "y0": 644,
+      "x1": 1155,
+      "y1": 663
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 7,
+    "type": "List-item",
+    "text": "Figure 7. Reduction in Energy Use and Total Cost of Ownership with GB300.....17",
+    "bbox_normalized": {
+      "xmin": 0.24228541666666661,
+      "ymin": 0.3266,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.3352
+    },
+    "bbox_pixels": {
+      "x0": 372,
+      "y0": 668,
+      "x1": 1155,
+      "y1": 686
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 8,
+    "type": "List-item",
+    "text": "Figure 8. 30X Video Generation Performance Improvement for Physical AI Applications using GB300 NVL72.....19",
+    "bbox_normalized": {
+      "xmin": 0.24228541666666661,
+      "ymin": 0.3375,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.3578
+    },
+    "bbox_pixels": {
+      "x0": 372,
+      "y0": 691,
+      "x1": 1155,
+      "y1": 732
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 9,
+    "type": "List-item",
+    "text": "Figure 9. GB200 Delivers 40X AI Factory Output Increase for AI Reasoning.....20",
+    "bbox_normalized": {
+      "xmin": 0.24228541666666661,
+      "ymin": 0.3594,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.3695
+    },
+    "bbox_pixels": {
+      "x0": 372,
+      "y0": 736,
+      "x1": 1155,
+      "y1": 756
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 10,
+    "type": "List-item",
+    "text": "Figure 10. GB200 1.8T GPT-MoE Real-Time Inference Performance Using Second- Generation Transformer Engine Next-Level AI Training Performance.....21",
+    "bbox_normalized": {
+      "xmin": 0.24228541666666661,
+      "ymin": 0.3711,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.3922
+    },
+    "bbox_pixels": {
+      "x0": 372,
+      "y0": 760,
+      "x1": 1155,
+      "y1": 803
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 11,
+    "type": "List-item",
+    "text": "Figure 11. GB200 1.8T GPT-MoE Model Training Speed-Up Using Transformer Engine..22",
+    "bbox_normalized": {
+      "xmin": 0.24228541666666661,
+      "ymin": 0.393,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.4031
+    },
+    "bbox_pixels": {
+      "x0": 372,
+      "y0": 804,
+      "x1": 1155,
+      "y1": 825
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 12,
+    "type": "List-item",
+    "text": "Figure 12. 25X Lower Energy Use and TCO.....23",
+    "bbox_normalized": {
+      "xmin": 0.24228541666666661,
+      "ymin": 0.4047,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.4141
+    },
+    "bbox_pixels": {
+      "x0": 372,
+      "y0": 828,
+      "x1": 1155,
+      "y1": 848
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 13,
+    "type": "List-item",
+    "text": "Figure 13. Three AI Scaling Laws .....27",
+    "bbox_normalized": {
+      "xmin": 0.24228541666666661,
+      "ymin": 0.4156,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.4266
+    },
+    "bbox_pixels": {
+      "x0": 372,
+      "y0": 851,
+      "x1": 1155,
+      "y1": 873
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 14,
+    "type": "Section-header",
+    "text": "List of s",
+    "bbox_normalized": {
+      "xmin": 0.24228541666666661,
+      "ymin": 0.4391,
+      "xmax": 0.397321875,
+      "ymax": 0.4578
+    },
+    "bbox_pixels": {
+      "x0": 372,
+      "y0": 899,
+      "x1": 610,
+      "y1": 937
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 15,
+    "type": "List-item",
+    "text": "1. Blackwell Architecture Supported Data Types.....8",
+    "bbox_normalized": {
+      "xmin": 0.24228541666666661,
+      "ymin": 0.4586,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.4695
+    },
+    "bbox_pixels": {
+      "x0": 372,
+      "y0": 939,
+      "x1": 1155,
+      "y1": 961
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 16,
+    "type": "List-item",
+    "text": "2. System Specifications for GB300 NVL72 and GB200 NVL72.....13",
+    "bbox_normalized": {
+      "xmin": 0.24228541666666661,
+      "ymin": 0.4711,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.4813
+    },
+    "bbox_pixels": {
+      "x0": 372,
+      "y0": 964,
+      "x1": 1155,
+      "y1": 985
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 17,
+    "type": "List-item",
+    "text": "3. System Specifications for HGX B300 and HGX B200.....25",
+    "bbox_normalized": {
+      "xmin": 0.24228541666666661,
+      "ymin": 0.482,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.493
+    },
+    "bbox_pixels": {
+      "x0": 372,
+      "y0": 987,
+      "x1": 1155,
+      "y1": 1009
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 18,
+    "type": "Page-footer",
+    "text": "iv",
+    "bbox_normalized": {
+      "xmin": 0.24228541666666661,
+      "ymin": 0.7695,
+      "xmax": 0.7546031249999999,
+      "ymax": 0.7914
+    },
+    "bbox_pixels": {
+      "x0": 372,
+      "y0": 1575,
+      "x1": 1159,
+      "y1": 1620
+    },
+    "is_valid": true
+  }
+]

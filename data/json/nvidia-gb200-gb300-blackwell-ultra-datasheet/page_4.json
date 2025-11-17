@@ -1,0 +1,154 @@
+[
+  {
+    "page": 4,
+    "block_id": 0,
+    "type": "Section-header",
+    "text": "## Next-Level AI Training Performance",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.4391,
+      "xmax": 0.4266125,
+      "ymax": 0.4484
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 899,
+      "x1": 655,
+      "y1": 918
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 1,
+    "type": "Text",
+    "text": "The HGX B300 platform delivers up to 2.6x higher training performance for large language models such as DeepSeek-R1. With over 2 TB of high-speed memory and 14.4 TB/s of NVLink Switch bandwidth, it enables massive-scale model training and high-throughput inter-GPU communication.",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.4555,
+      "xmax": 0.5806833333333333,
+      "ymax": 0.4953
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 932,
+      "x1": 891,
+      "y1": 1014
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 2,
+    "type": "Section-header",
+    "text": "### AI Training Performance - DeepSeek-R1",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.5133,
+      "xmax": 0.4120208333333333,
+      "ymax": 0.5211
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 1051,
+      "x1": 632,
+      "y1": 1067
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 3,
+    "type": "Page-footer",
+    "text": "NVIDIA Blackwell Ultra | Datasheet | 4",
+    "bbox_normalized": {
+      "xmin": 0.6330416666666667,
+      "ymin": 0.8023,
+      "xmax": 0.7923697916666667,
+      "ymax": 0.8086
+    },
+    "bbox_pixels": {
+      "x0": 972,
+      "y0": 1643,
+      "x1": 1217,
+      "y1": 1656
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 4,
+    "type": "Picture",
+    "text": "1,000,000 900,000 800,000 HGX B300 With NVIDIA Dynamo FP4 700,000 600,000 Tokens per Second (TPS) in 1 MW (Throughput) Revenues 500,000 400,000 30x 300,000 200,000 100,000 Hopper 0\n0 100 200 300 400 500 TPS for One User (Responsiveness)",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.2133,
+      "xmax": 0.5901249999999999,
+      "ymax": 0.3906
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 436,
+      "x1": 906,
+      "y1": 799
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 5,
+    "type": "Picture",
+    "text": "2.6x H100 HGX B300",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.5398,
+      "xmax": 0.41620520833333335,
+      "ymax": 0.6359
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 1105,
+      "x1": 639,
+      "y1": 1302
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 6,
+    "type": "Caption",
+    "text": "Projected performance subject to change. First token latency (FTL) = 2,000 ms, input sequence length = 32K, output sequence length = 8K.",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.4039,
+      "xmax": 0.582721875,
+      "ymax": 0.4164
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 827,
+      "x1": 895,
+      "y1": 852
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 7,
+    "type": "Caption",
+    "text": "Projected performance subject to change. Perf per GPU, FP8, 16K BS, 16K sequence length.",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.6438,
+      "xmax": 0.5188833333333333,
+      "ymax": 0.65
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 1318,
+      "x1": 797,
+      "y1": 1331
+    },
+    "is_valid": true
+  }
+]

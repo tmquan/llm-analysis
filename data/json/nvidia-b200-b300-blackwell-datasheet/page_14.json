@@ -1,0 +1,116 @@
+[
+  {
+    "page": 14,
+    "block_id": 0,
+    "type": "Page-header",
+    "text": "NVIDIA Grace Blackwell Ultra / Blackwell NVL72",
+    "bbox_normalized": {
+      "xmin": 0.5188833333333333,
+      "ymin": 0.1789,
+      "xmax": 0.7336812500000001,
+      "ymax": 0.1859
+    },
+    "bbox_pixels": {
+      "x0": 797,
+      "y0": 366,
+      "x1": 1126,
+      "y1": 380
+    },
+    "is_valid": true
+  },
+  {
+    "page": 14,
+    "block_id": 1,
+    "type": "Section-header",
+    "text": "## Blackwell Ultra GB300 NLV72",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.6344,
+      "xmax": 0.51995625,
+      "ymax": 0.6453
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 1299,
+      "x1": 798,
+      "y1": 1321
+    },
+    "is_valid": true
+  },
+  {
+    "page": 14,
+    "block_id": 2,
+    "type": "Text",
+    "text": "The NVIDIA GB300 NVL72 connects 36 Grace CPUs and 72 Blackwell Ultra GPUs in a rack- scale design, supercharging inference, training, and data processing. The GB300 NVL72 is a liquid-cooled, rack-scale solution that boasts a 72-GPU NVLink domain that acts as a single massive GPU and delivers optimized connectivity built for AI reasoning.",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.6562,
+      "xmax": 0.7451614583333334,
+      "ymax": 0.6984
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 1343,
+      "x1": 1144,
+      "y1": 1430
+    },
+    "is_valid": true
+  },
+  {
+    "page": 14,
+    "block_id": 3,
+    "type": "Page-footer",
+    "text": "NVIDIA Blackwell Architecture Technical Brief 14",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.7648,
+      "xmax": 0.7535302083333333,
+      "ymax": 0.7828
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 1566,
+      "x1": 1157,
+      "y1": 1603
+    },
+    "is_valid": true
+  },
+  {
+    "page": 14,
+    "block_id": 4,
+    "type": "Picture",
+    "text": "Grace Blackwell Ultra 2 Reticle-Sized GPUs 15PF Dense FP4 | 279GB HBM3e Oberon Rack Liquid Cooled",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.2469,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.5781
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 505,
+      "x1": 1155,
+      "y1": 1183
+    },
+    "is_valid": true
+  },
+  {
+    "page": 14,
+    "block_id": 5,
+    "type": "Caption",
+    "text": "Figure 4. NVIDIA GB300 NVL72",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.6008,
+      "xmax": 0.466525,
+      "ymax": 0.6109
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 1230,
+      "x1": 716,
+      "y1": 1251
+    },
+    "is_valid": true
+  }
+]

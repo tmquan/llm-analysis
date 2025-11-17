@@ -1,0 +1,325 @@
+[
+  {
+    "page": 1,
+    "block_id": 0,
+    "type": "Title",
+    "text": "# NVIDIA Blackwell Ultra",
+    "bbox_normalized": {
+      "xmin": 0.20248020833333336,
+      "ymin": 0.2914,
+      "xmax": 0.5010729166666666,
+      "ymax": 0.3148
+    },
+    "bbox_pixels": {
+      "x0": 311,
+      "y0": 596,
+      "x1": 769,
+      "y1": 644
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 1,
+    "type": "Text",
+    "text": "Built for the age of AI reasoning.",
+    "bbox_normalized": {
+      "xmin": 0.20248020833333336,
+      "ymin": 0.3187,
+      "xmax": 0.442384375,
+      "ymax": 0.3352
+    },
+    "bbox_pixels": {
+      "x0": 311,
+      "y0": 652,
+      "x1": 679,
+      "y1": 686
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 2,
+    "type": "Section-header",
+    "text": "**Designed for AI Reasoning Performance**",
+    "bbox_normalized": {
+      "xmin": 0.20248020833333336,
+      "ymin": 0.3781,
+      "xmax": 0.4580489583333333,
+      "ymax": 0.393
+    },
+    "bbox_pixels": {
+      "x0": 311,
+      "y0": 774,
+      "x1": 703,
+      "y1": 804
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 3,
+    "type": "Text",
+    "text": "AI has evolved around three fundamental scaling dimensions: pretraining, post- training, and inference-time scaling--also known as long thinking or reasoning. This third dimension is critical for enabling agent AI, where models must dynamically reason through complex queries during inference. Unlike traditional one-shot inference, test-time scaling can demand up to 100x more compute, as models evaluate multiple potential responses before selecting the most accurate outcome.",
+    "bbox_normalized": {
+      "xmin": 0.20248020833333336,
+      "ymin": 0.3953,
+      "xmax": 0.5911979166666667,
+      "ymax": 0.4617
+    },
+    "bbox_pixels": {
+      "x0": 311,
+      "y0": 809,
+      "x1": 908,
+      "y1": 945
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 4,
+    "type": "Text",
+    "text": "The NVIDIA Blackwell Ultra GPU is designed for this new era of AI reasoning. It delivers up to 20 petaFLOPS of FP4 sparse inference performance, offering exceptional efficiency for large-scale deployments. With 279 GB of HBM3E memory, it supports expansive KV caching and long-context inference without offloading. Blackwell Ultra also features 800 Gbps NVIDIA<sup>®</sup> ConnectX<sup>®</sup>-8 networking, doubling interconnect bandwidth compared to NVIDIA Blackwell to enable seamless scaling across data centers. A newly optimized attention engine delivers 2.5x faster attention performance compared to <u>NVIDIAHopperTM</u>, significantly accelerating throughput for reasoning.",
+    "bbox_normalized": {
+      "xmin": 0.20248020833333336,
+      "ymin": 0.4656,
+      "xmax": 0.5911979166666667,
+      "ymax": 0.5648
+    },
+    "bbox_pixels": {
+      "x0": 311,
+      "y0": 953,
+      "x1": 908,
+      "y1": 1156
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 5,
+    "type": "Section-header",
+    "text": "## NVIDIA GB300 NVL72",
+    "bbox_normalized": {
+      "xmin": 0.20248020833333336,
+      "ymin": 0.5758,
+      "xmax": 0.36803125000000003,
+      "ymax": 0.5922
+    },
+    "bbox_pixels": {
+      "x0": 311,
+      "y0": 1179,
+      "x1": 565,
+      "y1": 1212
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 6,
+    "type": "Section-header",
+    "text": "# Powering the New Era of AI Reasoning",
+    "bbox_normalized": {
+      "xmin": 0.20248020833333336,
+      "ymin": 0.6,
+      "xmax": 0.44860729166666663,
+      "ymax": 0.6141
+    },
+    "bbox_pixels": {
+      "x0": 311,
+      "y0": 1228,
+      "x1": 689,
+      "y1": 1257
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 7,
+    "type": "Section-header",
+    "text": "**Key Offerings**",
+    "bbox_normalized": {
+      "xmin": 0.6173770833333334,
+      "ymin": 0.3867,
+      "xmax": 0.7095406249999999,
+      "ymax": 0.4
+    },
+    "bbox_pixels": {
+      "x0": 948,
+      "y0": 791,
+      "x1": 1089,
+      "y1": 819
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 8,
+    "type": "List-item",
+    "text": "\\> NVIDIA GB300 NVL72",
+    "bbox_normalized": {
+      "xmin": 0.6173770833333334,
+      "ymin": 0.4062,
+      "xmax": 0.7304624999999999,
+      "ymax": 0.4156
+    },
+    "bbox_pixels": {
+      "x0": 948,
+      "y0": 831,
+      "x1": 1121,
+      "y1": 851
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 9,
+    "type": "List-item",
+    "text": "\\> NVIDIA HGX B300",
+    "bbox_normalized": {
+      "xmin": 0.6173770833333334,
+      "ymin": 0.4219,
+      "xmax": 0.7168364583333333,
+      "ymax": 0.432
+    },
+    "bbox_pixels": {
+      "x0": 948,
+      "y0": 864,
+      "x1": 1101,
+      "y1": 884
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 10,
+    "type": "Page-footer",
+    "text": "NVIDIA Blackwell Ultra | Datasheet | 1",
+    "bbox_normalized": {
+      "xmin": 0.63196875,
+      "ymin": 0.7992,
+      "xmax": 0.7954812499999999,
+      "ymax": 0.8094
+    },
+    "bbox_pixels": {
+      "x0": 970,
+      "y0": 1636,
+      "x1": 1221,
+      "y1": 1657
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 11,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.20559166666666664,
+      "ymin": 0.225,
+      "xmax": 0.23810104166666668,
+      "ymax": 0.2437
+    },
+    "bbox_pixels": {
+      "x0": 315,
+      "y0": 460,
+      "x1": 365,
+      "y1": 499
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 12,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.20559166666666664,
+      "ymin": 0.6211,
+      "xmax": 0.5901249999999999,
+      "ymax": 0.7844
+    },
+    "bbox_pixels": {
+      "x0": 315,
+      "y0": 1272,
+      "x1": 906,
+      "y1": 1606
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 13,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.5901249999999999,
+      "ymin": 0.1773,
+      "xmax": 0.8311020833333332,
+      "ymax": 0.3531
+    },
+    "bbox_pixels": {
+      "x0": 906,
+      "y0": 363,
+      "x1": 1276,
+      "y1": 723
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 14,
+    "type": "Caption",
+    "text": "Datasheet",
+    "bbox_normalized": {
+      "xmin": 0.20248020833333336,
+      "ymin": 0.2031,
+      "xmax": 0.26524583333333335,
+      "ymax": 0.2156
+    },
+    "bbox_pixels": {
+      "x0": 311,
+      "y0": 415,
+      "x1": 407,
+      "y1": 441
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 15,
+    "type": "Caption",
+    "text": "# NVIDIA",
+    "bbox_normalized": {
+      "xmin": 0.2401395833333333,
+      "ymin": 0.2258,
+      "xmax": 0.3144927083333333,
+      "ymax": 0.243
+    },
+    "bbox_pixels": {
+      "x0": 368,
+      "y0": 462,
+      "x1": 483,
+      "y1": 497
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 16,
+    "type": "Caption",
+    "text": "NVIDIA GB300 NVL72",
+    "bbox_normalized": {
+      "xmin": 0.5879791666666666,
+      "ymin": 0.3586,
+      "xmax": 0.6582552083333333,
+      "ymax": 0.3664
+    },
+    "bbox_pixels": {
+      "x0": 903,
+      "y0": 734,
+      "x1": 1011,
+      "y1": 750
+    },
+    "is_valid": true
+  }
+]

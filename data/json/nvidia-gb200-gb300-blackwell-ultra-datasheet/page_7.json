@@ -1,0 +1,192 @@
+[
+  {
+    "page": 7,
+    "block_id": 0,
+    "type": "Section-header",
+    "text": "Automate the Essentials With NVIDIA Mission Control",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.2039,
+      "xmax": 0.5471010416666667,
+      "ymax": 0.2164
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 417,
+      "x1": 840,
+      "y1": 443
+    },
+    "is_valid": true
+  },
+  {
+    "page": 7,
+    "block_id": 1,
+    "type": "Text",
+    "text": "NVIDIA Mission Control powers every aspect of NVIDIA GB300 NVL72 AI factory operations, from orchestrating workloads across the 72-GPU NVLink domain to integration with facilities. It brings instant agility for inference and training while providing full-stack intelligence for infrastructure resilience. Mission Control lets every enterprise run AI with hyperscale-grade efficiency, accelerating AI experimentation.",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.2203,
+      "xmax": 0.5932364583333333,
+      "ymax": 0.2734
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 451,
+      "x1": 911,
+      "y1": 559
+    },
+    "is_valid": true
+  },
+  {
+    "page": 7,
+    "block_id": 2,
+    "type": "Section-header",
+    "text": "**AI-Ready Enterprise Platform**",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.2859,
+      "xmax": 0.3920645833333333,
+      "ymax": 0.2977
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 585,
+      "x1": 602,
+      "y1": 609
+    },
+    "is_valid": true
+  },
+  {
+    "page": 7,
+    "block_id": 3,
+    "type": "Text",
+    "text": "NVIDIA AI Enterprise is the end-to-end software platform that brings generative AI into reach for every enterprise, providing the fastest and most efficient runtime for generative AI foundation models. It includes NVIDIA NIMTM microservices, AI frameworks, libraries, and tools that are certified to run on common data center platforms and mainstream NVIDIA-Certified Systems integrated with NVIDIA GPUs. Part of NVIDIA AI Enterprise, NVIDIA NIM is a set of easy-to-use microservices for accelerating the deployment of foundation models on any cloud or data center and helping to keep your data secure. Enterprises that run their businesses on AI rely on the security, support, manageability, and stability provided by NVIDIA AI Enterprise to ensure a smooth transition from pilot to production.",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.3016,
+      "xmax": 0.5921635416666666,
+      "ymax": 0.4094
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 617,
+      "x1": 909,
+      "y1": 838
+    },
+    "is_valid": true
+  },
+  {
+    "page": 7,
+    "block_id": 4,
+    "type": "Text",
+    "text": "Together with the NVIDIA Blackwell GPUs, NVIDIA AI Enterprise not only simplifies the building of an AI-ready platform but also accelerates time to value.",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.4164,
+      "xmax": 0.5817562500000001,
+      "ymax": 0.4367
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 852,
+      "x1": 893,
+      "y1": 894
+    },
+    "is_valid": true
+  },
+  {
+    "page": 7,
+    "block_id": 5,
+    "type": "Text",
+    "text": "Learn about AI workload workflows with NVIDIA AI Enterprise via NVIDIA Launchpad’s hands-on labs.",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.4437,
+      "xmax": 0.5398052083333333,
+      "ymax": 0.4633
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 908,
+      "x1": 829,
+      "y1": 948
+    },
+    "is_valid": true
+  },
+  {
+    "page": 7,
+    "block_id": 6,
+    "type": "Section-header",
+    "text": "**Ready to Get Started?**",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.7117,
+      "xmax": 0.372215625,
+      "ymax": 0.7258
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 1457,
+      "x1": 571,
+      "y1": 1486
+    },
+    "is_valid": true
+  },
+  {
+    "page": 7,
+    "block_id": 7,
+    "type": "Text",
+    "text": "To learn more about NVIDIA Blackwell Ultra, visit <u>www.nvidia.com/blackwell</u>",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.7328,
+      "xmax": 0.475859375,
+      "ymax": 0.7547
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 1500,
+      "x1": 730,
+      "y1": 1545
+    },
+    "is_valid": true
+  },
+  {
+    "page": 7,
+    "block_id": 8,
+    "type": "Footnote",
+    "text": "© 2025 NVIDIA Corporation and affiliates. All rights reserved. NVIDIA, the NVIDIA logo, ConnectX, Cosmos, CUDA-X, Grace, HEX, Mission Control, NIM, NVIDIA-Certified Systems, NVLink, NVIDIA Mission Control, Spectrum-X, and SuperNIC are trademarks and/or registered trademarks of NVIDIA Corporation and affiliates in the U.S. and other countries. Other company and product names may be trademarks of the respective owners with which they are associated. 4169750. OCT25",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.7641,
+      "xmax": 0.5471010416666667,
+      "ymax": 0.7937
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 1564,
+      "x1": 840,
+      "y1": 1625
+    },
+    "is_valid": true
+  },
+  {
+    "page": 7,
+    "block_id": 9,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.717909375,
+      "ymin": 0.7492,
+      "xmax": 0.7923697916666667,
+      "ymax": 0.793
+    },
+    "bbox_pixels": {
+      "x0": 1102,
+      "y0": 1534,
+      "x1": 1217,
+      "y1": 1624
+    },
+    "is_valid": true
+  }
+]

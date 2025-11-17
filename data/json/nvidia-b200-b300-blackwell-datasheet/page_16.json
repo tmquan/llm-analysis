@@ -1,0 +1,230 @@
+[
+  {
+    "page": 16,
+    "block_id": 0,
+    "type": "Page-header",
+    "text": "NVIDIA Grace Blackwell Ultra / Blackwell NVL72",
+    "bbox_normalized": {
+      "xmin": 0.5156645833333332,
+      "ymin": 0.1781,
+      "xmax": 0.7336812500000001,
+      "ymax": 0.1867
+    },
+    "bbox_pixels": {
+      "x0": 792,
+      "y0": 364,
+      "x1": 1126,
+      "y1": 382
+    },
+    "is_valid": true
+  },
+  {
+    "page": 16,
+    "block_id": 1,
+    "type": "Section-header",
+    "text": "## Lowering TCO through Performance and Energy Efficiency",
+    "bbox_normalized": {
+      "xmin": 0.2443239583333333,
+      "ymin": 0.2375,
+      "xmax": 0.6697354166666667,
+      "ymax": 0.25
+    },
+    "bbox_pixels": {
+      "x0": 375,
+      "y0": 486,
+      "x1": 1028,
+      "y1": 512
+    },
+    "is_valid": true
+  },
+  {
+    "page": 16,
+    "block_id": 2,
+    "type": "Section-header",
+    "text": "### Boosting Performance by 35X",
+    "bbox_normalized": {
+      "xmin": 0.2443239583333333,
+      "ymin": 0.2648,
+      "xmax": 0.45912187499999996,
+      "ymax": 0.2766
+    },
+    "bbox_pixels": {
+      "x0": 375,
+      "y0": 542,
+      "x1": 705,
+      "y1": 566
+    },
+    "is_valid": true
+  },
+  {
+    "page": 16,
+    "block_id": 3,
+    "type": "Text",
+    "text": "The NVIDIA GB300 NVL72 has a 35X inference performance boost that transforms the speed and scalability of AI applications when compared with H100 for AI reasoning (DeepSeek-R1), enabling more complex strategic problem-solving by AI chatbots.",
+    "bbox_normalized": {
+      "xmin": 0.2443239583333333,
+      "ymin": 0.2828,
+      "xmax": 0.729496875,
+      "ymax": 0.3148
+    },
+    "bbox_pixels": {
+      "x0": 375,
+      "y0": 579,
+      "x1": 1120,
+      "y1": 644
+    },
+    "is_valid": true
+  },
+  {
+    "page": 16,
+    "block_id": 4,
+    "type": "Section-header",
+    "text": "### Increasing Energy Efficiency by 30X",
+    "bbox_normalized": {
+      "xmin": 0.2443239583333333,
+      "ymin": 0.6133,
+      "xmax": 0.5,
+      "ymax": 0.625
+    },
+    "bbox_pixels": {
+      "x0": 375,
+      "y0": 1256,
+      "x1": 768,
+      "y1": 1280
+    },
+    "is_valid": true
+  },
+  {
+    "page": 16,
+    "block_id": 5,
+    "type": "Text",
+    "text": "Data centers running AI workloads are often constrained by energy and cooling limitations, making efficiency a critical factor, with the goal of maximizing the performance for every unit of energy consumed. Blackwell Ultra delivers 30X higher energy efficiency than the Hopper generation.",
+    "bbox_normalized": {
+      "xmin": 0.2443239583333333,
+      "ymin": 0.6305,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.6742
+    },
+    "bbox_pixels": {
+      "x0": 375,
+      "y0": 1291,
+      "x1": 1155,
+      "y1": 1380
+    },
+    "is_valid": true
+  },
+  {
+    "page": 16,
+    "block_id": 6,
+    "type": "Section-header",
+    "text": "### Lowering TCO by 25X",
+    "bbox_normalized": {
+      "xmin": 0.2443239583333333,
+      "ymin": 0.6891,
+      "xmax": 0.39839479166666664,
+      "ymax": 0.7
+    },
+    "bbox_pixels": {
+      "x0": 375,
+      "y0": 1411,
+      "x1": 611,
+      "y1": 1433
+    },
+    "is_valid": true
+  },
+  {
+    "page": 16,
+    "block_id": 7,
+    "type": "Text",
+    "text": "Total cost of ownership (TCO) continues to be a focus of enterprises seeking to achieve significantly higher AI performance at a fraction of the cost. With GB300 NVL72, customers will benefit from reduced hardware expenses, in addition to minimized cooling and maintenance costs over the lifecycle of AI deployments. This enables organizations to",
+    "bbox_normalized": {
+      "xmin": 0.2443239583333333,
+      "ymin": 0.7063,
+      "xmax": 0.7473072916666667,
+      "ymax": 0.7492
+    },
+    "bbox_pixels": {
+      "x0": 375,
+      "y0": 1446,
+      "x1": 1147,
+      "y1": 1534
+    },
+    "is_valid": true
+  },
+  {
+    "page": 16,
+    "block_id": 8,
+    "type": "Page-footer",
+    "text": "NVIDIA Blackwell Architecture Technical Brief 16",
+    "bbox_normalized": {
+      "xmin": 0.2443239583333333,
+      "ymin": 0.7695,
+      "xmax": 0.7535302083333333,
+      "ymax": 0.7914
+    },
+    "bbox_pixels": {
+      "x0": 375,
+      "y0": 1575,
+      "x1": 1157,
+      "y1": 1620
+    },
+    "is_valid": true
+  },
+  {
+    "page": 16,
+    "block_id": 9,
+    "type": "Picture",
+    "text": "DeepSeek R1 Real-time Throughput Output Tokens/sec/GPU 35X HGX H100 GB300 NVL72",
+    "bbox_normalized": {
+      "xmin": 0.3291916666666666,
+      "ymin": 0.3312,
+      "xmax": 0.672846875,
+      "ymax": 0.5516
+    },
+    "bbox_pixels": {
+      "x0": 505,
+      "y0": 678,
+      "x1": 1033,
+      "y1": 1129
+    },
+    "is_valid": true
+  },
+  {
+    "page": 16,
+    "block_id": 10,
+    "type": "Caption",
+    "text": "Projected DeepSeek R1 Inference, Disaggregated, ISL=32K, OSL=8K @ 200 TPS/user, FTL=2s",
+    "bbox_normalized": {
+      "xmin": 0.2443239583333333,
+      "ymin": 0.5656,
+      "xmax": 0.6718812500000001,
+      "ymax": 0.5742
+    },
+    "bbox_pixels": {
+      "x0": 375,
+      "y0": 1158,
+      "x1": 1032,
+      "y1": 1175
+    },
+    "is_valid": true
+  },
+  {
+    "page": 16,
+    "block_id": 11,
+    "type": "Caption",
+    "text": "Figure 6. GB300 Delivers 35X Performance Improvement for AI Reasoning",
+    "bbox_normalized": {
+      "xmin": 0.2443239583333333,
+      "ymin": 0.5867,
+      "xmax": 0.7482729166666667,
+      "ymax": 0.5977
+    },
+    "bbox_pixels": {
+      "x0": 375,
+      "y0": 1201,
+      "x1": 1149,
+      "y1": 1224
+    },
+    "is_valid": true
+  }
+]

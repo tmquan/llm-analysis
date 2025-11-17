@@ -1,0 +1,192 @@
+[
+  {
+    "page": 22,
+    "block_id": 0,
+    "type": "Page-header",
+    "text": "NVIDIA Grace Blackwell Ultra / Blackwell NVL72",
+    "bbox_normalized": {
+      "xmin": 0.5178104166666666,
+      "ymin": 0.1781,
+      "xmax": 0.7336812500000001,
+      "ymax": 0.1867
+    },
+    "bbox_pixels": {
+      "x0": 795,
+      "y0": 364,
+      "x1": 1126,
+      "y1": 382
+    },
+    "is_valid": true
+  },
+  {
+    "page": 22,
+    "block_id": 1,
+    "type": "Section-header",
+    "text": "## Accelerating Data Processing and Physics-Based Simulation",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.5766,
+      "xmax": 0.6833614583333333,
+      "ymax": 0.5875
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 1180,
+      "x1": 1049,
+      "y1": 1203
+    },
+    "is_valid": true
+  },
+  {
+    "page": 22,
+    "block_id": 2,
+    "type": "Text",
+    "text": "GB200, with its tightly-coupled CPU and GPU, brings new opportunities in accelerated computing for data processing, and engineering design and simulation.",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.5992,
+      "xmax": 0.7231666666666666,
+      "ymax": 0.6195
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 1227,
+      "x1": 1110,
+      "y1": 1268
+    },
+    "is_valid": true
+  },
+  {
+    "page": 22,
+    "block_id": 3,
+    "type": "Text",
+    "text": "Databases play critical roles in handling, processing, and analyzing large volumes of data for enterprises. GB200 takes advantage of the high-bandwidth NVLink-C2C and dedicated Decompression Engine in Blackwell to speed up key database queries by 18X compared to CPU, resulting in 7X less energy, and 5X lower TCO.",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.632,
+      "xmax": 0.7482729166666667,
+      "ymax": 0.675
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 1294,
+      "x1": 1149,
+      "y1": 1382
+    },
+    "is_valid": true
+  },
+  {
+    "page": 22,
+    "block_id": 4,
+    "type": "Text",
+    "text": "Physics-based simulations are still the mainstay of product design and development. From silicon chips to pharmaceuticals, testing and improving products by simulating them rather than performing physical testing saves billions of dollars every year.",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.6867,
+      "xmax": 0.75041875,
+      "ymax": 0.7188
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 1406,
+      "x1": 1152,
+      "y1": 1472
+    },
+    "is_valid": true
+  },
+  {
+    "page": 22,
+    "block_id": 5,
+    "type": "Text",
+    "text": "Application-specific integrated circuits are designed almost exclusively on CPUs in a long and complex workflow, which often includes an analog analysis to identify voltages and",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.7305,
+      "xmax": 0.7409770833333335,
+      "ymax": 0.7508
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 1496,
+      "x1": 1138,
+      "y1": 1537
+    },
+    "is_valid": true
+  },
+  {
+    "page": 22,
+    "block_id": 6,
+    "type": "Page-footer",
+    "text": "NVIDIA Blackwell Architecture Technical Brief 22",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.7711,
+      "xmax": 0.7535302083333333,
+      "ymax": 0.7906
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 1579,
+      "x1": 1157,
+      "y1": 1619
+    },
+    "is_valid": true
+  },
+  {
+    "page": 22,
+    "block_id": 7,
+    "type": "Picture",
+    "text": "4X 4X 3X Speedup Over H100 2X 1X 1X OX HGX H100 GB200 NVL72",
+    "bbox_normalized": {
+      "xmin": 0.31138125,
+      "ymin": 0.25,
+      "xmax": 0.6770312500000001,
+      "ymax": 0.4953
+    },
+    "bbox_pixels": {
+      "x0": 478,
+      "y0": 512,
+      "x1": 1039,
+      "y1": 1014
+    },
+    "is_valid": true
+  },
+  {
+    "page": 22,
+    "block_id": 8,
+    "type": "Caption",
+    "text": "Projected performance subject to change. 32,768 GPU scale, 4,096x HGX H100 air-cooled cluster: 400G IB network, 456x GB200 NVL72 liquid-cooled cluster: 800G IB network",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.5109,
+      "xmax": 0.7284239583333333,
+      "ymax": 0.5281
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 1046,
+      "x1": 1118,
+      "y1": 1081
+    },
+    "is_valid": true
+  },
+  {
+    "page": 22,
+    "block_id": 9,
+    "type": "Caption",
+    "text": "Figure 11. GB200 1.8T GPT-MoE Model Training Speed-Up Using Transformer Engine",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.5391,
+      "xmax": 0.676065625,
+      "ymax": 0.5633
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 1104,
+      "x1": 1038,
+      "y1": 1153
+    },
+    "is_valid": true
+  }
+]

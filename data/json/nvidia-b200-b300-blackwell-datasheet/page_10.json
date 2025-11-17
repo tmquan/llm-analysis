@@ -1,0 +1,192 @@
+[
+  {
+    "page": 10,
+    "block_id": 0,
+    "type": "Page-header",
+    "text": "NVIDIA Blackwell Architectural Innovations",
+    "bbox_normalized": {
+      "xmin": 0.5188833333333333,
+      "ymin": 0.1789,
+      "xmax": 0.713725,
+      "ymax": 0.1844
+    },
+    "bbox_pixels": {
+      "x0": 797,
+      "y0": 366,
+      "x1": 1096,
+      "y1": 377
+    },
+    "is_valid": true
+  },
+  {
+    "page": 10,
+    "block_id": 1,
+    "type": "Text",
+    "text": "NVIDIA Confidential Computing capabilities extend the Trusted Execution Environment (TEE) beyond CPUs to GPUs. Confidential Computing on NVIDIA Blackwell was architected to deliver the fastest, most secure, and attestable (evidence-based) protections for LLMs and other sensitive data. NVIDIA Blackwell introduces the first TEE-I/O capable GPU in the industry, while providing the most performant confidential compute solution with TEE-I/O capable hosts, as well as inline protection over NVLink (providing confidentiality plus integrity).",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.2437,
+      "xmax": 0.7462343750000001,
+      "ymax": 0.3203
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 499,
+      "x1": 1146,
+      "y1": 655
+    },
+    "is_valid": true
+  },
+  {
+    "page": 10,
+    "block_id": 2,
+    "type": "Text",
+    "text": "Blackwell Confidential Computing delivers nearly identical throughput performance as compared to unencrypted modes. Customers can now secure even the largest models in a performant way, in addition to protecting AI intellectual property (IP) and securely enable confidential AI training, inference, and federated learning.",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.3344,
+      "xmax": 0.7482729166666667,
+      "ymax": 0.3766
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 684,
+      "x1": 1149,
+      "y1": 771
+    },
+    "is_valid": true
+  },
+  {
+    "page": 10,
+    "block_id": 3,
+    "type": "Section-header",
+    "text": "## Fifth-Generation NVLink and NVLink Switch",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.3953,
+      "xmax": 0.5649114583333333,
+      "ymax": 0.4047
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 809,
+      "x1": 867,
+      "y1": 828
+    },
+    "is_valid": true
+  },
+  {
+    "page": 10,
+    "block_id": 4,
+    "type": "Text",
+    "text": "Unlocking the full potential of exascale computing and AI reasoning models hinges on the need for swift, seamless communication among every GPU within a server cluster. The fifth generation of NVLink scales up to 576 GPUs to accelerate performance for reasoning AI models thanks to the NVLink Switch chips built with it. Fifth-generation NVLink doubles the performance of fourth-generation NVLink in NVIDIA Hopper. While the new NVLink in Blackwell and Blackwell Ultra GPUs also uses two high-speed differential pairs in each direction to form a single link as in the Hopper GPU, NVIDIA Blackwell architecture doubles the effective bandwidth per link to 50 GB/sec in each direction.",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.4188,
+      "xmax": 0.75041875,
+      "ymax": 0.5062
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 857,
+      "x1": 1152,
+      "y1": 1036
+    },
+    "is_valid": true
+  },
+  {
+    "page": 10,
+    "block_id": 5,
+    "type": "Text",
+    "text": "Blackwell and Blackwell Ultra GPUs include 18 fifth-generation NVLink links to provide 1.8 TB/sec total bandwidth, 900 GB/sec in each direction. 1.8TB/s of bidirectional throughput per GPU is over 14X the bandwidth of PCIe Gen5, ensuring high-speed communication for today’s most complex large models. Within a 72 GPU NVLink domain, 130 TB/s of aggregate bandwidth is transferred - that’s more data movement than the entire Internet.",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.5203,
+      "xmax": 0.7493458333333334,
+      "ymax": 0.5734
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 1065,
+      "x1": 1150,
+      "y1": 1174
+    },
+    "is_valid": true
+  },
+  {
+    "page": 10,
+    "block_id": 6,
+    "type": "Text",
+    "text": "The NVIDIA NVLink Switch enables 130TB/s GPU bandwidth in one 72 GPU NVLink domain (NVL72) for model parallelism, and delivers 4X bandwidth efficiency with new NVIDIA Scalable Hierarchical Aggregation and Reduction Protocol (SHARP)TM FP8 support. NVLink and NVLink Switch used together support clusters beyond a single server at the same impressive 1.8 TB/s interconnect. Multi-server clusters using NVLink Switch can scale GPU communications in balance with the increased computing, enabling the <u>GB300NVL72</u> to support 9X the GPU throughput as compared to a single eight-GPU system.",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.5883,
+      "xmax": 0.7493458333333334,
+      "ymax": 0.6641
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 1204,
+      "x1": 1150,
+      "y1": 1360
+    },
+    "is_valid": true
+  },
+  {
+    "page": 10,
+    "block_id": 7,
+    "type": "Section-header",
+    "text": "## Decompression Engine",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.6773,
+      "xmax": 0.4109479166666667,
+      "ymax": 0.6883
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 1387,
+      "x1": 631,
+      "y1": 1409
+    },
+    "is_valid": true
+  },
+  {
+    "page": 10,
+    "block_id": 8,
+    "type": "Text",
+    "text": "Data analytics and database workflows have traditionally been slow and cumbersome, relying on CPUs for compute. Accelerated data science can dramatically boost the performance of end-to-end analytics, speeding up value generation and time to insights while reducing cost. Databases play critical roles in handling, processing, and analyzing large volumes of data for data analytics. Blackwell architecture’s new dedicated",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.7008,
+      "xmax": 0.7357197916666666,
+      "ymax": 0.7547
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 1435,
+      "x1": 1130,
+      "y1": 1545
+    },
+    "is_valid": true
+  },
+  {
+    "page": 10,
+    "block_id": 9,
+    "type": "Page-footer",
+    "text": "10",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.7727,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.7828
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 1582,
+      "x1": 1155,
+      "y1": 1603
+    },
+    "is_valid": true
+  }
+]

@@ -1,0 +1,724 @@
+[
+  {
+    "page": 1,
+    "block_id": 0,
+    "type": "Title",
+    "text": "NVIDIA in Brief",
+    "bbox_normalized": {
+      "xmin": 0.09551041666666667,
+      "ymin": 0.2828,
+      "xmax": 0.3627739583333333,
+      "ymax": 0.3172
+    },
+    "bbox_pixels": {
+      "x0": 146,
+      "y0": 579,
+      "x1": 557,
+      "y1": 649
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 1,
+    "type": "Text",
+    "text": "NVIDIA pioneered accelerated computing to tackle challenges no one else can solve. Our work in AI and digital twins is transforming the world’s largest industries and profoundly impacting society. <u>Learnmore</u>.",
+    "bbox_normalized": {
+      "xmin": 0.093471875,
+      "ymin": 0.3602,
+      "xmax": 0.8436552083333333,
+      "ymax": 0.3977
+    },
+    "bbox_pixels": {
+      "x0": 143,
+      "y0": 737,
+      "x1": 1295,
+      "y1": 814
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 2,
+    "type": "Section-header",
+    "text": "## Company History",
+    "bbox_normalized": {
+      "xmin": 0.093471875,
+      "ymin": 0.4164,
+      "xmax": 0.26846458333333334,
+      "ymax": 0.4367
+    },
+    "bbox_pixels": {
+      "x0": 143,
+      "y0": 852,
+      "x1": 412,
+      "y1": 894
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 3,
+    "type": "Text",
+    "text": "Founded in 1993, NVIDIA is the world leader in accelerated computing. Our invention of the GPU in 1999 sparked the growth of the PC gaming market, redefined computer graphics, revolutionized accelerated computing, ignited the era of modern AI, and is fueling industrial digitalization across markets. NVIDIA is now a full-stack computing infrastructure company with data-center-scale offerings that are reshaping industry.",
+    "bbox_normalized": {
+      "xmin": 0.093471875,
+      "ymin": 0.4391,
+      "xmax": 0.47382083333333336,
+      "ymax": 0.5062
+    },
+    "bbox_pixels": {
+      "x0": 143,
+      "y0": 899,
+      "x1": 727,
+      "y1": 1036
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 4,
+    "type": "Section-header",
+    "text": "## Key Stats",
+    "bbox_normalized": {
+      "xmin": 0.093471875,
+      "ymin": 0.5188,
+      "xmax": 0.19829583333333334,
+      "ymax": 0.5398
+    },
+    "bbox_pixels": {
+      "x0": 143,
+      "y0": 1062,
+      "x1": 304,
+      "y1": 1105
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 5,
+    "type": "List-item",
+    "text": "\\>\\> Founded in 1993",
+    "bbox_normalized": {
+      "xmin": 0.093471875,
+      "ymin": 0.5445,
+      "xmax": 0.18778124999999998,
+      "ymax": 0.5555
+    },
+    "bbox_pixels": {
+      "x0": 143,
+      "y0": 1115,
+      "x1": 288,
+      "y1": 1137
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 6,
+    "type": "List-item",
+    "text": "\\>\\> Founder and CEO: **Jensen Huang**",
+    "bbox_normalized": {
+      "xmin": 0.093471875,
+      "ymin": 0.5609,
+      "xmax": 0.26106145833333333,
+      "ymax": 0.5719
+    },
+    "bbox_pixels": {
+      "x0": 143,
+      "y0": 1148,
+      "x1": 400,
+      "y1": 1171
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 7,
+    "type": "List-item",
+    "text": "\\>\\> 36,000+ employees in 38 countries",
+    "bbox_normalized": {
+      "xmin": 0.093471875,
+      "ymin": 0.5766,
+      "xmax": 0.27157604166666666,
+      "ymax": 0.5883
+    },
+    "bbox_pixels": {
+      "x0": 143,
+      "y0": 1180,
+      "x1": 417,
+      "y1": 1204
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 8,
+    "type": "List-item",
+    "text": "\\>\\> Record full-year revenue of $130.5 billion in FY25",
+    "bbox_normalized": {
+      "xmin": 0.093471875,
+      "ymin": 0.593,
+      "xmax": 0.3333760416666667,
+      "ymax": 0.6039
+    },
+    "bbox_pixels": {
+      "x0": 143,
+      "y0": 1214,
+      "x1": 512,
+      "y1": 1236
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 9,
+    "type": "List-item",
+    "text": "\\>\\> 8,700+ granted and pending patent applications worldwide",
+    "bbox_normalized": {
+      "xmin": 0.093471875,
+      "ymin": 0.6086,
+      "xmax": 0.380584375,
+      "ymax": 0.6195
+    },
+    "bbox_pixels": {
+      "x0": 143,
+      "y0": 1246,
+      "x1": 584,
+      "y1": 1268
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 10,
+    "type": "List-item",
+    "text": "\\>\\> $1 trillion available market opportunity",
+    "bbox_normalized": {
+      "xmin": 0.093471875,
+      "ymin": 0.625,
+      "xmax": 0.29153229166666667,
+      "ymax": 0.6359
+    },
+    "bbox_pixels": {
+      "x0": 143,
+      "y0": 1280,
+      "x1": 447,
+      "y1": 1302
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 11,
+    "type": "List-item",
+    "text": "\\>\\> 6 million developers in the NVIDIA Developer Program",
+    "bbox_normalized": {
+      "xmin": 0.093471875,
+      "ymin": 0.6406,
+      "xmax": 0.35537083333333336,
+      "ymax": 0.6516
+    },
+    "bbox_pixels": {
+      "x0": 143,
+      "y0": 1311,
+      "x1": 545,
+      "y1": 1334
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 12,
+    "type": "List-item",
+    "text": "\\>\\> 27,000 global startups in NVIDIA Inception",
+    "bbox_normalized": {
+      "xmin": 0.093471875,
+      "ymin": 0.657,
+      "xmax": 0.3061239583333333,
+      "ymax": 0.668
+    },
+    "bbox_pixels": {
+      "x0": 143,
+      "y0": 1345,
+      "x1": 470,
+      "y1": 1368
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 13,
+    "type": "List-item",
+    "text": "\\>\\> No. 1 \"America’s Best Companies 2025\" - Forbes",
+    "bbox_normalized": {
+      "xmin": 0.093471875,
+      "ymin": 0.6719,
+      "xmax": 0.3333760416666667,
+      "ymax": 0.6828
+    },
+    "bbox_pixels": {
+      "x0": 143,
+      "y0": 1376,
+      "x1": 512,
+      "y1": 1398
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 14,
+    "type": "List-item",
+    "text": "\\>\\> \"World’s Most Innovative Companies\" - _Fast Company_",
+    "bbox_normalized": {
+      "xmin": 0.093471875,
+      "ymin": 0.6883,
+      "xmax": 0.3585895833333334,
+      "ymax": 0.6992
+    },
+    "bbox_pixels": {
+      "x0": 143,
+      "y0": 1409,
+      "x1": 550,
+      "y1": 1431
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 15,
+    "type": "List-item",
+    "text": "\\>\\> \"Best Places to Work in 2025\" - _Glassdoor_",
+    "bbox_normalized": {
+      "xmin": 0.093471875,
+      "ymin": 0.7039,
+      "xmax": 0.30408541666666666,
+      "ymax": 0.7148
+    },
+    "bbox_pixels": {
+      "x0": 143,
+      "y0": 1441,
+      "x1": 467,
+      "y1": 1463
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 16,
+    "type": "Section-header",
+    "text": "## Impact by Industry",
+    "bbox_normalized": {
+      "xmin": 0.5105145833333334,
+      "ymin": 0.4164,
+      "xmax": 0.7042833333333333,
+      "ymax": 0.4383
+    },
+    "bbox_pixels": {
+      "x0": 784,
+      "y0": 852,
+      "x1": 1081,
+      "y1": 897
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 17,
+    "type": "Section-header",
+    "text": "**Automotive**",
+    "bbox_normalized": {
+      "xmin": 0.5754260416666667,
+      "ymin": 0.4398,
+      "xmax": 0.6362604166666667,
+      "ymax": 0.45
+    },
+    "bbox_pixels": {
+      "x0": 883,
+      "y0": 900,
+      "x1": 977,
+      "y1": 921
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 18,
+    "type": "Text",
+    "text": "NVIDIA powers all 30 of the 30 top autonomous vehicle data centers.",
+    "bbox_normalized": {
+      "xmin": 0.5754260416666667,
+      "ymin": 0.4531,
+      "xmax": 0.832175,
+      "ymax": 0.475
+    },
+    "bbox_pixels": {
+      "x0": 883,
+      "y0": 927,
+      "x1": 1278,
+      "y1": 972
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 19,
+    "type": "Section-header",
+    "text": "**AI Factories**",
+    "bbox_normalized": {
+      "xmin": 0.5754260416666667,
+      "ymin": 0.4844,
+      "xmax": 0.6362604166666667,
+      "ymax": 0.4953
+    },
+    "bbox_pixels": {
+      "x0": 883,
+      "y0": 992,
+      "x1": 977,
+      "y1": 1014
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 20,
+    "type": "Text",
+    "text": "More than 40,000 companies use NVIDIA AI technology to power AI factories.",
+    "bbox_normalized": {
+      "xmin": 0.5754260416666667,
+      "ymin": 0.4977,
+      "xmax": 0.8750916666666667,
+      "ymax": 0.5195
+    },
+    "bbox_pixels": {
+      "x0": 883,
+      "y0": 1019,
+      "x1": 1344,
+      "y1": 1063
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 21,
+    "type": "Section-header",
+    "text": "**Digital Twins**",
+    "bbox_normalized": {
+      "xmin": 0.5754260416666667,
+      "ymin": 0.5312,
+      "xmax": 0.6414104166666666,
+      "ymax": 0.5414
+    },
+    "bbox_pixels": {
+      "x0": 883,
+      "y0": 1087,
+      "x1": 985,
+      "y1": 1108
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 22,
+    "type": "Text",
+    "text": "NVIDIA OmniverseTM is used by thousands of developers, including leaders in industrial simulation, automation, and robotics.",
+    "bbox_normalized": {
+      "xmin": 0.5754260416666667,
+      "ymin": 0.543,
+      "xmax": 0.8761645833333334,
+      "ymax": 0.5648
+    },
+    "bbox_pixels": {
+      "x0": 883,
+      "y0": 1112,
+      "x1": 1345,
+      "y1": 1156
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 23,
+    "type": "Section-header",
+    "text": "**Gaming**",
+    "bbox_normalized": {
+      "xmin": 0.5754260416666667,
+      "ymin": 0.5758,
+      "xmax": 0.61523125,
+      "ymax": 0.5859
+    },
+    "bbox_pixels": {
+      "x0": 883,
+      "y0": 1179,
+      "x1": 944,
+      "y1": 1199
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 24,
+    "type": "Text",
+    "text": "More than 200 million gamers and creators use NVIDIA GeForce<sup>®</sup> GPUs.",
+    "bbox_normalized": {
+      "xmin": 0.5754260416666667,
+      "ymin": 0.5883,
+      "xmax": 0.832175,
+      "ymax": 0.6094
+    },
+    "bbox_pixels": {
+      "x0": 883,
+      "y0": 1204,
+      "x1": 1278,
+      "y1": 1248
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 25,
+    "type": "Section-header",
+    "text": "**Healthcare**",
+    "bbox_normalized": {
+      "xmin": 0.5754260416666667,
+      "ymin": 0.6203,
+      "xmax": 0.6341145833333334,
+      "ymax": 0.6305
+    },
+    "bbox_pixels": {
+      "x0": 883,
+      "y0": 1270,
+      "x1": 974,
+      "y1": 1291
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 26,
+    "type": "Text",
+    "text": "Over 4 million developers have downloaded the MONAI framework for AI in medical imaging.",
+    "bbox_normalized": {
+      "xmin": 0.5754260416666667,
+      "ymin": 0.6328,
+      "xmax": 0.8803489583333334,
+      "ymax": 0.6555
+    },
+    "bbox_pixels": {
+      "x0": 883,
+      "y0": 1295,
+      "x1": 1352,
+      "y1": 1342
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 27,
+    "type": "Section-header",
+    "text": "**Robotics**",
+    "bbox_normalized": {
+      "xmin": 0.5754260416666667,
+      "ymin": 0.6648,
+      "xmax": 0.622634375,
+      "ymax": 0.675
+    },
+    "bbox_pixels": {
+      "x0": 883,
+      "y0": 1361,
+      "x1": 956,
+      "y1": 1382
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 28,
+    "type": "Text",
+    "text": "More than 1.7 million developers use the NVIDIA JetsonTM platform for edge AI.",
+    "bbox_normalized": {
+      "xmin": 0.5754260416666667,
+      "ymin": 0.6781,
+      "xmax": 0.8772375,
+      "ymax": 0.7
+    },
+    "bbox_pixels": {
+      "x0": 883,
+      "y0": 1388,
+      "x1": 1347,
+      "y1": 1433
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 29,
+    "type": "Page-footer",
+    "text": "NVIDIA in Brief 2025",
+    "bbox_normalized": {
+      "xmin": 0.8383979166666666,
+      "ymin": 0.7141,
+      "xmax": 0.90234375,
+      "ymax": 0.7219
+    },
+    "bbox_pixels": {
+      "x0": 1287,
+      "y0": 1462,
+      "x1": 1386,
+      "y1": 1478
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 30,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.8436552083333333,
+      "ymin": 0.2867,
+      "xmax": 0.889790625,
+      "ymax": 0.3094
+    },
+    "bbox_pixels": {
+      "x0": 1295,
+      "y0": 587,
+      "x1": 1366,
+      "y1": 633
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 31,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.5219947916666666,
+      "ymin": 0.4414,
+      "xmax": 0.557615625,
+      "ymax": 0.468
+    },
+    "bbox_pixels": {
+      "x0": 801,
+      "y0": 903,
+      "x1": 856,
+      "y1": 958
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 32,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.520921875,
+      "ymin": 0.4875,
+      "xmax": 0.5607270833333333,
+      "ymax": 0.5086
+    },
+    "bbox_pixels": {
+      "x0": 800,
+      "y0": 998,
+      "x1": 861,
+      "y1": 1041
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 33,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.5188833333333333,
+      "ymin": 0.532,
+      "xmax": 0.5607270833333333,
+      "ymax": 0.5578
+    },
+    "bbox_pixels": {
+      "x0": 797,
+      "y0": 1089,
+      "x1": 861,
+      "y1": 1142
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 34,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.51995625,
+      "ymin": 0.5766,
+      "xmax": 0.5607270833333333,
+      "ymax": 0.5969
+    },
+    "bbox_pixels": {
+      "x0": 798,
+      "y0": 1180,
+      "x1": 861,
+      "y1": 1222
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 35,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.520921875,
+      "ymin": 0.6219,
+      "xmax": 0.5607270833333333,
+      "ymax": 0.6461
+    },
+    "bbox_pixels": {
+      "x0": 800,
+      "y0": 1273,
+      "x1": 861,
+      "y1": 1323
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 36,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.5241406249999999,
+      "ymin": 0.6672,
+      "xmax": 0.5607270833333333,
+      "ymax": 0.6953
+    },
+    "bbox_pixels": {
+      "x0": 805,
+      "y0": 1366,
+      "x1": 861,
+      "y1": 1423
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 37,
+    "type": "Caption",
+    "text": "NVIDIA",
+    "bbox_normalized": {
+      "xmin": 0.8416166666666668,
+      "ymin": 0.3109,
+      "xmax": 0.8992322916666667,
+      "ymax": 0.3219
+    },
+    "bbox_pixels": {
+      "x0": 1292,
+      "y0": 636,
+      "x1": 1381,
+      "y1": 659
+    },
+    "is_valid": true
+  }
+]

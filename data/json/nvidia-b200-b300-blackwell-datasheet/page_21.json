@@ -1,0 +1,116 @@
+[
+  {
+    "page": 21,
+    "block_id": 0,
+    "type": "Page-header",
+    "text": "NVIDIA Grace Blackwell Ultra / Blackwell NVL72",
+    "bbox_normalized": {
+      "xmin": 0.5178104166666666,
+      "ymin": 0.1781,
+      "xmax": 0.7336812500000001,
+      "ymax": 0.1867
+    },
+    "bbox_pixels": {
+      "x0": 795,
+      "y0": 364,
+      "x1": 1126,
+      "y1": 382
+    },
+    "is_valid": true
+  },
+  {
+    "page": 21,
+    "block_id": 1,
+    "type": "Text",
+    "text": "GB200 includes a faster Transformer Engine featuring FP8 precision and delivers 4X faster training performance for large language models like GPT-MoE-1.8T compared to the NVIDIA Hopper GPU generation. The performance boost provides a 9X reduction in rack space and a 3.5X reduction in TCO and energy usage. This breakthrough is complemented by the fifth-generation NVLink (which enables 1.8 TB/s of GPU-to-GPU interconnect and a larger 72-GPU NVLink domain), InfiniBand networking, and NVIDIA Magnum IOTM software. Together, these ensure efficient scalability for enterprises and facilitate the implementation of extensive GPU computing clusters.",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.5852,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.6727
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 1198,
+      "x1": 1155,
+      "y1": 1377
+    },
+    "is_valid": true
+  },
+  {
+    "page": 21,
+    "block_id": 2,
+    "type": "Page-footer",
+    "text": "NVIDIA Blackwell Architecture Technical Brief 21",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.7625,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.7836
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 1561,
+      "x1": 1155,
+      "y1": 1604
+    },
+    "is_valid": true
+  },
+  {
+    "page": 21,
+    "block_id": 3,
+    "type": "Picture",
+    "text": "120 116 100 Output Tokens per Second per GPU 80 60 30X 40 20 3.5 0\nHGX H100 GB200 NVL72",
+    "bbox_normalized": {
+      "xmin": 0.3135270833333333,
+      "ymin": 0.2492,
+      "xmax": 0.684434375,
+      "ymax": 0.4742
+    },
+    "bbox_pixels": {
+      "x0": 481,
+      "y0": 510,
+      "x1": 1051,
+      "y1": 971
+    },
+    "is_valid": true
+  },
+  {
+    "page": 21,
+    "block_id": 4,
+    "type": "Caption",
+    "text": "Projected performance subject to change. Token-to-token latency (TTL) = 50 milliseconds (ms) real time, first token latency (FTL) = 5s, input sequence length = 32,768, output sequence length = 1,024 output, 8x eight-way HGX H100 air-cooled: 400GB IB Network vs 18 GB200 Superchip liquid-cooled: NVL72, per GPU performance comparison",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.4945,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.5297
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 1012,
+      "x1": 1155,
+      "y1": 1084
+    },
+    "is_valid": true
+  },
+  {
+    "page": 21,
+    "block_id": 5,
+    "type": "Caption",
+    "text": "Figure 10. GB200 1.8T GPT-MoE Real-Time Inference Performance Using Second-Generation Transformer Engine Next-Level AI Training Performance",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.5414,
+      "xmax": 0.7462343750000001,
+      "ymax": 0.5656
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 1108,
+      "x1": 1146,
+      "y1": 1158
+    },
+    "is_valid": true
+  }
+]

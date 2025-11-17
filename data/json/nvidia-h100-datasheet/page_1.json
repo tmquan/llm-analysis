@@ -1,0 +1,287 @@
+[
+  {
+    "page": 1,
+    "block_id": 0,
+    "type": "Title",
+    "text": "# NVIDIA H100 Tensor Core GPU",
+    "bbox_normalized": {
+      "xmin": 0.20763020833333334,
+      "ymin": 0.2727,
+      "xmax": 0.5754260416666667,
+      "ymax": 0.2875
+    },
+    "bbox_pixels": {
+      "x0": 318,
+      "y0": 558,
+      "x1": 883,
+      "y1": 588
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 1,
+    "type": "Text",
+    "text": "Extraordinary performance, scalability, and security for every data center.",
+    "bbox_normalized": {
+      "xmin": 0.20763020833333334,
+      "ymin": 0.2984,
+      "xmax": 0.4780052083333333,
+      "ymax": 0.3227
+    },
+    "bbox_pixels": {
+      "x0": 318,
+      "y0": 611,
+      "x1": 734,
+      "y1": 660
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 2,
+    "type": "Section-header",
+    "text": "### An Order-of-Magnitude Leap for Accelerated Computing",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.3672,
+      "xmax": 0.5597614583333334,
+      "ymax": 0.3766
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 752,
+      "x1": 859,
+      "y1": 771
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 3,
+    "type": "Text",
+    "text": "The NVIDIA H100 Tensor Core GPU delivers exceptional performance, scalability, and security for every workload. H100 uses breakthrough innovations based on the **NVIDIA HopperTM architecture** to deliver industry-leading conversational AI, speeding up large language models by 30X.",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.3836,
+      "xmax": 0.5670572916666666,
+      "ymax": 0.4234
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 785,
+      "x1": 871,
+      "y1": 867
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 4,
+    "type": "Section-header",
+    "text": "### Securely Accelerate Workloads From Enterprise to Exascale",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.4375,
+      "xmax": 0.574353125,
+      "ymax": 0.4469
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 896,
+      "x1": 882,
+      "y1": 915
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 5,
+    "type": "Text",
+    "text": "H100 features fourth-generation Tensor Cores and a Transformer Engine with FP8 precision that provides up to 4X faster training over the prior generation for GPT-3 (175B) models. For high-performance computing (HPC) applications, H100 triples the floating-point operations per second (FLOPS) of double-precision Tensor Cores, delivering 60 teraflops of FP64 computing for HPC while also featuring dynamic programming (DPX) instructions to deliver up to 7X higher performance. With second-generation Multi-Instance GPU (MIG), built-in NVIDIA Confidential Computing, and NVIDIA NVLink Switch System, H100 securely accelerates all workloads for every data center, from enterprise to exascale.",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.4539,
+      "xmax": 0.585940625,
+      "ymax": 0.5484
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 929,
+      "x1": 900,
+      "y1": 1123
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 6,
+    "type": "Section-header",
+    "text": "### Supercharge Large Language Model Inference With H100 NVL",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.5633,
+      "xmax": 0.5890520833333334,
+      "ymax": 0.5727
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 1153,
+      "x1": 904,
+      "y1": 1172
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 7,
+    "type": "Text",
+    "text": "For LLMs up to 70 billion parameters (Llama 2 70B), the PCIe-based NVIDIA H100 NVL with NVLink bridge utilizes Transformer Engine, NVLink, and 188GB HBM3 memory to provide optimum performance and easy scaling across any data center, bringing LLMs to the mainstream. Servers equipped with H100 NVL GPUs increase Llama 2 70B model performance up to 5X over NVIDIA A100 systems while maintaining low latency in power-constrained data center environments.",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.5789,
+      "xmax": 0.5837947916666666,
+      "ymax": 0.6406
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 1185,
+      "x1": 896,
+      "y1": 1311
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 8,
+    "type": "Section-header",
+    "text": "### Enterprise-Ready: AI Software Streamlines Development and Deployment",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.6555,
+      "xmax": 0.5597614583333334,
+      "ymax": 0.6766
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 1342,
+      "x1": 859,
+      "y1": 1385
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 9,
+    "type": "Text",
+    "text": "NVIDIA H100 NVL comes with a five-year **NVIDIA AI Enterprise** subscription and simplifies the way you build an enterprise AI-ready platform. H100 accelerates AI development and deployment for production-ready generative AI solutions, including computer vision, speech AI, retrieval augmented generation (RAG), and more. NVIDIA AI Enterprise includes **NVIDIA NIM**TM--a set of easy-to-use microservices designed to speed up enterprise generative AI deployment. Together, deployments have enterprise- grade security, manageability, stability, and support. This results in performance- optimized AI solutions that deliver faster business value and actionable insights.",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.6828,
+      "xmax": 0.5901249999999999,
+      "ymax": 0.7672
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 1398,
+      "x1": 906,
+      "y1": 1571
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 10,
+    "type": "Page-footer",
+    "text": "NVIDIA H100 Tensor Core GPU | Datasheet | 1",
+    "bbox_normalized": {
+      "xmin": 0.6037510416666667,
+      "ymin": 0.8023,
+      "xmax": 0.7923697916666667,
+      "ymax": 0.8086
+    },
+    "bbox_pixels": {
+      "x0": 927,
+      "y0": 1643,
+      "x1": 1217,
+      "y1": 1656
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 11,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.2273,
+      "xmax": 0.23595520833333336,
+      "ymax": 0.243
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 465,
+      "x1": 362,
+      "y1": 497
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 12,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.5901249999999999,
+      "ymin": 0.1773,
+      "xmax": 0.8311020833333332,
+      "ymax": 0.3383
+    },
+    "bbox_pixels": {
+      "x0": 906,
+      "y0": 363,
+      "x1": 1276,
+      "y1": 692
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 13,
+    "type": "Caption",
+    "text": "Datasheet",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.2141,
+      "xmax": 0.2600958333333333,
+      "ymax": 0.2203
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 438,
+      "x1": 399,
+      "y1": 451
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 14,
+    "type": "Caption",
+    "text": "**NVIDIA**",
+    "bbox_normalized": {
+      "xmin": 0.2401395833333333,
+      "ymin": 0.2281,
+      "xmax": 0.31245416666666664,
+      "ymax": 0.2414
+    },
+    "bbox_pixels": {
+      "x0": 368,
+      "y0": 467,
+      "x1": 479,
+      "y1": 494
+    },
+    "is_valid": true
+  }
+]

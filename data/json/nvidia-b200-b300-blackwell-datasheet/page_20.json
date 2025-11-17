@@ -1,0 +1,154 @@
+[
+  {
+    "page": 20,
+    "block_id": 0,
+    "type": "Page-header",
+    "text": "NVIDIA Grace Blackwell Ultra / Blackwell NVL72",
+    "bbox_normalized": {
+      "xmin": 0.5146989583333333,
+      "ymin": 0.1766,
+      "xmax": 0.737865625,
+      "ymax": 0.1883
+    },
+    "bbox_pixels": {
+      "x0": 790,
+      "y0": 361,
+      "x1": 1133,
+      "y1": 385
+    },
+    "is_valid": true
+  },
+  {
+    "page": 20,
+    "block_id": 1,
+    "type": "Section-header",
+    "text": "## Real-Time Inference for the Next Generation of Large Language Models",
+    "bbox_normalized": {
+      "xmin": 0.24228541666666661,
+      "ymin": 0.4805,
+      "xmax": 0.7535302083333333,
+      "ymax": 0.5125
+    },
+    "bbox_pixels": {
+      "x0": 372,
+      "y0": 984,
+      "x1": 1157,
+      "y1": 1049
+    },
+    "is_valid": true
+  },
+  {
+    "page": 20,
+    "block_id": 2,
+    "type": "Text",
+    "text": "The GB200 NVL72 introduces cutting-edge capabilities and a second-generation Transformer Engine that significantly accelerates LLM inference workloads, enabling real- time performance for resource-intensive applications like multi-trillion parameter language models. GB200 NVL72 delivers a 30X speedup compared to H100 with 25X lower TCO and 25X less energy with the same number of GPUs for massive models such as a GPT-MoE- 1.8. This advancement is made possible with a new generation of Tensor Cores, which introduce new precisions including FP4. Additionally, the GB200 utilizes NVLink and liquid cooling to create a single massive 72-GPU rack that can overcome communication bottlenecks.",
+    "bbox_normalized": {
+      "xmin": 0.24228541666666661,
+      "ymin": 0.5195,
+      "xmax": 0.7546031249999999,
+      "ymax": 0.6211
+    },
+    "bbox_pixels": {
+      "x0": 372,
+      "y0": 1063,
+      "x1": 1159,
+      "y1": 1272
+    },
+    "is_valid": true
+  },
+  {
+    "page": 20,
+    "block_id": 3,
+    "type": "Text",
+    "text": "The GB200 is a revolutionary solution for high-performance inference tasks, showcasing NVIDIA’s commitment to pushing the boundaries of AI.",
+    "bbox_normalized": {
+      "xmin": 0.24228541666666661,
+      "ymin": 0.6328,
+      "xmax": 0.7389385416666667,
+      "ymax": 0.6555
+    },
+    "bbox_pixels": {
+      "x0": 372,
+      "y0": 1295,
+      "x1": 1135,
+      "y1": 1342
+    },
+    "is_valid": true
+  },
+  {
+    "page": 20,
+    "block_id": 4,
+    "type": "Page-footer",
+    "text": "20 NVIDIA Blackwell Architecture Technical Brief",
+    "bbox_normalized": {
+      "xmin": 0.24228541666666661,
+      "ymin": 0.7617,
+      "xmax": 0.7546031249999999,
+      "ymax": 0.7844
+    },
+    "bbox_pixels": {
+      "x0": 372,
+      "y0": 1559,
+      "x1": 1159,
+      "y1": 1606
+    },
+    "is_valid": true
+  },
+  {
+    "page": 20,
+    "block_id": 5,
+    "type": "Picture",
+    "text": "NVIDIA Blackwell AI Reasoning Factory Output 40X Hopper 1,000,000 EP64PP2+PP4, Batch 480, 52% Context EP64PP2+PP4, Batch 224, 10% Context 900,000 EP64PP2+PP4, Batch 160, 48% Context EP64PP4+PP4, Batch 224, 48% Context 800,000 EP64PP4+PP4, Batch 160, 48% Context 700,000 EP64+EP4, Batch 32, 47% Context, MTP On 600,000 EP64+EP4, Batch 16, 48% Context, MTP On 500,000 EP64+EP4, Batch 8, 38% Context, MTP On 400,000 EP64+EP4, Batch 2, 19% Context, MTP On / / / TP5/MW Blackwell FP4 TP5/MP4, Batch 1, 26/Contact, MTP On 300,000 Hopper FPB NVL72 Dynamo 200,000 NVL8 Dynamo TP52+EP4, Batch 1, 1% Context, MTP On 100,000 0\n100 200 300 400 500 600 TPS for 1 User Smart AI Fast Response",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.2359,
+      "xmax": 0.7535302083333333,
+      "ymax": 0.4258
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 483,
+      "x1": 1157,
+      "y1": 872
+    },
+    "is_valid": true
+  },
+  {
+    "page": 20,
+    "block_id": 6,
+    "type": "Caption",
+    "text": "DeepSeek R1, 1 MW, FP4, NVL72, Dynamo, and TRT-LLM Continuous Optimization 32K ISL / 8K OSL",
+    "bbox_normalized": {
+      "xmin": 0.24228541666666661,
+      "ymin": 0.4273,
+      "xmax": 0.6235999999999999,
+      "ymax": 0.4453
+    },
+    "bbox_pixels": {
+      "x0": 372,
+      "y0": 875,
+      "x1": 957,
+      "y1": 911
+    },
+    "is_valid": true
+  },
+  {
+    "page": 20,
+    "block_id": 7,
+    "type": "Caption",
+    "text": "Figure 9. GB200 Delivers 40X AI Factory Output Increase for AI Reasoning",
+    "bbox_normalized": {
+      "xmin": 0.24228541666666661,
+      "ymin": 0.4547,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.4719
+    },
+    "bbox_pixels": {
+      "x0": 372,
+      "y0": 931,
+      "x1": 1155,
+      "y1": 966
+    },
+    "is_valid": true
+  }
+]

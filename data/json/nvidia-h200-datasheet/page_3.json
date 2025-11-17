@@ -1,0 +1,116 @@
+[
+  {
+    "page": 3,
+    "block_id": 0,
+    "type": "Text",
+    "text": "NVIDIA H200 NVL is ideal for lower-power, air-cooled enterprise rack designs that require flexible configurations, delivering acceleration for every AI and HPC workload regardless of size. With up to four GPUs connected by NVIDIA NVLinkTM and a 1.5X memory increase, large language model (LLM) inference can be accelerated up to 1.7X and HPC applications achieve up to 1.3X more performance over the H100 NVL.",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.4727,
+      "xmax": 0.5901249999999999,
+      "ymax": 0.5258
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 968,
+      "x1": 906,
+      "y1": 1076
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 1,
+    "type": "Section-header",
+    "text": "## Enterprise-Ready: AI Software Streamlines Development and Deployment",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.5375,
+      "xmax": 0.5565427083333333,
+      "ymax": 0.5602
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 1100,
+      "x1": 854,
+      "y1": 1147
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 2,
+    "type": "Text",
+    "text": "NVIDIA H200 NVL comes with a five-year NVIDIA AI Enterprise subscription and simplifies the way you build an enterprise AI-ready platform. H200 accelerates AI development and deployment for production-ready generative AI solutions, including computer vision, speech AI, retrieval augmented generation (RAG), and more. NVIDIA AI Enterprise includes **NVIDIA NIM**TM, a set of easy-to-use microservices designed to speed up enterprise generative AI deployment. Together, deployments have enterprise-grade security, manageability, stability, and support. This results in performance-optimized AI solutions that deliver faster business value and actionable insights.",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.5656,
+      "xmax": 0.5879791666666666,
+      "ymax": 0.6617
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 1158,
+      "x1": 903,
+      "y1": 1355
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 3,
+    "type": "Page-footer",
+    "text": "NVIDIA H200 Tensor Core GPU | Datasheet | 3",
+    "bbox_normalized": {
+      "xmin": 0.5995666666666667,
+      "ymin": 0.8016,
+      "xmax": 0.7923697916666667,
+      "ymax": 0.8086
+    },
+    "bbox_pixels": {
+      "x0": 920,
+      "y0": 1641,
+      "x1": 1217,
+      "y1": 1656
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 4,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.2391,
+      "xmax": 0.5901249999999999,
+      "ymax": 0.4594
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 489,
+      "x1": 906,
+      "y1": 940
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 5,
+    "type": "Caption",
+    "text": "**AI Acceleration for Mainstream Enterprise Servers With H200 NVL**",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.2062,
+      "xmax": 0.549246875,
+      "ymax": 0.2258
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 422,
+      "x1": 843,
+      "y1": 462
+    },
+    "is_valid": true
+  }
+]

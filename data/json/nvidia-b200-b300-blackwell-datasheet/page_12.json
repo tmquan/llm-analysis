@@ -1,0 +1,78 @@
+[
+  {
+    "page": 12,
+    "block_id": 0,
+    "type": "Page-header",
+    "text": "NVIDIA Blackwell Architectural Innovations",
+    "bbox_normalized": {
+      "xmin": 0.5188833333333333,
+      "ymin": 0.1789,
+      "xmax": 0.7147979166666668,
+      "ymax": 0.1852
+    },
+    "bbox_pixels": {
+      "x0": 797,
+      "y0": 366,
+      "x1": 1097,
+      "y1": 379
+    },
+    "is_valid": true
+  },
+  {
+    "page": 12,
+    "block_id": 1,
+    "type": "Text",
+    "text": "predict and intercept sources of downtime and inefficiency. This builds intelligent resilience that saves time, energy, and computing costs.",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.2375,
+      "xmax": 0.701171875,
+      "ymax": 0.2578
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 486,
+      "x1": 1077,
+      "y1": 527
+    },
+    "is_valid": true
+  },
+  {
+    "page": 12,
+    "block_id": 2,
+    "type": "Text",
+    "text": "NVIDIA’s RAS engine provides in-depth diagnostic information that can identify areas of concern and plan for maintenance. The RAS engine reduces turnaround time by quickly localizing the source of issues and minimizes downtime by facilitating effective remediation. Administrators can flexibly adjust compute resources and optimal checkpoint strategies to facilitate uninterrupted large-scale training jobs. If the RAS engine identifies that a replacement component is needed, stand-by capacity is activated to ensure work finishes on time with the least performance degradation. Any hardware replacements that are required can be scheduled to avoid unplanned downtime.",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.2711,
+      "xmax": 0.7514916666666668,
+      "ymax": 0.3594
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 555,
+      "x1": 1154,
+      "y1": 736
+    },
+    "is_valid": true
+  },
+  {
+    "page": 12,
+    "block_id": 3,
+    "type": "Page-footer",
+    "text": "NVIDIA Blackwell Architecture Technical Brief 12",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.7711,
+      "xmax": 0.7535302083333333,
+      "ymax": 0.7906
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 1579,
+      "x1": 1157,
+      "y1": 1619
+    },
+    "is_valid": true
+  }
+]

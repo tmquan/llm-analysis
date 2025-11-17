@@ -1,0 +1,553 @@
+[
+  {
+    "page": 3,
+    "block_id": 0,
+    "type": "Section-header",
+    "text": "## Explore the Technology Breakthroughs of NVIDIA Hopper",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.2039,
+      "xmax": 0.565984375,
+      "ymax": 0.2164
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 417,
+      "x1": 869,
+      "y1": 443
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 1,
+    "type": "Section-header",
+    "text": "# NVIDIA H100 Tensor Core GPU",
+    "bbox_normalized": {
+      "xmin": 0.262134375,
+      "ymin": 0.2289,
+      "xmax": 0.3575166666666667,
+      "ymax": 0.2445
+    },
+    "bbox_pixels": {
+      "x0": 402,
+      "y0": 468,
+      "x1": 549,
+      "y1": 500
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 2,
+    "type": "Text",
+    "text": "Built with 80 billion transistors using a cutting-edge TSMC 4N process custom tailored for",
+    "bbox_normalized": {
+      "xmin": 0.262134375,
+      "ymin": 0.2422,
+      "xmax": 0.388953125,
+      "ymax": 0.2641
+    },
+    "bbox_pixels": {
+      "x0": 402,
+      "y0": 496,
+      "x1": 597,
+      "y1": 540
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 3,
+    "type": "Text",
+    "text": "NVIDIA’s accelerated compute needs, H100 features major advances to accelerate AI, HPC, memory bandwidth, interconnect, and communication at data center scale.",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.2719,
+      "xmax": 0.38584166666666664,
+      "ymax": 0.3031
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 556,
+      "x1": 592,
+      "y1": 620
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 4,
+    "type": "Section-header",
+    "text": "# Transformer Engine",
+    "bbox_normalized": {
+      "xmin": 0.4643791666666666,
+      "ymin": 0.2289,
+      "xmax": 0.5555770833333332,
+      "ymax": 0.2367
+    },
+    "bbox_pixels": {
+      "x0": 713,
+      "y0": 468,
+      "x1": 853,
+      "y1": 484
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 5,
+    "type": "Text",
+    "text": "The Transformer Engine uses software and Hopper Tensor Core technology designed to accelerate training for models",
+    "bbox_normalized": {
+      "xmin": 0.4643791666666666,
+      "ymin": 0.2406,
+      "xmax": 0.5837947916666666,
+      "ymax": 0.2719
+    },
+    "bbox_pixels": {
+      "x0": 713,
+      "y0": 492,
+      "x1": 896,
+      "y1": 556
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 6,
+    "type": "Text",
+    "text": "built from the world’s most important AI model building block, the transformer. Hopper Tensor Cores can apply mixed FP8 and FP16 precisions to dramatically accelerate AI calculations for transformers.",
+    "bbox_normalized": {
+      "xmin": 0.4078364583333334,
+      "ymin": 0.2719,
+      "xmax": 0.5901249999999999,
+      "ymax": 0.3109
+    },
+    "bbox_pixels": {
+      "x0": 626,
+      "y0": 556,
+      "x1": 906,
+      "y1": 636
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 7,
+    "type": "Section-header",
+    "text": "# NVLink Switch System",
+    "bbox_normalized": {
+      "xmin": 0.6666239583333334,
+      "ymin": 0.2289,
+      "xmax": 0.770375,
+      "ymax": 0.2367
+    },
+    "bbox_pixels": {
+      "x0": 1023,
+      "y0": 468,
+      "x1": 1183,
+      "y1": 484
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 8,
+    "type": "Text",
+    "text": "The NVLink Switch System enables the scaling of multi- GPU input/output (IO) across multiple servers at 900",
+    "bbox_normalized": {
+      "xmin": 0.6666239583333334,
+      "ymin": 0.2406,
+      "xmax": 0.7818552083333334,
+      "ymax": 0.2719
+    },
+    "bbox_pixels": {
+      "x0": 1023,
+      "y0": 492,
+      "x1": 1200,
+      "y1": 556
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 9,
+    "type": "Text",
+    "text": "gigabytes per second (GB/s) bidirectional per GPU, over 7X the bandwidth of PCIe Gen5. The system delivers 9X higher bandwidth than InfiniBand HDR on the NVIDIA Ampere architecture.",
+    "bbox_normalized": {
+      "xmin": 0.6099739583333333,
+      "ymin": 0.2727,
+      "xmax": 0.7891510416666666,
+      "ymax": 0.3102
+    },
+    "bbox_pixels": {
+      "x0": 936,
+      "y0": 558,
+      "x1": 1212,
+      "y1": 635
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 10,
+    "type": "Section-header",
+    "text": "# NVIDIA Confidential Computing",
+    "bbox_normalized": {
+      "xmin": 0.2632072916666667,
+      "ymin": 0.3367,
+      "xmax": 0.35644375,
+      "ymax": 0.3531
+    },
+    "bbox_pixels": {
+      "x0": 404,
+      "y0": 689,
+      "x1": 547,
+      "y1": 723
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 11,
+    "type": "Text",
+    "text": "NVIDIA H100 brings high- performance security to",
+    "bbox_normalized": {
+      "xmin": 0.2632072916666667,
+      "ymin": 0.3648,
+      "xmax": 0.36803125000000003,
+      "ymax": 0.3719
+    },
+    "bbox_pixels": {
+      "x0": 404,
+      "y0": 747,
+      "x1": 565,
+      "y1": 761
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 12,
+    "type": "Text",
+    "text": "workloads with confidentiality and integrity. Confidential Computing delivers hardware- based protection for data and applications in use.",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.3727,
+      "xmax": 0.38584166666666664,
+      "ymax": 0.4031
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 763,
+      "x1": 592,
+      "y1": 825
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 13,
+    "type": "Section-header",
+    "text": "# Second-Generation Multi-Instance GPU (MIG)",
+    "bbox_normalized": {
+      "xmin": 0.4643791666666666,
+      "ymin": 0.3367,
+      "xmax": 0.582721875,
+      "ymax": 0.3531
+    },
+    "bbox_pixels": {
+      "x0": 713,
+      "y0": 689,
+      "x1": 895,
+      "y1": 723
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 14,
+    "type": "Text",
+    "text": "The Hopper architecture’s second-generation MIG",
+    "bbox_normalized": {
+      "xmin": 0.4643791666666666,
+      "ymin": 0.357,
+      "xmax": 0.5681302083333334,
+      "ymax": 0.3719
+    },
+    "bbox_pixels": {
+      "x0": 713,
+      "y0": 731,
+      "x1": 872,
+      "y1": 761
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 15,
+    "type": "Text",
+    "text": "supports multi-tenant, multi-user configurations in virtualized environments, securely partitioning the GPU into isolated, right-size instances to maximize quality of service (QoS) for 7X more secured tenants.",
+    "bbox_normalized": {
+      "xmin": 0.4088020833333333,
+      "ymin": 0.3727,
+      "xmax": 0.5785375,
+      "ymax": 0.4188
+    },
+    "bbox_pixels": {
+      "x0": 627,
+      "y0": 763,
+      "x1": 888,
+      "y1": 857
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 16,
+    "type": "Section-header",
+    "text": "# DPX Instructions",
+    "bbox_normalized": {
+      "xmin": 0.6666239583333334,
+      "ymin": 0.3375,
+      "xmax": 0.7462343750000001,
+      "ymax": 0.3453
+    },
+    "bbox_pixels": {
+      "x0": 1023,
+      "y0": 691,
+      "x1": 1146,
+      "y1": 707
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 17,
+    "type": "Text",
+    "text": "Hopper’s DPX instructions accelerate dynamic programming algorithms by",
+    "bbox_normalized": {
+      "xmin": 0.6666239583333334,
+      "ymin": 0.3492,
+      "xmax": 0.7734864583333333,
+      "ymax": 0.3719
+    },
+    "bbox_pixels": {
+      "x0": 1023,
+      "y0": 715,
+      "x1": 1188,
+      "y1": 761
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 18,
+    "type": "Text",
+    "text": "40X compared to CPUs and 7X compared to NVIDIA Ampere architecture GPUs. This leads to dramatically faster times in disease diagnosis, real-time routing optimizations, and graph analytics.",
+    "bbox_normalized": {
+      "xmin": 0.6099739583333333,
+      "ymin": 0.3727,
+      "xmax": 0.7860395833333333,
+      "ymax": 0.4117
+    },
+    "bbox_pixels": {
+      "x0": 936,
+      "y0": 763,
+      "x1": 1207,
+      "y1": 843
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 19,
+    "type": "Section-header",
+    "text": "## Ready to Get Started?",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.7195,
+      "xmax": 0.372215625,
+      "ymax": 0.732
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 1473,
+      "x1": 571,
+      "y1": 1499
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 20,
+    "type": "Text",
+    "text": "To learn more about the NVIDIA H100 Tensor Core GPU, visit: **www.nvidia.com/h100**",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.7398,
+      "xmax": 0.5439895833333334,
+      "ymax": 0.7602
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 1515,
+      "x1": 835,
+      "y1": 1556
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 21,
+    "type": "Text",
+    "text": "© 2024 NVIDIA Corporation and affiliates. All rights reserved. NVIDIA, the NVIDIA logo, DGX, HGX, Hopper, NVIDIA-Certified Systems, and NVLink are trademarks and/or registered trademarks of NVIDIA Corporation and affiliates in the U.S. and other countries. Other company and product names may be trademarks of the respective owners with which they are associated. 3440270. SEP24",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.7711,
+      "xmax": 0.5523583333333333,
+      "ymax": 0.7937
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 1579,
+      "x1": 848,
+      "y1": 1625
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 22,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.2289,
+      "xmax": 0.2568770833333333,
+      "ymax": 0.2664
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 468,
+      "x1": 394,
+      "y1": 545
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 23,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.4088020833333333,
+      "ymin": 0.2297,
+      "xmax": 0.4580489583333333,
+      "ymax": 0.2664
+    },
+    "bbox_pixels": {
+      "x0": 627,
+      "y0": 470,
+      "x1": 703,
+      "y1": 545
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 24,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.3305,
+      "xmax": 0.2568770833333333,
+      "ymax": 0.3656
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 676,
+      "x1": 394,
+      "y1": 748
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 25,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.409875,
+      "ymin": 0.3289,
+      "xmax": 0.4580489583333333,
+      "ymax": 0.3656
+    },
+    "bbox_pixels": {
+      "x0": 629,
+      "y0": 673,
+      "x1": 703,
+      "y1": 748
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 26,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.6099739583333333,
+      "ymin": 0.2297,
+      "xmax": 0.6582552083333333,
+      "ymax": 0.2664
+    },
+    "bbox_pixels": {
+      "x0": 936,
+      "y0": 470,
+      "x1": 1011,
+      "y1": 545
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 27,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.6099739583333333,
+      "ymin": 0.3305,
+      "xmax": 0.6582552083333333,
+      "ymax": 0.3664
+    },
+    "bbox_pixels": {
+      "x0": 936,
+      "y0": 676,
+      "x1": 1011,
+      "y1": 750
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 28,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.717909375,
+      "ymin": 0.75,
+      "xmax": 0.7954812499999999,
+      "ymax": 0.7937
+    },
+    "bbox_pixels": {
+      "x0": 1102,
+      "y0": 1536,
+      "x1": 1221,
+      "y1": 1625
+    },
+    "is_valid": true
+  }
+]

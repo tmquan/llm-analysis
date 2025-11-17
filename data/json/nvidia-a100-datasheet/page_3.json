@@ -1,0 +1,458 @@
+[
+  {
+    "page": 3,
+    "block_id": 0,
+    "type": "Text",
+    "text": "The NVIDIA A100 Tensor Core GPU is the flagship product of the NVIDIA data center platform for deep learning, HPC, and data analytics. The platform accelerates over 2,000 applications, including every major deep learning framework. A100 is available everywhere, from desktops to servers to cloud services, delivering both dramatic performance gains and cost-saving opportunities.",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.207,
+      "xmax": 0.557615625,
+      "ymax": 0.2602
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 423,
+      "x1": 856,
+      "y1": 532
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 1,
+    "type": "Title",
+    "text": "# OPTIMIZED SOFTWARE AND SERVICES FOR ENTERPRISE",
+    "bbox_normalized": {
+      "xmin": 0.20763020833333334,
+      "ymin": 0.2781,
+      "xmax": 0.4538645833333334,
+      "ymax": 0.3047
+    },
+    "bbox_pixels": {
+      "x0": 318,
+      "y0": 569,
+      "x1": 697,
+      "y1": 624
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 2,
+    "type": "Section-header",
+    "text": "# EVERY DEEP LEARNING FRAMEWORK",
+    "bbox_normalized": {
+      "xmin": 0.405690625,
+      "ymin": 0.3344,
+      "xmax": 0.594309375,
+      "ymax": 0.3406
+    },
+    "bbox_pixels": {
+      "x0": 623,
+      "y0": 684,
+      "x1": 912,
+      "y1": 697
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 3,
+    "type": "Section-header",
+    "text": "**2,000+ GPU-ACCELERATED APPLICATIONS**",
+    "bbox_normalized": {
+      "xmin": 0.3951760416666667,
+      "ymin": 0.4117,
+      "xmax": 0.6057895833333333,
+      "ymax": 0.4188
+    },
+    "bbox_pixels": {
+      "x0": 606,
+      "y0": 843,
+      "x1": 930,
+      "y1": 857
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 4,
+    "type": "Section-header",
+    "text": "Ready to Get Started?",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.6977,
+      "xmax": 0.327153125,
+      "ymax": 0.7063
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 1428,
+      "x1": 502,
+      "y1": 1446
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 5,
+    "type": "Text",
+    "text": "To learn more about the NVIDIA A100 Tensor Core GPU, visit<br> www.nvidia.com/a100",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.7195,
+      "xmax": 0.4643791666666666,
+      "ymax": 0.7359
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 1473,
+      "x1": 713,
+      "y1": 1507
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 6,
+    "type": "Page-footer",
+    "text": "© 2022 NVIDIA Corporation. All rights reserved. NVIDIA, the NVIDIA logo, DSX, HGX, NGC, NVIDIA-Certified Systems, NVLink, NVSwitch, and Vota are trademarks and/or registered trademarks of NVIDIA Corporation in the U.S. and other countries. Other company and product names may be trademarks of the respective companies with which they are associated. All other trademarks are property of their respective owners. 2188504, MAY22",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.7641,
+      "xmax": 0.5817562500000001,
+      "ymax": 0.7859
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 1564,
+      "x1": 893,
+      "y1": 1609
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 7,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.68861875,
+      "ymin": 0.275,
+      "xmax": 0.7871125,
+      "ymax": 0.2883
+    },
+    "bbox_pixels": {
+      "x0": 1057,
+      "y0": 563,
+      "x1": 1209,
+      "y1": 590
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 8,
+    "type": "Picture",
+    "text": "mxnet",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.3586,
+      "xmax": 0.32393437499999994,
+      "ymax": 0.3742
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 734,
+      "x1": 497,
+      "y1": 766
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 9,
+    "type": "Picture",
+    "text": "P T R R",
+    "bbox_normalized": {
+      "xmin": 0.3627739583333333,
+      "ymin": 0.3578,
+      "xmax": 0.471675,
+      "ymax": 0.3734
+    },
+    "bbox_pixels": {
+      "x0": 557,
+      "y0": 732,
+      "x1": 724,
+      "y1": 764
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 10,
+    "type": "Picture",
+    "text": "APACHE\nSPARK",
+    "bbox_normalized": {
+      "xmin": 0.5167375,
+      "ymin": 0.3539,
+      "xmax": 0.5796104166666667,
+      "ymax": 0.3781
+    },
+    "bbox_pixels": {
+      "x0": 793,
+      "y0": 724,
+      "x1": 890,
+      "y1": 774
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 11,
+    "type": "Picture",
+    "text": "TensorFlow",
+    "bbox_normalized": {
+      "xmin": 0.6257458333333333,
+      "ymin": 0.3609,
+      "xmax": 0.7336812500000001,
+      "ymax": 0.3758
+    },
+    "bbox_pixels": {
+      "x0": 961,
+      "y0": 739,
+      "x1": 1126,
+      "y1": 769
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 12,
+    "type": "Picture",
+    "text": "Attir nanoFluidX",
+    "bbox_normalized": {
+      "xmin": 0.25794999999999996,
+      "ymin": 0.4359,
+      "xmax": 0.35537083333333336,
+      "ymax": 0.4477
+    },
+    "bbox_pixels": {
+      "x0": 396,
+      "y0": 892,
+      "x1": 545,
+      "y1": 916
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 13,
+    "type": "Picture",
+    "text": "DS SIMULIA Abaqus",
+    "bbox_normalized": {
+      "xmin": 0.25794999999999996,
+      "ymin": 0.4602,
+      "xmax": 0.3648125,
+      "ymax": 0.4695
+    },
+    "bbox_pixels": {
+      "x0": 396,
+      "y0": 942,
+      "x1": 560,
+      "y1": 961
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 14,
+    "type": "Picture",
+    "text": "Attir ultraFluidX",
+    "bbox_normalized": {
+      "xmin": 0.38476875000000005,
+      "ymin": 0.4359,
+      "xmax": 0.4843354166666667,
+      "ymax": 0.4477
+    },
+    "bbox_pixels": {
+      "x0": 591,
+      "y0": 892,
+      "x1": 743,
+      "y1": 916
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 15,
+    "type": "Picture",
+    "text": "GAUSSIAN",
+    "bbox_normalized": {
+      "xmin": 0.38476875000000005,
+      "ymin": 0.4594,
+      "xmax": 0.4528989583333333,
+      "ymax": 0.4703
+    },
+    "bbox_pixels": {
+      "x0": 591,
+      "y0": 940,
+      "x1": 695,
+      "y1": 963
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 16,
+    "type": "Picture",
+    "text": "VASP",
+    "bbox_normalized": {
+      "xmin": 0.38476875000000005,
+      "ymin": 0.4828,
+      "xmax": 0.42875833333333335,
+      "ymax": 0.4945
+    },
+    "bbox_pixels": {
+      "x0": 591,
+      "y0": 988,
+      "x1": 658,
+      "y1": 1012
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 17,
+    "type": "Picture",
+    "text": "AMBER",
+    "bbox_normalized": {
+      "xmin": 0.5377666666666666,
+      "ymin": 0.4359,
+      "xmax": 0.5901249999999999,
+      "ymax": 0.4469
+    },
+    "bbox_pixels": {
+      "x0": 826,
+      "y0": 892,
+      "x1": 906,
+      "y1": 915
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 18,
+    "type": "Picture",
+    "text": "GROMACS",
+    "bbox_normalized": {
+      "xmin": 0.5377666666666666,
+      "ymin": 0.4594,
+      "xmax": 0.6016052083333333,
+      "ymax": 0.4695
+    },
+    "bbox_pixels": {
+      "x0": 826,
+      "y0": 940,
+      "x1": 924,
+      "y1": 961
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 19,
+    "type": "Picture",
+    "text": "WRF",
+    "bbox_normalized": {
+      "xmin": 0.5377666666666666,
+      "ymin": 0.4828,
+      "xmax": 0.5785375,
+      "ymax": 0.4945
+    },
+    "bbox_pixels": {
+      "x0": 826,
+      "y0": 988,
+      "x1": 888,
+      "y1": 1012
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 20,
+    "type": "Picture",
+    "text": "ANSYS Fluent",
+    "bbox_normalized": {
+      "xmin": 0.6508520833333332,
+      "ymin": 0.4359,
+      "xmax": 0.7326083333333333,
+      "ymax": 0.4477
+    },
+    "bbox_pixels": {
+      "x0": 999,
+      "y0": 892,
+      "x1": 1125,
+      "y1": 916
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 21,
+    "type": "Picture",
+    "text": "NAMD",
+    "bbox_normalized": {
+      "xmin": 0.6508520833333332,
+      "ymin": 0.4594,
+      "xmax": 0.6980604166666667,
+      "ymax": 0.4695
+    },
+    "bbox_pixels": {
+      "x0": 999,
+      "y0": 940,
+      "x1": 1072,
+      "y1": 961
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 22,
+    "type": "Picture",
+    "text": "OpenFOAM",
+    "bbox_normalized": {
+      "xmin": 0.25794999999999996,
+      "ymin": 0.4828,
+      "xmax": 0.32608020833333334,
+      "ymax": 0.4938
+    },
+    "bbox_pixels": {
+      "x0": 396,
+      "y0": 988,
+      "x1": 500,
+      "y1": 1011
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 23,
+    "type": "Picture",
+    "text": "NVIDIA",
+    "bbox_normalized": {
+      "xmin": 0.7347541666666667,
+      "ymin": 0.7516,
+      "xmax": 0.7954812499999999,
+      "ymax": 0.7852
+    },
+    "bbox_pixels": {
+      "x0": 1128,
+      "y0": 1539,
+      "x1": 1221,
+      "y1": 1608
+    },
+    "is_valid": true
+  }
+]

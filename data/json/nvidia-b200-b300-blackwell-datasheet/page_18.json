@@ -1,0 +1,173 @@
+[
+  {
+    "page": 18,
+    "block_id": 0,
+    "type": "Page-header",
+    "text": "NVIDIA Grace Blackwell Ultra / Blackwell NVL72",
+    "bbox_normalized": {
+      "xmin": 0.5146989583333333,
+      "ymin": 0.1758,
+      "xmax": 0.737865625,
+      "ymax": 0.1883
+    },
+    "bbox_pixels": {
+      "x0": 790,
+      "y0": 360,
+      "x1": 1133,
+      "y1": 385
+    },
+    "is_valid": true
+  },
+  {
+    "page": 18,
+    "block_id": 1,
+    "type": "Title",
+    "text": "## Accelerated Networking Platforms for Scalable, Secure, and High- Throughput AI Performance",
+    "bbox_normalized": {
+      "xmin": 0.24121249999999997,
+      "ymin": 0.2344,
+      "xmax": 0.7315354166666667,
+      "ymax": 0.2664
+    },
+    "bbox_pixels": {
+      "x0": 370,
+      "y0": 480,
+      "x1": 1123,
+      "y1": 545
+    },
+    "is_valid": true
+  },
+  {
+    "page": 18,
+    "block_id": 2,
+    "type": "Text",
+    "text": "GB300 NVL72, acting as a single, extremely powerful unit of computing, requires robust networking to achieve optimal application performance. Paired with NVIDIA Quantum- X800 InfiniBand, Spectrum-X Ethernet, Connect-X SuperNICs, and BlueField-3 DPUs, GB300 NVL72 delivers unprecedented levels of scalable performance, efficiency, and security in massive-scale AI data centers.",
+    "bbox_normalized": {
+      "xmin": 0.24121249999999997,
+      "ymin": 0.2836,
+      "xmax": 0.7389385416666667,
+      "ymax": 0.343
+    },
+    "bbox_pixels": {
+      "x0": 370,
+      "y0": 580,
+      "x1": 1135,
+      "y1": 702
+    },
+    "is_valid": true
+  },
+  {
+    "page": 18,
+    "block_id": 3,
+    "type": "Text",
+    "text": "With 800 Gb/s of total data throughput available for each GPU in the system, GB300 NVL72 seamlessly integrates with NVIDIA networking platforms, enabling AI factories and cloud data centers to handle trillion-parameter models without bottlenecks. The GB300 NVL72 architecture is the first to introduce PCIe Gen6 connectivity between GPU and ConnectX-8 SuperNIC, thus eliminating the need for a standalone PCIe switch interface.",
+    "bbox_normalized": {
+      "xmin": 0.24121249999999997,
+      "ymin": 0.3508,
+      "xmax": 0.7482729166666667,
+      "ymax": 0.4117
+    },
+    "bbox_pixels": {
+      "x0": 370,
+      "y0": 718,
+      "x1": 1149,
+      "y1": 843
+    },
+    "is_valid": true
+  },
+  {
+    "page": 18,
+    "block_id": 4,
+    "type": "Section-header",
+    "text": "### ConnectX-8 SuperNICs Enable Exceptional Inference Performance",
+    "bbox_normalized": {
+      "xmin": 0.24121249999999997,
+      "ymin": 0.4219,
+      "xmax": 0.7211281249999999,
+      "ymax": 0.4391
+    },
+    "bbox_pixels": {
+      "x0": 370,
+      "y0": 864,
+      "x1": 1107,
+      "y1": 899
+    },
+    "is_valid": true
+  },
+  {
+    "page": 18,
+    "block_id": 5,
+    "type": "Text",
+    "text": "The new NVIDIA ConnectX\\(^\\unknown\\)-8 SuperNICTM provides a full 800 gigabits per second (Gb/s) of network connectivity for each GPU in GB300 NVL72 systems. This delivers best-in-class remote direct-memory access (RDMA) capabilities with either NVIDIA Quantum-X800 InfiniBand or Spectrum-XTM Ethernet networking platforms, enabling peak AI workload efficiency. Additionally, the ConnectX-8 SuperNIC supports line-speed network encryption for Internet Protocol Security (IPsec) and PSP Protocol Security (PSP), bolstering the platform’s security with GPU-to-GPU connection encryption.",
+    "bbox_normalized": {
+      "xmin": 0.24121249999999997,
+      "ymin": 0.4492,
+      "xmax": 0.7514916666666668,
+      "ymax": 0.532
+    },
+    "bbox_pixels": {
+      "x0": 370,
+      "y0": 919,
+      "x1": 1154,
+      "y1": 1089
+    },
+    "is_valid": true
+  },
+  {
+    "page": 18,
+    "block_id": 6,
+    "type": "Section-header",
+    "text": "### Accelerating Real-Time Video Generation and Multi-modal AI Capabilities by 30X",
+    "bbox_normalized": {
+      "xmin": 0.24121249999999997,
+      "ymin": 0.5398,
+      "xmax": 0.6917302083333333,
+      "ymax": 0.5703
+    },
+    "bbox_pixels": {
+      "x0": 370,
+      "y0": 1105,
+      "x1": 1062,
+      "y1": 1167
+    },
+    "is_valid": true
+  },
+  {
+    "page": 18,
+    "block_id": 7,
+    "type": "Text",
+    "text": "Unlike state-of-the-art LLMs which operate within a context window of only 128,000 tokens, a single five second video generation processes four million tokens, requiring nearly 90 seconds to generate on today’s state-of-the-art NVIDIA Hopper GPUs. The Blackwell Ultra platform enables real-time video generation from world foundation models like NVIDIA Cosmos, providing a 30X performance improvement vs Hopper Generation and allows customers to create customized, photo-realistic, and temporally and spatially stable video and 3D world simulators for their Physical AI applications.",
+    "bbox_normalized": {
+      "xmin": 0.24121249999999997,
+      "ymin": 0.5773,
+      "xmax": 0.7535302083333333,
+      "ymax": 0.6586
+    },
+    "bbox_pixels": {
+      "x0": 370,
+      "y0": 1182,
+      "x1": 1157,
+      "y1": 1348
+    },
+    "is_valid": true
+  },
+  {
+    "page": 18,
+    "block_id": 8,
+    "type": "Page-footer",
+    "text": "NVIDIA Blackwell Architecture Technical Brief 18",
+    "bbox_normalized": {
+      "xmin": 0.24121249999999997,
+      "ymin": 0.768,
+      "xmax": 0.7556760416666667,
+      "ymax": 0.7922
+    },
+    "bbox_pixels": {
+      "x0": 370,
+      "y0": 1572,
+      "x1": 1160,
+      "y1": 1622
+    },
+    "is_valid": true
+  }
+]

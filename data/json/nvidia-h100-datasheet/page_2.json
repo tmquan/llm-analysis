@@ -1,0 +1,192 @@
+[
+  {
+    "page": 2,
+    "block_id": 0,
+    "type": "Page-footer",
+    "text": "NVIDIA H100 Tensor Core GPU | Datasheet | 2",
+    "bbox_normalized": {
+      "xmin": 0.6006395833333333,
+      "ymin": 0.8,
+      "xmax": 0.7933354166666667,
+      "ymax": 0.8094
+    },
+    "bbox_pixels": {
+      "x0": 922,
+      "y0": 1638,
+      "x1": 1218,
+      "y1": 1657
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 1,
+    "type": "Table",
+    "text": "\\begin{tabular}{ccc}\n\\multicolumn{3}{c}{**Technical Specifications**} \\\\ & **H100 SXM** & **H100 NVL** \\\\ **FP64** & 34 teraFLOPS & 30 teraFLOPS \\\\ **FP64 Tensor Core** & 67 teraFLOPS & 60 teraFLOPS \\\\ **FP32** & 67 teraFLOPS & 60 teraFLOPS \\\\ **TF32 Tensor Core*** & 989 teraFLOPS & 835 teraFLOPS \\\\ **BFLOAT16 Tensor Core*** & 1,979 teraFLOPS & 1,671 teraFLOPS \\\\ **FP16 Tensor Core*** & 1,979 teraFLOPS & 1,671 teraFLOPS \\\\ **FP8 Tensor Core*** & 3,958 teraFLOPS & 3,341 teraFLOPS \\\\ **INT8 Tensor Core*** & 3,958 TOPS & 3,341 TOPS \\\\ **GPU Memory** & 80GB & 94GB \\\\ **GPU Memory Bandwidth** & 3.35TB/s & 3.9TB/s \\\\ **Decoders** & 7 NVDEC 7 JPEG & 7 NVDEC 7 JPEG \\\\ **Max Thermal Design Power (TDP)** & Up to 700W (configurable) & 350-400W (configurable) \\\\ **Multi-Instance GPUs** & Up to 7 MIGs @ 10GB each & Up to 7 MIGS @ 12GB each \\\\ **Form Factor** & SXM & PCIe dual-slot air-cooled \\\\ **Interconnect** & **NVIDIA NVLinkTM: 900GB/s PCIe Gen5: 128GB/s** & **NVIDIA NVLink: 600GB/s PCIe Gen5: 128GB/s** \\\\ **Server Options** & NVIDIA HGX H100 Partner and NVIDIA- Certified SystemsTM with 4 or 8 GPUs & Partner and NVIDIA- Certified Systems with 1-8 GPUs \\\\ & NVIDIA DGX H100 with 8 GPUs & \\\\ **NVIDIA Enterprise** & Add-on & Included \\\\ \\end{tabular}",
+    "bbox_normalized": {
+      "xmin": 0.20559166666666664,
+      "ymin": 0.3992,
+      "xmax": 0.5901249999999999,
+      "ymax": 0.7719
+    },
+    "bbox_pixels": {
+      "x0": 315,
+      "y0": 817,
+      "x1": 906,
+      "y1": 1580
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 2,
+    "type": "Picture",
+    "text": "4X 10X 4X 9X 8X 9X 3X 7X Speedup Over A100 Speedup Over A100 6X 2X 5X 5X 4X 1X 3X 1X 2X 1X 1X 0\n0 GPT-3 175B Parameters MoE Switch XXL 395B Parameters NVIDIA A100 Tensor Core GPU NVIDIA H100 Tensor Core GPU NVIDIA H100 + NVLink Switch System Projected performance subject to change. GPT-3 175B Training. A100 cluster: HDR IB network, H100 cluster: NDR IB network | Mixture of Experts (MoE) Training Transformer Switch-XXL variant with 395B parameters on 1T token dataset, A100 cluster: HDR IB network, H100 cluster: NDR IB network with NVLink Switch System where indicated.",
+    "bbox_normalized": {
+      "xmin": 0.20763020833333334,
+      "ymin": 0.2367,
+      "xmax": 0.5901249999999999,
+      "ymax": 0.3773
+    },
+    "bbox_pixels": {
+      "x0": 318,
+      "y0": 484,
+      "x1": 906,
+      "y1": 772
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 3,
+    "type": "Picture",
+    "text": "30X 30X 25X Throughput per GPU 20X 15X 16X 10X 5X 0\n2 seconds 1.5 seconds 1 second Latency H100 to A100 Comparison Relative Performance Projected performance subject to change. Inference on Megatron 530B parameter model based chatbot for input sequence length=12B, output sequence length +20 | A100 cluster: HDR IB network | H100 cluster: NVLink Switch System, NDR IB",
+    "bbox_normalized": {
+      "xmin": 0.6099739583333333,
+      "ymin": 0.2609,
+      "xmax": 0.7923697916666667,
+      "ymax": 0.3992
+    },
+    "bbox_pixels": {
+      "x0": 936,
+      "y0": 534,
+      "x1": 1217,
+      "y1": 817
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 4,
+    "type": "Picture",
+    "text": "8X 7X 7X 6X 6X 5X 4X 3X 2X 1X 0\n3D Fast Fourier Transform (FFT) Genome Sequencing H100 to A100 Comparison Relative Performance Projected performance subject to change. 3D FFT (4k^3) throughput. | A100 cluster: HDR IB network | H100 cluster: NVLink Switch System, NDR IB | Genome Sequencing (Smith- Waterman) | A100 | H100",
+    "bbox_normalized": {
+      "xmin": 0.6099739583333333,
+      "ymin": 0.4516,
+      "xmax": 0.7923697916666667,
+      "ymax": 0.5875
+    },
+    "bbox_pixels": {
+      "x0": 936,
+      "y0": 924,
+      "x1": 1217,
+      "y1": 1203
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 5,
+    "type": "Caption",
+    "text": "Up to 4X Higher AI Training on GPT-3",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.2133,
+      "xmax": 0.38262291666666665,
+      "ymax": 0.2227
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 436,
+      "x1": 587,
+      "y1": 456
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 6,
+    "type": "Caption",
+    "text": "Up to 30X Higher AI Inference Performance on the Largest Model",
+    "bbox_normalized": {
+      "xmin": 0.6173770833333334,
+      "ymin": 0.2211,
+      "xmax": 0.7724135416666668,
+      "ymax": 0.2375
+    },
+    "bbox_pixels": {
+      "x0": 948,
+      "y0": 452,
+      "x1": 1186,
+      "y1": 486
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 7,
+    "type": "Caption",
+    "text": "Megatron chatbot inference (530 billion parameters)",
+    "bbox_normalized": {
+      "xmin": 0.6173770833333334,
+      "ymin": 0.2422,
+      "xmax": 0.74205,
+      "ymax": 0.2578
+    },
+    "bbox_pixels": {
+      "x0": 948,
+      "y0": 496,
+      "x1": 1139,
+      "y1": 527
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 8,
+    "type": "Caption",
+    "text": "Up to 7X Higher Performance for HPC Applications",
+    "bbox_normalized": {
+      "xmin": 0.6173770833333334,
+      "ymin": 0.4219,
+      "xmax": 0.7618989583333332,
+      "ymax": 0.4375
+    },
+    "bbox_pixels": {
+      "x0": 948,
+      "y0": 864,
+      "x1": 1170,
+      "y1": 896
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 9,
+    "type": "Caption",
+    "text": "*With sparsity",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.7742,
+      "xmax": 0.2506541666666667,
+      "ymax": 0.7805
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 1585,
+      "x1": 385,
+      "y1": 1598
+    },
+    "is_valid": true
+  }
+]

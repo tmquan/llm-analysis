@@ -1,0 +1,173 @@
+[
+  {
+    "page": 4,
+    "block_id": 0,
+    "type": "Section-header",
+    "text": "# Product Specifications",
+    "bbox_normalized": {
+      "xmin": 0.20559166666666664,
+      "ymin": 0.2055,
+      "xmax": 0.34807499999999997,
+      "ymax": 0.2156
+    },
+    "bbox_pixels": {
+      "x0": 315,
+      "y0": 420,
+      "x1": 534,
+      "y1": 441
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 1,
+    "type": "Section-header",
+    "text": "## Ready to Get Started?",
+    "bbox_normalized": {
+      "xmin": 0.20559166666666664,
+      "ymin": 0.693,
+      "xmax": 0.36803125000000003,
+      "ymax": 0.7039
+    },
+    "bbox_pixels": {
+      "x0": 315,
+      "y0": 1419,
+      "x1": 565,
+      "y1": 1441
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 2,
+    "type": "Text",
+    "text": "To learn more about the NVIDIA Grace Hopper Superchip, visit nvidia.com/grace-hopper-superchip/",
+    "bbox_normalized": {
+      "xmin": 0.20559166666666664,
+      "ymin": 0.7133,
+      "xmax": 0.549246875,
+      "ymax": 0.7328
+    },
+    "bbox_pixels": {
+      "x0": 315,
+      "y0": 1460,
+      "x1": 843,
+      "y1": 1500
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 3,
+    "type": "Text",
+    "text": "To download the Grace Hopper architecture whitepaper, visit resources.nvidia.com/en-us-grace-cpu/nvidia-grace-hopper",
+    "bbox_normalized": {
+      "xmin": 0.20559166666666664,
+      "ymin": 0.7406,
+      "xmax": 0.5439895833333334,
+      "ymax": 0.7602
+    },
+    "bbox_pixels": {
+      "x0": 315,
+      "y0": 1516,
+      "x1": 835,
+      "y1": 1556
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 4,
+    "type": "Page-footer",
+    "text": "© 2025 NVIDIA Corporation and affiliates. All rights reserved. NVIDIA, the NVIDIA logo, ConnectX, DGX, HGX, Hopper, NGC, NVIDIA-Certified Systems, and NVLink are trademarks and/or registered trademarks of NVIDIA Corporation and affiliates in the U.S. and other countries. Other company and product names may be trademarks of the respective owners with which they are associated. 3773000. MAR25.",
+    "bbox_normalized": {
+      "xmin": 0.20559166666666664,
+      "ymin": 0.7711,
+      "xmax": 0.549246875,
+      "ymax": 0.793
+    },
+    "bbox_pixels": {
+      "x0": 315,
+      "y0": 1579,
+      "x1": 843,
+      "y1": 1624
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 5,
+    "type": "Table",
+    "text": "\\begin{tabular}{ccc}\n**Feature** & **GH200** & **GH200 NVL2**\\\\\nCPU core count & 72 Arm Neoverse V2 cores & 144 Arm Neoverse V2 cores\\\\\nL1 cache & 64KB i-cache + 64KB d-cache & \\\\\nL2 cache & 1MB per core & \\\\\nL3 cache & 114MB & 228MB\\\\\nBase frequency | all-core single instruction, multiple data (SIMD) frequency & 3.1GHz | 3.0GHz & \\\\\nLPDDR5X size & 480GB & 960GB\\\\\n & 120GB, 240GB & 240GB, 480GB\\\\\nMemory bandwidth & Up to 384GB/s Up to 512GB/s & Up to 768GB/s Up to 1024GB/s\\\\\nPCle links & Up to 4x PCIe x16 (Gen5) & Up to 8x PCIe x16 (Gen5)\\\\\n\\end{tabular}",
+    "bbox_normalized": {
+      "xmin": 0.20559166666666664,
+      "ymin": 0.2211,
+      "xmax": 0.7933354166666667,
+      "ymax": 0.3891
+    },
+    "bbox_pixels": {
+      "x0": 315,
+      "y0": 452,
+      "x1": 1218,
+      "y1": 796
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 6,
+    "type": "Table",
+    "text": "\\begin{tabular}{ccc}\n**Feature** & **GH200** & **GH200 NVL2**\\\\\nFP64 & 34 teraFLOPS & 68 teraFLOPS\\\\\nFP64 Tensor Core & 67 teraFLOPS & 134 teraFLOPS\\\\\nFP32 & 67 teraFLOPS & 134 teraFLOPS\\\\\nTF32 Tensor Core & 989 teraFLOPS* | 494 teraFLOPS & 1,979 teraFLOPS* | 990 teraFLOPS\\\\\nBFLOAT16 Tensor Core & 1,979 teraFLOPS* | 990 teraFLOPS & 3,958 teraFLOPS* | 1,979 teraFLOPS\\\\\nFP16 Tensor Core & 1,979 teraFLOPS* | 990 teraFLOPS & 3,958 teraFLOPS* | 1,979 teraFLOPS\\\\\nFP8 Tensor Core & 3,958 teraFLOPS* | 1,979 teraFLOPS & 7,916 teraFLOPS* | 3,958 teraFLOPS\\\\\nINT8 Tensor Core & 3,958 TOPS* | 1,979 TOPS & 7,916 teraFLOPS* | 3,958 teraFLOPS\\\\\nHigh-bandwidth memory (HBM) size & 96GB HBM3 | 144GB HBM3e & Up to 288GB HBM3e\\\\\nMemory bandwidth & Up to 4TB/s | Up to 4.9TB/s & Up to 9.8TB/s\\\\\nNVIDIA NVLink-C2C CPU-to-GPU bandwidth & 900GB/s & 1800GB/s\\\\\nPower & Configurable 450 to 1000W (Memory + CPU + GPU) & Configurable 900W to 2000W (Memory + CPU + GPU)\\\\\nThermal solution & \\multicolumn{2}{c}{Air-cooled or liquid-cooled}\\\\\n\\end{tabular}",
+    "bbox_normalized": {
+      "xmin": 0.20559166666666664,
+      "ymin": 0.3977,
+      "xmax": 0.7933354166666667,
+      "ymax": 0.6297
+    },
+    "bbox_pixels": {
+      "x0": 315,
+      "y0": 814,
+      "x1": 1218,
+      "y1": 1289
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 7,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.717909375,
+      "ymin": 0.7492,
+      "xmax": 0.7954812499999999,
+      "ymax": 0.7922
+    },
+    "bbox_pixels": {
+      "x0": 1102,
+      "y0": 1534,
+      "x1": 1221,
+      "y1": 1622
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 8,
+    "type": "Caption",
+    "text": "<sup>∗</sup> With sparsity",
+    "bbox_normalized": {
+      "xmin": 0.20559166666666664,
+      "ymin": 0.6336,
+      "xmax": 0.25902291666666666,
+      "ymax": 0.6398
+    },
+    "bbox_pixels": {
+      "x0": 315,
+      "y0": 1297,
+      "x1": 397,
+      "y1": 1310
+    },
+    "is_valid": true
+  }
+]

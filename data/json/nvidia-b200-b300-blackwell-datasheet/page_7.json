@@ -1,0 +1,192 @@
+[
+  {
+    "page": 7,
+    "block_id": 0,
+    "type": "Page-header",
+    "text": "NVIDIA Blackwell Architectural Innovations",
+    "bbox_normalized": {
+      "xmin": 0.5188833333333333,
+      "ymin": 0.1797,
+      "xmax": 0.713725,
+      "ymax": 0.1852
+    },
+    "bbox_pixels": {
+      "x0": 797,
+      "y0": 368,
+      "x1": 1096,
+      "y1": 379
+    },
+    "is_valid": true
+  },
+  {
+    "page": 7,
+    "block_id": 1,
+    "type": "Section-header",
+    "text": "# NVIDIA Blackwell Architectural Innovations",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.2391,
+      "xmax": 0.6508520833333332,
+      "ymax": 0.25
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 489,
+      "x1": 999,
+      "y1": 512
+    },
+    "is_valid": true
+  },
+  {
+    "page": 7,
+    "block_id": 2,
+    "type": "Text",
+    "text": "The Blackwell architecture introduces groundbreaking advancements for AI reasoning and accelerated computing with Blackwell and Blackwell Ultra products. The incorporation of a new second-generation Transformer Engine, alongside faster and wider NVIDIA<sup>®</sup> NVLink<sup>®</sup> interconnects, propels the data center into a new era, with orders of magnitude more performance compared to the previous architecture generation.",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.2609,
+      "xmax": 0.7482729166666667,
+      "ymax": 0.3148
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 534,
+      "x1": 1149,
+      "y1": 644
+    },
+    "is_valid": true
+  },
+  {
+    "page": 7,
+    "block_id": 3,
+    "type": "Text",
+    "text": "Further advances in <u>NVIDIAConfidentialComputing</u> technology raise the level of security for AI inference at scale without compromising performance. And NVIDIA Blackwell’s new Decompression Engine combined with Spark RAPIDSTM libraries delivers unparalleled database performance to fuel data analytics applications. NVIDIA Blackwell’s multiple advancements build upon generations of accelerated computing technologies to define the next chapter of reasoning AI with unparalleled performance, efficiency, and scale.",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.3297,
+      "xmax": 0.7440885416666667,
+      "ymax": 0.3953
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 675,
+      "x1": 1142,
+      "y1": 809
+    },
+    "is_valid": true
+  },
+  {
+    "page": 7,
+    "block_id": 4,
+    "type": "Section-header",
+    "text": "### A New Class of AI GPU",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.675,
+      "xmax": 0.4088020833333333,
+      "ymax": 0.6836
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 1382,
+      "x1": 627,
+      "y1": 1400
+    },
+    "is_valid": true
+  },
+  {
+    "page": 7,
+    "block_id": 5,
+    "type": "Text",
+    "text": "Built with 208 billion transistors, more than 2.5x the amount of transistors in NVIDIA Hopper GPUs, and using TSMC’s 4NP process tailored for NVIDIA, Blackwell is the largest GPU ever built. NVIDIA Blackwell achieves the highest compute ever on a single chip, 20 petaFLOPS.",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.6992,
+      "xmax": 0.7409770833333335,
+      "ymax": 0.7414
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 1431,
+      "x1": 1138,
+      "y1": 1518
+    },
+    "is_valid": true
+  },
+  {
+    "page": 7,
+    "block_id": 6,
+    "type": "Text",
+    "text": "This architecture can incorporate a significant amount of computing power by merging",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.7539,
+      "xmax": 0.7315354166666667,
+      "ymax": 0.7625
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 1543,
+      "x1": 1123,
+      "y1": 1561
+    },
+    "is_valid": true
+  },
+  {
+    "page": 7,
+    "block_id": 7,
+    "type": "Page-footer",
+    "text": "NVIDIA Blackwell Architecture Technical Brief 7",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.782,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.7906
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 1601,
+      "x1": 1155,
+      "y1": 1619
+    },
+    "is_valid": true
+  },
+  {
+    "page": 7,
+    "block_id": 8,
+    "type": "Picture",
+    "text": "AI SUPERCHIP 208B Transistors\n2nd GEN TRANSFORMER ENGINE FP4/FP6 Tensor Core\n5th GENERATION NVLINK Scales to 576 GPUs\nRAS ENGINE 100% In-System Self-Test\nSECURE AI\nDECOMPRESSION ENGINE 800 GB/sec\nFull Performance Encryption & TEE",
+    "bbox_normalized": {
+      "xmin": 0.2568770833333333,
+      "ymin": 0.4148,
+      "xmax": 0.7409770833333335,
+      "ymax": 0.632
+    },
+    "bbox_pixels": {
+      "x0": 394,
+      "y0": 849,
+      "x1": 1138,
+      "y1": 1294
+    },
+    "is_valid": true
+  },
+  {
+    "page": 7,
+    "block_id": 9,
+    "type": "Caption",
+    "text": "Figure 2. NVIDIA Blackwell Architecture’s Technological breakthroughs",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.6516,
+      "xmax": 0.7273510416666666,
+      "ymax": 0.6625
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 1334,
+      "x1": 1117,
+      "y1": 1356
+    },
+    "is_valid": true
+  }
+]

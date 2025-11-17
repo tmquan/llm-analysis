@@ -1,0 +1,192 @@
+[
+  {
+    "page": 8,
+    "block_id": 0,
+    "type": "Page-header",
+    "text": "NVIDIA Blackwell Architectural Innovations",
+    "bbox_normalized": {
+      "xmin": 0.5188833333333333,
+      "ymin": 0.1789,
+      "xmax": 0.713725,
+      "ymax": 0.1844
+    },
+    "bbox_pixels": {
+      "x0": 797,
+      "y0": 366,
+      "x1": 1096,
+      "y1": 377
+    },
+    "is_valid": true
+  },
+  {
+    "page": 8,
+    "block_id": 1,
+    "type": "Text",
+    "text": "two GPU dies. Each of the two GPU dies are the largest die possible within the limits of reticle size, as big as can possibly be built today. The two dies are connected and unified with a single 10 terabyte-per-second (TB/s) chip-to-chip NVIDIA High-Bandwidth Interface (NV-HBI), providing one fully coherent chip.",
+    "bbox_normalized": {
+      "xmin": 0.2443239583333333,
+      "ymin": 0.2375,
+      "xmax": 0.7473072916666667,
+      "ymax": 0.2797
+    },
+    "bbox_pixels": {
+      "x0": 375,
+      "y0": 486,
+      "x1": 1147,
+      "y1": 572
+    },
+    "is_valid": true
+  },
+  {
+    "page": 8,
+    "block_id": 2,
+    "type": "Text",
+    "text": "The Blackwell architecture is much more than a chip with high floating-point operations per second (FLOPS) computational rates. It continues to build upon and benefit from NVIDIA’s rich ecosystem of development tools, CUDA-XTM libraries, over four million developers, and over 3,000 applications scaling performance across thousands of nodes.",
+    "bbox_normalized": {
+      "xmin": 0.2443239583333333,
+      "ymin": 0.2922,
+      "xmax": 0.7389385416666667,
+      "ymax": 0.3352
+    },
+    "bbox_pixels": {
+      "x0": 375,
+      "y0": 598,
+      "x1": 1135,
+      "y1": 686
+    },
+    "is_valid": true
+  },
+  {
+    "page": 8,
+    "block_id": 3,
+    "type": "Text",
+    "text": "The new NVIDIA Blackwell Ultra GPU is built for the age of AI reasoning with enhanced compute and increased memory. The GB300 NVL72 delivers 1.5x more AI performance than the NVIDIA GB200 NVL72, as well as 50X more AI reasoning productivity, 35X faster AI reasoning inference, 30x higher energy efficiency, and 25x lower cost per token compared with NVIDIA HopperTM systems.",
+    "bbox_normalized": {
+      "xmin": 0.2443239583333333,
+      "ymin": 0.3469,
+      "xmax": 0.7409770833333335,
+      "ymax": 0.4008
+    },
+    "bbox_pixels": {
+      "x0": 375,
+      "y0": 710,
+      "x1": 1138,
+      "y1": 820
+    },
+    "is_valid": true
+  },
+  {
+    "page": 8,
+    "block_id": 4,
+    "type": "Section-header",
+    "text": "## Blackwell Tensor Core Architecture",
+    "bbox_normalized": {
+      "xmin": 0.2443239583333333,
+      "ymin": 0.4141,
+      "xmax": 0.5010729166666666,
+      "ymax": 0.4234
+    },
+    "bbox_pixels": {
+      "x0": 375,
+      "y0": 848,
+      "x1": 769,
+      "y1": 867
+    },
+    "is_valid": true
+  },
+  {
+    "page": 8,
+    "block_id": 5,
+    "type": "Text",
+    "text": "Tensor Cores are specialized high-performance compute cores for matrix multiply and accumulate (MMA) math operations that provide groundbreaking performance for AI and HPC applications. Tensor Cores operating in parallel across SMs in one NVIDIA GPU deliver massive increases in throughput and efficiency compared to standard Floating-Point (FP), Integer (INT), and FMA (Fused Multiply-Accumulate) operations. Tensor Cores were first introduced in the NVIDIA Tesla<sup>®</sup> V100 GPU, and further enhanced in each new NVIDIA GPU architecture generation.",
+    "bbox_normalized": {
+      "xmin": 0.2443239583333333,
+      "ymin": 0.4375,
+      "xmax": 0.7473072916666667,
+      "ymax": 0.5133
+    },
+    "bbox_pixels": {
+      "x0": 375,
+      "y0": 896,
+      "x1": 1147,
+      "y1": 1051
+    },
+    "is_valid": true
+  },
+  {
+    "page": 8,
+    "block_id": 6,
+    "type": "Text",
+    "text": "As generative and reasoning AI models increase in size and complexity, it’s critical to improve training and inference performance. To meet these compute needs, new fifth- generation Tensor Core architecture in Blackwell supports new number formats such as FP4, including community-defined microscaling (OCP) formats. The Blackwell architecture supports all the data types and numerical formats listed in  1.",
+    "bbox_normalized": {
+      "xmin": 0.2443239583333333,
+      "ymin": 0.5273,
+      "xmax": 0.7462343750000001,
+      "ymax": 0.5813
+    },
+    "bbox_pixels": {
+      "x0": 375,
+      "y0": 1079,
+      "x1": 1146,
+      "y1": 1190
+    },
+    "is_valid": true
+  },
+  {
+    "page": 8,
+    "block_id": 7,
+    "type": "Page-footer",
+    "text": "NVIDIA Blackwell Architecture Technical Brief 8",
+    "bbox_normalized": {
+      "xmin": 0.2443239583333333,
+      "ymin": 0.7719,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.7898
+    },
+    "bbox_pixels": {
+      "x0": 375,
+      "y0": 1580,
+      "x1": 1155,
+      "y1": 1617
+    },
+    "is_valid": true
+  },
+  {
+    "page": 8,
+    "block_id": 8,
+    "type": "Table",
+    "text": "\\begin{tabular}{cc}\n\\multicolumn{2}{c}{**Data Type**}\\\\\nFP64 & \\\\\nFP32 & \\\\\nTF32 & \\\\\nFP16 & \\\\\nBF16 & \\\\\nFP8 & \\\\\nINT8 & \\\\\nFP6 & \\\\\nFP4 & \\\\\n\\end{tabular}",
+    "bbox_normalized": {
+      "xmin": 0.2443239583333333,
+      "ymin": 0.6148,
+      "xmax": 0.4350885416666667,
+      "ymax": 0.7391
+    },
+    "bbox_pixels": {
+      "x0": 375,
+      "y0": 1259,
+      "x1": 668,
+      "y1": 1513
+    },
+    "is_valid": true
+  },
+  {
+    "page": 8,
+    "block_id": 9,
+    "type": "Caption",
+    "text": "1. Blackwell Architecture Supported Data Types",
+    "bbox_normalized": {
+      "xmin": 0.2443239583333333,
+      "ymin": 0.5961,
+      "xmax": 0.6215614583333333,
+      "ymax": 0.6062
+    },
+    "bbox_pixels": {
+      "x0": 375,
+      "y0": 1220,
+      "x1": 954,
+      "y1": 1241
+    },
+    "is_valid": true
+  }
+]

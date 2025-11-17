@@ -1,0 +1,382 @@
+[
+  {
+    "page": 1,
+    "block_id": 0,
+    "type": "Title",
+    "text": "# NVIDIA H200 Tensor Core GPU",
+    "bbox_normalized": {
+      "xmin": 0.20248020833333336,
+      "ymin": 0.2742,
+      "xmax": 0.574353125,
+      "ymax": 0.2984
+    },
+    "bbox_pixels": {
+      "x0": 311,
+      "y0": 561,
+      "x1": 882,
+      "y1": 611
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 1,
+    "type": "Text",
+    "text": "Supercharging AI and HPC workloads.",
+    "bbox_normalized": {
+      "xmin": 0.20248020833333336,
+      "ymin": 0.3031,
+      "xmax": 0.4769322916666667,
+      "ymax": 0.3187
+    },
+    "bbox_pixels": {
+      "x0": 311,
+      "y0": 620,
+      "x1": 732,
+      "y1": 652
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 2,
+    "type": "Section-header",
+    "text": "# Higher Performance With Larger, Faster Memory",
+    "bbox_normalized": {
+      "xmin": 0.20248020833333336,
+      "ymin": 0.3859,
+      "xmax": 0.5136260416666667,
+      "ymax": 0.4008
+    },
+    "bbox_pixels": {
+      "x0": 311,
+      "y0": 790,
+      "x1": 788,
+      "y1": 820
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 3,
+    "type": "Text",
+    "text": "The NVIDIA H200 Tensor Core GPU supercharges generative AI and high- performance computing (HPC) workloads with game-changing performance and memory capabilities.",
+    "bbox_normalized": {
+      "xmin": 0.20248020833333336,
+      "ymin": 0.4031,
+      "xmax": 0.5586885416666666,
+      "ymax": 0.4352
+    },
+    "bbox_pixels": {
+      "x0": 311,
+      "y0": 825,
+      "x1": 858,
+      "y1": 891
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 4,
+    "type": "Text",
+    "text": "Based on the **NVIDIA HopperTM architecture**, the NVIDIA H200 is the first GPU to offer 141 gigabytes (GB) of HBM3e memory at 4.8 terabytes per second (TB/s)-- that’s nearly double the capacity of the **NVIDIA H100 Tensor Core GPU** with 1.4X more memory bandwidth. The H200’s larger and faster memory accelerates generative AI and large language models, while advancing scientific computing for HPC workloads with better energy efficiency and lower total cost of ownership.",
+    "bbox_normalized": {
+      "xmin": 0.20248020833333336,
+      "ymin": 0.4398,
+      "xmax": 0.582721875,
+      "ymax": 0.5078
+    },
+    "bbox_pixels": {
+      "x0": 311,
+      "y0": 900,
+      "x1": 895,
+      "y1": 1039
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 5,
+    "type": "Section-header",
+    "text": "# Unlock Insights With High-Performance LLM Inference",
+    "bbox_normalized": {
+      "xmin": 0.20248020833333336,
+      "ymin": 0.5172,
+      "xmax": 0.5523583333333333,
+      "ymax": 0.5312
+    },
+    "bbox_pixels": {
+      "x0": 311,
+      "y0": 1059,
+      "x1": 848,
+      "y1": 1087
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 6,
+    "type": "Text",
+    "text": "In the ever-evolving landscape of AI, businesses rely on large language models to address a diverse range of inference needs. An **AI inference** accelerator must deliver the highest throughput at the lowest TCO when deployed at scale for a massive user base.",
+    "bbox_normalized": {
+      "xmin": 0.20248020833333336,
+      "ymin": 0.5336,
+      "xmax": 0.5921635416666666,
+      "ymax": 0.5664
+    },
+    "bbox_pixels": {
+      "x0": 311,
+      "y0": 1092,
+      "x1": 909,
+      "y1": 1159
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 7,
+    "type": "Text",
+    "text": "The H200 doubles inference performance compared to H100 GPUs when handling large language models such as Llama2 70B.",
+    "bbox_normalized": {
+      "xmin": 0.20248020833333336,
+      "ymin": 0.5711,
+      "xmax": 0.5817562500000001,
+      "ymax": 0.5938
+    },
+    "bbox_pixels": {
+      "x0": 311,
+      "y0": 1169,
+      "x1": 893,
+      "y1": 1216
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 8,
+    "type": "Section-header",
+    "text": "**Key Features**",
+    "bbox_normalized": {
+      "xmin": 0.6173770833333334,
+      "ymin": 0.3867,
+      "xmax": 0.7033177083333334,
+      "ymax": 0.4
+    },
+    "bbox_pixels": {
+      "x0": 948,
+      "y0": 791,
+      "x1": 1080,
+      "y1": 819
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 9,
+    "type": "List-item",
+    "text": "\\> 141GB of HBM3e GPU memory",
+    "bbox_normalized": {
+      "xmin": 0.6173770833333334,
+      "ymin": 0.4062,
+      "xmax": 0.7693020833333333,
+      "ymax": 0.4164
+    },
+    "bbox_pixels": {
+      "x0": 948,
+      "y0": 831,
+      "x1": 1181,
+      "y1": 852
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 10,
+    "type": "List-item",
+    "text": "\\> 4.8TB/s of memory bandwidth",
+    "bbox_normalized": {
+      "xmin": 0.6173770833333334,
+      "ymin": 0.4211,
+      "xmax": 0.7693020833333333,
+      "ymax": 0.432
+    },
+    "bbox_pixels": {
+      "x0": 948,
+      "y0": 862,
+      "x1": 1181,
+      "y1": 884
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 11,
+    "type": "List-item",
+    "text": "\\> 4 petaFLOPS of FP8 performance",
+    "bbox_normalized": {
+      "xmin": 0.6173770833333334,
+      "ymin": 0.4367,
+      "xmax": 0.78389375,
+      "ymax": 0.4477
+    },
+    "bbox_pixels": {
+      "x0": 948,
+      "y0": 894,
+      "x1": 1204,
+      "y1": 916
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 12,
+    "type": "List-item",
+    "text": "\\> 2X LLM inference performance",
+    "bbox_normalized": {
+      "xmin": 0.6173770833333334,
+      "ymin": 0.4531,
+      "xmax": 0.7724135416666668,
+      "ymax": 0.4641
+    },
+    "bbox_pixels": {
+      "x0": 948,
+      "y0": 927,
+      "x1": 1186,
+      "y1": 950
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 13,
+    "type": "List-item",
+    "text": "\\> 110X HPC performance",
+    "bbox_normalized": {
+      "xmin": 0.6173770833333334,
+      "ymin": 0.4688,
+      "xmax": 0.7367927083333333,
+      "ymax": 0.4797
+    },
+    "bbox_pixels": {
+      "x0": 948,
+      "y0": 960,
+      "x1": 1131,
+      "y1": 982
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 14,
+    "type": "Page-footer",
+    "text": "NVIDIA H200 Tensor Core GPU | Datasheet | 1",
+    "bbox_normalized": {
+      "xmin": 0.5974208333333333,
+      "ymin": 0.7992,
+      "xmax": 0.7954812499999999,
+      "ymax": 0.8094
+    },
+    "bbox_pixels": {
+      "x0": 917,
+      "y0": 1636,
+      "x1": 1221,
+      "y1": 1657
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 15,
+    "type": "Picture",
+    "text": "NVIDIA",
+    "bbox_normalized": {
+      "xmin": 0.20451875,
+      "ymin": 0.2258,
+      "xmax": 0.3144927083333333,
+      "ymax": 0.2523
+    },
+    "bbox_pixels": {
+      "x0": 314,
+      "y0": 462,
+      "x1": 483,
+      "y1": 516
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 16,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.5901249999999999,
+      "ymin": 0.1844,
+      "xmax": 0.8311020833333332,
+      "ymax": 0.3539
+    },
+    "bbox_pixels": {
+      "x0": 906,
+      "y0": 377,
+      "x1": 1276,
+      "y1": 724
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 17,
+    "type": "Picture",
+    "text": "2.0x 1.9X 1.6X 1.5x 1.4X 1X 1X 1X 1.0x 0.5x 0.0x Llama2 13B GPT-3 175B Llama2 70B H100 H200 Preliminary specifications. May be subject to change. Llama2 13B: ISL 12B, OSL 2K | Throughput | H100 SXM 1x GPU BS 64 | H200 SXM 1x GPU BS 128 GPT-3 175B: ISL 80, OSL 200 | x8 H100 SXM GPUs BS 64 | x8 H200 SXM GPUs BS 128 Llama2 70B: ISL 2K, OSL 128 | Throughput | H100 SXM 1x GPU BS 8 | H200 SXM 1x GPU BS 32.",
+    "bbox_normalized": {
+      "xmin": 0.20248020833333336,
+      "ymin": 0.6141,
+      "xmax": 0.5911979166666667,
+      "ymax": 0.7859
+    },
+    "bbox_pixels": {
+      "x0": 311,
+      "y0": 1257,
+      "x1": 908,
+      "y1": 1609
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 18,
+    "type": "Caption",
+    "text": "Datasheet",
+    "bbox_normalized": {
+      "xmin": 0.20248020833333336,
+      "ymin": 0.2109,
+      "xmax": 0.262134375,
+      "ymax": 0.2234
+    },
+    "bbox_pixels": {
+      "x0": 311,
+      "y0": 431,
+      "x1": 402,
+      "y1": 457
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 19,
+    "type": "Caption",
+    "text": "**Up to 2X the LLM Inference Performance**",
+    "bbox_normalized": {
+      "xmin": 0.3144927083333333,
+      "ymin": 0.6008,
+      "xmax": 0.48637395833333336,
+      "ymax": 0.6109
+    },
+    "bbox_pixels": {
+      "x0": 483,
+      "y0": 1230,
+      "x1": 747,
+      "y1": 1251
+    },
+    "is_valid": true
+  }
+]

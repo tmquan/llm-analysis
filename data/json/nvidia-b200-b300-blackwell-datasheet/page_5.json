@@ -1,0 +1,249 @@
+[
+  {
+    "page": 5,
+    "block_id": 0,
+    "type": "Page-header",
+    "text": "Introduction",
+    "bbox_normalized": {
+      "xmin": 0.6969875,
+      "ymin": 0.1797,
+      "xmax": 0.7535302083333333,
+      "ymax": 0.1852
+    },
+    "bbox_pixels": {
+      "x0": 1070,
+      "y0": 368,
+      "x1": 1157,
+      "y1": 379
+    },
+    "is_valid": true
+  },
+  {
+    "page": 5,
+    "block_id": 1,
+    "type": "Title",
+    "text": "NVIDIA GB300 NVL72 Built for the Age of AI Reasoning",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.2391,
+      "xmax": 0.6561093749999999,
+      "ymax": 0.2719
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 489,
+      "x1": 1007,
+      "y1": 556
+    },
+    "is_valid": true
+  },
+  {
+    "page": 5,
+    "block_id": 2,
+    "type": "Text",
+    "text": "For years, advancements in AI have followed a clear trajectory through pretraining scaling: larger models, more data, and greater computational resources lead to breakthrough capabilities. Building more intelligent systems is no longer just about pretraining bigger models. Instead, it’s about refining them and making them able to think and reason.",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.2914,
+      "xmax": 0.7473072916666667,
+      "ymax": 0.3336
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 596,
+      "x1": 1147,
+      "y1": 683
+    },
+    "is_valid": true
+  },
+  {
+    "page": 5,
+    "block_id": 3,
+    "type": "Text",
+    "text": "By refining AI models to specialized tasks, post-training scaling improves models to deliver more conversational responses. Tuning models with domain-specific and synthetic data enhances their ability to understand nuanced contexts and provide accurate outputs. Synthetic data generation has no upper limit which translates to a significant need for compute resources in post-training scaling.",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.3477,
+      "xmax": 0.7493458333333334,
+      "ymax": 0.4016
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 712,
+      "x1": 1150,
+      "y1": 822
+    },
+    "is_valid": true
+  },
+  {
+    "page": 5,
+    "block_id": 4,
+    "type": "Text",
+    "text": "Now, a new scaling law has emerged to amplify intelligence: **test-time scaling**.",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.4148,
+      "xmax": 0.68025,
+      "ymax": 0.4242
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 849,
+      "x1": 1044,
+      "y1": 868
+    },
+    "is_valid": true
+  },
+  {
+    "page": 5,
+    "block_id": 5,
+    "type": "Text",
+    "text": "Also known as long thinking, test-time scaling dynamically increases compute during AI inference to enable deeper reasoning. AI reasoning models don’t just generate responses in a single pass, they actively think, weigh multiple possibilities, and refine answers in real time.",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.4375,
+      "xmax": 0.74205,
+      "ymax": 0.4781
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 896,
+      "x1": 1139,
+      "y1": 979
+    },
+    "is_valid": true
+  },
+  {
+    "page": 5,
+    "block_id": 6,
+    "type": "Text",
+    "text": "This shift towards post-training scaling and test-time scaling demands exponentially more compute, real-time processing, and high-speed interconnects. Post-training can require 30x more compute than pretraining to develop customized derivative models, and long thinking can require 100x more compute than a single inference pass to solve for incredibly complex tasks.",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.4938,
+      "xmax": 0.7493458333333334,
+      "ymax": 0.5477
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 1011,
+      "x1": 1150,
+      "y1": 1121
+    },
+    "is_valid": true
+  },
+  {
+    "page": 5,
+    "block_id": 7,
+    "type": "Text",
+    "text": "Enter <u>NVIDIA Blackwell architecture</u>, built with the specific purpose of handling data center-scale reasoning AI workflows with up to 30X the <u>energy efficiency</u> of the prior NVIDIA Hopper GPU generation.",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.5617,
+      "xmax": 0.7200552083333333,
+      "ymax": 0.593
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 1150,
+      "x1": 1106,
+      "y1": 1214
+    },
+    "is_valid": true
+  },
+  {
+    "page": 5,
+    "block_id": 8,
+    "type": "Text",
+    "text": "This technical brief introduces the benefits of NVIDIA Blackwell in detail, including the Blackwell Ultra GPU, the <u>GB300 NVL72 Rack-scale System</u>, and the HGX B300 server. GB200 NVL72 and HGX B200 system information is also included.",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.6039,
+      "xmax": 0.7242395833333334,
+      "ymax": 0.6352
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 1236,
+      "x1": 1112,
+      "y1": 1300
+    },
+    "is_valid": true
+  },
+  {
+    "page": 5,
+    "block_id": 9,
+    "type": "Title",
+    "text": "NVIDIA Blackwell and Blackwell Ultra Overview",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.6469,
+      "xmax": 0.684434375,
+      "ymax": 0.6578
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 1324,
+      "x1": 1051,
+      "y1": 1347
+    },
+    "is_valid": true
+  },
+  {
+    "page": 5,
+    "block_id": 10,
+    "type": "Text",
+    "text": "The NVIDIA Blackwell and Blackwell Ultra products are designed to address the needs of ever-increasing AI complexity, including larger model sizes and AI reasoning, with a long list of new innovations.",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.6719,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.7023
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 1376,
+      "x1": 1155,
+      "y1": 1438
+    },
+    "is_valid": true
+  },
+  {
+    "page": 5,
+    "block_id": 11,
+    "type": "Text",
+    "text": "With NVIDIA Blackwell and Blackwell Ultra products, every enterprise can use and deploy state-of-the-art LLMs with affordable economics, optimizing their business with the benefits of reasoning AI. At the same time, NVIDIA Blackwell and Blackwell Ultra products",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.7141,
+      "xmax": 0.7440885416666667,
+      "ymax": 0.7453
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 1462,
+      "x1": 1142,
+      "y1": 1526
+    },
+    "is_valid": true
+  },
+  {
+    "page": 5,
+    "block_id": 12,
+    "type": "Page-footer",
+    "text": "NVIDIA Blackwell Architecture Technical Brief 5",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.7727,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.7906
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 1582,
+      "x1": 1155,
+      "y1": 1619
+    },
+    "is_valid": true
+  }
+]

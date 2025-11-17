@@ -1,0 +1,97 @@
+[
+  {
+    "page": 13,
+    "block_id": 0,
+    "type": "Page-header",
+    "text": "NVIDIA Grace Blackwell Ultra / Blackwell NVL72",
+    "bbox_normalized": {
+      "xmin": 0.5178104166666666,
+      "ymin": 0.1773,
+      "xmax": 0.7336812500000001,
+      "ymax": 0.1859
+    },
+    "bbox_pixels": {
+      "x0": 795,
+      "y0": 363,
+      "x1": 1126,
+      "y1": 380
+    },
+    "is_valid": true
+  },
+  {
+    "page": 13,
+    "block_id": 1,
+    "type": "Title",
+    "text": "# NVIDIA Grace Blackwell Ultra / Blackwell NVL72 Rack- scale Systems",
+    "bbox_normalized": {
+      "xmin": 0.2443239583333333,
+      "ymin": 0.2367,
+      "xmax": 0.75041875,
+      "ymax": 0.2711
+    },
+    "bbox_pixels": {
+      "x0": 375,
+      "y0": 484,
+      "x1": 1152,
+      "y1": 555
+    },
+    "is_valid": true
+  },
+  {
+    "page": 13,
+    "block_id": 2,
+    "type": "Page-footer",
+    "text": "NVIDIA Blackwell Architecture Technical Brief 13",
+    "bbox_normalized": {
+      "xmin": 0.2443239583333333,
+      "ymin": 0.7625,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.7828
+    },
+    "bbox_pixels": {
+      "x0": 375,
+      "y0": 1561,
+      "x1": 1155,
+      "y1": 1603
+    },
+    "is_valid": true
+  },
+  {
+    "page": 13,
+    "block_id": 3,
+    "type": "Table",
+    "text": "\\begin{tabular}{ccc}\n**System Spec** & **GB300 NVL72** & **GB200 NVL72**\\\\\nNVL72 Rack Configuration & 72 Grace Blackwell Ultra GPUs & 72 Grace Blackwell GPUs\\\\\nCompute Trays & 18 & 18\\\\\nNVLink Switch Trays & 9 & 9\\\\\nGPUs | CPUs Per Compute Node & 4 Blackwell GPUs | 2 Grace CPUs & 4 Blackwell GPUs | 2 Grace CPUs\\\\\nTotal Rack GPUs | CPUs & 72 | 36 & 72 | 36\\\\\nFP4 Tensor Core Dense/Sparse & 1,080 / 1,440 petaFLOPS & 720 / 1,440 petaFLOPS\\\\\nFP8/FP6 Tensor Core Dense/Sparse & 360 / 720 petaFLOPS & 360 / 720 petaFLOPS\\\\\nINT8 Tensor Core Dense/Sparse & 12/ 24 petaOPS & 360 / 720 petaOPS\\\\\nFP16/BF16 Tensor Core Dense/Sparse & 180 / 360 petaFLOPS & 180 / 360 petaFLOPS\\\\\nTF32 Tensor Core Dense/Sparse & 90 / 180 petaFLOPS & 90 / 180 petaFLOPS\\\\\nFP32 & 5,760 teraFLOPS & 5,760 teraFLOPS\\\\\nFP64/FP64 Tensor Core & 100 teraFLOPS & 2,880 teraFLOPS\\\\\nHBM Memory Architecture & HBM3e & HBM3e\\\\\nHBM Memory Size & 20 TB & 13.5 TB\\\\\nHBM Memory Bandwidth & 576 TB/s & Up to 576 TB/s\\\\\nFast Memory & 37 TB & Up to 31 TB\\\\\nNVLink Switch & 9 NVLink Switches & 9 NVLink Switches\\\\\nNVLink Bandwidth Bidirectional & 130 TB/s & 130 TB/s\\\\\nCPU Cores & 2592 Arm Neoverse V2 cores & 2592 Arm Neoverse V2 cores\\\\\n\\end{tabular}",
+    "bbox_normalized": {
+      "xmin": 0.2443239583333333,
+      "ymin": 0.2984,
+      "xmax": 0.7482729166666667,
+      "ymax": 0.7445
+    },
+    "bbox_pixels": {
+      "x0": 375,
+      "y0": 611,
+      "x1": 1149,
+      "y1": 1524
+    },
+    "is_valid": true
+  },
+  {
+    "page": 13,
+    "block_id": 4,
+    "type": "Caption",
+    "text": "2. System Specifications for GB300 NVL72 and GB200 NVL72",
+    "bbox_normalized": {
+      "xmin": 0.2443239583333333,
+      "ymin": 0.2789,
+      "xmax": 0.713725,
+      "ymax": 0.2898
+    },
+    "bbox_pixels": {
+      "x0": 375,
+      "y0": 571,
+      "x1": 1096,
+      "y1": 593
+    },
+    "is_valid": true
+  }
+]

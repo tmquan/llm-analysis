@@ -1,0 +1,192 @@
+[
+  {
+    "page": 30,
+    "block_id": 0,
+    "type": "Page-header",
+    "text": "Appendix A",
+    "bbox_normalized": {
+      "xmin": 0.701171875,
+      "ymin": 0.1797,
+      "xmax": 0.7535302083333333,
+      "ymax": 0.1859
+    },
+    "bbox_pixels": {
+      "x0": 1077,
+      "y0": 368,
+      "x1": 1157,
+      "y1": 380
+    },
+    "is_valid": true
+  },
+  {
+    "page": 30,
+    "block_id": 1,
+    "type": "Section-header",
+    "text": "Inflight Batching and Chunking",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.2383,
+      "xmax": 0.4193166666666667,
+      "ymax": 0.2469
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 488,
+      "x1": 644,
+      "y1": 505
+    },
+    "is_valid": true
+  },
+  {
+    "page": 30,
+    "block_id": 2,
+    "type": "Text",
+    "text": "Inflight batching and chunking are critical techniques for optimizing GPU utilization and enhancing user experience in the deployment of LLMs. These methods address the operational phases of AI inference—prefill and decode—by managing how data is processed across GPU resources.",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.2578,
+      "xmax": 0.7367927083333333,
+      "ymax": 0.2859
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 527,
+      "x1": 1131,
+      "y1": 585
+    },
+    "is_valid": true
+  },
+  {
+    "page": 30,
+    "block_id": 3,
+    "type": "List-item",
+    "text": "• Chunk Size Considerations: The size of chunks plays a pivotal role in balancing GPU throughput and user interactivity. Larger chunk sizes reduce the number of iterations needed during the prefill phase, leading to a quicker time to first token (TTFT). However, this also extends the duration of the decode phase, lowering the tokens per second (TPS) rate. Conversely, smaller chunk sizes facilitate faster token output, enhancing TPS but increasing TTFT. This trade-off is crucial in determining the optimal chunk size for specific deployment scenarios.",
+    "bbox_normalized": {
+      "xmin": 0.26524583333333335,
+      "ymin": 0.2906,
+      "xmax": 0.75041875,
+      "ymax": 0.3563
+    },
+    "bbox_pixels": {
+      "x0": 407,
+      "y0": 595,
+      "x1": 1152,
+      "y1": 729
+    },
+    "is_valid": true
+  },
+  {
+    "page": 30,
+    "block_id": 4,
+    "type": "Section-header",
+    "text": "Impact of Chunk Size on GPT 1.8T MoE Model",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.3719,
+      "xmax": 0.5,
+      "ymax": 0.3797
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 761,
+      "x1": 768,
+      "y1": 777
+    },
+    "is_valid": true
+  },
+  {
+    "page": 30,
+    "block_id": 5,
+    "type": "Text",
+    "text": "Using the GPT 1.8T MoE model as an example, the effect of varying chunk sizes from 128 to 8,192 tokens was analyzed across more than 2,700 combinations of parallelism and chunk-length configurations. This extensive analysis helps in understanding how different settings impact the balance between throughput and interactivity.",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.3914,
+      "xmax": 0.7451614583333334,
+      "ymax": 0.4289
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 801,
+      "x1": 1144,
+      "y1": 878
+    },
+    "is_valid": true
+  },
+  {
+    "page": 30,
+    "block_id": 6,
+    "type": "Section-header",
+    "text": "## Conclusion",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.4414,
+      "xmax": 0.32500729166666664,
+      "ymax": 0.45
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 903,
+      "x1": 499,
+      "y1": 921
+    },
+    "is_valid": true
+  },
+  {
+    "page": 30,
+    "block_id": 7,
+    "type": "Text",
+    "text": "The deployment of trillion-parameter models requires sophisticated parallelism strategies to balance throughput and user interactivity effectively. By understanding and implementing a combination of data, tensor, pipeline, and expert parallelism, enterprises can optimize their AI inference deployments to meet both computational demands and user expectations.",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.4641,
+      "xmax": 0.7482729166666667,
+      "ymax": 0.5016
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 950,
+      "x1": 1149,
+      "y1": 1027
+    },
+    "is_valid": true
+  },
+  {
+    "page": 30,
+    "block_id": 8,
+    "type": "Text",
+    "text": "For further insights into optimizing AI inference for large-scale models and a deeper dive into the different types of parallelisms, read the technical walkthrough, Demystifying AI Inference Deployments for Trillion Parameter Large Language Models.",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.5125,
+      "xmax": 0.7304624999999999,
+      "ymax": 0.5406
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 1049,
+      "x1": 1121,
+      "y1": 1107
+    },
+    "is_valid": true
+  },
+  {
+    "page": 30,
+    "block_id": 9,
+    "type": "Page-footer",
+    "text": "30",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.7719,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.7828
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 1580,
+      "x1": 1155,
+      "y1": 1603
+    },
+    "is_valid": true
+  }
+]

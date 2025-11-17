@@ -1,0 +1,192 @@
+[
+  {
+    "page": 3,
+    "block_id": 0,
+    "type": "Section-header",
+    "text": "## Full NVIDIA Platform Support",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.6125,
+      "xmax": 0.388953125,
+      "ymax": 0.6227
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 1254,
+      "x1": 597,
+      "y1": 1275
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 1,
+    "type": "Text",
+    "text": "The NVIDIA GH200 Grace Hopper Superchip extends the existing large and diverse ecosystem of 64-bit Arm processors. The very same containers, application binaries, and operating systems that run on other Arm products run on Grace Hopper without modification--only faster. And for customers who wish to leverage and build upon NVIDIA’s software expertise, the NVIDIA Grace Hopper Superchip is supported by the full NVIDIA software stack, including the NVIDIA HPC and NVIDIA AI platforms.",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.6289,
+      "xmax": 0.5785375,
+      "ymax": 0.6914
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 1287,
+      "x1": 888,
+      "y1": 1415
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 2,
+    "type": "Footnote",
+    "text": "<sup>∗</sup> Comparison: 25 Xeon Platinum 8480+, Xeon Platinum 8480+ and H100 Tensor Core GPU, and NVIDIA GH200 144GB: ICON (QUBICC 191 levels 80km radiation), MILC (APEX Medium), Quantum Fourier Transform, DLRM 100GB inference, vector search (batch size = 10,000 | queries = 10,000 over 85M vectors IVF-PQ) GNN (GraphSage OGB-100M papers dataset), Llama2 70B (batch size = 64 (GH200), 96 (2x H100s) | precision = FP8 | TensorRT-LLM - throughput per GPU).",
+    "bbox_normalized": {
+      "xmin": 0.20559166666666664,
+      "ymin": 0.5344,
+      "xmax": 0.5911979166666667,
+      "ymax": 0.5687
+    },
+    "bbox_pixels": {
+      "x0": 315,
+      "y0": 1094,
+      "x1": 908,
+      "y1": 1164
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 3,
+    "type": "Page-footer",
+    "text": "NVIDIA GH200 Grace Hopper Superchip | Datasheet | 3",
+    "bbox_normalized": {
+      "xmin": 0.5628729166666667,
+      "ymin": 0.8016,
+      "xmax": 0.7923697916666667,
+      "ymax": 0.8086
+    },
+    "bbox_pixels": {
+      "x0": 864,
+      "y0": 1641,
+      "x1": 1217,
+      "y1": 1656
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 4,
+    "type": "Picture",
+    "text": "100X 94X 90X 80X 70X 61X 60X 50X 40X 41X 30X 27X 20X 6X 8X 10X 1.0X 1.0X 0X ICON MILC Quantum Fourier Transform x86 x86 + H100 GH200 144GB",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.2219,
+      "xmax": 0.5901249999999999,
+      "ymax": 0.3539
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 454,
+      "x1": 906,
+      "y1": 724
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 5,
+    "type": "Picture",
+    "text": "45X 40X 40X 35X 33X 30X 25X 20X 18X 15X 10X 9X 5X 5X Does not meet latency constraint 1.0X 1.0X 1.0X 0X DLRM Inf 100GB Vector Search IVF-PQ GNN Training 500GB 0.0X LLM Inference Llama2 70B x86 x86 + H100 GH200 144GB x86 x86 + H100 GH200 144GB",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.3914,
+      "xmax": 0.5901249999999999,
+      "ymax": 0.5172
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 801,
+      "x1": 906,
+      "y1": 1059
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 6,
+    "type": "Caption",
+    "text": "**GH200 HPC Performance**",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.2133,
+      "xmax": 0.31771145833333336,
+      "ymax": 0.2203
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 436,
+      "x1": 488,
+      "y1": 451
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 7,
+    "type": "Caption",
+    "text": "**GH200 AI Performance**",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.3766,
+      "xmax": 0.307196875,
+      "ymax": 0.3828
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 771,
+      "x1": 471,
+      "y1": 783
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 8,
+    "type": "Caption",
+    "text": "**GH200 LLM Performance**",
+    "bbox_normalized": {
+      "xmin": 0.4329427083333333,
+      "ymin": 0.3766,
+      "xmax": 0.5439895833333334,
+      "ymax": 0.3828
+    },
+    "bbox_pixels": {
+      "x0": 665,
+      "y0": 771,
+      "x1": 835,
+      "y1": 783
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 9,
+    "type": "Caption",
+    "text": "Results subject to change.",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.5727,
+      "xmax": 0.2999010416666667,
+      "ymax": 0.5789
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 1172,
+      "x1": 460,
+      "y1": 1185
+    },
+    "is_valid": true
+  }
+]

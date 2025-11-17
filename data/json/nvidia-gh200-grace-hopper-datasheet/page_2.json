@@ -1,0 +1,230 @@
+[
+  {
+    "page": 2,
+    "block_id": 0,
+    "type": "Section-header",
+    "text": "## Power and Efficiency With the Grace CPU",
+    "bbox_normalized": {
+      "xmin": 0.20559166666666664,
+      "ymin": 0.2039,
+      "xmax": 0.467490625,
+      "ymax": 0.2164
+    },
+    "bbox_pixels": {
+      "x0": 315,
+      "y0": 417,
+      "x1": 718,
+      "y1": 443
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 1,
+    "type": "Text",
+    "text": "The NVIDIA Grace CPU delivers 2X the performance per watt of conventional x86 platforms. The Grace CPU was designed for high single-threaded performance, high-memory bandwidth, and outstanding data-movement capabilities. The NVIDIA Grace CPU combines 72 Neoverse V2 Armv9 cores with up to 480GB of server-class LPDDR5X memory with ECC. The wide memory subsystem delivers up to 500GB/s of bandwidth at one-fifth the power of traditional DDR memory at similar cost.",
+    "bbox_normalized": {
+      "xmin": 0.20559166666666664,
+      "ymin": 0.2211,
+      "xmax": 0.5921635416666666,
+      "ymax": 0.2852
+    },
+    "bbox_pixels": {
+      "x0": 315,
+      "y0": 452,
+      "x1": 909,
+      "y1": 584
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 2,
+    "type": "Section-header",
+    "text": "## Performance and Speed With the Hopper H100 GPU",
+    "bbox_normalized": {
+      "xmin": 0.20559166666666664,
+      "ymin": 0.2977,
+      "xmax": 0.528325,
+      "ymax": 0.3086
+    },
+    "bbox_pixels": {
+      "x0": 315,
+      "y0": 609,
+      "x1": 811,
+      "y1": 632
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 3,
+    "type": "Text",
+    "text": "The H100 Tensor Core GPU is NVIDIA’s ninth-generation data center GPU, and it delivers an order-of-magnitude performance leap for large-scale AI and HPC over the prior-generation NVIDIA A100 Tensor Core GPU. The NVIDIA H100 based on the new Hopper GPU architecture features multiple innovations:",
+    "bbox_normalized": {
+      "xmin": 0.20559166666666664,
+      "ymin": 0.3133,
+      "xmax": 0.582721875,
+      "ymax": 0.3547
+    },
+    "bbox_pixels": {
+      "x0": 315,
+      "y0": 641,
+      "x1": 895,
+      "y1": 726
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 4,
+    "type": "List-item",
+    "text": "\\(\\blacktriangleright\\) New fourth-generation Tensor Cores perform faster matrix computations than ever before on an even broader array of AI and HPC tasks.",
+    "bbox_normalized": {
+      "xmin": 0.20559166666666664,
+      "ymin": 0.3648,
+      "xmax": 0.5775718750000001,
+      "ymax": 0.3836
+    },
+    "bbox_pixels": {
+      "x0": 315,
+      "y0": 747,
+      "x1": 887,
+      "y1": 785
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 5,
+    "type": "List-item",
+    "text": "\\(\\blacktriangleright\\) A new Transformer Engine enables H100 to deliver up to 9X faster AI training and up to 30X faster AI inference compared to the prior GPU generation.",
+    "bbox_normalized": {
+      "xmin": 0.20559166666666664,
+      "ymin": 0.3914,
+      "xmax": 0.5870135416666666,
+      "ymax": 0.4109
+    },
+    "bbox_pixels": {
+      "x0": 315,
+      "y0": 801,
+      "x1": 901,
+      "y1": 841
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 6,
+    "type": "List-item",
+    "text": "\\(\\blacktriangleright\\) Secure Multi-Instance GPU (MIG) partitions the GPU into isolated, right-size instances to maximize quality of service (QoS) for smaller workloads.",
+    "bbox_normalized": {
+      "xmin": 0.20559166666666664,
+      "ymin": 0.4188,
+      "xmax": 0.5618,
+      "ymax": 0.4375
+    },
+    "bbox_pixels": {
+      "x0": 315,
+      "y0": 857,
+      "x1": 862,
+      "y1": 896
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 7,
+    "type": "Section-header",
+    "text": "## The Power of Coherent Memory",
+    "bbox_normalized": {
+      "xmin": 0.20559166666666664,
+      "ymin": 0.4484,
+      "xmax": 0.4036520833333333,
+      "ymax": 0.4586
+    },
+    "bbox_pixels": {
+      "x0": 315,
+      "y0": 918,
+      "x1": 620,
+      "y1": 939
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 8,
+    "type": "Text",
+    "text": "NVLink-C2C memory coherency increases developer productivity, performance, and the amount of GPU-accessible memory. CPU and GPU threads can concurrently and transparently access both CPU and GPU resident memory, allowing developers to focus on algorithms instead of explicit memory management. Memory coherency lets developers only transfer the data they need and not migrate entire pages to and from the GPU. It also provides lightweight synchronization primitives across GPU and CPU threads by enabling native atomics from both the CPU and GPU. Fourth-generation NVLink allows accessing peer memory with direct loads, stores, and atomic operations, so accelerated applications can solve larger problems more easily than ever.",
+    "bbox_normalized": {
+      "xmin": 0.20559166666666664,
+      "ymin": 0.4648,
+      "xmax": 0.5890520833333334,
+      "ymax": 0.5602
+    },
+    "bbox_pixels": {
+      "x0": 315,
+      "y0": 951,
+      "x1": 904,
+      "y1": 1147
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 9,
+    "type": "Section-header",
+    "text": "## Class-Leading Performance for HPC and AI Workloads",
+    "bbox_normalized": {
+      "xmin": 0.20559166666666664,
+      "ymin": 0.5742,
+      "xmax": 0.5429166666666667,
+      "ymax": 0.5844
+    },
+    "bbox_pixels": {
+      "x0": 315,
+      "y0": 1175,
+      "x1": 833,
+      "y1": 1196
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 10,
+    "type": "Text",
+    "text": "The GH200 Grace Hopper Superchip is the first true heterogeneous accelerated platform for HPC and AI workloads. It accelerates any application with the strengths of both GPUs and CPUs while providing the simplest and most productive heterogeneous programming model to date, enabling scientists and engineers to focus on solving the world’s most important problems. For AI inference workloads, GH200 Grace Hopper Superchips combine with NVIDIA networking technologies to provide the best TCO for scale-out solutions, letting customers take on larger datasets, more complex models, and new workloads using up to 624GB of fast-access memory. The NVIDIA GH200 also comes in a GH200 NVL2 configuration with two Grace Hopper Superchips fully connected by NVLink to deliver 288GB of HBM3e and 1.2TB of fast memory for both compute- and memory-intensive workloads.",
+    "bbox_normalized": {
+      "xmin": 0.20559166666666664,
+      "ymin": 0.5898,
+      "xmax": 0.5921635416666666,
+      "ymax": 0.7078
+    },
+    "bbox_pixels": {
+      "x0": 315,
+      "y0": 1207,
+      "x1": 909,
+      "y1": 1449
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 11,
+    "type": "Page-footer",
+    "text": "NVIDIA GH200 Grace Hopper Superchip | Datasheet | 2",
+    "bbox_normalized": {
+      "xmin": 0.5628729166666667,
+      "ymin": 0.8016,
+      "xmax": 0.7923697916666667,
+      "ymax": 0.8086
+    },
+    "bbox_pixels": {
+      "x0": 864,
+      "y0": 1641,
+      "x1": 1217,
+      "y1": 1656
+    },
+    "is_valid": true
+  }
+]

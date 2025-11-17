@@ -1,0 +1,249 @@
+[
+  {
+    "page": 1,
+    "block_id": 0,
+    "type": "Page-header",
+    "text": "DATASHEET",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.1984,
+      "xmax": 0.2600958333333333,
+      "ymax": 0.2055
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 406,
+      "x1": 399,
+      "y1": 420
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 1,
+    "type": "Title",
+    "text": "NVIDIA A100 TENSOR CORE GPU",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.3039,
+      "xmax": 0.5146989583333333,
+      "ymax": 0.3195
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 622,
+      "x1": 790,
+      "y1": 654
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 2,
+    "type": "Text",
+    "text": "Unprecedented Acceleration at Every Scale",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.325,
+      "xmax": 0.48004375000000005,
+      "ymax": 0.3375
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 665,
+      "x1": 737,
+      "y1": 691
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 3,
+    "type": "Section-header",
+    "text": "# The Most Powerful Compute Platform for Every Workload",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.3891,
+      "xmax": 0.470709375,
+      "ymax": 0.4125
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 796,
+      "x1": 723,
+      "y1": 844
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 4,
+    "type": "Text",
+    "text": "The NVIDIA A100 Tensor Core GPU delivers unprecedented acceleration--at every scale--to power the world’s highest- performing elastic data centers for AI, data analytics, and high- performance computing (HPC) applications. As the engine of the NVIDIA data center platform, A100 provides up to 20X higher performance over the prior NVIDIA VoltaTM generation. A100 can efficiently scale up or be partitioned into seven isolated GPU instances with Multi-Instance GPU (MIG), providing a unified platform that enables elastic data centers to dynamically adjust to shifting workload demands.",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.4195,
+      "xmax": 0.48218958333333334,
+      "ymax": 0.5305
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 859,
+      "x1": 740,
+      "y1": 1086
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 5,
+    "type": "Text",
+    "text": "NVIDIA A100 Tensor Core technology supports a broad range of math precisions, providing a single accelerator for every workload. The latest generation A100 80GB doubles GPU memory and debuts the world’s fastest memory bandwidth at 2 terabytes per second (TB/s), speeding time to solution for the largest models and most massive datasets.",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.5383,
+      "xmax": 0.4894854166666667,
+      "ymax": 0.6016
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 1102,
+      "x1": 751,
+      "y1": 1232
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 6,
+    "type": "Text",
+    "text": "A100 is part of the complete NVIDIA data center solution that incorporates building blocks across hardware, networking, software, libraries, and optimized AI models and applications from the NVIDIA NGCTM catalog. Representing the most powerful end-to-end AI and HPC platform for data centers, it allows researchers to deliver real-world results and deploy solutions into production at scale.",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.6109,
+      "xmax": 0.48218958333333334,
+      "ymax": 0.6867
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 1251,
+      "x1": 740,
+      "y1": 1406
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 7,
+    "type": "Footnote",
+    "text": "<sup>∗</sup> With sparsity ** SXM4 GPUs via HGX A100 server boards; PCIe GPUs via NVLink Bridge for up to two GPUs *** 400W TDP for standard configuration. HGX A100-80GB CTS (Custom Thermal Solution) SKU can support TDPs up to 500W",
+    "bbox_normalized": {
+      "xmin": 0.5178104166666666,
+      "ymin": 0.7508,
+      "xmax": 0.7881854166666665,
+      "ymax": 0.7797
+    },
+    "bbox_pixels": {
+      "x0": 795,
+      "y0": 1537,
+      "x1": 1210,
+      "y1": 1596
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 8,
+    "type": "Page-footer",
+    "text": "NVIDIA A100 TENSOR CORE GPU | DATA SHEET | 1",
+    "bbox_normalized": {
+      "xmin": 0.6382989583333334,
+      "ymin": 0.7875,
+      "xmax": 0.7933354166666667,
+      "ymax": 0.7937
+    },
+    "bbox_pixels": {
+      "x0": 980,
+      "y0": 1612,
+      "x1": 1218,
+      "y1": 1625
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 9,
+    "type": "Table",
+    "text": "\\begin{tabular}{ccc}\n & **A100 80GB PCIe** & **A100 80GB SXM**\\\\ FP64 & \\multicolumn{2}{c}{9.7 TFLOPS}\\\\ FP64 Tensor Core & \\multicolumn{2}{c}{19.5 TFLOPS}\\\\ FP32 & \\multicolumn{2}{c}{19.5 TFLOPS}\\\\ Tensor Float 32 (TF32) & \\multicolumn{2}{c}{156 TFLOPS | 312 TFLOPS*}\\\\ BFLOAT16 Tensor Core & \\multicolumn{2}{c}{312 TFLOPS | 624 TFLOPS*}\\\\ FP16 Tensor Core & \\multicolumn{2}{c}{312 TFLOPS | 624 TFLOPS*}\\\\ INT8 Tensor Core & \\multicolumn{2}{c}{624 TOPS | 1248 TOPS*}\\\\ GPU Memory & 80GB HBM2e & 80GB HBM2e\\\\ GPU Memory Bandwidth & 1,935GB/s & 2,039GB/s\\\\ Max Thermal Design Power (TDP) & 300W & 400W***\\\\ Multi-Instance GPU & Up to 7 MIGs @ 10GB & Up to 7 MIGs @ 10GB\\\\ Form Factor & PCle dual-slot air cooled or single-slot liquid cooled & SXM\\\\ Interconnect & NVIDIA® NVLink® Bridge for 2 GPUs: 600GB/s ** PCle Gen4: 64GB/s & NVLink: 600GB/s PCle Gen4: 64GB/s\\\\ Server Options & Partner and NVIDIA- Certified SystemsTM with 1-8 GPUs & NVIDIA HGXTM A100- Partner and NVIDIA- Certified Systems with 4,8, or 16 GPUs NVIDIA DGXTM A100 with 8 GPUs\\\\ \\end{tabular}",
+    "bbox_normalized": {
+      "xmin": 0.5178104166666666,
+      "ymin": 0.407,
+      "xmax": 0.7933354166666667,
+      "ymax": 0.75
+    },
+    "bbox_pixels": {
+      "x0": 795,
+      "y0": 833,
+      "x1": 1218,
+      "y1": 1536
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 10,
+    "type": "Picture",
+    "text": "NVIDIA",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.2203,
+      "xmax": 0.26524583333333335,
+      "ymax": 0.2555
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 451,
+      "x1": 407,
+      "y1": 523
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 11,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.5471010416666667,
+      "ymin": 0.2031,
+      "xmax": 0.7975197916666666,
+      "ymax": 0.3586
+    },
+    "bbox_pixels": {
+      "x0": 840,
+      "y0": 415,
+      "x1": 1224,
+      "y1": 734
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 12,
+    "type": "Caption",
+    "text": "NVIDIA A100 TENSOR CORE GPU SPECIFICATIONS (SXM4 AND PCIE FORM FACTORS)",
+    "bbox_normalized": {
+      "xmin": 0.5188833333333333,
+      "ymin": 0.3891,
+      "xmax": 0.7399041666666667,
+      "ymax": 0.4047
+    },
+    "bbox_pixels": {
+      "x0": 797,
+      "y0": 796,
+      "x1": 1136,
+      "y1": 828
+    },
+    "is_valid": true
+  }
+]

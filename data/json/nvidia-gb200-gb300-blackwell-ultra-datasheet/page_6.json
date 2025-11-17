@@ -1,0 +1,382 @@
+[
+  {
+    "page": 6,
+    "block_id": 0,
+    "type": "Title",
+    "text": "# Technological Breakthroughs",
+    "bbox_normalized": {
+      "xmin": 0.20559166666666664,
+      "ymin": 0.2039,
+      "xmax": 0.3920645833333333,
+      "ymax": 0.2172
+    },
+    "bbox_pixels": {
+      "x0": 315,
+      "y0": 417,
+      "x1": 602,
+      "y1": 444
+    },
+    "is_valid": true
+  },
+  {
+    "page": 6,
+    "block_id": 1,
+    "type": "Section-header",
+    "text": "# AI Reasoning Inference",
+    "bbox_normalized": {
+      "xmin": 0.25591145833333334,
+      "ymin": 0.2289,
+      "xmax": 0.3795114583333333,
+      "ymax": 0.2398
+    },
+    "bbox_pixels": {
+      "x0": 393,
+      "y0": 468,
+      "x1": 582,
+      "y1": 491
+    },
+    "is_valid": true
+  },
+  {
+    "page": 6,
+    "block_id": 2,
+    "type": "Text",
+    "text": "Test-time scaling and AI reasoning increase the compute necessary to achieve quality of service and maximum throughput. NVIDIA Blackwell Ultra’s <u>Tensor Cores</u> are supercharged with 2x the attention-layer acceleration and 1.5x more AI compute floating-point operations per second (FLOPS) compared to NVIDIA Blackwell GPUs.",
+    "bbox_normalized": {
+      "xmin": 0.2568770833333333,
+      "ymin": 0.2367,
+      "xmax": 0.4685635416666667,
+      "ymax": 0.3305
+    },
+    "bbox_pixels": {
+      "x0": 394,
+      "y0": 484,
+      "x1": 719,
+      "y1": 676
+    },
+    "is_valid": true
+  },
+  {
+    "page": 6,
+    "block_id": 3,
+    "type": "Section-header",
+    "text": "# NVIDIA Blackwell Architecture",
+    "bbox_normalized": {
+      "xmin": 0.25591145833333334,
+      "ymin": 0.3461,
+      "xmax": 0.41620520833333335,
+      "ymax": 0.357
+    },
+    "bbox_pixels": {
+      "x0": 393,
+      "y0": 708,
+      "x1": 639,
+      "y1": 731
+    },
+    "is_valid": true
+  },
+  {
+    "page": 6,
+    "block_id": 4,
+    "type": "Text",
+    "text": "The <u>NVIDIA Blackwell architecture</u> delivers groundbreaking advancements in accelerated computing, powering a new era of unparalleled performance, efficiency, and scale.",
+    "bbox_normalized": {
+      "xmin": 0.25591145833333334,
+      "ymin": 0.3609,
+      "xmax": 0.470709375,
+      "ymax": 0.4039
+    },
+    "bbox_pixels": {
+      "x0": 393,
+      "y0": 739,
+      "x1": 723,
+      "y1": 827
+    },
+    "is_valid": true
+  },
+  {
+    "page": 6,
+    "block_id": 5,
+    "type": "Section-header",
+    "text": "# NVIDIA Grace CPU",
+    "bbox_normalized": {
+      "xmin": 0.25591145833333334,
+      "ymin": 0.4766,
+      "xmax": 0.35440520833333333,
+      "ymax": 0.4875
+    },
+    "bbox_pixels": {
+      "x0": 393,
+      "y0": 976,
+      "x1": 544,
+      "y1": 998
+    },
+    "is_valid": true
+  },
+  {
+    "page": 6,
+    "block_id": 6,
+    "type": "Text",
+    "text": "The NVIDIA Grace CPU is a breakthrough processor designed for modern data center workloads. It provides outstanding performance and memory bandwidth with 2x the energy efficiency of today’s leading server processors.",
+    "bbox_normalized": {
+      "xmin": 0.25591145833333334,
+      "ymin": 0.4914,
+      "xmax": 0.4780052083333333,
+      "ymax": 0.5461
+    },
+    "bbox_pixels": {
+      "x0": 393,
+      "y0": 1006,
+      "x1": 734,
+      "y1": 1118
+    },
+    "is_valid": true
+  },
+  {
+    "page": 6,
+    "block_id": 7,
+    "type": "Section-header",
+    "text": "# High-Capacity HBM3E Architecture",
+    "bbox_normalized": {
+      "xmin": 0.5545041666666667,
+      "ymin": 0.2289,
+      "xmax": 0.7409770833333335,
+      "ymax": 0.2398
+    },
+    "bbox_pixels": {
+      "x0": 851,
+      "y0": 468,
+      "x1": 1138,
+      "y1": 491
+    },
+    "is_valid": true
+  },
+  {
+    "page": 6,
+    "block_id": 8,
+    "type": "Text",
+    "text": "Larger memory capacity allows for larger batch sizing and maximum throughput performance. NVIDIA Blackwell Ultra GPUs offer 1.5x larger HBM3E memory in combination with added AI compute compared to its predecessor, boosting AI reasoning throughput for the largest context lengths.",
+    "bbox_normalized": {
+      "xmin": 0.5545041666666667,
+      "ymin": 0.2437,
+      "xmax": 0.770375,
+      "ymax": 0.3195
+    },
+    "bbox_pixels": {
+      "x0": 851,
+      "y0": 499,
+      "x1": 1183,
+      "y1": 654
+    },
+    "is_valid": true
+  },
+  {
+    "page": 6,
+    "block_id": 9,
+    "type": "Section-header",
+    "text": "# NVIDIA ConnectX-8 SuperNIC",
+    "bbox_normalized": {
+      "xmin": 0.5545041666666667,
+      "ymin": 0.3469,
+      "xmax": 0.7116864583333333,
+      "ymax": 0.357
+    },
+    "bbox_pixels": {
+      "x0": 851,
+      "y0": 710,
+      "x1": 1093,
+      "y1": 731
+    },
+    "is_valid": true
+  },
+  {
+    "page": 6,
+    "block_id": 10,
+    "type": "Text",
+    "text": "The <u>NVIDIA ConnectX-8 SuperNIC’s input/output</u> (IO) module hosts two ConnectX-8 devices, providing 800 gigabits per second (Gb/s) of network connectivity for each GPU in the NVIDIA GB300 NVL72. This delivers best-in-class remote direct-memory access (RDMA) capabilities with either <u>NVIDIA Quantum-X800 InfiniBand</u> or <u>Spectrum-X Ethernet</u> networking platforms, enabling peak AI workload efficiency.",
+    "bbox_normalized": {
+      "xmin": 0.5534312499999999,
+      "ymin": 0.3609,
+      "xmax": 0.77874375,
+      "ymax": 0.4586
+    },
+    "bbox_pixels": {
+      "x0": 850,
+      "y0": 739,
+      "x1": 1196,
+      "y1": 939
+    },
+    "is_valid": true
+  },
+  {
+    "page": 6,
+    "block_id": 11,
+    "type": "Section-header",
+    "text": "# Fifth-Generation NVIDIA NVLink",
+    "bbox_normalized": {
+      "xmin": 0.5545041666666667,
+      "ymin": 0.4773,
+      "xmax": 0.7273510416666666,
+      "ymax": 0.4875
+    },
+    "bbox_pixels": {
+      "x0": 851,
+      "y0": 977,
+      "x1": 1117,
+      "y1": 998
+    },
+    "is_valid": true
+  },
+  {
+    "page": 6,
+    "block_id": 12,
+    "type": "Text",
+    "text": "Unlocking the full potential of accelerated computing requires seamless communication between every GPU. The fifth generation of <u>NVIDIA NVLink</u> is a scale-up interconnect that unleashes accelerated performance for AI reasoning models.",
+    "bbox_normalized": {
+      "xmin": 0.5545041666666667,
+      "ymin": 0.4922,
+      "xmax": 0.7891510416666666,
+      "ymax": 0.5461
+    },
+    "bbox_pixels": {
+      "x0": 851,
+      "y0": 1008,
+      "x1": 1212,
+      "y1": 1118
+    },
+    "is_valid": true
+  },
+  {
+    "page": 6,
+    "block_id": 13,
+    "type": "Page-footer",
+    "text": "NVIDIA Blackwell Ultra | Datasheet | 6",
+    "bbox_normalized": {
+      "xmin": 0.6299302083333334,
+      "ymin": 0.8,
+      "xmax": 0.7933354166666667,
+      "ymax": 0.8094
+    },
+    "bbox_pixels": {
+      "x0": 967,
+      "y0": 1638,
+      "x1": 1218,
+      "y1": 1657
+    },
+    "is_valid": true
+  },
+  {
+    "page": 6,
+    "block_id": 14,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.21084895833333336,
+      "ymin": 0.2289,
+      "xmax": 0.25269270833333335,
+      "ymax": 0.2641
+    },
+    "bbox_pixels": {
+      "x0": 323,
+      "y0": 468,
+      "x1": 388,
+      "y1": 540
+    },
+    "is_valid": true
+  },
+  {
+    "page": 6,
+    "block_id": 15,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.20763020833333334,
+      "ymin": 0.3469,
+      "xmax": 0.25269270833333335,
+      "ymax": 0.3805
+    },
+    "bbox_pixels": {
+      "x0": 318,
+      "y0": 710,
+      "x1": 388,
+      "y1": 779
+    },
+    "is_valid": true
+  },
+  {
+    "page": 6,
+    "block_id": 16,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.21084895833333336,
+      "ymin": 0.4766,
+      "xmax": 0.25269270833333335,
+      "ymax": 0.5055
+    },
+    "bbox_pixels": {
+      "x0": 323,
+      "y0": 976,
+      "x1": 388,
+      "y1": 1035
+    },
+    "is_valid": true
+  },
+  {
+    "page": 6,
+    "block_id": 17,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.5031114583333334,
+      "ymin": 0.2289,
+      "xmax": 0.549246875,
+      "ymax": 0.2555
+    },
+    "bbox_pixels": {
+      "x0": 772,
+      "y0": 468,
+      "x1": 843,
+      "y1": 523
+    },
+    "is_valid": true
+  },
+  {
+    "page": 6,
+    "block_id": 18,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.5114802083333334,
+      "ymin": 0.3469,
+      "xmax": 0.549246875,
+      "ymax": 0.3758
+    },
+    "bbox_pixels": {
+      "x0": 785,
+      "y0": 710,
+      "x1": 843,
+      "y1": 769
+    },
+    "is_valid": true
+  },
+  {
+    "page": 6,
+    "block_id": 19,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.5114802083333334,
+      "ymin": 0.4758,
+      "xmax": 0.549246875,
+      "ymax": 0.5047
+    },
+    "bbox_pixels": {
+      "x0": 785,
+      "y0": 974,
+      "x1": 843,
+      "y1": 1033
+    },
+    "is_valid": true
+  }
+]

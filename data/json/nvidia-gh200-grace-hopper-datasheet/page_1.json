@@ -1,0 +1,344 @@
+[
+  {
+    "page": 1,
+    "block_id": 0,
+    "type": "Title",
+    "text": "# NVIDIA GH200 Grace Hopper Superchip",
+    "bbox_normalized": {
+      "xmin": 0.20140729166666668,
+      "ymin": 0.2727,
+      "xmax": 0.5670572916666666,
+      "ymax": 0.3148
+    },
+    "bbox_pixels": {
+      "x0": 309,
+      "y0": 558,
+      "x1": 871,
+      "y1": 644
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 1,
+    "type": "Text",
+    "text": "The breakthrough processor for large-scale AI and high-performance computing (HPC) applications.",
+    "bbox_normalized": {
+      "xmin": 0.20140729166666668,
+      "ymin": 0.3211,
+      "xmax": 0.565984375,
+      "ymax": 0.3484
+    },
+    "bbox_pixels": {
+      "x0": 309,
+      "y0": 657,
+      "x1": 869,
+      "y1": 713
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 2,
+    "type": "Section-header",
+    "text": "### The World’s Most Versatile Computing Platform",
+    "bbox_normalized": {
+      "xmin": 0.20140729166666668,
+      "ymin": 0.3836,
+      "xmax": 0.5063302083333333,
+      "ymax": 0.3969
+    },
+    "bbox_pixels": {
+      "x0": 309,
+      "y0": 785,
+      "x1": 777,
+      "y1": 812
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 3,
+    "type": "Text",
+    "text": "The NVIDIA Grace HopperTM architecture brings together the groundbreaking performance of the NVIDIA HopperTM GPU with the versatility of the NVIDIA GraceTM CPU in a single superchip, connected with the high-bandwidth, memory-coherent NVIDIA<sup>®</sup> NVLink<sup>®</sup> Chip-2-Chip (C2C) interconnect.",
+    "bbox_normalized": {
+      "xmin": 0.20140729166666668,
+      "ymin": 0.4,
+      "xmax": 0.5817562500000001,
+      "ymax": 0.4437
+    },
+    "bbox_pixels": {
+      "x0": 309,
+      "y0": 819,
+      "x1": 893,
+      "y1": 908
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 4,
+    "type": "Text",
+    "text": "NVIDIA NVLink-C2C is a memory-coherent, high-bandwidth, and low-latency interconnect for superchips. The heart of the GH200 Grace Hopper Superchip, it delivers up to 900 gigabytes per second (GB/s) of total bandwidth, which is 7X higher than PCIe Gen5 lanes commonly used in accelerated systems. NVLink-C2C memory coherency increases developer productivity, performance, and the amount of GPU- accessible memory. GH200 can be easily deployed in standard servers to run a variety of inference, data analytics, and other compute- and memory-intensive workloads.",
+    "bbox_normalized": {
+      "xmin": 0.20140729166666668,
+      "ymin": 0.4484,
+      "xmax": 0.5901249999999999,
+      "ymax": 0.5258
+    },
+    "bbox_pixels": {
+      "x0": 309,
+      "y0": 918,
+      "x1": 906,
+      "y1": 1076
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 5,
+    "type": "Section-header",
+    "text": "**Key Features**",
+    "bbox_normalized": {
+      "xmin": 0.6173770833333334,
+      "ymin": 0.3914,
+      "xmax": 0.7033177083333334,
+      "ymax": 0.4039
+    },
+    "bbox_pixels": {
+      "x0": 948,
+      "y0": 801,
+      "x1": 1080,
+      "y1": 827
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 6,
+    "type": "List-item",
+    "text": "\\>\\> NVIDIA Hopper GPU",
+    "bbox_normalized": {
+      "xmin": 0.6173770833333334,
+      "ymin": 0.4102,
+      "xmax": 0.7231666666666666,
+      "ymax": 0.4203
+    },
+    "bbox_pixels": {
+      "x0": 948,
+      "y0": 840,
+      "x1": 1110,
+      "y1": 860
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 7,
+    "type": "List-item",
+    "text": "\\> Supports up to 96GB of HBM3 or 144GB of HBM3e",
+    "bbox_normalized": {
+      "xmin": 0.6173770833333334,
+      "ymin": 0.4258,
+      "xmax": 0.7818552083333334,
+      "ymax": 0.4461
+    },
+    "bbox_pixels": {
+      "x0": 948,
+      "y0": 872,
+      "x1": 1200,
+      "y1": 913
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 8,
+    "type": "List-item",
+    "text": "\\> 72-core NVIDIA Grace CPU",
+    "bbox_normalized": {
+      "xmin": 0.6173770833333334,
+      "ymin": 0.4531,
+      "xmax": 0.7514916666666668,
+      "ymax": 0.4633
+    },
+    "bbox_pixels": {
+      "x0": 948,
+      "y0": 927,
+      "x1": 1154,
+      "y1": 948
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 9,
+    "type": "List-item",
+    "text": "\\> Up to 480GB of LPDDR5X memory with error-correction code (ECC)",
+    "bbox_normalized": {
+      "xmin": 0.6173770833333334,
+      "ymin": 0.4688,
+      "xmax": 0.7660833333333333,
+      "ymax": 0.5
+    },
+    "bbox_pixels": {
+      "x0": 948,
+      "y0": 960,
+      "x1": 1176,
+      "y1": 1024
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 10,
+    "type": "List-item",
+    "text": "\\> Up to 624GB of fast-access memory",
+    "bbox_normalized": {
+      "xmin": 0.6173770833333334,
+      "ymin": 0.507,
+      "xmax": 0.7567489583333332,
+      "ymax": 0.5266
+    },
+    "bbox_pixels": {
+      "x0": 948,
+      "y0": 1038,
+      "x1": 1162,
+      "y1": 1078
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 11,
+    "type": "List-item",
+    "text": "\\> NVLink-C2C: 900GB/s of coherent memory",
+    "bbox_normalized": {
+      "xmin": 0.6173770833333334,
+      "ymin": 0.5336,
+      "xmax": 0.7431229166666666,
+      "ymax": 0.5539
+    },
+    "bbox_pixels": {
+      "x0": 948,
+      "y0": 1092,
+      "x1": 1141,
+      "y1": 1134
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 12,
+    "type": "Page-footer",
+    "text": "NVIDIA GH200 Grace Hopper Superchip | Datasheet | 1",
+    "bbox_normalized": {
+      "xmin": 0.5618,
+      "ymin": 0.8,
+      "xmax": 0.7933354166666667,
+      "ymax": 0.8094
+    },
+    "bbox_pixels": {
+      "x0": 862,
+      "y0": 1638,
+      "x1": 1218,
+      "y1": 1657
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 13,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.20140729166666668,
+      "ymin": 0.2266,
+      "xmax": 0.23702812500000003,
+      "ymax": 0.243
+    },
+    "bbox_pixels": {
+      "x0": 309,
+      "y0": 464,
+      "x1": 364,
+      "y1": 497
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 14,
+    "type": "Picture",
+    "text": "CPU LPDDR5X <480GB GPU HBM3 or HBM3e 96GB HBM3 144GB HBM3e <400GB/s <400GB/s <400GB/s 4x 16x PCle-5 512GB/s Grace Hopper GPU 18x NVLink 4 900GB/s High-Speed 10 NVLink-C2C 900GB/s 256 GPUs CPU LPDDR5X <480GB GPU HBM3 or HBM3e 96GB HBM3 144GB HBM3e Hardware Coherency",
+    "bbox_normalized": {
+      "xmin": 0.20666458333333335,
+      "ymin": 0.5461,
+      "xmax": 0.5911979166666667,
+      "ymax": 0.6813
+    },
+    "bbox_pixels": {
+      "x0": 317,
+      "y0": 1118,
+      "x1": 908,
+      "y1": 1395
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 15,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.5901249999999999,
+      "ymin": 0.1844,
+      "xmax": 0.8311020833333332,
+      "ymax": 0.3586
+    },
+    "bbox_pixels": {
+      "x0": 906,
+      "y0": 377,
+      "x1": 1276,
+      "y1": 734
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 16,
+    "type": "Caption",
+    "text": "Datasheet",
+    "bbox_normalized": {
+      "xmin": 0.20140729166666668,
+      "ymin": 0.2039,
+      "xmax": 0.262134375,
+      "ymax": 0.2148
+    },
+    "bbox_pixels": {
+      "x0": 309,
+      "y0": 417,
+      "x1": 402,
+      "y1": 439
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 17,
+    "type": "Caption",
+    "text": "**NVIDIA**",
+    "bbox_normalized": {
+      "xmin": 0.2401395833333333,
+      "ymin": 0.2273,
+      "xmax": 0.3135270833333333,
+      "ymax": 0.2422
+    },
+    "bbox_pixels": {
+      "x0": 368,
+      "y0": 465,
+      "x1": 481,
+      "y1": 496
+    },
+    "is_valid": true
+  }
+]

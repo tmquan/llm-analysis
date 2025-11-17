@@ -1,0 +1,135 @@
+[
+  {
+    "page": 11,
+    "block_id": 0,
+    "type": "Page-header",
+    "text": "NVIDIA Blackwell Architectural Innovations",
+    "bbox_normalized": {
+      "xmin": 0.5178104166666666,
+      "ymin": 0.1773,
+      "xmax": 0.7147979166666668,
+      "ymax": 0.1867
+    },
+    "bbox_pixels": {
+      "x0": 795,
+      "y0": 363,
+      "x1": 1097,
+      "y1": 382
+    },
+    "is_valid": true
+  },
+  {
+    "page": 11,
+    "block_id": 1,
+    "type": "Text",
+    "text": "Decompression Engine can decompress data at a rate of up to 800GB/s. In combination with 8TB/s of HBM3e (High Bandwidth Memory) using one GPU in GB200 and the Grace CPU’s high-speed NVLink-C2C (Chip-to-Chip) interconnect, Blackwell and Blackwell Ultra accelerate the full pipeline of database queries for the highest performance in data analytics and data science. With support for the latest compression formats, such as LZ4, Snappy, and Deflate, NVIDIA Blackwell is18X faster than CPUs and 6X faster than NVIDIA H100 GPUs for query benchmarks.",
+    "bbox_normalized": {
+      "xmin": 0.24228541666666661,
+      "ymin": 0.2359,
+      "xmax": 0.7473072916666667,
+      "ymax": 0.3148
+    },
+    "bbox_pixels": {
+      "x0": 372,
+      "y0": 483,
+      "x1": 1147,
+      "y1": 644
+    },
+    "is_valid": true
+  },
+  {
+    "page": 11,
+    "block_id": 2,
+    "type": "Section-header",
+    "text": "## RAS Engine",
+    "bbox_normalized": {
+      "xmin": 0.24228541666666661,
+      "ymin": 0.6781,
+      "xmax": 0.3291916666666666,
+      "ymax": 0.693
+    },
+    "bbox_pixels": {
+      "x0": 372,
+      "y0": 1388,
+      "x1": 505,
+      "y1": 1419
+    },
+    "is_valid": true
+  },
+  {
+    "page": 11,
+    "block_id": 3,
+    "type": "Text",
+    "text": "Blackwell architecture adds intelligent resiliency with a dedicated Reliability, Availability, and Serviceability (RAS) Engine to identify potential faults that may occur early on to minimize downtime. NVIDIA’s AI-powered predictive-management capabilities continuously monitor thousands of data points across hardware and software for overall health to",
+    "bbox_normalized": {
+      "xmin": 0.24228541666666661,
+      "ymin": 0.7023,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.7477
+    },
+    "bbox_pixels": {
+      "x0": 372,
+      "y0": 1438,
+      "x1": 1155,
+      "y1": 1531
+    },
+    "is_valid": true
+  },
+  {
+    "page": 11,
+    "block_id": 4,
+    "type": "Page-footer",
+    "text": "NVIDIA Blackwell Architecture Technical Brief 11",
+    "bbox_normalized": {
+      "xmin": 0.24228541666666661,
+      "ymin": 0.7695,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.7914
+    },
+    "bbox_pixels": {
+      "x0": 372,
+      "y0": 1575,
+      "x1": 1155,
+      "y1": 1620
+    },
+    "is_valid": true
+  },
+  {
+    "page": 11,
+    "block_id": 5,
+    "type": "Picture",
+    "text": "100 90 90 80 70 Queries per Second 60 18X 50 40 30 20 15 10 5\n0 x86 HGX H100 GB200 NVL72 Projected performance subject to change. Database join and aggregation workload with Snappy / Deflate compression derived from TPC-H Q4 query. Custom query implementations for x86, HGX H100 single GPU, and single GPU from GB200 Grace Blackwell Superchip",
+    "bbox_normalized": {
+      "xmin": 0.24228541666666661,
+      "ymin": 0.3273,
+      "xmax": 0.7567489583333332,
+      "ymax": 0.6344
+    },
+    "bbox_pixels": {
+      "x0": 372,
+      "y0": 670,
+      "x1": 1162,
+      "y1": 1299
+    },
+    "is_valid": true
+  },
+  {
+    "page": 11,
+    "block_id": 6,
+    "type": "Caption",
+    "text": "Figure 3. GB200 Grace Blackwell Database Join Query Using Decompression Engine",
+    "bbox_normalized": {
+      "xmin": 0.24228541666666661,
+      "ymin": 0.6422,
+      "xmax": 0.6571822916666666,
+      "ymax": 0.6695
+    },
+    "bbox_pixels": {
+      "x0": 372,
+      "y0": 1315,
+      "x1": 1009,
+      "y1": 1371
+    },
+    "is_valid": true
+  }
+]

@@ -1,0 +1,629 @@
+[
+  {
+    "page": 2,
+    "block_id": 0,
+    "type": "Title",
+    "text": "# Incredible Performance Across Workloads",
+    "bbox_normalized": {
+      "xmin": 0.20559166666666664,
+      "ymin": 0.2133,
+      "xmax": 0.4769322916666667,
+      "ymax": 0.2258
+    },
+    "bbox_pixels": {
+      "x0": 315,
+      "y0": 436,
+      "x1": 732,
+      "y1": 462
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 1,
+    "type": "Title",
+    "text": "# Groundbreaking Innovations",
+    "bbox_normalized": {
+      "xmin": 0.20559166666666664,
+      "ymin": 0.5469,
+      "xmax": 0.3868072916666667,
+      "ymax": 0.5594
+    },
+    "bbox_pixels": {
+      "x0": 315,
+      "y0": 1120,
+      "x1": 594,
+      "y1": 1145
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 2,
+    "type": "Section-header",
+    "text": "# NVIDIA AMPERE ARCHITECTURE",
+    "bbox_normalized": {
+      "xmin": 0.262134375,
+      "ymin": 0.5727,
+      "xmax": 0.33659479166666667,
+      "ymax": 0.5961
+    },
+    "bbox_pixels": {
+      "x0": 402,
+      "y0": 1172,
+      "x1": 517,
+      "y1": 1220
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 3,
+    "type": "Section-header",
+    "text": "# MULTI-INSTANCE GPU (MIG)",
+    "bbox_normalized": {
+      "xmin": 0.262134375,
+      "ymin": 0.682,
+      "xmax": 0.3878802083333333,
+      "ymax": 0.6891
+    },
+    "bbox_pixels": {
+      "x0": 402,
+      "y0": 1396,
+      "x1": 595,
+      "y1": 1411
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 4,
+    "type": "Section-header",
+    "text": "# THIRD-GENERATION TENSOR CORES",
+    "bbox_normalized": {
+      "xmin": 0.4643791666666666,
+      "ymin": 0.5727,
+      "xmax": 0.5565427083333333,
+      "ymax": 0.5883
+    },
+    "bbox_pixels": {
+      "x0": 713,
+      "y0": 1172,
+      "x1": 854,
+      "y1": 1204
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 5,
+    "type": "Section-header",
+    "text": "# HIGH-BANDWIDTH MEMORY (HBM2E)",
+    "bbox_normalized": {
+      "xmin": 0.4643791666666666,
+      "ymin": 0.6813,
+      "xmax": 0.5901249999999999,
+      "ymax": 0.6969
+    },
+    "bbox_pixels": {
+      "x0": 713,
+      "y0": 1395,
+      "x1": 906,
+      "y1": 1427
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 6,
+    "type": "Section-header",
+    "text": "# NEXT-GENERATION NVLINK",
+    "bbox_normalized": {
+      "xmin": 0.6666239583333334,
+      "ymin": 0.5727,
+      "xmax": 0.791296875,
+      "ymax": 0.5805
+    },
+    "bbox_pixels": {
+      "x0": 1023,
+      "y0": 1172,
+      "x1": 1215,
+      "y1": 1188
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 7,
+    "type": "Text",
+    "text": "Whether using MIG to partition an A100 GPU into smaller instances or NVLink to connect multiple",
+    "bbox_normalized": {
+      "xmin": 0.262134375,
+      "ymin": 0.593,
+      "xmax": 0.388953125,
+      "ymax": 0.6164
+    },
+    "bbox_pixels": {
+      "x0": 402,
+      "y0": 1214,
+      "x1": 597,
+      "y1": 1262
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 8,
+    "type": "Text",
+    "text": "GPUs to speed large-scale workloads, A100 can readily handle different-sized acceleration needs, from the smallest job to the biggest multi-node workload. A100’s versatility means IT managers can maximize the utility of every GPU in their data center, around the clock.",
+    "bbox_normalized": {
+      "xmin": 0.20559166666666664,
+      "ymin": 0.6172,
+      "xmax": 0.3900260416666667,
+      "ymax": 0.6633
+    },
+    "bbox_pixels": {
+      "x0": 315,
+      "y0": 1264,
+      "x1": 599,
+      "y1": 1358
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 9,
+    "type": "Text",
+    "text": "NVIDIA A100 delivers 312 teraFLOPS (TFLOPS) of deep learning performance. That’s 20X",
+    "bbox_normalized": {
+      "xmin": 0.4643791666666666,
+      "ymin": 0.5938,
+      "xmax": 0.5890520833333334,
+      "ymax": 0.6164
+    },
+    "bbox_pixels": {
+      "x0": 713,
+      "y0": 1216,
+      "x1": 904,
+      "y1": 1262
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 10,
+    "type": "Text",
+    "text": "the Tensor floating-point operations per second (FLOPS) for deep learning training and 20X the Tensor tera operations per second (TOPS) for deep learning inference compared to NVIDIA Volta GPUs.",
+    "bbox_normalized": {
+      "xmin": 0.4078364583333334,
+      "ymin": 0.6172,
+      "xmax": 0.5879791666666666,
+      "ymax": 0.6547
+    },
+    "bbox_pixels": {
+      "x0": 626,
+      "y0": 1264,
+      "x1": 903,
+      "y1": 1340
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 11,
+    "type": "Text",
+    "text": "With up to 80 gigabytes of HBM2e, A100 delivers the world’s fastest GPU memory bandwidth",
+    "bbox_normalized": {
+      "xmin": 0.4643791666666666,
+      "ymin": 0.6945,
+      "xmax": 0.5901249999999999,
+      "ymax": 0.7164
+    },
+    "bbox_pixels": {
+      "x0": 713,
+      "y0": 1422,
+      "x1": 906,
+      "y1": 1467
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 12,
+    "type": "Text",
+    "text": "of over 2TB/s, as well as a dynamic random- access memory (DRAM) utilization efficiency of 95%. A100 delivers 1.7X higher memory bandwidth over the previous generation.",
+    "bbox_normalized": {
+      "xmin": 0.4078364583333334,
+      "ymin": 0.718,
+      "xmax": 0.5764989583333334,
+      "ymax": 0.7484
+    },
+    "bbox_pixels": {
+      "x0": 626,
+      "y0": 1470,
+      "x1": 885,
+      "y1": 1532
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 13,
+    "type": "Section-header",
+    "text": "# STRUCTURAL SPARSITY",
+    "bbox_normalized": {
+      "xmin": 0.6666239583333334,
+      "ymin": 0.6813,
+      "xmax": 0.774559375,
+      "ymax": 0.6891
+    },
+    "bbox_pixels": {
+      "x0": 1023,
+      "y0": 1395,
+      "x1": 1189,
+      "y1": 1411
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 14,
+    "type": "Text",
+    "text": "All networks have millions to billions of parameters. Not all of these parameters are needed for accurate predictions, and some",
+    "bbox_normalized": {
+      "xmin": 0.6666239583333334,
+      "ymin": 0.6937,
+      "xmax": 0.7891510416666666,
+      "ymax": 0.7164
+    },
+    "bbox_pixels": {
+      "x0": 1023,
+      "y0": 1420,
+      "x1": 1212,
+      "y1": 1467
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 15,
+    "type": "Text",
+    "text": "can be converted to zeros, making the models \"sparse\" without compromising accuracy. Tensor Cores in A100 can provide up to 2X higher performance for sparse models. While the sparsity feature more readily benefits AI inference, it can also improve the performance of model training.",
+    "bbox_normalized": {
+      "xmin": 0.6099739583333333,
+      "ymin": 0.7172,
+      "xmax": 0.7849666666666666,
+      "ymax": 0.7711
+    },
+    "bbox_pixels": {
+      "x0": 936,
+      "y0": 1468,
+      "x1": 1205,
+      "y1": 1579
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 16,
+    "type": "Page-footer",
+    "text": "NVIDIA A100 TENSOR CORE GPU | DATA SHEET | 2",
+    "bbox_normalized": {
+      "xmin": 0.6372260416666666,
+      "ymin": 0.7875,
+      "xmax": 0.7933354166666667,
+      "ymax": 0.7937
+    },
+    "bbox_pixels": {
+      "x0": 978,
+      "y0": 1612,
+      "x1": 1218,
+      "y1": 1625
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 17,
+    "type": "Picture",
+    "text": "DLRM Training 3X 3X 2X 1X 1X 0.7X 0\nV100 FP16 A100 40GB FP16 A100 80GB FP16 Time Per 1,000 Iterations Relative Performance DLRM on High-CTR framework, precision = FP16 - NVIDIA A100-80GB batch size = +4. 1 NVIDIA A100-60GB batch size = 32. NVIDIA V100-32GB batch size = 32.",
+    "bbox_normalized": {
+      "xmin": 0.20559166666666664,
+      "ymin": 0.2508,
+      "xmax": 0.3459291666666667,
+      "ymax": 0.3641
+    },
+    "bbox_pixels": {
+      "x0": 315,
+      "y0": 513,
+      "x1": 531,
+      "y1": 745
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 18,
+    "type": "Picture",
+    "text": "250X 245X 249X 200X 100X 100X 50X 1X 0\nCPU Only A100 40GB A100 80GB Sequences Per Second Relative Performance BERT-Large Inference: 1 CPU only Dual Rank-field 620X 92.40 GHz, precision = FP2, batch size = 108. 1 V100-NVIDIA Tensor- RTN (TRT) 7.2, precision = RTN, batch size = 256. 1 LARN-60GB and 80GB, batch size = 256, precision = RTN with sparsity.",
+    "bbox_normalized": {
+      "xmin": 0.36170104166666667,
+      "ymin": 0.2508,
+      "xmax": 0.49366979166666664,
+      "ymax": 0.3656
+    },
+    "bbox_pixels": {
+      "x0": 555,
+      "y0": 513,
+      "x1": 758,
+      "y1": 748
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 19,
+    "type": "Picture",
+    "text": "RNN-T Inference: Single Stream 2X 1.25X 1X 1X 0\nA100 40GB A100 80GB Sequences Per Second Relative Performance ML Puri 0.7 RNN-T measured with LUTI MIG video, Frame- work, TensorRT 7.2, dataset = Libr/Speech, precision = FP16. Quantum Expresso measured using CNT10/PDR8 dataset, precision = FP46.",
+    "bbox_normalized": {
+      "xmin": 0.512553125,
+      "ymin": 0.2508,
+      "xmax": 0.791296875,
+      "ymax": 0.3656
+    },
+    "bbox_pixels": {
+      "x0": 787,
+      "y0": 513,
+      "x1": 1215,
+      "y1": 748
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 20,
+    "type": "Picture",
+    "text": "11X More HPC Performance in Four Years Throughput for Top HPC Apps 11X 10X 11X 9X 8X 7X 6X 5X 4X 3X 4X 2X 3X 1X 2X 1X 0\nP100 2016 V100 2017 V100 2018 V100 2019 A100 2020 Throughput Relative Performance Dynamic mean of application speedups vs. P100 Benchmark application, Amber (PM) Catalogue, NVE, Omnibus (x2) 24, 108, DRAM25 (LRM-Index) 1 MG2 (Space Medium), NMM3 (linear, nsec, cradel, PyTorch), BERT-Large- Fine-Turner, Quantum Expresso (ALOURF12, (F), Random Forcut FP2) (make, (bits) (14000) x 44, 10), TensorFlow (Stacket 50), WSP (15-Hopq), 1 GPU node with dual-socket CPUs with 4x NVIDIA P100, V100, or A100 GPUs.",
+    "bbox_normalized": {
+      "xmin": 0.229625,
+      "ymin": 0.3937,
+      "xmax": 0.471675,
+      "ymax": 0.5195
+    },
+    "bbox_pixels": {
+      "x0": 352,
+      "y0": 806,
+      "x1": 724,
+      "y1": 1063
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 21,
+    "type": "Picture",
+    "text": "9X 8X 8X 7X 6X Up to 2X 5X 4X 4X 3X 2X 2X 1X 1X 0\nV100 32GB A100 40GB A100 80GB Time to Solution Relative Performance Big data analytics benchmark (P100-808) is derived from the TPC-BB benchmark and is used for internal performance testing. Results from GPU-DB are not comparable to TPCs-BB 10 analytical model queries, ETL, ML, NLP on 18TB dataset | V100-32GB, RAPIDOS/Dusk | A100-40GB and A100-80GB, RAPIDOS/Dusk/Risingg50.",
+    "bbox_normalized": {
+      "xmin": 0.5230677083333333,
+      "ymin": 0.4039,
+      "xmax": 0.771340625,
+      "ymax": 0.5141
+    },
+    "bbox_pixels": {
+      "x0": 803,
+      "y0": 827,
+      "x1": 1184,
+      "y1": 1052
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 22,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.20559166666666664,
+      "ymin": 0.5711,
+      "xmax": 0.2568770833333333,
+      "ymax": 0.6094
+    },
+    "bbox_pixels": {
+      "x0": 315,
+      "y0": 1169,
+      "x1": 394,
+      "y1": 1248
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 23,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.4088020833333333,
+      "ymin": 0.5711,
+      "xmax": 0.46126770833333336,
+      "ymax": 0.6094
+    },
+    "bbox_pixels": {
+      "x0": 627,
+      "y0": 1169,
+      "x1": 708,
+      "y1": 1248
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 24,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.6090083333333334,
+      "ymin": 0.5711,
+      "xmax": 0.6592208333333334,
+      "ymax": 0.6094
+    },
+    "bbox_pixels": {
+      "x0": 935,
+      "y0": 1169,
+      "x1": 1012,
+      "y1": 1248
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 25,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.20559166666666664,
+      "ymin": 0.6734,
+      "xmax": 0.25591145833333334,
+      "ymax": 0.7117
+    },
+    "bbox_pixels": {
+      "x0": 315,
+      "y0": 1379,
+      "x1": 393,
+      "y1": 1457
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 26,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.4078364583333334,
+      "ymin": 0.6813,
+      "xmax": 0.46019479166666666,
+      "ymax": 0.7133
+    },
+    "bbox_pixels": {
+      "x0": 626,
+      "y0": 1395,
+      "x1": 706,
+      "y1": 1460
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 27,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.6090083333333334,
+      "ymin": 0.6734,
+      "xmax": 0.66029375,
+      "ymax": 0.7117
+    },
+    "bbox_pixels": {
+      "x0": 935,
+      "y0": 1379,
+      "x1": 1014,
+      "y1": 1457
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 28,
+    "type": "Caption",
+    "text": "Up to 3X Higher AI Training on Largest Models",
+    "bbox_normalized": {
+      "xmin": 0.21503333333333333,
+      "ymin": 0.2406,
+      "xmax": 0.315565625,
+      "ymax": 0.2539
+    },
+    "bbox_pixels": {
+      "x0": 330,
+      "y0": 492,
+      "x1": 484,
+      "y1": 519
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 29,
+    "type": "Caption",
+    "text": "Up to 249X Higher AI Inference Performance over CPUs",
+    "bbox_normalized": {
+      "xmin": 0.3637395833333333,
+      "ymin": 0.2406,
+      "xmax": 0.4654520833333333,
+      "ymax": 0.2531
+    },
+    "bbox_pixels": {
+      "x0": 558,
+      "y0": 492,
+      "x1": 714,
+      "y1": 518
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 30,
+    "type": "Caption",
+    "text": "Up to 1.25X Higher AI Inference Performance over A100 40GB",
+    "bbox_normalized": {
+      "xmin": 0.512553125,
+      "ymin": 0.2406,
+      "xmax": 0.6163041666666668,
+      "ymax": 0.2531
+    },
+    "bbox_pixels": {
+      "x0": 787,
+      "y0": 492,
+      "x1": 946,
+      "y1": 518
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 31,
+    "type": "Caption",
+    "text": "Up to 1.8X Higher Performance for HPC Applications",
+    "bbox_normalized": {
+      "xmin": 0.6613666666666665,
+      "ymin": 0.2406,
+      "xmax": 0.775525,
+      "ymax": 0.2531
+    },
+    "bbox_pixels": {
+      "x0": 1015,
+      "y0": 492,
+      "x1": 1191,
+      "y1": 518
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 32,
+    "type": "Caption",
+    "text": "2X Faster than A100 40GB on Big Data Analytics Benchmark",
+    "bbox_normalized": {
+      "xmin": 0.5272520833333333,
+      "ymin": 0.3859,
+      "xmax": 0.7242395833333334,
+      "ymax": 0.393
+    },
+    "bbox_pixels": {
+      "x0": 809,
+      "y0": 790,
+      "x1": 1112,
+      "y1": 804
+    },
+    "is_valid": true
+  }
+]

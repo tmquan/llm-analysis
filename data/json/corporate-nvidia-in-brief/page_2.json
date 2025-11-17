@@ -1,0 +1,629 @@
+[
+  {
+    "page": 2,
+    "block_id": 0,
+    "type": "Text",
+    "text": "**NVIDIA is the engine of the world’s AI infrastructure.** Companies and countries around the world are building NVIDIA-powered AI factories to process, refine, and manufacture intelligence from data, creating new revenue opportunities for the world’s $100 trillion of industries.",
+    "bbox_normalized": {
+      "xmin": 0.22758645833333335,
+      "ymin": 0.2891,
+      "xmax": 0.47489375000000006,
+      "ymax": 0.3531
+    },
+    "bbox_pixels": {
+      "x0": 349,
+      "y0": 592,
+      "x1": 729,
+      "y1": 723
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 1,
+    "type": "Text",
+    "text": "**CUDA**<sup>®</sup>, our parallel computing model, offers developers a powerful toolkit with over 400 libraries, 600 AI models, numerous software development kits, and support for 3,700 GPU-accelerated applications. CUDA has more than 53 million downloads.",
+    "bbox_normalized": {
+      "xmin": 0.22758645833333335,
+      "ymin": 0.3703,
+      "xmax": 0.467490625,
+      "ymax": 0.4234
+    },
+    "bbox_pixels": {
+      "x0": 349,
+      "y0": 758,
+      "x1": 718,
+      "y1": 867
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 2,
+    "type": "Text",
+    "text": "**Accelerated computing is sustainable computing.** If certain accelerated computing and AI workloads were switched from CPU infrastructure to DPU- and GPU- accelerated operations, we estimate the world could save nearly 30 trillion watt-hours of energy per year.",
+    "bbox_normalized": {
+      "xmin": 0.22758645833333335,
+      "ymin": 0.4445,
+      "xmax": 0.48004375000000005,
+      "ymax": 0.4977
+    },
+    "bbox_pixels": {
+      "x0": 349,
+      "y0": 910,
+      "x1": 737,
+      "y1": 1019
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 3,
+    "type": "Text",
+    "text": "**Blackwell** is one of the most important products in our history, boasting technologies that power AI training and real-time large language model inference for models scaling up to 10 trillion parameters.",
+    "bbox_normalized": {
+      "xmin": 0.22758645833333335,
+      "ymin": 0.518,
+      "xmax": 0.47382083333333336,
+      "ymax": 0.5609
+    },
+    "bbox_pixels": {
+      "x0": 349,
+      "y0": 1060,
+      "x1": 727,
+      "y1": 1148
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 4,
+    "type": "Text",
+    "text": "**NVIDIA NIM**<sup>TM</sup>, part of the NVIDIA AI Enterprise software platform, is a set of easy-to-use microservices designed for secure, reliable deployment of high-performance AI model inferencing across clouds, data centers, and workstations.",
+    "bbox_normalized": {
+      "xmin": 0.22758645833333335,
+      "ymin": 0.5914,
+      "xmax": 0.4769322916666667,
+      "ymax": 0.6445
+    },
+    "bbox_pixels": {
+      "x0": 349,
+      "y0": 1211,
+      "x1": 732,
+      "y1": 1319
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 5,
+    "type": "Section-header",
+    "text": "# Latest NVIDIA News",
+    "bbox_normalized": {
+      "xmin": 0.51995625,
+      "ymin": 0.2883,
+      "xmax": 0.7126520833333334,
+      "ymax": 0.3039
+    },
+    "bbox_pixels": {
+      "x0": 798,
+      "y0": 590,
+      "x1": 1094,
+      "y1": 622
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 6,
+    "type": "Section-header",
+    "text": "**AI/Data Center**",
+    "bbox_normalized": {
+      "xmin": 0.5775718750000001,
+      "ymin": 0.3133,
+      "xmax": 0.6508520833333332,
+      "ymax": 0.3227
+    },
+    "bbox_pixels": {
+      "x0": 887,
+      "y0": 641,
+      "x1": 999,
+      "y1": 660
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 7,
+    "type": "List-item",
+    "text": "\\>\\> NVIDIA DGX personal AI supercomputers bring NVIDIA Grace Blackwell architecture to the desktop.",
+    "bbox_normalized": {
+      "xmin": 0.5775718750000001,
+      "ymin": 0.3281,
+      "xmax": 0.8342135416666667,
+      "ymax": 0.3484
+    },
+    "bbox_pixels": {
+      "x0": 887,
+      "y0": 671,
+      "x1": 1281,
+      "y1": 713
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 8,
+    "type": "List-item",
+    "text": "\\>\\><br> <u>NVIDIA Blackwell Ultra AI factory platform paves the way for the age of AI reasoning.</u>",
+    "bbox_normalized": {
+      "xmin": 0.5775718750000001,
+      "ymin": 0.3547,
+      "xmax": 0.8478395833333333,
+      "ymax": 0.375
+    },
+    "bbox_pixels": {
+      "x0": 887,
+      "y0": 726,
+      "x1": 1302,
+      "y1": 768
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 9,
+    "type": "List-item",
+    "text": "\\>\\><br> <u>NVIDIA Dynamo open-source inference software accelerates and scales AI reasoning models.</u>",
+    "bbox_normalized": {
+      "xmin": 0.5775718750000001,
+      "ymin": 0.3812,
+      "xmax": 0.8572812499999999,
+      "ymax": 0.4023
+    },
+    "bbox_pixels": {
+      "x0": 887,
+      "y0": 780,
+      "x1": 1316,
+      "y1": 823
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 10,
+    "type": "List-item",
+    "text": "\\>\\> The NVIDIA GB200 NVL72 system set records in the latest <u>MLPerf Inference</u> benchmarks.",
+    "bbox_normalized": {
+      "xmin": 0.5775718750000001,
+      "ymin": 0.4086,
+      "xmax": 0.8509510416666667,
+      "ymax": 0.4289
+    },
+    "bbox_pixels": {
+      "x0": 887,
+      "y0": 836,
+      "x1": 1307,
+      "y1": 878
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 11,
+    "type": "Section-header",
+    "text": "**RTX/Graphics**",
+    "bbox_normalized": {
+      "xmin": 0.5775718750000001,
+      "ymin": 0.4453,
+      "xmax": 0.6446291666666667,
+      "ymax": 0.4547
+    },
+    "bbox_pixels": {
+      "x0": 887,
+      "y0": 911,
+      "x1": 990,
+      "y1": 931
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 12,
+    "type": "List-item",
+    "text": "\\>\\> New GeForce RTXTM 50 Series Desktop and Laptop GPUs announced.",
+    "bbox_normalized": {
+      "xmin": 0.5775718750000001,
+      "ymin": 0.4602,
+      "xmax": 0.8950479166666666,
+      "ymax": 0.4695
+    },
+    "bbox_pixels": {
+      "x0": 887,
+      "y0": 942,
+      "x1": 1374,
+      "y1": 961
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 13,
+    "type": "List-item",
+    "text": "\\>\\> NVIDIA DLSS 4, featuring Multi Frame Generation, now available.",
+    "bbox_normalized": {
+      "xmin": 0.5775718750000001,
+      "ymin": 0.4758,
+      "xmax": 0.8803489583333334,
+      "ymax": 0.4859
+    },
+    "bbox_pixels": {
+      "x0": 887,
+      "y0": 974,
+      "x1": 1352,
+      "y1": 995
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 14,
+    "type": "List-item",
+    "text": "\\>\\> GeForce NOWTM library features over 2,000 games.",
+    "bbox_normalized": {
+      "xmin": 0.5775718750000001,
+      "ymin": 0.4922,
+      "xmax": 0.8143645833333334,
+      "ymax": 0.5016
+    },
+    "bbox_pixels": {
+      "x0": 887,
+      "y0": 1008,
+      "x1": 1250,
+      "y1": 1027
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 15,
+    "type": "Section-header",
+    "text": "**Physical AI**",
+    "bbox_normalized": {
+      "xmin": 0.5775718750000001,
+      "ymin": 0.518,
+      "xmax": 0.6299302083333334,
+      "ymax": 0.5273
+    },
+    "bbox_pixels": {
+      "x0": 887,
+      "y0": 1060,
+      "x1": 967,
+      "y1": 1079
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 16,
+    "type": "List-item",
+    "text": "\\>\\> Introduced <u>NVIDIA CosmosTM</u> platform for world model training and physical AI development.",
+    "bbox_normalized": {
+      "xmin": 0.5775718750000001,
+      "ymin": 0.532,
+      "xmax": 0.8918291666666667,
+      "ymax": 0.5531
+    },
+    "bbox_pixels": {
+      "x0": 887,
+      "y0": 1089,
+      "x1": 1369,
+      "y1": 1132
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 17,
+    "type": "List-item",
+    "text": "\\>\\> Launched <u>NVIDIA Halos</u>, a full-stack, comprehensive safety system for autonomous vehicles.",
+    "bbox_normalized": {
+      "xmin": 0.5775718750000001,
+      "ymin": 0.5594,
+      "xmax": 0.8939750000000001,
+      "ymax": 0.5797
+    },
+    "bbox_pixels": {
+      "x0": 887,
+      "y0": 1145,
+      "x1": 1373,
+      "y1": 1187
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 18,
+    "type": "List-item",
+    "text": "\\>\\> Announced <u>NVIDIA Isaac GR0OT N1</u> open foundation model for humanoid robots.",
+    "bbox_normalized": {
+      "xmin": 0.5775718750000001,
+      "ymin": 0.5867,
+      "xmax": 0.8572812499999999,
+      "ymax": 0.6062
+    },
+    "bbox_pixels": {
+      "x0": 887,
+      "y0": 1201,
+      "x1": 1316,
+      "y1": 1241
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 19,
+    "type": "List-item",
+    "text": "\\>\\> Unveiled <u>NVIDIA Jetson Orin NanoTM Super Developer Kit</u>.",
+    "bbox_normalized": {
+      "xmin": 0.5775718750000001,
+      "ymin": 0.6125,
+      "xmax": 0.8458010416666667,
+      "ymax": 0.6234
+    },
+    "bbox_pixels": {
+      "x0": 887,
+      "y0": 1254,
+      "x1": 1299,
+      "y1": 1276
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 20,
+    "type": "Section-header",
+    "text": "For more information",
+    "bbox_normalized": {
+      "xmin": 0.146903125,
+      "ymin": 0.6977,
+      "xmax": 0.26846458333333334,
+      "ymax": 0.7086
+    },
+    "bbox_pixels": {
+      "x0": 225,
+      "y0": 1428,
+      "x1": 412,
+      "y1": 1451
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 21,
+    "type": "Page-footer",
+    "text": "NVIDIA in Brief 2025",
+    "bbox_normalized": {
+      "xmin": 0.8342135416666667,
+      "ymin": 0.7148,
+      "xmax": 0.8960135416666666,
+      "ymax": 0.7203
+    },
+    "bbox_pixels": {
+      "x0": 1281,
+      "y0": 1463,
+      "x1": 1376,
+      "y1": 1475
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 22,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.10291354166666665,
+      "ymin": 0.2898,
+      "xmax": 0.20870312500000002,
+      "ymax": 0.3422
+    },
+    "bbox_pixels": {
+      "x0": 158,
+      "y0": 593,
+      "x1": 320,
+      "y1": 700
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 23,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.10291354166666665,
+      "ymin": 0.3727,
+      "xmax": 0.20870312500000002,
+      "ymax": 0.4242
+    },
+    "bbox_pixels": {
+      "x0": 158,
+      "y0": 763,
+      "x1": 320,
+      "y1": 868
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 24,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.10291354166666665,
+      "ymin": 0.4461,
+      "xmax": 0.20870312500000002,
+      "ymax": 0.4977
+    },
+    "bbox_pixels": {
+      "x0": 158,
+      "y0": 913,
+      "x1": 320,
+      "y1": 1019
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 25,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.10291354166666665,
+      "ymin": 0.5203,
+      "xmax": 0.20870312500000002,
+      "ymax": 0.5719
+    },
+    "bbox_pixels": {
+      "x0": 158,
+      "y0": 1065,
+      "x1": 320,
+      "y1": 1171
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 26,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.10291354166666665,
+      "ymin": 0.5938,
+      "xmax": 0.20870312500000002,
+      "ymax": 0.6453
+    },
+    "bbox_pixels": {
+      "x0": 158,
+      "y0": 1216,
+      "x1": 320,
+      "y1": 1321
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 27,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.10398645833333332,
+      "ymin": 0.6813,
+      "xmax": 0.1405729166666667,
+      "ymax": 0.7086
+    },
+    "bbox_pixels": {
+      "x0": 159,
+      "y0": 1395,
+      "x1": 215,
+      "y1": 1451
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 28,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.5219947916666666,
+      "ymin": 0.3148,
+      "xmax": 0.5618,
+      "ymax": 0.3422
+    },
+    "bbox_pixels": {
+      "x0": 801,
+      "y0": 644,
+      "x1": 862,
+      "y1": 700
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 29,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.520921875,
+      "ymin": 0.4469,
+      "xmax": 0.5607270833333333,
+      "ymax": 0.4664
+    },
+    "bbox_pixels": {
+      "x0": 800,
+      "y0": 915,
+      "x1": 861,
+      "y1": 955
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 30,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.520921875,
+      "ymin": 0.5195,
+      "xmax": 0.5607270833333333,
+      "ymax": 0.5406
+    },
+    "bbox_pixels": {
+      "x0": 800,
+      "y0": 1063,
+      "x1": 861,
+      "y1": 1107
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 31,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.520921875,
+      "ymin": 0.5563,
+      "xmax": 0.5607270833333333,
+      "ymax": 0.582
+    },
+    "bbox_pixels": {
+      "x0": 800,
+      "y0": 1139,
+      "x1": 861,
+      "y1": 1191
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 32,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.5219947916666666,
+      "ymin": 0.5992,
+      "xmax": 0.5607270833333333,
+      "ymax": 0.6195
+    },
+    "bbox_pixels": {
+      "x0": 801,
+      "y0": 1227,
+      "x1": 861,
+      "y1": 1268
+    },
+    "is_valid": true
+  }
+]

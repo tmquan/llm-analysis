@@ -1,0 +1,173 @@
+[
+  {
+    "page": 2,
+    "block_id": 0,
+    "type": "Section-header",
+    "text": "## Supercharge High-Performance Computing",
+    "bbox_normalized": {
+      "xmin": 0.20451875,
+      "ymin": 0.2039,
+      "xmax": 0.47907812499999997,
+      "ymax": 0.2164
+    },
+    "bbox_pixels": {
+      "x0": 314,
+      "y0": 417,
+      "x1": 735,
+      "y1": 443
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 1,
+    "type": "Text",
+    "text": "Memory bandwidth is crucial for HPC applications, as it enables faster data transfer and reduces complex processing bottlenecks. For memory-intensive HPC applications like simulations, scientific research, and artificial intelligence, the H200’s higher memory bandwidth ensures that data can be accessed and manipulated efficiently, leading to 110X faster time to results.",
+    "bbox_normalized": {
+      "xmin": 0.20451875,
+      "ymin": 0.2211,
+      "xmax": 0.5639458333333333,
+      "ymax": 0.2742
+    },
+    "bbox_pixels": {
+      "x0": 314,
+      "y0": 452,
+      "x1": 866,
+      "y1": 561
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 2,
+    "type": "Section-header",
+    "text": "## Reduce Energy and TCO",
+    "bbox_normalized": {
+      "xmin": 0.20451875,
+      "ymin": 0.4656,
+      "xmax": 0.35537083333333336,
+      "ymax": 0.4758
+    },
+    "bbox_pixels": {
+      "x0": 314,
+      "y0": 953,
+      "x1": 545,
+      "y1": 974
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 3,
+    "type": "Text",
+    "text": "With the introduction of H200, energy efficiency and TCO reach new levels. This cutting-edge technology offers unparalleled performance, all within the same power profile as the **H100 Tensor Core GPU**. AI factories and supercomputing systems that are not only faster but also more eco-friendly deliver an economic edge that propels the AI and scientific communities forward.",
+    "bbox_normalized": {
+      "xmin": 0.20451875,
+      "ymin": 0.482,
+      "xmax": 0.5901249999999999,
+      "ymax": 0.5336
+    },
+    "bbox_pixels": {
+      "x0": 314,
+      "y0": 987,
+      "x1": 906,
+      "y1": 1092
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 4,
+    "type": "Page-footer",
+    "text": "NVIDIA H200 Tensor Core GPU | Datasheet | 2",
+    "bbox_normalized": {
+      "xmin": 0.5974208333333333,
+      "ymin": 0.8008,
+      "xmax": 0.7933354166666667,
+      "ymax": 0.8094
+    },
+    "bbox_pixels": {
+      "x0": 917,
+      "y0": 1640,
+      "x1": 1218,
+      "y1": 1657
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 5,
+    "type": "Picture",
+    "text": "110X Higher MILC Performance Up to 2X More HPC Application Performance 2X 125x 2.0x 110X 1.7X 100x 1.6x 75x 1.2x 1X 50x 0.8x 25x 0.4x 0x 1X 0.0x Dual x86 CPU H200 A100 H100 H200 MILC Geomean of HPC Apps Relative Performance HGX H200 4-GPU vs Dual x86 Relative Performance",
+    "bbox_normalized": {
+      "xmin": 0.20451875,
+      "ymin": 0.2859,
+      "xmax": 0.5733875,
+      "ymax": 0.4164
+    },
+    "bbox_pixels": {
+      "x0": 314,
+      "y0": 585,
+      "x1": 880,
+      "y1": 852
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 6,
+    "type": "Picture",
+    "text": "H200 Reduces LLM Energy Use and TCO by 50% Lower is Better 50% 50% Total Cost of Ownership Energy Use Llama2 70B LLM Inference Workload H100 H200",
+    "bbox_normalized": {
+      "xmin": 0.20451875,
+      "ymin": 0.5461,
+      "xmax": 0.557615625,
+      "ymax": 0.6844
+    },
+    "bbox_pixels": {
+      "x0": 314,
+      "y0": 1118,
+      "x1": 856,
+      "y1": 1401
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 7,
+    "type": "Caption",
+    "text": "Preliminary specifications. May be subject to change.<br> HPC MILC- dataset NERSC Apex Medium | HGX H200 4-GPU | dual Sapphire Rapids 8480<br> HPC Apps- CP2K: dataset H2O-32-RI-dPA4-96points | GROMACS: dataset STMV | ICON: dataset r2b5 | MILC: dataset NERSC Apex Medium | Chroma: dataset HMC Medium | Quantum Espresso: dataset AUSURF12 | 1x H100 SXM | 1x H200 SXM.",
+    "bbox_normalized": {
+      "xmin": 0.20451875,
+      "ymin": 0.4289,
+      "xmax": 0.5817562500000001,
+      "ymax": 0.4555
+    },
+    "bbox_pixels": {
+      "x0": 314,
+      "y0": 878,
+      "x1": 893,
+      "y1": 932
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 8,
+    "type": "Caption",
+    "text": "Preliminary specifications. May be subject to change.<br> Llama2 70B: ISL 2K, OSL 128 | Throughput | H100 SXM 1x GPU BS 8 | H200 SXM 1x GPU BS 32",
+    "bbox_normalized": {
+      "xmin": 0.20451875,
+      "ymin": 0.6953,
+      "xmax": 0.4853010416666667,
+      "ymax": 0.7078
+    },
+    "bbox_pixels": {
+      "x0": 314,
+      "y0": 1423,
+      "x1": 745,
+      "y1": 1449
+    },
+    "is_valid": true
+  }
+]

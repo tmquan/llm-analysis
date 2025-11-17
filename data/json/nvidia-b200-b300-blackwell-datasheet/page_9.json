@@ -1,0 +1,230 @@
+[
+  {
+    "page": 9,
+    "block_id": 0,
+    "type": "Page-header",
+    "text": "NVIDIA Blackwell Architectural Innovations",
+    "bbox_normalized": {
+      "xmin": 0.5188833333333333,
+      "ymin": 0.1797,
+      "xmax": 0.713725,
+      "ymax": 0.1844
+    },
+    "bbox_pixels": {
+      "x0": 797,
+      "y0": 368,
+      "x1": 1096,
+      "y1": 377
+    },
+    "is_valid": true
+  },
+  {
+    "page": 9,
+    "block_id": 1,
+    "type": "Section-header",
+    "text": "## Second-Generation Transformer Engine",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.2383,
+      "xmax": 0.5345479166666667,
+      "ymax": 0.2492
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 488,
+      "x1": 821,
+      "y1": 510
+    },
+    "is_valid": true
+  },
+  {
+    "page": 9,
+    "block_id": 2,
+    "type": "Text",
+    "text": "Blackwell introduces the new second-generation Transformer Engine. The second- generation Transformer Engine uses custom Blackwell Tensor Core technology combined with NVIDIA Dynamo, TensorRT-LLM and Nemo Framework innovations to accelerate inference and training for LLMs, AI reasoning, and Mixture-of-Experts (MoE) models.",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.2617,
+      "xmax": 0.7431229166666666,
+      "ymax": 0.3047
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 535,
+      "x1": 1141,
+      "y1": 624
+    },
+    "is_valid": true
+  },
+  {
+    "page": 9,
+    "block_id": 3,
+    "type": "Text",
+    "text": "The Blackwell Transformer Engine utilizes advanced dynamic range management algorithms and fine-grain scaling techniques, called micro-tensor scaling, to optimize inference performance, accuracy, and enable FP4 AI. This doubles the performance of Blackwell’s FP4 Tensor Core, doubles the parameter bandwidth to the HBM memory, and doubles the size of models supported per GPU.",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.3172,
+      "xmax": 0.7409770833333335,
+      "ymax": 0.3703
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 649,
+      "x1": 1138,
+      "y1": 758
+    },
+    "is_valid": true
+  },
+  {
+    "page": 9,
+    "block_id": 4,
+    "type": "Text",
+    "text": "Innovations in Dynamo and TensorRT-LLM, including quantization to 4-bit precision, custom kernels with expert parallelism mapping, and disaggregation are democratizing today’s MoE models for real-time inference, using less hardware and less energy, with less cost.",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.3836,
+      "xmax": 0.7482729166666667,
+      "ymax": 0.4242
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 785,
+      "x1": 1149,
+      "y1": 868
+    },
+    "is_valid": true
+  },
+  {
+    "page": 9,
+    "block_id": 5,
+    "type": "Text",
+    "text": "For training, the second-generation Transformer Engine works with Nemo Framework and Megatron-Core innovations in new expert parallelism techniques that combine with other parallelism techniques and fifth-generation NVLink for unprecedented model performance. Lower precision formats open possibilities for further acceleration of large- scale training.",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.4383,
+      "xmax": 0.7482729166666667,
+      "ymax": 0.4914
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 897,
+      "x1": 1149,
+      "y1": 1006
+    },
+    "is_valid": true
+  },
+  {
+    "page": 9,
+    "block_id": 6,
+    "type": "Text",
+    "text": "With the Blackwell second-generation Transformer Engine, enterprises can use and deploy state-of-the-art AI reasoning models with affordable economics, optimizing their business with the benefits of generative AI. NVIDIA Blackwell makes the next era of AI reasoning models possible--supporting both training and real-time inference.",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.5039,
+      "xmax": 0.75041875,
+      "ymax": 0.5469
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 1031,
+      "x1": 1152,
+      "y1": 1120
+    },
+    "is_valid": true
+  },
+  {
+    "page": 9,
+    "block_id": 7,
+    "type": "Section-header",
+    "text": "## Attention Layer Acceleration",
+    "bbox_normalized": {
+      "xmin": 0.24958125,
+      "ymin": 0.5594,
+      "xmax": 0.45912187499999996,
+      "ymax": 0.5703
+    },
+    "bbox_pixels": {
+      "x0": 383,
+      "y0": 1145,
+      "x1": 705,
+      "y1": 1167
+    },
+    "is_valid": true
+  },
+  {
+    "page": 9,
+    "block_id": 8,
+    "type": "Text",
+    "text": "The Blackwell Ultra GPU provides a 2X speedup over Blackwell GPUs for attention layer compute with new instructions to improve the performance of long input sequences. Doubling the attention operations using the Blackwell Ultra GPU architecture enhances AI performance by reducing latency and enabling faster and more intelligent decision-making for AI reasoning models. This acceleration also helps lower compute costs by reducing processing time, leading to energy and infrastructure savings. Enterprises can scale more efficiently, handling larger workloads with the same resources, ultimately driving greater efficiency, cost savings, and a competitive advantage in AI-driven business operations.",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.5836,
+      "xmax": 0.7514916666666668,
+      "ymax": 0.6711
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 1195,
+      "x1": 1154,
+      "y1": 1374
+    },
+    "is_valid": true
+  },
+  {
+    "page": 9,
+    "block_id": 9,
+    "type": "Section-header",
+    "text": "## Performant Confidential Computing and Secure AI",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.6844,
+      "xmax": 0.6110468750000001,
+      "ymax": 0.6945
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 1401,
+      "x1": 938,
+      "y1": 1422
+    },
+    "is_valid": true
+  },
+  {
+    "page": 9,
+    "block_id": 10,
+    "type": "Text",
+    "text": "Generative AI holds tremendous potential for businesses. Optimizing revenue, providing business insights, and aiding in generative content are only a few of the benefits. But adoption of generative AI can be difficult for businesses that need to train them on private data that can be subject to privacy regulations or includes proprietary information.",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.7133,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.7555
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 1460,
+      "x1": 1155,
+      "y1": 1547
+    },
+    "is_valid": true
+  },
+  {
+    "page": 9,
+    "block_id": 11,
+    "type": "Page-footer",
+    "text": "9 NVIDIA Blackwell Architecture Technical Brief",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.7727,
+      "xmax": 0.7535302083333333,
+      "ymax": 0.7906
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 1582,
+      "x1": 1157,
+      "y1": 1619
+    },
+    "is_valid": true
+  }
+]

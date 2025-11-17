@@ -1,0 +1,325 @@
+[
+  {
+    "page": 2,
+    "block_id": 0,
+    "type": "Text",
+    "text": "The <u>NVIDIAGB300NVL72</u> features a fully liquid-cooled, rack-scale architecture that integrates 72 <u>NVIDIABlackwellUltraGPUs</u> and 36 Arm<sup>®</sup>-based <u>NVIDIAGraceTM</u> <u>CPUs</u> into a single platform, purpose-built for test-time scaling inference or AI reasoning tasks. <u>Al factories</u> accelerated by the GB300 NVL72--leveraging NVIDIA Quantum-X800 InfiniBand or Spectrum-XTM Ethernet, <u>ConnectX-8 SuperNICTM</u>, and <u>NVIDIA MissionControlTM</u> management--deliver up to a 50x overall increase in AI factory output performance compared to Hopper-based platforms.",
+    "bbox_normalized": {
+      "xmin": 0.20248020833333336,
+      "ymin": 0.2039,
+      "xmax": 0.5785375,
+      "ymax": 0.2812
+    },
+    "bbox_pixels": {
+      "x0": 311,
+      "y0": 417,
+      "x1": 888,
+      "y1": 575
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 1,
+    "type": "Section-header",
+    "text": "## End-to-End AI Acceleration at Rack Scale",
+    "bbox_normalized": {
+      "xmin": 0.20248020833333336,
+      "ymin": 0.2906,
+      "xmax": 0.467490625,
+      "ymax": 0.3039
+    },
+    "bbox_pixels": {
+      "x0": 311,
+      "y0": 595,
+      "x1": 718,
+      "y1": 622
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 2,
+    "type": "Text",
+    "text": "With 279 GB of HBM3E memory per Blackwell Ultra chip and up to 37 TB of high- speed memory per rack, coupled with 1.44 exaFLOPS of compute, and a 72-GPU unified <u>NVIDIANVLinkTM</u> domain, Blackwell Ultra provides unprecedented speed and scale to support larger models while giving rise to breakthroughs in AI. Combined with CUDA-XTM libraries for accelerated computing, NVIDIA accelerates the entire hardware and software computing stack.",
+    "bbox_normalized": {
+      "xmin": 0.20248020833333336,
+      "ymin": 0.307,
+      "xmax": 0.5921635416666666,
+      "ymax": 0.3727
+    },
+    "bbox_pixels": {
+      "x0": 311,
+      "y0": 628,
+      "x1": 909,
+      "y1": 763
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 3,
+    "type": "Section-header",
+    "text": "## Increase AI Factory Output Performance by 50x",
+    "bbox_normalized": {
+      "xmin": 0.20248020833333336,
+      "ymin": 0.3836,
+      "xmax": 0.504184375,
+      "ymax": 0.3961
+    },
+    "bbox_pixels": {
+      "x0": 311,
+      "y0": 785,
+      "x1": 774,
+      "y1": 811
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 4,
+    "type": "Text",
+    "text": "The frontier curve illustrates key parameters that determine AI factory token revenue output. The vertical axis represents GPU tokens per second (TPS) throughput in one megawatt (MW) AI factory, while the horizontal axis quantifies user interactivity and responsiveness as TPS for a single user. At the optimal intersection of throughput and responsiveness, GB300 NVL72 yields a 50x overall increase in AI factory output performance compared to the Hopper architecture for maximum token revenue.",
+    "bbox_normalized": {
+      "xmin": 0.20248020833333336,
+      "ymin": 0.3992,
+      "xmax": 0.5890520833333334,
+      "ymax": 0.4656
+    },
+    "bbox_pixels": {
+      "x0": 311,
+      "y0": 817,
+      "x1": 904,
+      "y1": 953
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 5,
+    "type": "Section-header",
+    "text": "## Accelerating Real-Time Video Generation by 30x",
+    "bbox_normalized": {
+      "xmin": 0.20248020833333336,
+      "ymin": 0.6852,
+      "xmax": 0.50836875,
+      "ymax": 0.6984
+    },
+    "bbox_pixels": {
+      "x0": 311,
+      "y0": 1403,
+      "x1": 780,
+      "y1": 1430
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 6,
+    "type": "Text",
+    "text": "GB300 NVL72 introduces cutting-edge capabilities for diffusion-based video generation models. A single five-second video generation sequence processes 4 million tokens, requiring nearly 90 seconds to generate on NVIDIA Hopper GPUs. The Blackwell Ultra platform enables real-time video generation from world foundation models, such as <u>NVIDIA CosmosTM</u>, providing a 30x performance improvement versus Hopper. This allows the creation of customized, photo-realistic, temporally and spatially stable video for physical AI applications.",
+    "bbox_normalized": {
+      "xmin": 0.20248020833333336,
+      "ymin": 0.7023,
+      "xmax": 0.5848677083333332,
+      "ymax": 0.7781
+    },
+    "bbox_pixels": {
+      "x0": 311,
+      "y0": 1438,
+      "x1": 898,
+      "y1": 1593
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 7,
+    "type": "Section-header",
+    "text": "## NVIDIA GB300 NVL72 Key Features",
+    "bbox_normalized": {
+      "xmin": 0.6173770833333334,
+      "ymin": 0.4766,
+      "xmax": 0.7577145833333333,
+      "ymax": 0.5016
+    },
+    "bbox_pixels": {
+      "x0": 948,
+      "y0": 976,
+      "x1": 1163,
+      "y1": 1027
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 8,
+    "type": "List-item",
+    "text": "\\> 36 NVIDIA Grace CPUs",
+    "bbox_normalized": {
+      "xmin": 0.6173770833333334,
+      "ymin": 0.507,
+      "xmax": 0.7347541666666667,
+      "ymax": 0.5172
+    },
+    "bbox_pixels": {
+      "x0": 948,
+      "y0": 1038,
+      "x1": 1128,
+      "y1": 1059
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 9,
+    "type": "List-item",
+    "text": "\\> 72 NVIDIA Blackwell Ultra GPUs",
+    "bbox_normalized": {
+      "xmin": 0.6173770833333334,
+      "ymin": 0.5227,
+      "xmax": 0.7734864583333333,
+      "ymax": 0.5336
+    },
+    "bbox_pixels": {
+      "x0": 948,
+      "y0": 1070,
+      "x1": 1188,
+      "y1": 1092
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 10,
+    "type": "List-item",
+    "text": "\\> 17 TB of LPDDR5X memory with error-correction code (ECC)",
+    "bbox_normalized": {
+      "xmin": 0.6173770833333334,
+      "ymin": 0.5391,
+      "xmax": 0.7765979166666667,
+      "ymax": 0.5602
+    },
+    "bbox_pixels": {
+      "x0": 948,
+      "y0": 1104,
+      "x1": 1192,
+      "y1": 1147
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 11,
+    "type": "List-item",
+    "text": "\\> 20 TB of HBM3E",
+    "bbox_normalized": {
+      "xmin": 0.6173770833333334,
+      "ymin": 0.5656,
+      "xmax": 0.7084677083333334,
+      "ymax": 0.5758
+    },
+    "bbox_pixels": {
+      "x0": 948,
+      "y0": 1158,
+      "x1": 1088,
+      "y1": 1179
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 12,
+    "type": "List-item",
+    "text": "\\> Up to 37 TB of fast-access memory",
+    "bbox_normalized": {
+      "xmin": 0.6173770833333334,
+      "ymin": 0.582,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.6023
+    },
+    "bbox_pixels": {
+      "x0": 948,
+      "y0": 1191,
+      "x1": 1155,
+      "y1": 1233
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 13,
+    "type": "List-item",
+    "text": "\\> NVLink domain: 130 terabytes per second (TB/s) of low-latency GPU communication",
+    "bbox_normalized": {
+      "xmin": 0.6173770833333334,
+      "ymin": 0.6094,
+      "xmax": 0.7849666666666666,
+      "ymax": 0.6406
+    },
+    "bbox_pixels": {
+      "x0": 948,
+      "y0": 1248,
+      "x1": 1205,
+      "y1": 1311
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 14,
+    "type": "Page-footer",
+    "text": "NVIDIA Blackwell Ultra | Datasheet | 2",
+    "bbox_normalized": {
+      "xmin": 0.6299302083333334,
+      "ymin": 0.8,
+      "xmax": 0.7944083333333333,
+      "ymax": 0.8094
+    },
+    "bbox_pixels": {
+      "x0": 967,
+      "y0": 1638,
+      "x1": 1220,
+      "y1": 1657
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 15,
+    "type": "Picture",
+    "text": "1,000,000 900,000 800,000 GB300 NVL72 With NVIDIA Dynamo FP4 700,000 600,000 Tokens per Second (TPS) in 1 MW (Throughput) Revenues 500,000 400,000 300,000 200,000 50x 100,000 Hopper 0\n0 100 200 300 400 500 600 TPS for One User (Responsiveness)",
+    "bbox_normalized": {
+      "xmin": 0.20248020833333336,
+      "ymin": 0.475,
+      "xmax": 0.585940625,
+      "ymax": 0.6523
+    },
+    "bbox_pixels": {
+      "x0": 311,
+      "y0": 972,
+      "x1": 900,
+      "y1": 1335
+    },
+    "is_valid": true
+  },
+  {
+    "page": 2,
+    "block_id": 16,
+    "type": "Caption",
+    "text": "DeepSeek-R1 ISL = 32K, OSL = 8K, GB300 NVL72 with FP4 Dynamo disaggregation. H100 with FP8 In-flight batching. Projected performance subject to change.",
+    "bbox_normalized": {
+      "xmin": 0.20248020833333336,
+      "ymin": 0.6594,
+      "xmax": 0.5754260416666667,
+      "ymax": 0.675
+    },
+    "bbox_pixels": {
+      "x0": 311,
+      "y0": 1350,
+      "x1": 883,
+      "y1": 1382
+    },
+    "is_valid": true
+  }
+]

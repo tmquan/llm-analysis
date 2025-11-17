@@ -1,0 +1,97 @@
+[
+  {
+    "page": 1,
+    "block_id": 0,
+    "type": "Section-header",
+    "text": "NVIDIA Blackwell Architecture Technical Brief",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.3602,
+      "xmax": 0.729496875,
+      "ymax": 0.4195
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 737,
+      "x1": 1120,
+      "y1": 859
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 1,
+    "type": "Section-header",
+    "text": "Built for the Age of AI Reasoning",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.4289,
+      "xmax": 0.504184375,
+      "ymax": 0.4445
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 878,
+      "x1": 774,
+      "y1": 910
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 2,
+    "type": "Text",
+    "text": "*Updated to include the Blackwell Ultra GB300 Superchip, Blackwell Ultra GB300 NVL72 Rack-scale System, and HGX B300 Server System.",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.7234,
+      "xmax": 0.7493458333333334,
+      "ymax": 0.7469
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 1481,
+      "x1": 1150,
+      "y1": 1529
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 3,
+    "type": "Page-footer",
+    "text": "V2.1",
+    "bbox_normalized": {
+      "xmin": 0.7284239583333333,
+      "ymin": 0.7812,
+      "xmax": 0.7556760416666667,
+      "ymax": 0.7922
+    },
+    "bbox_pixels": {
+      "x0": 1118,
+      "y0": 1599,
+      "x1": 1160,
+      "y1": 1622
+    },
+    "is_valid": true
+  },
+  {
+    "page": 1,
+    "block_id": 4,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.2600958333333333,
+      "ymin": 0.2469,
+      "xmax": 0.3878802083333333,
+      "ymax": 0.3195
+    },
+    "bbox_pixels": {
+      "x0": 399,
+      "y0": 505,
+      "x1": 595,
+      "y1": 654
+    },
+    "is_valid": true
+  }
+]

@@ -1,0 +1,173 @@
+[
+  {
+    "page": 23,
+    "block_id": 0,
+    "type": "Page-header",
+    "text": "NVIDIA Grace Blackwell Ultra / Blackwell NVL72",
+    "bbox_normalized": {
+      "xmin": 0.5167375,
+      "ymin": 0.1773,
+      "xmax": 0.7347541666666667,
+      "ymax": 0.1875
+    },
+    "bbox_pixels": {
+      "x0": 793,
+      "y0": 363,
+      "x1": 1128,
+      "y1": 384
+    },
+    "is_valid": true
+  },
+  {
+    "page": 23,
+    "block_id": 1,
+    "type": "Text",
+    "text": "currents throughout. The Cadence SpectreX simulator is one example of a solver and runs 13x faster on a GB200 than on an x86 CPU.",
+    "bbox_normalized": {
+      "xmin": 0.24228541666666661,
+      "ymin": 0.2367,
+      "xmax": 0.7473072916666667,
+      "ymax": 0.2586
+    },
+    "bbox_pixels": {
+      "x0": 372,
+      "y0": 484,
+      "x1": 1147,
+      "y1": 529
+    },
+    "is_valid": true
+  },
+  {
+    "page": 23,
+    "block_id": 2,
+    "type": "Text",
+    "text": "GPU-accelerated computational fluid dynamics (CFD) is a critical tool for engineers and equipment designers to study or predict the behavior of their designs. Cadence Fidelity, a large eddy simulator (LES), runs simulations up to 22x faster on GB200 than x86 CPU.",
+    "bbox_normalized": {
+      "xmin": 0.24228541666666661,
+      "ymin": 0.268,
+      "xmax": 0.7473072916666667,
+      "ymax": 0.3031
+    },
+    "bbox_pixels": {
+      "x0": 372,
+      "y0": 548,
+      "x1": 1147,
+      "y1": 620
+    },
+    "is_valid": true
+  },
+  {
+    "page": 23,
+    "block_id": 3,
+    "type": "Section-header",
+    "text": "## Sustainable Computing",
+    "bbox_normalized": {
+      "xmin": 0.24228541666666661,
+      "ymin": 0.3133,
+      "xmax": 0.41620520833333335,
+      "ymax": 0.3266
+    },
+    "bbox_pixels": {
+      "x0": 372,
+      "y0": 641,
+      "x1": 639,
+      "y1": 668
+    },
+    "is_valid": true
+  },
+  {
+    "page": 23,
+    "block_id": 4,
+    "type": "Text",
+    "text": "Compute density and compute power are driving a transition from air cooling to liquid cooling. Using liquid instead of air has many positive impacts inside and outside the data center including higher performance per rack, reduced water consumption for cooling, and allowing data centers to run at higher ambient air temperatures, which further reduces energy consumption.",
+    "bbox_normalized": {
+      "xmin": 0.24228541666666661,
+      "ymin": 0.3359,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.393
+    },
+    "bbox_pixels": {
+      "x0": 372,
+      "y0": 687,
+      "x1": 1155,
+      "y1": 804
+    },
+    "is_valid": true
+  },
+  {
+    "page": 23,
+    "block_id": 5,
+    "type": "Page-footer",
+    "text": "NVIDIA Blackwell Architecture Technical Brief 23",
+    "bbox_normalized": {
+      "xmin": 0.24228541666666661,
+      "ymin": 0.7617,
+      "xmax": 0.7546031249999999,
+      "ymax": 0.7844
+    },
+    "bbox_pixels": {
+      "x0": 372,
+      "y0": 1559,
+      "x1": 1159,
+      "y1": 1606
+    },
+    "is_valid": true
+  },
+  {
+    "page": 23,
+    "block_id": 6,
+    "type": "Picture",
+    "text": "Lower is Better HGX H100 GB200 NVL72 25X 25X Total Cost of Ownership Energy Use",
+    "bbox_normalized": {
+      "xmin": 0.2935708333333333,
+      "ymin": 0.3937,
+      "xmax": 0.70535625,
+      "ymax": 0.6633
+    },
+    "bbox_pixels": {
+      "x0": 450,
+      "y0": 806,
+      "x1": 1083,
+      "y1": 1358
+    },
+    "is_valid": true
+  },
+  {
+    "page": 23,
+    "block_id": 7,
+    "type": "Caption",
+    "text": "TCO and energy savings for 65 racks eight-way HGX H100 air-cooled versus 1 rack GB200 NLV72 liquid-cooled with equivalent performance on GPT-MoE-1.8T real-time inference throughput.",
+    "bbox_normalized": {
+      "xmin": 0.24228541666666661,
+      "ymin": 0.6813,
+      "xmax": 0.7514916666666668,
+      "ymax": 0.7016
+    },
+    "bbox_pixels": {
+      "x0": 372,
+      "y0": 1395,
+      "x1": 1154,
+      "y1": 1436
+    },
+    "is_valid": true
+  },
+  {
+    "page": 23,
+    "block_id": 8,
+    "type": "Caption",
+    "text": "Figure 12. 25X Lower Energy Use and TCO",
+    "bbox_normalized": {
+      "xmin": 0.24228541666666661,
+      "ymin": 0.7023,
+      "xmax": 0.532509375,
+      "ymax": 0.7148
+    },
+    "bbox_pixels": {
+      "x0": 372,
+      "y0": 1438,
+      "x1": 817,
+      "y1": 1463
+    },
+    "is_valid": true
+  }
+]

@@ -1,0 +1,173 @@
+[
+  {
+    "page": 25,
+    "block_id": 0,
+    "type": "Page-header",
+    "text": "NVIDIA Blackwell HGX",
+    "bbox_normalized": {
+      "xmin": 0.6529979166666666,
+      "ymin": 0.1789,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.1844
+    },
+    "bbox_pixels": {
+      "x0": 1003,
+      "y0": 366,
+      "x1": 1155,
+      "y1": 377
+    },
+    "is_valid": true
+  },
+  {
+    "page": 25,
+    "block_id": 1,
+    "type": "Title",
+    "text": "# NVIDIA Blackwell HGX",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.2383,
+      "xmax": 0.4538645833333334,
+      "ymax": 0.25
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 488,
+      "x1": 697,
+      "y1": 512
+    },
+    "is_valid": true
+  },
+  {
+    "page": 25,
+    "block_id": 2,
+    "type": "Text",
+    "text": "The NVIDIA Blackwell HGX B300 and HGX B200 systems include groundbreaking advancements for generative AI, data analytics, and high-performance computing,",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.2609,
+      "xmax": 0.7042833333333333,
+      "ymax": 0.2812
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 534,
+      "x1": 1081,
+      "y1": 575
+    },
+    "is_valid": true
+  },
+  {
+    "page": 25,
+    "block_id": 3,
+    "type": "Section-header",
+    "text": "**NVIDIA HGXTM B300:**",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.2953,
+      "xmax": 0.360628125,
+      "ymax": 0.3031
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 604,
+      "x1": 553,
+      "y1": 620
+    },
+    "is_valid": true
+  },
+  {
+    "page": 25,
+    "block_id": 4,
+    "type": "Text",
+    "text": "NVIDIA HGXTM B300 is built for the age of AI reasoning with enhanced compute and increased memory. Featuring 7x more AI compute than the Hopper platform, over 2 TB of HBM3E memory, and high-performance networking integration with NVIDIA ConnectX-8 SuperNICs, HGX B300 delivers breakthrough performance on the most complex workloads from training, agenic systems, and reasoning, to real-time video generation for every data center.",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.3063,
+      "xmax": 0.7147979166666668,
+      "ymax": 0.3719
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 627,
+      "x1": 1097,
+      "y1": 761
+    },
+    "is_valid": true
+  },
+  {
+    "page": 25,
+    "block_id": 5,
+    "type": "Text",
+    "text": "**HGX B200:** A Blackwell x86 platform based on an eight-Blackwell GPU baseboard, delivering 144 petaFLOPS of AI performance. HGX B200 delivers the best performance (15X more than HGX H100) and TCO (12X more than HGX H100) for x86 scale-up platforms and infrastructure. Each GPU is configurable up to 1000 Watts per GPU.",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.3859,
+      "xmax": 0.729496875,
+      "ymax": 0.4281
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 790,
+      "x1": 1120,
+      "y1": 876
+    },
+    "is_valid": true
+  },
+  {
+    "page": 25,
+    "block_id": 6,
+    "type": "Page-footer",
+    "text": "NVIDIA Blackwell Architecture Technical Brief 25",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.7727,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.7828
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 1582,
+      "x1": 1155,
+      "y1": 1603
+    },
+    "is_valid": true
+  },
+  {
+    "page": 25,
+    "block_id": 7,
+    "type": "Table",
+    "text": "\\begin{tabular}{ccc}\n & **HGX B300** & **HGX B200**\\\\\n & \\multicolumn{2}{c}{Per Server Specs Below}\\\\\nBlackwell GPUs & 16 Blackwell Ultra Die for 8 GPUs & 16 Blackwell Die for 8 GPUs\\\\\nFP4 Tensor Core Dense/Sparse & 108/144 petaFLOPS & 72/144 petaFLOPS\\\\\nFP8/FP6 Tensor Core Dense/Sparse & 36/72 petaFLOPS & 36/72 petaFLOPS\\\\\nFast Memory & 2.1 TB & Up to 1.4 TB\\\\\nAggregate Memory Bandwidth & 62 TB/s & Up to 62 TB/s\\\\\nAggregate NVLink Switch Bandwidth & 14.4 TB/s & 14.4 TB/s\\\\\n & \\multicolumn{2}{c}{Per GPU Specs Below}\\\\\nFP4 Tensor Core Dense/Sparse & 14/18 petaFLOPS & 9/18 petaFLOPS\\\\\nFP8/FP6 Tensor Core Dense/Sparse & 4.5/9 petaFLOPS & 4.5/9 petaFLOPS\\\\\nINT8 Tensor Core Dense/Sparse & 0.15/ 0.30 petaOPS & 4.5/9 petaOPS\\\\\n\\end{tabular}",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.4617,
+      "xmax": 0.7147979166666668,
+      "ymax": 0.7555
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 945,
+      "x1": 1097,
+      "y1": 1547
+    },
+    "is_valid": true
+  },
+  {
+    "page": 25,
+    "block_id": 8,
+    "type": "Caption",
+    "text": "3. System Specifications for HGX B300 and HGX B200",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.443,
+      "xmax": 0.664478125,
+      "ymax": 0.4531
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 907,
+      "x1": 1020,
+      "y1": 927
+    },
+    "is_valid": true
+  }
+]

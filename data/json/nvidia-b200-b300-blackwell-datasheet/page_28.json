@@ -1,0 +1,78 @@
+[
+  {
+    "page": 28,
+    "block_id": 0,
+    "type": "Page-header",
+    "text": "Conclusion",
+    "bbox_normalized": {
+      "xmin": 0.7042833333333333,
+      "ymin": 0.1797,
+      "xmax": 0.7535302083333333,
+      "ymax": 0.1852
+    },
+    "bbox_pixels": {
+      "x0": 1081,
+      "y0": 368,
+      "x1": 1157,
+      "y1": 379
+    },
+    "is_valid": true
+  },
+  {
+    "page": 28,
+    "block_id": 1,
+    "type": "Text",
+    "text": "answer, which takes place during inference. Models using test time scaling are estimated to require 100X more compute when compared to traditional inference, allowing them to reason through multiple potential responses before arriving at the best answer.",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.2383,
+      "xmax": 0.74205,
+      "ymax": 0.2695
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 488,
+      "x1": 1139,
+      "y1": 551
+    },
+    "is_valid": true
+  },
+  {
+    "page": 28,
+    "block_id": 2,
+    "type": "Text",
+    "text": "NVIDIA Blackwell is the once-in-a-generation platform with the compute capacity and energy efficiency needed to effectively serve the three scaling laws as the foundation for the age of AI reasoning.",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.2828,
+      "xmax": 0.7431229166666666,
+      "ymax": 0.3148
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 579,
+      "x1": 1141,
+      "y1": 644
+    },
+    "is_valid": true
+  },
+  {
+    "page": 28,
+    "block_id": 3,
+    "type": "Page-footer",
+    "text": "28",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.7727,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.7828
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 1582,
+      "x1": 1155,
+      "y1": 1603
+    },
+    "is_valid": true
+  }
+]

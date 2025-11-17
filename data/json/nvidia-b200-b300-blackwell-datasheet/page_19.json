@@ -1,0 +1,192 @@
+[
+  {
+    "page": 19,
+    "block_id": 0,
+    "type": "Page-header",
+    "text": "NVIDIA Grace Blackwell Ultra / Blackwell NVL72",
+    "bbox_normalized": {
+      "xmin": 0.51995625,
+      "ymin": 0.1789,
+      "xmax": 0.7336812500000001,
+      "ymax": 0.1859
+    },
+    "bbox_pixels": {
+      "x0": 798,
+      "y0": 366,
+      "x1": 1126,
+      "y1": 380
+    },
+    "is_valid": true
+  },
+  {
+    "page": 19,
+    "block_id": 1,
+    "type": "Section-header",
+    "text": "**Blackwell GB200 NVL72**",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.5633,
+      "xmax": 0.4685635416666667,
+      "ymax": 0.5742
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 1153,
+      "x1": 719,
+      "y1": 1175
+    },
+    "is_valid": true
+  },
+  {
+    "page": 19,
+    "block_id": 2,
+    "type": "Text",
+    "text": "**Maximizing AI Factory Performance and Revenue**",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.5906,
+      "xmax": 0.6016052083333333,
+      "ymax": 0.6008
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 1209,
+      "x1": 924,
+      "y1": 1230
+    },
+    "is_valid": true
+  },
+  {
+    "page": 19,
+    "block_id": 3,
+    "type": "Section-header",
+    "text": "Boosting AI Factory output by 40X",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.618,
+      "xmax": 0.4905583333333334,
+      "ymax": 0.6281
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 1265,
+      "x1": 753,
+      "y1": 1286
+    },
+    "is_valid": true
+  },
+  {
+    "page": 19,
+    "block_id": 4,
+    "type": "Text",
+    "text": "The Frontier Pareto curves illustrate the AI factory inference productivity balancing throughput and single user response time. NVIDIA Dynamo enhances productivity by up to 40x on GB200 NVL72 compared to Hopper systems with real-time GPU resource orchestration, parallelization, and management of Blackwell GPUs, enabling maximum efficiency in token manufacturing in a fixed power condition of 1 megawatt.",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.6438,
+      "xmax": 0.75041875,
+      "ymax": 0.7039
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 1318,
+      "x1": 1152,
+      "y1": 1441
+    },
+    "is_valid": true
+  },
+  {
+    "page": 19,
+    "block_id": 5,
+    "type": "Text",
+    "text": "https://docs.nvidia.com/multi-node-nvlink-systems/partition-guide.pdf<br> https://www.theregister.com/2025/03/23/nvidia\\_dynamo/",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.7148,
+      "xmax": 0.6382989583333334,
+      "ymax": 0.7367
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 1463,
+      "x1": 980,
+      "y1": 1508
+    },
+    "is_valid": true
+  },
+  {
+    "page": 19,
+    "block_id": 6,
+    "type": "Page-footer",
+    "text": "NVIDIA Blackwell Architecture Technical Brief 19",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.7727,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.7898
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 1582,
+      "x1": 1155,
+      "y1": 1617
+    },
+    "is_valid": true
+  },
+  {
+    "page": 19,
+    "block_id": 7,
+    "type": "Picture",
+    "text": "Real-time Video Generation\n30X\nHGX H100\nGB300 NVL72",
+    "bbox_normalized": {
+      "xmin": 0.30408541666666666,
+      "ymin": 0.2414,
+      "xmax": 0.6906572916666667,
+      "ymax": 0.4922
+    },
+    "bbox_pixels": {
+      "x0": 467,
+      "y0": 494,
+      "x1": 1060,
+      "y1": 1008
+    },
+    "is_valid": true
+  },
+  {
+    "page": 19,
+    "block_id": 8,
+    "type": "Caption",
+    "text": "Performance subject to change. Relative performance represented as frames per second per GPU. 5-sec video generation using Cosmos-1.0-Diffusion-7B-Video2World 720p 60FPS",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.4961,
+      "xmax": 0.7482729166666667,
+      "ymax": 0.5133
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 1016,
+      "x1": 1149,
+      "y1": 1051
+    },
+    "is_valid": true
+  },
+  {
+    "page": 19,
+    "block_id": 9,
+    "type": "Caption",
+    "text": "Figure 8. 30X Video Generation Performance Improvement for Physical AI Applications using GB300 NVL72",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.5273,
+      "xmax": 0.7462343750000001,
+      "ymax": 0.5508
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 1079,
+      "x1": 1146,
+      "y1": 1128
+    },
+    "is_valid": true
+  }
+]

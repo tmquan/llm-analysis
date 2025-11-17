@@ -1,0 +1,135 @@
+[
+  {
+    "page": 4,
+    "block_id": 0,
+    "type": "List-item",
+    "text": "1. Preliminary specifications. May be subject to change.",
+    "bbox_normalized": {
+      "xmin": 0.20559166666666664,
+      "ymin": 0.5312,
+      "xmax": 0.377365625,
+      "ymax": 0.5375
+    },
+    "bbox_pixels": {
+      "x0": 315,
+      "y0": 1087,
+      "x1": 579,
+      "y1": 1100
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 1,
+    "type": "List-item",
+    "text": "2. With sparsity.",
+    "bbox_normalized": {
+      "xmin": 0.20559166666666664,
+      "ymin": 0.5398,
+      "xmax": 0.25902291666666666,
+      "ymax": 0.5453
+    },
+    "bbox_pixels": {
+      "x0": 315,
+      "y0": 1105,
+      "x1": 397,
+      "y1": 1116
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 2,
+    "type": "Section-header",
+    "text": "Ready to Get Started?",
+    "bbox_normalized": {
+      "xmin": 0.20559166666666664,
+      "ymin": 0.7203,
+      "xmax": 0.37114270833333335,
+      "ymax": 0.732
+    },
+    "bbox_pixels": {
+      "x0": 315,
+      "y0": 1475,
+      "x1": 570,
+      "y1": 1499
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 3,
+    "type": "Text",
+    "text": "To learn more about the NVIDIA H200 Tensor Core GPU, visit nvidia.com/h200",
+    "bbox_normalized": {
+      "xmin": 0.20559166666666664,
+      "ymin": 0.7422,
+      "xmax": 0.46223333333333333,
+      "ymax": 0.7609
+    },
+    "bbox_pixels": {
+      "x0": 315,
+      "y0": 1520,
+      "x1": 709,
+      "y1": 1558
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 4,
+    "type": "Text",
+    "text": "© 2024 NVIDIA Corporation and affiliates. All rights reserved. NVIDIA, the NVIDIA logo, HGX, Hopper, MGX, NIM, NVIDIA-Certified Systems, and NVLink are trademarks and/or registered trademarks of NVIDIA Corporation and affiliates in the U.S. and other countries. Other company and product names may be trademarks of the respective owners with which they are associated. 3512650. NOV24",
+    "bbox_normalized": {
+      "xmin": 0.20559166666666664,
+      "ymin": 0.7703,
+      "xmax": 0.549246875,
+      "ymax": 0.7937
+    },
+    "bbox_pixels": {
+      "x0": 315,
+      "y0": 1577,
+      "x1": 843,
+      "y1": 1625
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 5,
+    "type": "Table",
+    "text": "\\begin{tabular}{ccc}\n\\multicolumn{3}{c}{**Technical Specifications**}\\\\\n & **H200 SXM1** & **H200 NVL1**\\\\\nFP64 & 34 TFLOPS & 30 TFLOPS\\\\\nFP64 Tensor Core & 67 TFLOPS & 60 TFLOPS\\\\\nFP32 & 67 TFLOPS & 60 TFLOPS\\\\\nTF32 Tensor Core2 & 989 TFLOPS & 835 TFLOPS\\\\\nBFLOAT16 Tensor Core2 & 1,979 TFLOPS & 1,671 TFLOPS\\\\\nFP16 Tensor Core2 & 1,979 TFLOPS & 1,671 TFLOPS\\\\\nFP8 Tensor Core2 & 3,958 TFLOPS & 3,341 TFLOPS\\\\\nINT8 Tensor Core2 & 3,958 TFLOPS & 3,341 TFLOPS\\\\\nGPU Memory & 141GB & 141GB\\\\\nGPU Memory Bandwidth & 4.8TB/s & 4.8TB/s\\\\\nDecoders & 7 NVDEC 7 JPEG & 7 NVDEC 7 JPEG\\\\\nConfidential Computing & Supported & Supported\\\\\nMax Thermal Design Power (TDP) & Up to 700W (configurable) & Up to 600W (configurable)\\\\\nMulti-Instance GPUs & Up to 7 MIGs @18GB each & Up to 7 MIGs @16.5GB each\\\\\nForm Factor & SXM & PCIe Dual-slot air-cooled\\\\\nInterconnect & NVIDIA NVLink: 900GB/s PCIe Gen5: 128GB/s & 2- or 4-way NVIDIA NVLink bridge: 900GB/s per GPU PCIe Gen5: 128GB/s\\\\\nServer Options & NVIDIA HGXTM H200 partner and NVIDIA- Certified SystemsTM with 4 or 8 GPUs & NVIDIA MGXTM H200 NVL partner and NVIDIA-Certified Systems with up to 8 GPUs\\\\\nNVIDIA AI Enterprise & Add-on & Included\\\\\n\\end{tabular}",
+    "bbox_normalized": {
+      "xmin": 0.20559166666666664,
+      "ymin": 0.2219,
+      "xmax": 0.7933354166666667,
+      "ymax": 0.5297
+    },
+    "bbox_pixels": {
+      "x0": 315,
+      "y0": 454,
+      "x1": 1218,
+      "y1": 1084
+    },
+    "is_valid": true
+  },
+  {
+    "page": 4,
+    "block_id": 6,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.717909375,
+      "ymin": 0.7492,
+      "xmax": 0.7954812499999999,
+      "ymax": 0.793
+    },
+    "bbox_pixels": {
+      "x0": 1102,
+      "y0": 1534,
+      "x1": 1221,
+      "y1": 1624
+    },
+    "is_valid": true
+  }
+]

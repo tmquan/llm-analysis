@@ -1,0 +1,59 @@
+[
+  {
+    "page": 26,
+    "block_id": 0,
+    "type": "Page-header",
+    "text": "NVIDIA Blackwell HGX",
+    "bbox_normalized": {
+      "xmin": 0.6529979166666666,
+      "ymin": 0.1789,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.1844
+    },
+    "bbox_pixels": {
+      "x0": 1003,
+      "y0": 366,
+      "x1": 1155,
+      "y1": 377
+    },
+    "is_valid": true
+  },
+  {
+    "page": 26,
+    "block_id": 1,
+    "type": "Page-footer",
+    "text": "26 NVIDIA Blackwell Architecture Technical Brief",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.7719,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.7898
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 1580,
+      "x1": 1155,
+      "y1": 1617
+    },
+    "is_valid": true
+  },
+  {
+    "page": 26,
+    "block_id": 2,
+    "type": "Table",
+    "text": "\\begin{tabular}{ccc}\nFP16/BF16 Tensor Core Dense/Sparse & 2.2/4.5 petaFLOPS & 2.2/4.5 petaFLOPS \\\\\nTF32 Tensor Core Dense/Sparse & 1.1/2.2 petaFLOPS & 1.1/2.2 petaFLOPS \\\\\nFP32 & 75 teraFLOPS & 75 teraFLOPS \\\\\nFP64 Tensor Core | FP64 & 1.2 teraFLOPS & 37 teraFLOPS \\\\\nGPU memory | Bandwidth & 270 GB HBM3e | 7.7 TB/s & Up to 192 GB HBM3e | 7.7 TB/s \\\\\nMax thermal design power (TDP) & 1100 W & 1000W \\\\\nInterconnect & NVLink 5 PCIe Gen6 & NVLink 5 PCIe Gen5 \\\\\nServer options & NVIDIA HGX B300 partner and NVIDIA-Certified Systems & NVIDIA HGX B200 partner and NVIDIA-Certified Systems \\\\\n\\end{tabular}",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.2359,
+      "xmax": 0.7147979166666668,
+      "ymax": 0.4648
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 483,
+      "x1": 1097,
+      "y1": 951
+    },
+    "is_valid": true
+  }
+]

@@ -1,0 +1,173 @@
+[
+  {
+    "page": 15,
+    "block_id": 0,
+    "type": "Page-header",
+    "text": "NVIDIA Grace Blackwell Ultra / Blackwell NVL72",
+    "bbox_normalized": {
+      "xmin": 0.5156645833333332,
+      "ymin": 0.1781,
+      "xmax": 0.7336812500000001,
+      "ymax": 0.1867
+    },
+    "bbox_pixels": {
+      "x0": 792,
+      "y0": 364,
+      "x1": 1126,
+      "y1": 382
+    },
+    "is_valid": true
+  },
+  {
+    "page": 15,
+    "block_id": 1,
+    "type": "Title",
+    "text": "## Maximizing AI Factory Performance and Revenue",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.2383,
+      "xmax": 0.6016052083333333,
+      "ymax": 0.2492
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 488,
+      "x1": 924,
+      "y1": 510
+    },
+    "is_valid": true
+  },
+  {
+    "page": 15,
+    "block_id": 2,
+    "type": "Section-header",
+    "text": "### Boosting AI Factory output by 50X",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.2656,
+      "xmax": 0.4905583333333334,
+      "ymax": 0.2766
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 543,
+      "x1": 753,
+      "y1": 566
+    },
+    "is_valid": true
+  },
+  {
+    "page": 15,
+    "block_id": 3,
+    "type": "Text",
+    "text": "Jensen Huang framed the Pareto Frontier curves as an optimization framework for AI factory large language model inference, balancing throughput per megawatt (TPS / MW on the y-axis) against per-user latency experience (TPS for 1 User on the x-axis). AI factory efficiency is a balance of the raw throughput and the fast response with the optimal operating point being at the corner of the curves. The factory output can be viewed as the area under the curve or approximated by the box area created by the balance point.",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.2914,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.3648
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 596,
+      "x1": 1155,
+      "y1": 747
+    },
+    "is_valid": true
+  },
+  {
+    "page": 15,
+    "block_id": 4,
+    "type": "Text",
+    "text": "NVIDIA Dynamo acts as a real-time orchestrator that dynamically partitions GPU resources across GPUs, GPU memory, and NVLink, enabling systems to fluidly navigate the Pareto curve rather than being locked to fixed operational points. By optimizing parallelization strategies (expert/tensor/pipeline) and management across Blackwell Ultra GPUs, Dynamo achieves 50x more AI factory output or productivity compared to Hopper systems, while maintaining low latency, maximizing revenue per token through efficient token manufacturing.",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.3688,
+      "xmax": 0.7514916666666668,
+      "ymax": 0.4562
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 755,
+      "x1": 1154,
+      "y1": 934
+    },
+    "is_valid": true
+  },
+  {
+    "page": 15,
+    "block_id": 5,
+    "type": "Page-footer",
+    "text": "NVIDIA Blackwell Architecture Technical Brief 15",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.7625,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.7836
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 1561,
+      "x1": 1155,
+      "y1": 1604
+    },
+    "is_valid": true
+  },
+  {
+    "page": 15,
+    "block_id": 6,
+    "type": "Picture",
+    "text": "NVIDIA Blackwell Ultra AI Reasoning Factory Output 50X Hopper EP64PP2-PP2, Batch 832, 47% Context EP64PP2-PP2, Batch 4.5, 45% Context 1,100,000 EP64+PP2, Batch 128, 45% Context EP64PP4+PP2, Batch 352, 43% Context 1,000,000 EP64+PP2, Batch 64, 42% Context EP64PP2+PP2, Batch 96, 45% Context 900,000 EP64+EP32, Batch 32, 38% Context, MTP On 800,000 EP64+EP32, Batch 18, 19% Context, MTP On 700,000 EP64+EP32, Batch 9, 20% Context, MTP On 600,000 EP64+EP32, Batch 4, 22% Context, MTP On 500,000 EP64+EP32, Batch 2, 15% Context, MTP On / MW TPS / MW 400,000 GB300 EP4 300,000 EP16+EP32, Batch 1, 1% Context, MTP On NVL72 Dynamo 200,000 Hopper 100,000 0\n100 200 300 400 500 600 TPS for 1 User Smart AI Fast Response",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.4891,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.675
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 1001,
+      "x1": 1155,
+      "y1": 1382
+    },
+    "is_valid": true
+  },
+  {
+    "page": 15,
+    "block_id": 7,
+    "type": "Caption",
+    "text": "Projected DeepSeek R1 inference, 1 MW, FP4, NVL72, Dynamo, and TRT-LLM Continuous Optimization 32K ISL / 8K OSL",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.6836,
+      "xmax": 0.7126520833333334,
+      "ymax": 0.7008
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 1400,
+      "x1": 1094,
+      "y1": 1435
+    },
+    "is_valid": true
+  },
+  {
+    "page": 15,
+    "block_id": 8,
+    "type": "Caption",
+    "text": "Figure 5. GB300 Delivers 50X AI Factory Output Increase for AI Reasoning",
+    "bbox_normalized": {
+      "xmin": 0.245396875,
+      "ymin": 0.7063,
+      "xmax": 0.7473072916666667,
+      "ymax": 0.718
+    },
+    "bbox_pixels": {
+      "x0": 376,
+      "y0": 1446,
+      "x1": 1147,
+      "y1": 1470
+    },
+    "is_valid": true
+  }
+]

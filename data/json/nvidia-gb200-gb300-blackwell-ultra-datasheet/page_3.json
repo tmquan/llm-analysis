@@ -1,0 +1,287 @@
+[
+  {
+    "page": 3,
+    "block_id": 0,
+    "type": "Title",
+    "text": "## NVIDIA HGX B300",
+    "bbox_normalized": {
+      "xmin": 0.20248020833333336,
+      "ymin": 0.368,
+      "xmax": 0.34174479166666666,
+      "ymax": 0.3852
+    },
+    "bbox_pixels": {
+      "x0": 311,
+      "y0": 753,
+      "x1": 524,
+      "y1": 788
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 1,
+    "type": "Section-header",
+    "text": "# Purpose-Built for AI Reasoning",
+    "bbox_normalized": {
+      "xmin": 0.20248020833333336,
+      "ymin": 0.3922,
+      "xmax": 0.4025791666666667,
+      "ymax": 0.407
+    },
+    "bbox_pixels": {
+      "x0": 311,
+      "y0": 803,
+      "x1": 618,
+      "y1": 833
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 2,
+    "type": "Text",
+    "text": "<u>NVIDIA HGXTM B300</u> is built for the age of AI reasoning with enhanced compute and increased memory. Featuring 7x more AI compute than the Hopper platform, over 2 TB of HBM3E memory, and high-performance networking integration with NVIDIA ConnectX-8 SuperNICs, HGX B300 delivers breakthrough performance on the most complex workloads from training, agentic systems, and reasoning, to real-time video generation for every data center.",
+    "bbox_normalized": {
+      "xmin": 0.20248020833333336,
+      "ymin": 0.5656,
+      "xmax": 0.5848677083333332,
+      "ymax": 0.6336
+    },
+    "bbox_pixels": {
+      "x0": 311,
+      "y0": 1158,
+      "x1": 898,
+      "y1": 1297
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 3,
+    "type": "Section-header",
+    "text": "### Boost Revenue With HGX B300 AI Factory Output",
+    "bbox_normalized": {
+      "xmin": 0.20248020833333336,
+      "ymin": 0.6422,
+      "xmax": 0.51995625,
+      "ymax": 0.6562
+    },
+    "bbox_pixels": {
+      "x0": 311,
+      "y0": 1315,
+      "x1": 798,
+      "y1": 1343
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 4,
+    "type": "Text",
+    "text": "The frontier curve illustrates key parameters that determine AI factory token revenue output. The vertical axis represents GPU tokens per second (TPS) throughput in one megawatt (MW) AI factory, while the horizontal axis quantifies user interactivity and responsiveness as TPS for a single user. At the optimal intersection of throughput and responsiveness, HGX B300 yields a 30x overall increase in AI factory output performance compared to the Hopper architecture for maximum token revenue.",
+    "bbox_normalized": {
+      "xmin": 0.20248020833333336,
+      "ymin": 0.6586,
+      "xmax": 0.5890520833333334,
+      "ymax": 0.725
+    },
+    "bbox_pixels": {
+      "x0": 311,
+      "y0": 1348,
+      "x1": 904,
+      "y1": 1484
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 5,
+    "type": "Section-header",
+    "text": "**Key Features**",
+    "bbox_normalized": {
+      "xmin": 0.6173770833333334,
+      "ymin": 0.4188,
+      "xmax": 0.7033177083333334,
+      "ymax": 0.432
+    },
+    "bbox_pixels": {
+      "x0": 948,
+      "y0": 857,
+      "x1": 1080,
+      "y1": 884
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 6,
+    "type": "List-item",
+    "text": "\\> 8 NVIDIA Blackwell Ultra GPUs",
+    "bbox_normalized": {
+      "xmin": 0.6173770833333334,
+      "ymin": 0.4375,
+      "xmax": 0.770375,
+      "ymax": 0.4477
+    },
+    "bbox_pixels": {
+      "x0": 948,
+      "y0": 896,
+      "x1": 1183,
+      "y1": 916
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 7,
+    "type": "List-item",
+    "text": "\\> Over 2 TB of HBM3E memory",
+    "bbox_normalized": {
+      "xmin": 0.6173770833333334,
+      "ymin": 0.4531,
+      "xmax": 0.7660833333333333,
+      "ymax": 0.4641
+    },
+    "bbox_pixels": {
+      "x0": 948,
+      "y0": 927,
+      "x1": 1176,
+      "y1": 950
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 8,
+    "type": "List-item",
+    "text": "\\> 1,800 GBps NVLink between GPUs via NVSwitchTM chip",
+    "bbox_normalized": {
+      "xmin": 0.6173770833333334,
+      "ymin": 0.4688,
+      "xmax": 0.7587875,
+      "ymax": 0.4906
+    },
+    "bbox_pixels": {
+      "x0": 948,
+      "y0": 960,
+      "x1": 1165,
+      "y1": 1004
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 9,
+    "type": "List-item",
+    "text": "\\> 2.6x faster training performance (vs. H100)",
+    "bbox_normalized": {
+      "xmin": 0.6173770833333334,
+      "ymin": 0.4961,
+      "xmax": 0.7807822916666667,
+      "ymax": 0.5172
+    },
+    "bbox_pixels": {
+      "x0": 948,
+      "y0": 1016,
+      "x1": 1199,
+      "y1": 1059
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 10,
+    "type": "Page-footer",
+    "text": "NVIDIA Blackwell Ultra | Datasheet | 3",
+    "bbox_normalized": {
+      "xmin": 0.6299302083333334,
+      "ymin": 0.7992,
+      "xmax": 0.7954812499999999,
+      "ymax": 0.8094
+    },
+    "bbox_pixels": {
+      "x0": 967,
+      "y0": 1636,
+      "x1": 1221,
+      "y1": 1657
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 11,
+    "type": "Picture",
+    "text": "30x HGX H100 GB300 NVL72",
+    "bbox_normalized": {
+      "xmin": 0.20248020833333336,
+      "ymin": 0.2195,
+      "xmax": 0.41620520833333335,
+      "ymax": 0.3328
+    },
+    "bbox_pixels": {
+      "x0": 311,
+      "y0": 449,
+      "x1": 639,
+      "y1": 681
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 12,
+    "type": "Picture",
+    "text": "",
+    "bbox_normalized": {
+      "xmin": 0.20559166666666664,
+      "ymin": 0.4133,
+      "xmax": 0.5901249999999999,
+      "ymax": 0.5617
+    },
+    "bbox_pixels": {
+      "x0": 315,
+      "y0": 846,
+      "x1": 906,
+      "y1": 1150
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 13,
+    "type": "Caption",
+    "text": "**Real-Time Video Generation**",
+    "bbox_normalized": {
+      "xmin": 0.20248020833333336,
+      "ymin": 0.2039,
+      "xmax": 0.35537083333333336,
+      "ymax": 0.2164
+    },
+    "bbox_pixels": {
+      "x0": 311,
+      "y0": 417,
+      "x1": 545,
+      "y1": 443
+    },
+    "is_valid": true
+  },
+  {
+    "page": 3,
+    "block_id": 14,
+    "type": "Caption",
+    "text": "Projected performance subject to change. Relative performance represented as frames per second per GPU. 5-second video generation using Cosmos-1.0-Diffusion-7B-Video2World 720p 60 FPS.",
+    "bbox_normalized": {
+      "xmin": 0.20248020833333336,
+      "ymin": 0.3367,
+      "xmax": 0.5837947916666666,
+      "ymax": 0.3523
+    },
+    "bbox_pixels": {
+      "x0": 311,
+      "y0": 689,
+      "x1": 896,
+      "y1": 721
+    },
+    "is_valid": true
+  }
+]

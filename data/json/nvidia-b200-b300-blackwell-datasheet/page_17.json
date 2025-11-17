@@ -1,0 +1,192 @@
+[
+  {
+    "page": 17,
+    "block_id": 0,
+    "type": "Page-header",
+    "text": "NVIDIA Grace Blackwell Ultra / Blackwell NVL72",
+    "bbox_normalized": {
+      "xmin": 0.5188833333333333,
+      "ymin": 0.1789,
+      "xmax": 0.7336812500000001,
+      "ymax": 0.1859
+    },
+    "bbox_pixels": {
+      "x0": 797,
+      "y0": 366,
+      "x1": 1126,
+      "y1": 380
+    },
+    "is_valid": true
+  },
+  {
+    "page": 17,
+    "block_id": 1,
+    "type": "Text",
+    "text": "allocate resources more effectively, accelerating AI-driven innovation without excessive capital expenditures.",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.2383,
+      "xmax": 0.7326083333333333,
+      "ymax": 0.2578
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 488,
+      "x1": 1125,
+      "y1": 527
+    },
+    "is_valid": true
+  },
+  {
+    "page": 17,
+    "block_id": 2,
+    "type": "Section-header",
+    "text": "## End-to-End AI Acceleration at Rack-Scale",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.5852,
+      "xmax": 0.5471010416666667,
+      "ymax": 0.5938
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 1198,
+      "x1": 840,
+      "y1": 1216
+    },
+    "is_valid": true
+  },
+  {
+    "page": 17,
+    "block_id": 3,
+    "type": "Text",
+    "text": "With up to 279 GB of HBM3e memory per GPU and 37 TB of high-speed memory per rack, coupled with over an exaFLOP of FP4 compute and a 72-GPU unified NVLink domain, Blackwell Ultra supports much larger models and can scale up with fewer nodes, opening the door to breakthroughs in AI. Combined with CUDA-X libraries for accelerated computing, NVIDIA accelerates the entire hardware and software computing stack.",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.6086,
+      "xmax": 0.7462343750000001,
+      "ymax": 0.6617
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 1246,
+      "x1": 1146,
+      "y1": 1355
+    },
+    "is_valid": true
+  },
+  {
+    "page": 17,
+    "block_id": 4,
+    "type": "Section-header",
+    "text": "## Optimized for Every Data Center",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.675,
+      "xmax": 0.48218958333333334,
+      "ymax": 0.6859
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 1382,
+      "x1": 740,
+      "y1": 1404
+    },
+    "is_valid": true
+  },
+  {
+    "page": 17,
+    "block_id": 5,
+    "type": "Text",
+    "text": "Investing in optimized data centers is not just a performance advantage--it’s a strategic necessity for organizations looking to stay competitive in the AI-driven future. With 65X more AI FLOPS than HGX H100, GB300 NVL72 enables significantly more inference for AI models. By combining the CPU with the GPU and high-speed interconnects via NVLink, data transfers across multiple systems have never been more efficient.",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.6984,
+      "xmax": 0.7431229166666666,
+      "ymax": 0.7523
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 1430,
+      "x1": 1141,
+      "y1": 1540
+    },
+    "is_valid": true
+  },
+  {
+    "page": 17,
+    "block_id": 6,
+    "type": "Page-footer",
+    "text": "17 NVIDIA Blackwell Architecture Technical Brief",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.7727,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.7906
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 1582,
+      "x1": 1155,
+      "y1": 1619
+    },
+    "is_valid": true
+  },
+  {
+    "page": 17,
+    "block_id": 7,
+    "type": "Picture",
+    "text": "30X Lower Energy Use and 25X Lower TCO Lower is Better 30X 25X Energy Use Total Cost of Ownership HGX H100 GB300 NVL72",
+    "bbox_normalized": {
+      "xmin": 0.270503125,
+      "ymin": 0.2766,
+      "xmax": 0.726278125,
+      "ymax": 0.5062
+    },
+    "bbox_pixels": {
+      "x0": 415,
+      "y0": 566,
+      "x1": 1115,
+      "y1": 1036
+    },
+    "is_valid": true
+  },
+  {
+    "page": 17,
+    "block_id": 8,
+    "type": "Caption",
+    "text": "Projected performance subject to change. Disaggregated inference, ISL=32K, OSL=8K @ 100 TPS/user, FTL=5s For trillion parameter AI models, compared to H100 air-cooled infrastructure, GB200 delivers 25X lower TCO and energy at the same performance.",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.5086,
+      "xmax": 0.7525645833333333,
+      "ymax": 0.5336
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 1041,
+      "x1": 1155,
+      "y1": 1092
+    },
+    "is_valid": true
+  },
+  {
+    "page": 17,
+    "block_id": 9,
+    "type": "Caption",
+    "text": "Figure 7. Reduction in Energy Use and Total Cost of Ownership with GB300",
+    "bbox_normalized": {
+      "xmin": 0.24646979166666663,
+      "ymin": 0.5484,
+      "xmax": 0.7075020833333334,
+      "ymax": 0.5695
+    },
+    "bbox_pixels": {
+      "x0": 378,
+      "y0": 1123,
+      "x1": 1086,
+      "y1": 1166
+    },
+    "is_valid": true
+  }
+]
