@@ -33,7 +33,7 @@ console = Console()
 
 def convert_pdf_to_png(
     pdf_path: Path,
-    output_dir: Path,
+    output_base_dir: Path,
     dpi: int = 300
 ) -> int:
     """
@@ -41,18 +41,22 @@ def convert_pdf_to_png(
     
     Args:
         pdf_path: Path to the input PDF file
-        output_dir: Directory where PNG files will be saved
+        output_base_dir: Base directory where PNG subdirectories will be created
         dpi: Resolution for the output images (default: 300)
     
     Returns:
         Number of pages successfully converted
     
-    The output files are named: {pdf_basename}_page_{page_number}.png
+    The output files are saved as: {output_base_dir}/{pdf_name}/page_{N}.png
     """
     try:
         # Open the PDF document
         pdf_document = fitz.open(pdf_path)
-        pdf_basename = pdf_path.stem  # Get filename without extension
+        pdf_name = pdf_path.stem  # Get filename without extension
+        
+        # Create output subdirectory for this PDF
+        output_pdf_dir = output_base_dir / pdf_name
+        output_pdf_dir.mkdir(parents=True, exist_ok=True)
         
         # Get total number of pages
         total_pages = len(pdf_document)
@@ -70,9 +74,9 @@ def convert_pdf_to_png(
             # Render page to an image (pixmap)
             pix = page.get_pixmap(matrix=mat)
             
-            # Construct output filename
-            output_filename = f"{pdf_basename}_page_{page_num + 1:03d}.png"
-            output_path = output_dir / output_filename
+            # Construct output filename (1-based page numbering)
+            output_filename = f"page_{page_num + 1}.png"
+            output_path = output_pdf_dir / output_filename
             
             # Save the image
             pix.save(str(output_path))
