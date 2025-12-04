@@ -43,9 +43,10 @@ except ImportError:
 
 
 CLOUD_API_URL = "https://integrate.api.nvidia.com/v1/embeddings"
-CLOUD_MODEL = "nvidia/nv-embedqa-mistral-7b-v2"
+CLOUD_MODEL = "nvidia/llama-3.2-nemoretriever-300m-embed-v2"
 LOCAL_API_URL = "http://localhost:8000/v1/embeddings"
-LOCAL_MODEL = "nvidia/nv-embedqa-mistral-7b-v2"
+LOCAL_MODEL = "nvidia/llama-3.2-nemoretriever-300m-embed-v2"
+EMBEDDING_DIMENSION = 2048  # Expected embedding dimension for this model
 
 
 class EmbeddingExtractor:
@@ -86,25 +87,32 @@ class EmbeddingExtractor:
     def check_api_health(self, verbose=False):
         """Check if the NIM API is responsive."""
         try:
+            # Prepare request payload
+            payload = {
+                "input": ["test"],
+                "model": self.model,
+                "input_type": "query"
+            }
+            
+            if verbose:
+                print(f"   Sending payload: {json.dumps(payload, indent=2)}")
+            
             # Try a simple embedding request
             response = requests.post(
                 self.api_url,
                 headers=self._get_headers(),
-                json={
-                    "input": ["test"],
-                    "model": self.model,
-                    "input_type": "query"
-                },
+                json=payload,
                 timeout=5
             )
             
-            if verbose and response.status_code not in [200, 422]:
+            if verbose:
                 print(f"   HTTP Status: {response.status_code}")
-                try:
-                    error_data = response.json()
-                    print(f"   Error: {error_data}")
-                except:
-                    print(f"   Response: {response.text[:200]}")
+                if response.status_code not in [200, 422]:
+                    try:
+                        error_data = response.json()
+                        print(f"   Error: {json.dumps(error_data, indent=2)}")
+                    except:
+                        print(f"   Response: {response.text[:500]}")
             
             return response.status_code in [200, 422]
         except requests.exceptions.RequestException as e:
@@ -128,14 +136,16 @@ class EmbeddingExtractor:
             Embedding vector as list of floats, or None on failure
         """
         try:
+            payload = {
+                "input": [text],
+                "model": self.model,
+                "input_type": input_type
+            }
+            
             response = requests.post(
                 self.api_url,
                 headers=self._get_headers(),
-                json={
-                    "input": [text],
-                    "model": self.model,
-                    "input_type": input_type
-                },
+                json=payload,
                 timeout=self.timeout
             )
             
@@ -148,6 +158,8 @@ class EmbeddingExtractor:
                 except:
                     error_msg = response.text
                 print(f"❌ API Error {response.status_code}: {error_msg}")
+                print(f"   Payload sent: {json.dumps(payload, indent=2)}")
+                print(f"   Response: {response.text[:500]}")
                 return None
                 
         except requests.exceptions.RequestException as e:
@@ -175,14 +187,16 @@ class EmbeddingExtractor:
             batch = texts[i:i+batch_size]
             
             try:
+                payload = {
+                    "input": batch,
+                    "model": self.model,
+                    "input_type": input_type
+                }
+                
                 response = requests.post(
                     self.api_url,
                     headers=self._get_headers(),
-                    json={
-                        "input": batch,
-                        "model": self.model,
-                        "input_type": input_type
-                    },
+                    json=payload,
                     timeout=self.timeout
                 )
                 
@@ -200,6 +214,8 @@ class EmbeddingExtractor:
                     except:
                         error_msg = response.text
                     print(f"\n❌ API Error {response.status_code}: {error_msg}")
+                    print(f"   Payload sent: {json.dumps(payload, indent=2)[:500]}")
+                    print(f"   Response: {response.text[:500]}")
                     embeddings.extend([None] * len(batch))
                     
             except requests.exceptions.RequestException as e:
@@ -507,13 +523,13 @@ Examples:
     proc_group = parser.add_argument_group('⚙️  Processing Options')
     proc_group.add_argument('--num-samples', type=int, default=100, 
                            help='Number of samples per split (default: 100, use -1 for all)')
-    proc_group.add_argument('--output', default='embeddings.json',
-                           help='Output file path (default: embeddings.json)')
+    proc_group.add_argument('--output', default='embeddings.jsonl',
+                           help='Output file path (default: embeddings.jsonl)')
     proc_group.add_argument('--model', help=f'Model name (auto-selected based on mode)')
-    proc_group.add_argument('--input-type', choices=['query', 'passage'], default='query', 
-                           help='Input type for embeddings (default: query)')
-    proc_group.add_argument('--batch-size', type=int, default=32, help='Batch size for API requests (default: 32)')
-    proc_group.add_argument('--max-text-length', type=int, default=4096, help='Maximum text length (default: 512)')
+    proc_group.add_argument('--input-type', choices=['query', 'passage'], default='passage', 
+                           help='Input type for embeddings (default: passage)')
+    proc_group.add_argument('--batch-size', type=int, default=64, help='Batch size for API requests (default: 64)')
+    proc_group.add_argument('--max-text-length', type=int, default=8192, help='Maximum text length (default: 8192)')
     
     args = parser.parse_args()
     
@@ -739,44 +755,45 @@ Examples:
     
     # Prepare output with rich metadata for UMAP visualization
     import time
-    output_data = {
-        'metadata': {
-            'extraction_time': time.strftime('%Y-%m-%d %H:%M:%S'),
-            'model': extractor.model,
-            'api_mode': 'cloud' if extractor.use_cloud else 'local',
-            'input_type': args.input_type,
-            'embedding_dimension': len(all_embeddings[0]['embedding']),
-            'total_samples': len(all_embeddings),
-            'datasets_processed': len(datasets_to_process),
-            'max_text_length': args.max_text_length,
-            'batch_size': args.batch_size,
-        },
+    
+    # Create metadata header
+    metadata = {
+        'type': 'metadata',
+        'extraction_time': time.strftime('%Y-%m-%d %H:%M:%S'),
+        'model': extractor.model,
+        'api_mode': 'cloud' if extractor.use_cloud else 'local',
+        'input_type': args.input_type,
+        'embedding_dimension': len(all_embeddings[0]['embedding']) if all_embeddings else EMBEDDING_DIMENSION,
+        'total_samples': len(all_embeddings),
+        'datasets_processed': len(datasets_to_process),
+        'max_text_length': args.max_text_length,
+        'batch_size': args.batch_size,
         'dataset_splits': [
             {'dataset': ds, 'split': sp} for ds, sp in datasets_to_process
         ],
-        'embeddings': all_embeddings,
-        'umap_ready': True,  # Flag for visualization scripts
-        'visualization_notes': {
-            'embeddings_field': 'embeddings[*].embedding',
-            'labels_field': 'embeddings[*].split',
-            'text_field': 'embeddings[*].text',
-            'color_by': 'split',
-            'hover_text': 'text'
-        }
+        'format': 'jsonl',
+        'format_description': 'First line contains metadata, subsequent lines contain embeddings'
     }
     
-    # Save results
+    # Save results in JSONL format
     output_path = Path(args.output)
-    print(f"\n💾 Saving {len(all_embeddings)} embeddings to: {output_path}")
+    print(f"\n💾 Saving {len(all_embeddings)} embeddings to: {output_path} (JSONL format)")
     
     with open(output_path, 'w') as f:
-        json.dump(output_data, f, indent=2)
+        # Write metadata as first line
+        f.write(json.dumps(metadata) + '\n')
+        
+        # Write each embedding as a separate line
+        for emb_data in all_embeddings:
+            emb_data['type'] = 'embedding'  # Mark as embedding entry
+            f.write(json.dumps(emb_data) + '\n')
     
     file_size_mb = output_path.stat().st_size / (1024 * 1024)
     print(f"✅ Saved successfully!")
+    print(f"   Format: JSONL (JSON Lines)")
     print(f"   File size: {file_size_mb:.2f} MB")
     print(f"   Total embeddings: {len(all_embeddings)}")
-    print(f"   Embedding dimension: {output_data['metadata']['embedding_dimension']}")
+    print(f"   Embedding dimension: {metadata['embedding_dimension']}")
     
     # Show summary by split
     print(f"\n📊 Summary by split:")
@@ -790,11 +807,16 @@ Examples:
     
     print("\n" + "=" * 80)
     print("✅ Embedding extraction completed!")
-    print(f"\n💡 Ready for UMAP visualization!")
-    print(f"   Load with: data = json.load(open('{output_path}'))")
-    print(f"   Embeddings: data['embeddings'][i]['embedding']")
-    print(f"   Labels: data['embeddings'][i]['split']")
-    print(f"   Texts: data['embeddings'][i]['text']")
+    print(f"\n💡 How to load JSONL file:")
+    print(f"   import json")
+    print(f"   with open('{output_path}') as f:")
+    print(f"       metadata = json.loads(f.readline())")
+    print(f"       embeddings = [json.loads(line) for line in f]")
+    print(f"\n   Or using pandas:")
+    print(f"       import pandas as pd")
+    print(f"       df = pd.read_json('{output_path}', lines=True)")
+    print(f"       metadata = df[df['type'] == 'metadata'].iloc[0]")
+    print(f"       embeddings = df[df['type'] == 'embedding']")
     print("=" * 80 + "\n")
 
 

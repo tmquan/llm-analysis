@@ -5,11 +5,11 @@ NVIDIA NIM Deployment Manager
 This script manages the lifecycle of NVIDIA NIM Docker containers.
 
 Usage:
-    python deploy_nim.py start [--api-key KEY] [--cache-dir PATH] [--port PORT]
-    python deploy_nim.py stop
-    python deploy_nim.py restart [--api-key KEY]
-    python deploy_nim.py status
-    python deploy_nim.py logs [-f]
+    python docker_nim.py start [--api-key KEY] [--cache-dir PATH] [--port PORT]
+    python docker_nim.py stop
+    python docker_nim.py restart [--api-key KEY]
+    python docker_nim.py status
+    python docker_nim.py logs [-f]
 """
 
 import os
@@ -21,8 +21,7 @@ from pathlib import Path
 
 
 CONTAINER_NAME = "nvidia-nim"
-DEFAULT_IMAGE = "nvcr.io/nim/nvidia/nv-embedqa-mistral-7b-v2:1.0.1"
-# DEFAULT_IMAGE = "nvcr.io/nim/nvidia/nv-embedqa-mistral-7b-v2:latest"
+DEFAULT_IMAGE = "nvcr.io/nim/nvidia/llama-3.2-nemoretriever-300m-embed-v2:latest"
 DEFAULT_CACHE_DIR = os.path.expanduser("~/.cache/nim")
 DEFAULT_PORT = 8000
 
@@ -79,7 +78,7 @@ class NIMDeployer:
         
         if not status:
             print(f"\n❌ Container '{self.container_name}' not found")
-            print(f"   Use 'deploy_nim.py start' to create and start the container\n")
+            print(f"   Use 'docker_nim.py start' to create and start the container\n")
             return False
         
         if container_id:
@@ -100,7 +99,7 @@ class NIMDeployer:
         else:
             print(f"\n⚠️  Container '{self.container_name}' exists but is NOT RUNNING")
             print(f"   Status: {status}")
-            print(f"   Use 'deploy_nim.py start' to start it")
+            print(f"   Use 'docker_nim.py start' to start it")
         
         print()
         return container_id is not None
@@ -172,8 +171,8 @@ class NIMDeployer:
             print(f"   Container ID: {result.stdout.strip()}")
             print(f"\n⏳ Model is loading... This may take 2-5 minutes.")
             print(f"   API will be available at: http://localhost:{self.port}/v1/embeddings")
-            print(f"\n💡 Use 'deploy_nim.py status' to check if the API is ready")
-            print(f"   Use 'deploy_nim.py logs -f' to watch the startup logs\n")
+            print(f"\n💡 Use 'docker_nim.py status' to check if the API is ready")
+            print(f"   Use 'docker_nim.py logs -f' to watch the startup logs\n")
         else:
             print(f"\n❌ Failed to start container!")
             print(f"   Error: {result.stderr}")
@@ -245,25 +244,25 @@ def main():
         epilog="""
 Examples:
   # Start the NIM container
-  python deploy_nim.py start
+  python docker_nim.py start
   
   # Start with custom API key
-  python deploy_nim.py start --api-key nvapi-xxx
+  python docker_nim.py start --api-key nvapi-xxx
   
   # Check container status
-  python deploy_nim.py status
+  python docker_nim.py status
   
   # Stop the container
-  python deploy_nim.py stop
+  python docker_nim.py stop
   
   # Restart the container
-  python deploy_nim.py restart
+  python docker_nim.py restart
   
   # View logs
-  python deploy_nim.py logs
+  python docker_nim.py logs
   
   # Follow logs in real-time
-  python deploy_nim.py logs -f
+  python docker_nim.py logs -f
         """
     )
     

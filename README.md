@@ -1,6 +1,44 @@
+# Datasets
+Nemotron v1:
+  ✅ Downloaded successfully
+  Splits: chat, code, math, stem, tool_calling
+  Total samples: 25,659,642
+    - chat: 746,622 samples
+    - code: 1,896,395 samples
+    - math: 2,044,407 samples
+    - stem: 20,662,167 samples
+    - tool_calling: 310,051 samples
+
+Nemotron v2:
+  ✅ Downloaded successfully
+  Splits: stem, chat, math, code, multilingual_ja, multilingual_de, multilingual_it, multilingual_es, multilingual_fr
+  Total samples: 6,341,414
+    - stem: 355,000 samples
+    - chat: 627,720 samples
+    - math: 239,467 samples
+    - code: 175,000 samples
+    - multilingual_ja: 975,202 samples
+    - multilingual_de: 1,015,314 samples
+    - multilingual_it: 1,016,503 samples
+    - multilingual_es: 935,704 samples
+    - multilingual_fr: 1,001,504 samples
+
+Llama-Nemotron SFT:
+  ✅ Downloaded successfully
+  Splits: code, math, science, chat, safety
+  Total samples: 32,955,418
+    - code: 10,108,883 samples
+    - math: 22,066,397 samples
+    - science: 708,920 samples
+    - chat: 39,792 samples
+    - safety: 31,426 samples
+
+Llama-Nemotron RL:
+  ❌ Download failed or skipped
+
 # NVIDIA NIM Embedding Extraction Toolkit
 
-Extract high-quality embeddings from NVIDIA's Nemotron datasets using the LLama-3.2-NV-EmbedQA-1B-v2 model, with support for both cloud and local deployment.
+Extract high-quality embeddings from NVIDIA's Nemotron datasets using the **Llama-3.2-NemoRetriever-300M-Embed-v2** model (2048-dimensional embeddings), with support for both cloud and local deployment.
 
 ---
 
@@ -28,7 +66,7 @@ export NGC_API_KEY=nvapi-xxxxx
 ### 3. Test the Cloud API
 
 ```bash
-conda run -n nemotron python extract_emb.py --cloud --testm
+conda run -n nemotron python extract_emb.py --cloud --test
 ```
 
 ### 4. Extract Your First Embeddings
@@ -37,19 +75,45 @@ conda run -n nemotron python extract_emb.py --cloud --testm
 conda run -n nemotron python extract_emb.py --cloud \
   --llama-sft-math \
   --num-samples 200 \
-  --output math_embeddings.json
+  --output math_embeddings.jsonl
 ```
 
 ---
 
 ## 📋 Common Use Cases
 
-### Extract All Samples from All v1 Splits (Complete Dataset)
+### 🎯 Extract All Splits to Separate Files (Recommended)
+
+Use the batch extraction script to process all dataset splits efficiently:
+
+```bash
+# Extract all Nemotron v1, v2, and Llama-SFT splits
+# Each split saved to: Nemotron-Post-Training-Dataset-v{1|2|llama-sft}-{split}.json
+bash extract_emb_all_splits.sh --cloud
+
+# Or use local NIM (requires GPU + Docker)
+bash extract_emb_all_splits.sh --local
+```
+
+**This will create 15 separate JSONL files:**
+- `Nemotron-Post-Training-Dataset-v1-{chat,code,math,stem,tool}.jsonl` (5 files)
+- `Nemotron-Post-Training-Dataset-v2-{chat,code,math,stem,tool}.jsonl` (5 files)
+- `Nemotron-Post-Training-Dataset-llama-sft-{math,code,science,chat,safety}.jsonl` (5 files)
+
+**Configuration in `extract_emb_all_splits.sh`:**
+- `NUM_SAMPLES=-1` (extracts ALL samples from each split)
+- `BATCH_SIZE=64` (processes 64 samples per API request)
+- `INPUT_TYPE=passage` (for indexing/search corpus)
+- `MAX_TEXT_LENGTH=8192` (8K character limit per sample)
+
+---
+
+### Extract All Samples from All v1 Splits (Single File)
 ```bash
 python extract_emb.py --cloud \
   --v1-all \
   --num-samples -1 \
-  --output Nemotron-Post-Training-Dataset-v1.json
+  --output Nemotron-Post-Training-Dataset-v1.jsonl
 ```
 This extracts **all samples** from all Nemotron v1 splits (chat, code, math, stem, tool_calling).
 
@@ -58,7 +122,7 @@ This extracts **all samples** from all Nemotron v1 splits (chat, code, math, ste
 python extract_emb.py --cloud \
   --v2-all \
   --num-samples -1 \
-  --output Nemotron-Post-Training-Dataset-v2.json
+  --output Nemotron-Post-Training-Dataset-v2.jsonl
 ```
 
 ### Extract All Llama-Nemotron SFT Data
@@ -66,7 +130,7 @@ python extract_emb.py --cloud \
 python extract_emb.py --cloud \
   --llama-sft-all \
   --num-samples -1 \
-  --output Llama-Nemotron-SFT-Complete.json
+  --output Llama-Nemotron-SFT-Complete.jsonl
 ```
 
 ### Compare Math vs Code vs Science (200 samples each)
@@ -76,7 +140,7 @@ python extract_emb.py --cloud \
   --llama-sft-code \
   --llama-sft-science \
   --num-samples 200 \
-  --output stem_comparison.json
+  --output stem_comparison.jsonl
 ```
 
 ### Extract Specific Split with Custom Settings
@@ -85,8 +149,8 @@ python extract_emb.py --cloud \
   --v1-chat \
   --num-samples 500 \
   --batch-size 64 \
-  --max-text-length 4096 \
-  --output chat_detailed.json
+  --max-text-length 8192 \
+  --output chat_detailed.jsonl
 ```
 
 ### Extract for Quick Exploration (50 samples per split)
@@ -95,7 +159,7 @@ python extract_emb.py --cloud \
   --v1-all \
   --v2-all \
   --num-samples 50 \
-  --output exploration.json
+  --output exploration.jsonl
 ```
 
 ### Extract Safety Data for Analysis
@@ -103,16 +167,16 @@ python extract_emb.py --cloud \
 python extract_emb.py --cloud \
   --llama-sft-safety \
   --num-samples -1 \
-  --output safety_complete.json
+  --output safety_complete.jsonl
 ```
 
-m## 🎨 Visualize with UMAP
+## 🎨 Visualize with UMAP
 
-After extracting embeddings, create beautiful visualizations:m
+After extracting embeddings, create beautiful visualizations:
 
 ```bash
 # Install visualization dependencies
-pip install umap-learn matplotlib plotlym
+pip install umap-learn matplotlib plotly
 
 # Create static plot
 python visualize_embeddings.py embeddings.json --output umap_plot.png
@@ -182,21 +246,39 @@ python visualize_embeddings.py embeddings.json \
 | Option | Default | Description |
 |--------|---------|-------------|
 | `--num-samples N` | 100 | Samples per split (-1 = all) |
-| `--batch-size N` | 32 | Batch size for API requests |
-| `--max-text-length N` | 4096 | Maximum text length in chars |
-| `--input-type TYPE` | query | 'query' or 'passage' |
-| `--output FILE` | embeddings.json | Output JSON file path |
+| `--batch-size N` | 64 | Batch size for API requests |
+| `--max-text-length N` | 8192 | Maximum text length in chars |
+| `--input-type TYPE` | passage | 'query' or 'passage' (see below) |
+| `--output FILE` | embeddings.jsonl | Output JSONL file path |
+
+### Input Type: Query vs Passage
+
+The `--input-type` parameter optimizes embeddings for different use cases:
+
+**`passage`** (Default - for indexing):
+- Use when embedding **documents/content** to be searched
+- For building a searchable corpus
+- Longer text (articles, dataset samples)
+- **Use this for extracting Nemotron datasets**
+
+**`query`** (for searching):
+- Use when embedding **search queries/questions**
+- For finding relevant documents
+- Shorter text ("What is machine learning?")
+- Use when searching through pre-built embeddings
+
+**Why it matters:** Modern embedding models use different encoding strategies for queries vs passages to optimize retrieval quality. Always use `passage` when building your index, and `query` when searching it.
 
 ### Performance Tuning
 
 **For Speed:**
 ```bash
---batch-size 64 --max-text-length 512
+--batch-size 64 --max-text-length 1024
 ```
 
-**For Quality:**
+**For Quality (Recommended):**
 ```bash
---batch-size 32 --max-text-length 4096 --input-type passage
+--batch-size 64 --max-text-length 8192 --input-type passage
 ```
 
 **For Complete Extraction:**
@@ -208,29 +290,81 @@ python visualize_embeddings.py embeddings.json \
 
 ## 📦 Output Format
 
-The JSON output includes rich metadata for UMAP visualization:
+The JSONL (JSON Lines) output format is optimized for streaming and memory-efficient processing:
 
-```json
-{
-  "metadata": {
-    "extraction_time": "2025-12-04 10:30:00",
-    "model": "nvidia/llama-3.2-nv-embedqa-1b-v2",
-    "embedding_dimension": 1024,
-    "total_samples": 1500
-  },
-  "embeddings": [
-    {
-      "dataset": "llama-nemotron-sft",
-      "split": "math",
-      "text": "Sample text...",
-      "embedding": [0.123, -0.456, ...],
-      "original_prompt": "...",
-      "original_response": "..."
-    }
-  ],
-  "umap_ready": true
-}
+**Format:**
+- First line: Metadata object
+- Subsequent lines: One embedding object per line
+
+**Example structure:**
+
+```jsonl
+{"type":"metadata","extraction_time":"2025-12-04 10:30:00","model":"nvidia/llama-3.2-nemoretriever-300m-embed-v2","embedding_dimension":2048,"total_samples":1500,...}
+{"type":"embedding","dataset":"llama-nemotron-sft","split":"math","text":"Sample text...","embedding":[0.123,-0.456,...],"original_prompt":"..."}
+{"type":"embedding","dataset":"llama-nemotron-sft","split":"math","text":"Another sample...","embedding":[0.789,-0.012,...],"original_prompt":"..."}
+...
 ```
+
+### Loading JSONL Files
+
+**Python (basic):**
+```python
+import json
+
+# Load metadata
+with open('embeddings.jsonl') as f:
+    metadata = json.loads(f.readline())
+    embeddings = [json.loads(line) for line in f]
+
+print(f"Total samples: {metadata['total_samples']}")
+print(f"Embedding dim: {metadata['embedding_dimension']}")
+```
+
+**Python (with pandas):**
+```python
+import pandas as pd
+
+# Load all at once
+df = pd.read_json('embeddings.jsonl', lines=True)
+
+# Separate metadata and embeddings
+metadata = df[df['type'] == 'metadata'].iloc[0].to_dict()
+embeddings_df = df[df['type'] == 'embedding']
+
+# Access embeddings
+import numpy as np
+embedding_matrix = np.array(embeddings_df['embedding'].tolist())
+labels = embeddings_df['split'].values
+texts = embeddings_df['text'].values
+```
+
+**Stream processing (memory-efficient):**
+```python
+import json
+
+def process_embeddings(filepath):
+    with open(filepath) as f:
+        metadata = json.loads(f.readline())
+        
+        # Process one embedding at a time
+        for line in f:
+            emb_data = json.loads(line)
+            # Process emb_data without loading all into memory
+            yield emb_data
+
+# Usage
+for embedding in process_embeddings('large_file.jsonl'):
+    # Process each embedding individually
+    pass
+```
+
+### Why JSONL?
+
+✅ **Memory Efficient**: Stream large files without loading everything  
+✅ **Fast Processing**: Read/write line by line  
+✅ **Append-Friendly**: Easy to add new embeddings  
+✅ **Standard Format**: Compatible with many tools  
+✅ **Smaller Files**: No formatting overhead  
 
 ## 🛠️ Complete Workflow (End-to-End)
 
@@ -268,7 +402,7 @@ conda run -n nemotron python extract_emb.py --cloud \
   --llama-sft-code \
   --llama-sft-science \
   --num-samples 300 \
-  --output stem_embeddings.json
+  --output stem_embeddings.jsonl
 
 # ═══════════════════════════════════════════════════════════
 # STEP 6: Install Visualization Tools
@@ -303,20 +437,24 @@ firefox stem_umap.html  # or: open stem_umap.html (macOS)
 | File | Description |
 |------|-------------|
 | `extract_emb.py` | Main extraction script |
+| `extract_emb_all_splits.sh` | Batch script to extract all splits |
 | `visualize_embeddings.py` | UMAP visualization |
-| `deploy_nim.py` | Local Docker management |
+| `docker_nim.py` | Local Docker NIM management |
 | `download_nemotron_datasets.py` | Download datasets |
+| `debug_nim_api.py` | API debugging utility |
 | `requirements.txt` | Python dependencies |
-| `COMPLETE_GUIDE.md` | Full documentation |
 
 ## 🌟 Features
 
 ✅ **Dual Mode**: Cloud API or local Docker  
+✅ **Batch extraction script**: Process all splits automatically  
 ✅ **Nemotron-style flags**: Similar to download script  
 ✅ **Multi-dataset**: Process multiple splits in one command  
 ✅ **UMAP-ready**: Rich metadata for visualization  
 ✅ **Batch processing**: Efficient with progress tracking  
 ✅ **Interactive viz**: Hover to see original text  
+✅ **2048-dim embeddings**: High-quality Llama-3.2-NemoRetriever model  
+✅ **Optimized for passage indexing**: Perfect for search/retrieval tasks  
 
 ## 💡 Pro Tips
 
@@ -348,22 +486,61 @@ viz-emb embeddings.json --interactive umap.html
 
 ### Batch Processing Script
 
-Create `extract_all.sh`:
+Use the provided script to extract all splits automatically:
+
+```bash
+#!/bin/bash
+# Extract all datasets to separate files
+bash extract_emb_all_splits.sh --cloud
+
+# Or with local NIM
+bash extract_emb_all_splits.sh --local
+```
+
+**What it does:**
+- Extracts all 15 dataset splits (v1, v2, llama-sft)
+- Saves each split to a separate JSON file
+- Uses optimal settings: batch_size=64, max_text_length=8192
+- Processes ALL samples (`num_samples=-1`)
+- Shows progress and summary at the end
+
+**Output files:**
+```
+Nemotron-Post-Training-Dataset-v1-chat.jsonl
+Nemotron-Post-Training-Dataset-v1-code.jsonl
+Nemotron-Post-Training-Dataset-v1-math.jsonl
+Nemotron-Post-Training-Dataset-v1-stem.jsonl
+Nemotron-Post-Training-Dataset-v1-tool.jsonl
+Nemotron-Post-Training-Dataset-v2-chat.jsonl
+Nemotron-Post-Training-Dataset-v2-code.jsonl
+Nemotron-Post-Training-Dataset-v2-math.jsonl
+Nemotron-Post-Training-Dataset-v2-stem.jsonl
+Nemotron-Post-Training-Dataset-v2-tool.jsonl
+Nemotron-Post-Training-Dataset-llama-sft-math.jsonl
+Nemotron-Post-Training-Dataset-llama-sft-code.jsonl
+Nemotron-Post-Training-Dataset-llama-sft-science.jsonl
+Nemotron-Post-Training-Dataset-llama-sft-chat.jsonl
+Nemotron-Post-Training-Dataset-llama-sft-safety.jsonl
+```
+
+### Manual Batch Processing
+
+Create your own extraction script:
 ```bash
 #!/bin/bash
 conda activate nemotron
 
 # Extract v1
 python extract_emb.py --cloud --v1-all --num-samples -1 \
-  --output v1_complete.json
+  --output v1_complete.jsonl
 
 # Extract v2  
 python extract_emb.py --cloud --v2-all --num-samples -1 \
-  --output v2_complete.json
+  --output v2_complete.jsonl
 
 # Extract SFT
 python extract_emb.py --cloud --llama-sft-all --num-samples -1 \
-  --output sft_complete.json
+  --output sft_complete.jsonl
 
 echo "✅ All extractions complete!"
 ```
@@ -394,7 +571,7 @@ screen -S embedding-extraction
 conda run -n nemotron python extract_emb.py --cloud \
   --all \
   --num-samples -1 \
-  --output complete_nemotron.json
+  --output complete_nemotron.jsonl
 
 # Detach: Ctrl+A, D
 # Reattach: screen -r embedding-extraction
@@ -472,14 +649,26 @@ pip install --upgrade -r requirements.txt
 
 #### Slow Extraction
 ```bash
-# Increase batch size
+# Increase batch size (faster processing)
 --batch-size 64
 
-# Reduce text length
---max-text-length 1024
+# Reduce text length (faster but less context)
+--max-text-length 2048
 
 # Use fewer samples for testing
 --num-samples 100
+```
+
+#### Large Dataset Extraction
+```bash
+# Run in screen/tmux for long-running extractions
+screen -S embedding-extraction
+
+# Use the batch script for all splits
+bash extract_emb_all_splits.sh --cloud
+
+# Detach: Ctrl+A, D
+# Reattach: screen -r embedding-extraction
 ```
 
 ### Get Help
@@ -499,9 +688,23 @@ conda list | grep -E "datasets|requests|numpy"
 
 ## 📖 Documentation
 
-- **COMPLETE_GUIDE.md** - Full guide with all examples
-- **USAGE_GUIDE.md** - Quick reference
-- **NIM_TROUBLESHOOTING.md** - Troubleshooting tips
+- **README.md** (this file) - Complete guide with examples
+- **Model**: `nvidia/llama-3.2-nemoretriever-300m-embed-v2` (2048 dimensions)
+- **API Documentation**: https://docs.nvidia.com/nim/
+
+## 🚀 Quick Reference
+
+### Start Extraction Immediately
+```bash
+# Extract all datasets (recommended)
+bash extract_emb_all_splits.sh --cloud
+
+# Extract single split for testing
+python extract_emb.py --cloud --v1-chat --num-samples 100
+
+# Check API status
+python extract_emb.py --test --cloud
+```
 
 ## 🎯 One-Command Quick Start
 
