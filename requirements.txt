@@ -1,45 +1,59 @@
-requests>=2.31.0
-beautifulsoup4>=4.12.0
+# NVIDIA NIM Embedding Extraction - Python Dependencies
+# Install with: pip install -r requirements.txt
 
-# NV-Ingest for table extraction
-nv-ingest-client
-nv-ingest
+# ═══════════════════════════════════════════════════════════════════════════
+# CORE DEPENDENCIES (Required)
+# ═══════════════════════════════════════════════════════════════════════════
 
-# LangChain and related dependencies
-langchain>=0.3.0
-langchain-core>=0.3.0
-langchain-community>=0.3.0
-langchain-text-splitters>=0.3.0
-langchain-openai>=0.2.0
-langchain-nvidia-ai-endpoints>=0.1.0
-langgraph>=0.0.20
+datasets>=2.14.0              # HuggingFace datasets for Nemotron data
+requests>=2.31.0              # HTTP requests for NIM API
+numpy>=1.24.0                 # Numerical operations
+tqdm>=4.65.0                  # Progress bars
+huggingface-hub>=0.19.0       # HuggingFace Hub utilities
 
-# Vector stores and embeddings
-faiss-cpu>=1.7.4
+# ═══════════════════════════════════════════════════════════════════════════
+# VISUALIZATION DEPENDENCIES (Recommended)
+# ═══════════════════════════════════════════════════════════════════════════
 
-# Document processing
-pypdf2>=3.0.0
-pypdf>=3.17.0
-pypdfium2>=4.26.0
-PyMuPDF>=1.23.0
-pymupdf4llm>=0.0.27
-camelot-py[cv]>=0.11.0
-opencv-python>=4.8.0
-Pillow>=10.0.0
+umap-learn>=0.5.5             # UMAP dimensionality reduction
+matplotlib>=3.7.0             # Static plots
+plotly>=5.17.0                # Interactive visualizations
+pandas>=2.0.0                 # Data manipulation
+seaborn>=0.12.0               # Statistical visualizations
 
-# Adobe PDF Services
-pdfservices-sdk>=4.0.0
+# ═══════════════════════════════════════════════════════════════════════════
+# ANALYSIS TOOLS (Optional)
+# ═══════════════════════════════════════════════════════════════════════════
 
-# Text cleaning (used by NeMo Curator)
-ftfy>=6.1.0
+scikit-learn>=1.3.0           # Similarity metrics, clustering
 
-# Data processing
-pandas>=2.0.0
-numpy>=1.24.0
+# ═══════════════════════════════════════════════════════════════════════════
+# SYSTEM UTILITIES (Optional)
+# ═══════════════════════════════════════════════════════════════════════════
 
-# Environment and configuration
-python-dotenv>=1.0.0
+psutil>=5.9.0                 # Memory usage monitoring
 
-# CLI and UI
-rich>=13.0.0
+# ═══════════════════════════════════════════════════════════════════════════
+# FALLBACK: LOCAL MODEL INFERENCE (Optional - if NIM unavailable)
+# Only needed if you want to run embeddings locally without NIM
+# ═══════════════════════════════════════════════════════════════════════════
 
+# transformers>=4.35.0        # HuggingFace transformers
+# torch>=2.0.0                # PyTorch for model inference
+# sentence-transformers>=2.2.0 # Optimized embedding generation
+
+# ═══════════════════════════════════════════════════════════════════════════
+# INSTALLATION NOTES
+# ═══════════════════════════════════════════════════════════════════════════
+#
+# Minimal installation (core only):
+#   pip install datasets requests numpy tqdm huggingface-hub
+#
+# Standard installation (core + visualization):
+#   pip install -r requirements.txt
+#
+# Full installation (includes local inference fallback):
+#   Uncomment the fallback section above, then:
+#   pip install -r requirements.txt
+#
+# ═══════════════════════════════════════════════════════════════════════════
