@@ -21,7 +21,7 @@ from pathlib import Path
 
 
 CONTAINER_NAME = "nvidia-nim"
-DEFAULT_IMAGE = "nvcr.io/nim/nvidia/llama-3.2-nemoretriever-300m-embed-v2:latest"
+DEFAULT_IMAGE = "nvcr.io/nvidia/nemo-microservices/llama-3.2-nemoretriever-1b-vlm-embed-v1:latest"
 DEFAULT_CACHE_DIR = os.path.expanduser("~/.cache/nim")
 DEFAULT_PORT = 8000
 

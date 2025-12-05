@@ -43,9 +43,9 @@ except ImportError:
 
 
 CLOUD_API_URL = "https://integrate.api.nvidia.com/v1/embeddings"
-CLOUD_MODEL = "nvidia/llama-3.2-nemoretriever-300m-embed-v2"
+CLOUD_MODEL = "nvidia/llama-3.2-nemoretriever-1b-vlm-embed-v1"
 LOCAL_API_URL = "http://localhost:8000/v1/embeddings"
-LOCAL_MODEL = "nvidia/llama-3.2-nemoretriever-300m-embed-v2"
+LOCAL_MODEL = "nvidia/llama-3.2-nemoretriever-1b-vlm-embed-v1"
 EMBEDDING_DIMENSION = 2048  # Expected embedding dimension for this model
 
 
@@ -715,35 +715,24 @@ Examples:
             print(f"⚠️  No embeddings generated for {dataset_name}/{split}, skipping")
             continue
         
-        # Add to all_embeddings with rich metadata for UMAP
+        # Add to all_embeddings - preserve ALL original columns
         for i, (text, embedding, sample) in enumerate(zip(texts, embeddings, samples)):
             if embedding is not None:  # Only include successful embeddings
-                # Extract additional metadata from sample
-                metadata = {
+                # Start with the complete original sample (preserve all columns)
+                result = dict(sample)  # Create a copy of the original sample
+                
+                # Add embedding and extraction metadata
+                result['_embedding'] = embedding
+                result['_extraction_metadata'] = {
                     'dataset': dataset_name,
                     'split': split,
                     'index_in_split': i,
                     'global_index': total_processed,
-                    'text': text,
+                    'extracted_text': text,
                     'text_length': len(text),
-                    'embedding': embedding,
                 }
                 
-                # Add original sample fields (truncated for size)
-                for key, value in sample.items():
-                    if key not in ['text', 'embedding']:  # Avoid duplication
-                        if isinstance(value, str):
-                            metadata[f'original_{key}'] = value[:200] if len(value) > 200 else value
-                        elif isinstance(value, (int, float, bool)):
-                            metadata[f'original_{key}'] = value
-                        elif isinstance(value, list) and len(value) > 0:
-                            # For chat/message lists, extract info
-                            if isinstance(value[0], dict):
-                                metadata[f'original_{key}_count'] = len(value)
-                            else:
-                                metadata[f'original_{key}'] = str(value)[:200]
-                
-                all_embeddings.append(metadata)
+                all_embeddings.append(result)
                 total_processed += 1
         
         print(f"   Added {successful} samples to collection (total: {total_processed})")
@@ -753,7 +742,7 @@ Examples:
         print("\n❌ No embeddings were successfully generated!")
         sys.exit(1)
     
-    # Prepare output with rich metadata for UMAP visualization
+    # Prepare output - all original columns are preserved, with 'embedding' added
     import time
     
     # Create metadata header
@@ -763,7 +752,7 @@ Examples:
         'model': extractor.model,
         'api_mode': 'cloud' if extractor.use_cloud else 'local',
         'input_type': args.input_type,
-        'embedding_dimension': len(all_embeddings[0]['embedding']) if all_embeddings else EMBEDDING_DIMENSION,
+        'embedding_dimension': len(all_embeddings[0]['_embedding']) if all_embeddings else EMBEDDING_DIMENSION,
         'total_samples': len(all_embeddings),
         'datasets_processed': len(datasets_to_process),
         'max_text_length': args.max_text_length,
@@ -775,17 +764,18 @@ Examples:
         'format_description': 'First line contains metadata, subsequent lines contain embeddings'
     }
     
-    # Save results in JSONL format
+    # Save results in JSONL format (all original columns preserved + _embedding added)
     output_path = Path(args.output)
     print(f"\n💾 Saving {len(all_embeddings)} embeddings to: {output_path} (JSONL format)")
+    print(f"   All original dataset columns preserved + '_embedding' field added")
     
     with open(output_path, 'w') as f:
         # Write metadata as first line
         f.write(json.dumps(metadata) + '\n')
         
-        # Write each embedding as a separate line
+        # Write each embedding as a separate line (preserves all original columns)
         for emb_data in all_embeddings:
-            emb_data['type'] = 'embedding'  # Mark as embedding entry
+            emb_data['_type'] = 'embedding'  # Mark as embedding entry (use _type to avoid conflicts)
             f.write(json.dumps(emb_data) + '\n')
     
     file_size_mb = output_path.stat().st_size / (1024 * 1024)
@@ -799,7 +789,7 @@ Examples:
     print(f"\n📊 Summary by split:")
     split_counts = {}
     for emb in all_embeddings:
-        key = f"{emb['dataset']}/{emb['split']}"
+        key = f"{emb['_extraction_metadata']['dataset']}/{emb['_extraction_metadata']['split']}"
         split_counts[key] = split_counts.get(key, 0) + 1
     
     for split_key, count in sorted(split_counts.items()):
@@ -807,6 +797,10 @@ Examples:
     
     print("\n" + "=" * 80)
     print("✅ Embedding extraction completed!")
+    print(f"\n💡 Output format:")
+    print(f"   - All original dataset columns are preserved (uuid, license, generator, version, category, messages, etc.)")
+    print(f"   - Added '_embedding' field with the embedding vector")
+    print(f"   - Added '_extraction_metadata' field with extraction info")
     print(f"\n💡 How to load JSONL file:")
     print(f"   import json")
     print(f"   with open('{output_path}') as f:")
@@ -816,7 +810,7 @@ Examples:
     print(f"       import pandas as pd")
     print(f"       df = pd.read_json('{output_path}', lines=True)")
     print(f"       metadata = df[df['type'] == 'metadata'].iloc[0]")
-    print(f"       embeddings = df[df['type'] == 'embedding']")
+    print(f"       embeddings = df[df['_type'] == 'embedding']")
     print("=" * 80 + "\n")
 
 

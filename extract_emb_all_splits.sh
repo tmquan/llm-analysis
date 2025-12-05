@@ -30,7 +30,7 @@ echo ""
 
 # Default settings
 NUM_SAMPLES=-1  # Adjust as needed
-BATCH_SIZE=64
+BATCH_SIZE=1024
 INPUT_TYPE="passage"
 MAX_TEXT_LENGTH=8192
 
@@ -38,7 +38,7 @@ MAX_TEXT_LENGTH=8192
 echo "📦 Processing Nemotron v1 splits..."
 splits_v1=("chat" "code" "math" "stem" "tool")
 for split in "${splits_v1[@]}"; do
-    output_file="Nemotron-Post-Training-Dataset-v1-${split}.jsonl"
+    output_file="/raid/Nemotron-Post-Training-Dataset-v1-${split}.jsonl"
     echo ""
     echo "  → Extracting v1-${split} to ${output_file}"
     python extract_emb.py \
@@ -62,7 +62,7 @@ echo ""
 echo "📦 Processing Nemotron v2 splits..."
 splits_v2=("chat" "code" "math" "stem" "tool")
 for split in "${splits_v2[@]}"; do
-    output_file="Nemotron-Post-Training-Dataset-v2-${split}.jsonl"
+    output_file="/raid/Nemotron-Post-Training-Dataset-v2-${split}.jsonl"
     echo ""
     echo "  → Extracting v2-${split} to ${output_file}"
     python extract_emb.py \
@@ -86,7 +86,7 @@ echo ""
 echo "📦 Processing Llama-Nemotron SFT splits..."
 splits_llama=("math" "code" "science" "chat" "safety")
 for split in "${splits_llama[@]}"; do
-    output_file="Nemotron-Post-Training-Dataset-llama-sft-${split}.jsonl"
+    output_file="/raid/Nemotron-Post-Training-Dataset-llama-sft-${split}.jsonl"
     echo ""
     echo "  → Extracting llama-sft-${split} to ${output_file}"
     python extract_emb.py \
