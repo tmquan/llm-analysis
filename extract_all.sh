@@ -15,16 +15,14 @@ echo ""
 
 # All 14 splits
 SPLITS=(
-    "v1:stem" "v1:tool" "v1:chat" "v1:code" "v1:math"
+    "v1:chat" "v1:code" "v1:math" "v1:stem" "v1:tool" 
     "v2:chat" "v2:code" "v2:math" "v2:stem"
     "llama-sft:math" "llama-sft:code" "llama-sft:science" "llama-sft:chat" "llama-sft:safety"
 )
 
 # Process each split
 for split in "${SPLITS[@]}"; do
-    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo "Processing: $split"
-    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     
     python extract_parallel.py \
         --splits "$split" \

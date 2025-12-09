@@ -1,59 +1,37 @@
 # NVIDIA NIM Embedding Extraction - Python Dependencies
-# Install with: pip install -r requirements.txt
+#
+# INSTALLATION:
+#   1. conda create -n nemotron python=3.12
+#   2. conda activate nemotron
+#   3. pip install torch torchvision --index-url https://download.pytorch.org/whl/cu130
+#   4. pip install -r requirements.txt
 
-# ═══════════════════════════════════════════════════════════════════════════
 # CORE DEPENDENCIES (Required)
-# ═══════════════════════════════════════════════════════════════════════════
-
 datasets>=2.14.0              # HuggingFace datasets for Nemotron data
 requests>=2.31.0              # HTTP requests for NIM API
 numpy>=1.24.0                 # Numerical operations
 tqdm>=4.65.0                  # Progress bars
+
+# WEB & UTILITIES (Required for scraping/formatting)
+beautifulsoup4>=4.12.0        # HTML parsing (bs4)
+rich>=13.0.0                  # Beautiful terminal output
 huggingface-hub>=0.19.0       # HuggingFace Hub utilities
 
-# ═══════════════════════════════════════════════════════════════════════════
 # VISUALIZATION DEPENDENCIES (Recommended)
-# ═══════════════════════════════════════════════════════════════════════════
-
 umap-learn>=0.5.5             # UMAP dimensionality reduction
 matplotlib>=3.7.0             # Static plots
 plotly>=5.17.0                # Interactive visualizations
 pandas>=2.0.0                 # Data manipulation
 seaborn>=0.12.0               # Statistical visualizations
 
-# ═══════════════════════════════════════════════════════════════════════════
-# ANALYSIS TOOLS (Optional)
-# ═══════════════════════════════════════════════════════════════════════════
-
+# ANALYSIS TOOLS (Recommended)
 scikit-learn>=1.3.0           # Similarity metrics, clustering
 
-# ═══════════════════════════════════════════════════════════════════════════
 # SYSTEM UTILITIES (Optional)
-# ═══════════════════════════════════════════════════════════════════════════
-
 psutil>=5.9.0                 # Memory usage monitoring
 
-# ═══════════════════════════════════════════════════════════════════════════
-# FALLBACK: LOCAL MODEL INFERENCE (Optional - if NIM unavailable)
-# Only needed if you want to run embeddings locally without NIM
-# ═══════════════════════════════════════════════════════════════════════════
-
-transformers>=4.35.0        # HuggingFace transformers
-torch>=2.0.0                # PyTorch for model inference
-sentence-transformers>=2.2.0 # Optimized embedding generation
-
-# ═══════════════════════════════════════════════════════════════════════════
-# INSTALLATION NOTES
-# ═══════════════════════════════════════════════════════════════════════════
-#
-# Minimal installation (core only):
-#   pip install datasets requests numpy tqdm huggingface-hub
-#
-# Standard installation (core + visualization):
-#   pip install -r requirements.txt
-#
-# Full installation (includes local inference fallback):
-#   Uncomment the fallback section above, then:
-#   pip install -r requirements.txt
-#
-# ═══════════════════════════════════════════════════════════════════════════
+# LOCAL MODEL INFERENCE (Optional - if NIM unavailable)
+# NOTE: PyTorch should be installed separately with CUDA support (see above)
+# Uncomment if you need local inference without NIM:
+# transformers>=4.35.0        # HuggingFace transformers
+# sentence-transformers>=2.2.0 # Optimized embedding generation

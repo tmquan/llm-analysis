@@ -47,10 +47,19 @@ Extract high-quality embeddings from NVIDIA's Nemotron datasets using the **Llam
 ### 1. Setup Conda Environment
 
 ```bash
-# Activate your conda environment
-conda activate nemotron  # or your preferred environment
+# Create conda environment with Python 3.12
+conda create -n nemotron python=3.12
 
-# Install dependencies
+# Activate your conda environment
+conda activate nemotron
+
+# Install PyTorch with CUDA 13.0 support
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cu130
+
+# Install additional dependencies
+pip install bs4 rich huggingface_hub
+
+# Install remaining dependencies
 pip install -r requirements.txt
 ```
 
@@ -61,6 +70,21 @@ Get a free API key from NVIDIA: https://org.ngc.nvidia.com/setup/api-key
 ```bash
 # Set API key (add to ~/.bashrc for persistence)
 export NGC_API_KEY=nvapi-xxxxx
+```
+
+### 2b. Hugging Face Authentication (Optional)
+
+If you need to access gated datasets, login to Hugging Face:
+
+```bash
+# Activate nemotron environment first
+conda activate nemotron
+
+# Login to Hugging Face (use 'huggingface-cli' not 'hf')
+huggingface-cli login
+
+# Or set token directly
+export HF_TOKEN=hf_xxxxx
 ```
 
 ### 3. Test the Cloud API
@@ -371,32 +395,22 @@ for embedding in process_embeddings('large_file.jsonl'):
 ### Step-by-Step Production Workflow
 
 ```bash
-# ═══════════════════════════════════════════════════════════
 # STEP 1: Setup Environment
-# ═══════════════════════════════════════════════════════════
 conda activate nemotron
 pip install -r requirements.txt
 
-# ═══════════════════════════════════════════════════════════
 # STEP 2: Download Datasets (One-Time Setup)
-# ═══════════════════════════════════════════════════════════
 conda run -n nemotron python download_nemotron_datasets.py --llama-sft
 
-# ═══════════════════════════════════════════════════════════
 # STEP 3: Configure NGC API Key
-# ═══════════════════════════════════════════════════════════
 export NGC_API_KEY=nvapi-xxxxx
 # Add to ~/.bashrc for persistence:
 echo 'export NGC_API_KEY=nvapi-xxxxx' >> ~/.bashrc
 
-# ═══════════════════════════════════════════════════════════
 # STEP 4: Test Cloud API
-# ═══════════════════════════════════════════════════════════
 conda run -n nemotron python extract_emb.py --cloud --test
 
-# ═══════════════════════════════════════════════════════════
 # STEP 5: Extract Embeddings (Multi-Domain)
-# ═══════════════════════════════════════════════════════════
 conda run -n nemotron python extract_emb.py --cloud \
   --llama-sft-math \
   --llama-sft-code \
@@ -404,29 +418,21 @@ conda run -n nemotron python extract_emb.py --cloud \
   --num-samples 300 \
   --output stem_embeddings.jsonl
 
-# ═══════════════════════════════════════════════════════════
 # STEP 6: Install Visualization Tools
-# ═══════════════════════════════════════════════════════════
 conda activate nemotron
 pip install umap-learn matplotlib plotly pandas
 
-# ═══════════════════════════════════════════════════════════
 # STEP 7: Create Static Visualization
-# ═══════════════════════════════════════════════════════════
 conda run -n nemotron python visualize_embeddings.py \
   stem_embeddings.json \
   --output stem_umap.png
 
-# ═══════════════════════════════════════════════════════════
 # STEP 8: Create Interactive HTML
-# ═══════════════════════════════════════════════════════════
 conda run -n nemotron python visualize_embeddings.py \
   stem_embeddings.json \
   --interactive stem_umap.html
 
-# ═══════════════════════════════════════════════════════════
 # STEP 9: Explore Results
-# ═══════════════════════════════════════════════════════════
 firefox stem_umap.html  # or: open stem_umap.html (macOS)
 ```
 
