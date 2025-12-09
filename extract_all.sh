@@ -1,0 +1,44 @@
+#!/bin/bash
+# Extract all splits using multi-GPU parallel strategy (chunk-based)
+
+# Activate conda environment
+eval "$(conda shell.bash hook)"
+conda activate nemotron
+
+NUM_GPUS=${1:-8}
+CHUNK_SIZE=${2:-1000000}  # Samples per chunk
+
+echo "🚀 Multi-GPU Extraction (Chunk-Based)"
+echo "Using $NUM_GPUS GPUs"
+echo "Chunk size: $CHUNK_SIZE samples per chunk"
+echo ""
+
+# All 14 splits
+SPLITS=(
+    "v1:stem" "v1:tool" "v1:chat" "v1:code" "v1:math"
+    "v2:chat" "v2:code" "v2:math" "v2:stem"
+    "llama-sft:math" "llama-sft:code" "llama-sft:science" "llama-sft:chat" "llama-sft:safety"
+)
+
+# Process each split
+for split in "${SPLITS[@]}"; do
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "Processing: $split"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    
+    python extract_parallel.py \
+        --splits "$split" \
+        --num-gpus $NUM_GPUS \
+        --batch-size 64 \
+        --num-samples $CHUNK_SIZE \
+        --output embeddings_output
+    
+    [ $? -eq 0 ] && echo "✅ $split" || echo "❌ $split"
+    echo ""
+done
+
+echo "✅ All done!"
+echo ""
+echo "Results:"
+ls -lh embeddings_output/*/
+

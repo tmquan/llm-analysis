@@ -38,9 +38,9 @@ psutil>=5.9.0                 # Memory usage monitoring
 # Only needed if you want to run embeddings locally without NIM
 # ═══════════════════════════════════════════════════════════════════════════
 
-# transformers>=4.35.0        # HuggingFace transformers
-# torch>=2.0.0                # PyTorch for model inference
-# sentence-transformers>=2.2.0 # Optimized embedding generation
+transformers>=4.35.0        # HuggingFace transformers
+torch>=2.0.0                # PyTorch for model inference
+sentence-transformers>=2.2.0 # Optimized embedding generation
 
 # ═══════════════════════════════════════════════════════════════════════════
 # INSTALLATION NOTES
