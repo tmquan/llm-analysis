@@ -1,41 +1,77 @@
 # Datasets
 Nemotron v1:
+
   ✅ Downloaded successfully
-  Splits: chat, code, math, stem, tool_calling
-  Total samples: 25,659,642
-    - chat: 746,622 samples
-    - code: 1,896,395 samples
-    - math: 2,044,407 samples
-    - stem: 20,662,167 samples
-    - tool_calling: 310,051 samples
+  
+    Splits: chat, code, math, stem, tool_calling
+  
+    Total samples: 25,659,642
+  
+      - chat: 746,622 samples
+    
+        - code: 1,896,395 samples
+    
+        - math: 2,044,407 samples
+    
+        - stem: 20,662,167 samples
+    
+        - tool_calling: 310,051 samples
+    
+    
 
 Nemotron v2:
+
   ✅ Downloaded successfully
-  Splits: stem, chat, math, code, multilingual_ja, multilingual_de, multilingual_it, multilingual_es, multilingual_fr
-  Total samples: 6,341,414
-    - stem: 355,000 samples
-    - chat: 627,720 samples
-    - math: 239,467 samples
-    - code: 175,000 samples
-    - multilingual_ja: 975,202 samples
-    - multilingual_de: 1,015,314 samples
-    - multilingual_it: 1,016,503 samples
-    - multilingual_es: 935,704 samples
-    - multilingual_fr: 1,001,504 samples
+  
+    Splits: stem, chat, math, code, multilingual_ja, multilingual_de, multilingual_it, multilingual_es, multilingual_fr
+  
+    Total samples: 6,341,414
+  
+      - stem: 355,000 samples
+    
+        - chat: 627,720 samples
+    
+        - math: 239,467 samples
+    
+        - code: 175,000 samples
+    
+        - multilingual_ja: 975,202 samples
+    
+        - multilingual_de: 1,015,314 samples
+    
+        - multilingual_it: 1,016,503 samples
+    
+        - multilingual_es: 935,704 samples
+    
+        - multilingual_fr: 1,001,504 samples
+    
+    
 
 Llama-Nemotron SFT:
+
   ✅ Downloaded successfully
-  Splits: code, math, science, chat, safety
-  Total samples: 32,955,418
-    - code: 10,108,883 samples
-    - math: 22,066,397 samples
-    - science: 708,920 samples
-    - chat: 39,792 samples
-    - safety: 31,426 samples
+  
+    Splits: code, math, science, chat, safety
+  
+    Total samples: 32,955,418
+  
+      - code: 10,108,883 samples
+    
+        - math: 22,066,397 samples
+    
+        - science: 708,920 samples
+    
+        - chat: 39,792 samples
+    
+        - safety: 31,426 samples
+    
+    
 
 Llama-Nemotron RL:
-  ❌ Download failed or skipped
 
+  ❌ Download failed or skipped
+  
+  
 # NVIDIA NIM Embedding Extraction Toolkit
 
 Extract high-quality embeddings from NVIDIA's Nemotron datasets using the **Llama-3.2-NemoRetriever-300M-Embed-v2** model (2048-dimensional embeddings), with support for both cloud and local deployment.

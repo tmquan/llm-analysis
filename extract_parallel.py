@@ -12,6 +12,18 @@ import math
 from pathlib import Path
 import multiprocessing as mp
 
+# Set HuggingFace cache directories
+SCRIPT_DIR = Path(__file__).parent.absolute()
+DATASETS_DIR = SCRIPT_DIR / "datasets"
+CHECKPOINTS_DIR = SCRIPT_DIR / "checkpoints"
+
+# HuggingFace datasets go to ./datasets
+# HuggingFace hub (models) go to ./checkpoints
+os.environ['HF_HOME'] = str(CHECKPOINTS_DIR)
+os.environ['HUGGINGFACE_HUB_CACHE'] = str(CHECKPOINTS_DIR)
+os.environ['TRANSFORMERS_CACHE'] = str(CHECKPOINTS_DIR)
+os.environ['HF_DATASETS_CACHE'] = str(DATASETS_DIR)
+
 try:
     from sentence_transformers import SentenceTransformer
     import torch
@@ -48,6 +60,16 @@ def extract_text(sample, max_length=8192):
 
 def worker(gpu_id, dataset_name, split, start_idx, end_idx, output_dir, config, chunk_idx, total_chunks):
     """Worker process for one GPU processing one chunk"""
+    # Set HuggingFace cache directories
+    script_dir = Path(__file__).parent.absolute()
+    datasets_dir = script_dir / "datasets"
+    checkpoints_dir = script_dir / "checkpoints"
+    
+    os.environ['HF_HOME'] = str(checkpoints_dir)
+    os.environ['HUGGINGFACE_HUB_CACHE'] = str(checkpoints_dir)
+    os.environ['TRANSFORMERS_CACHE'] = str(checkpoints_dir)
+    os.environ['HF_DATASETS_CACHE'] = str(datasets_dir)
+    
     # Set GPU BEFORE any CUDA imports
     os.environ['CUDA_VISIBLE_DEVICES'] = str(gpu_id)
     

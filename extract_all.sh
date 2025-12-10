@@ -5,12 +5,22 @@
 eval "$(conda shell.bash hook)"
 conda activate nemotron
 
+# Set HuggingFace cache directories
+# - datasets folder: for HuggingFace datasets
+# - checkpoints folder: for HuggingFace models/hub
+export HF_HOME="$(pwd)/checkpoints"
+export HUGGINGFACE_HUB_CACHE="$(pwd)/checkpoints"
+export TRANSFORMERS_CACHE="$(pwd)/checkpoints"
+export HF_DATASETS_CACHE="$(pwd)/datasets"
+
 NUM_GPUS=${1:-8}
 CHUNK_SIZE=${2:-1000000}  # Samples per chunk
 
 echo "🚀 Multi-GPU Extraction (Chunk-Based)"
 echo "Using $NUM_GPUS GPUs"
 echo "Chunk size: $CHUNK_SIZE samples per chunk"
+echo "📁 Datasets cache: $HF_DATASETS_CACHE"
+echo "🤖 Models cache: $HF_HOME"
 echo ""
 
 # All 14 splits
