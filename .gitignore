@@ -9,7 +9,6 @@ __pycache__/
 
 # Datasets and Model Checkpoints
 datasets/
-data/
 checkpoints/
 
 # Distribution / packaging

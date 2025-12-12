@@ -19,12 +19,34 @@ Usage:
 import os
 import sys
 import argparse
+from pathlib import Path
+
+# Set HuggingFace cache directories BEFORE importing datasets
+SCRIPT_DIR = Path(__file__).parent.absolute()
+DATASETS_DIR = SCRIPT_DIR / "datasets"
+CHECKPOINTS_DIR = SCRIPT_DIR / "checkpoints"
+
+# Ensure directories exist
+DATASETS_DIR.mkdir(exist_ok=True)
+CHECKPOINTS_DIR.mkdir(exist_ok=True)
+
+# Set environment variables for HuggingFace cache
+# Models/hub go to checkpoints (in case any models are downloaded)
+os.environ['HF_HOME'] = str(CHECKPOINTS_DIR)
+os.environ['HUGGINGFACE_HUB_CACHE'] = str(CHECKPOINTS_DIR)
+os.environ['HF_MODULES_CACHE'] = str(CHECKPOINTS_DIR / "modules")
+
+# Datasets go to datasets folder
+os.environ['HF_DATASETS_CACHE'] = str(DATASETS_DIR)
+
+# Now import datasets library
 from datasets import load_dataset
 
 
 def setup_environment():
-    """Create datasets folder if it doesn't exist."""
-    os.makedirs("datasets", exist_ok=True)
+    """Display environment information."""
+    print(f"📁 Datasets will be cached in: {DATASETS_DIR}")
+    print(f"🤖 Models will be cached in: {CHECKPOINTS_DIR}")
     print("✅ Environment setup complete\n")
 
 
