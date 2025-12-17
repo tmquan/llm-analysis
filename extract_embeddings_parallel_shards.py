@@ -19,32 +19,97 @@ Usage:
         --num-gpus 8 \
         --batch-size 32 \
         --max-text-length 8192
+    
+    Custom paths:
+    python extract_embeddings_parallel_shards.py --all \
+        --datasets-dir /data/datasets \
+        --checkpoints-dir /data/checkpoints \
+        --embeddings-dir /data/embeddings
 """
 
 import os
 import sys
+import argparse
 from pathlib import Path
 
-# Set HuggingFace cache directories BEFORE importing any HF libraries
+# =============================================================================
+# DEFAULT PATH CONFIGURATION
+# =============================================================================
 SCRIPT_DIR = Path(__file__).parent.absolute()
-DATASETS_DIR = SCRIPT_DIR / "datasets"
-CHECKPOINTS_DIR = SCRIPT_DIR / "checkpoints"
 
-# Ensure directories exist
-DATASETS_DIR.mkdir(exist_ok=True)
-CHECKPOINTS_DIR.mkdir(exist_ok=True)
+# Default paths (can be overridden via CLI arguments)
+DEFAULT_DATASETS_DIR = SCRIPT_DIR / "datasets"
+DEFAULT_CHECKPOINTS_DIR = SCRIPT_DIR / "checkpoints"
+DEFAULT_EMBEDDINGS_DIR = SCRIPT_DIR / "embeddings_output"
 
-# Set environment variables for HuggingFace cache
-# Models/hub go to checkpoints
-os.environ['HF_HOME'] = str(CHECKPOINTS_DIR)
-os.environ['HUGGINGFACE_HUB_CACHE'] = str(CHECKPOINTS_DIR)
-os.environ['HF_MODULES_CACHE'] = str(CHECKPOINTS_DIR / "modules")
+# Global variables that will be set after parsing arguments
+DATASETS_DIR = None
+CHECKPOINTS_DIR = None
+EMBEDDINGS_DIR = None
 
-# Datasets go to datasets folder
-os.environ['HF_DATASETS_CACHE'] = str(DATASETS_DIR)
+
+def parse_path_args():
+    """
+    Parse only path-related arguments first.
+    This is needed because HuggingFace environment variables must be set
+    BEFORE importing the datasets/transformers libraries.
+    """
+    parser = argparse.ArgumentParser(add_help=False)
+    parser.add_argument(
+        '--datasets-dir', type=str, default=str(DEFAULT_DATASETS_DIR),
+        help=f'Directory for downloaded datasets (default: {DEFAULT_DATASETS_DIR})'
+    )
+    parser.add_argument(
+        '--checkpoints-dir', type=str, default=str(DEFAULT_CHECKPOINTS_DIR),
+        help=f'Directory for model checkpoints/HF cache (default: {DEFAULT_CHECKPOINTS_DIR})'
+    )
+    parser.add_argument(
+        '--embeddings-dir', type=str, default=str(DEFAULT_EMBEDDINGS_DIR),
+        help=f'Directory for extracted embeddings output (default: {DEFAULT_EMBEDDINGS_DIR})'
+    )
+    
+    # Parse known args only (ignore others for now)
+    args, _ = parser.parse_known_args()
+    return args
+
+
+def setup_environment(datasets_dir: Path, checkpoints_dir: Path, embeddings_dir: Path):
+    """
+    Set up HuggingFace environment variables and create directories.
+    Must be called BEFORE importing datasets/transformers libraries.
+    """
+    global DATASETS_DIR, CHECKPOINTS_DIR, EMBEDDINGS_DIR
+    
+    DATASETS_DIR = datasets_dir
+    CHECKPOINTS_DIR = checkpoints_dir
+    EMBEDDINGS_DIR = embeddings_dir
+    
+    # Ensure directories exist
+    DATASETS_DIR.mkdir(parents=True, exist_ok=True)
+    CHECKPOINTS_DIR.mkdir(parents=True, exist_ok=True)
+    EMBEDDINGS_DIR.mkdir(parents=True, exist_ok=True)
+    
+    # Set HuggingFace cache directories
+    # Models/hub go to checkpoints
+    os.environ['HF_HOME'] = str(CHECKPOINTS_DIR)
+    os.environ['HUGGINGFACE_HUB_CACHE'] = str(CHECKPOINTS_DIR)
+    os.environ['HF_MODULES_CACHE'] = str(CHECKPOINTS_DIR / "modules")
+    
+    # Datasets go to datasets folder
+    os.environ['HF_DATASETS_CACHE'] = str(DATASETS_DIR)
+
+
+# =============================================================================
+# PARSE PATH ARGUMENTS AND SETUP ENVIRONMENT BEFORE IMPORTS
+# =============================================================================
+_path_args = parse_path_args()
+setup_environment(
+    datasets_dir=Path(_path_args.datasets_dir),
+    checkpoints_dir=Path(_path_args.checkpoints_dir),
+    embeddings_dir=Path(_path_args.embeddings_dir)
+)
 
 # Now safe to import other libraries
-import argparse
 import time
 from multiprocessing import Process, Queue, Manager, Event
 from queue import Empty
@@ -77,7 +142,9 @@ def discover_all_splits(datasets_dir: Path) -> List[str]:
     all_splits = []
     
     # Define all possible datasets and their configurations
+    # (must match download_nemotron_datasets.py and validate_embeddings.py)
     datasets_to_check = {
+        # V1 and V2 datasets
         'v1': {
             'hf_name': 'nvidia/Nemotron-Post-Training-Dataset-v1',
             'cache_dir': str(datasets_dir / 'nemotron-v1'),
@@ -88,6 +155,7 @@ def discover_all_splits(datasets_dir: Path) -> List[str]:
             'cache_dir': str(datasets_dir / 'nemotron-v2'),
             'config': None
         },
+        # Llama-Nemotron datasets
         'llama-sft': {
             'hf_name': 'nvidia/Llama-Nemotron-Post-Training-Dataset',
             'cache_dir': str(datasets_dir / 'llama-nemotron'),
@@ -97,6 +165,43 @@ def discover_all_splits(datasets_dir: Path) -> List[str]:
             'hf_name': 'nvidia/Llama-Nemotron-Post-Training-Dataset',
             'cache_dir': str(datasets_dir / 'llama-nemotron'),
             'config': 'RL'
+        },
+        # V3 datasets (Post-Training Nano v3 Collection) - Available
+        'v3-science': {
+            'hf_name': 'nvidia/Nemotron-Science-v1',
+            'cache_dir': str(datasets_dir / 'nemotron-v3' / 'science'),
+            'config': None
+        },
+        'v3-instruction-chat': {
+            'hf_name': 'nvidia/Nemotron-Instruction-Following-Chat-v1',
+            'cache_dir': str(datasets_dir / 'nemotron-v3' / 'instruction-chat'),
+            'config': None
+        },
+        'v3-math-proofs': {
+            'hf_name': 'nvidia/Nemotron-Math-Proofs-v1',
+            'cache_dir': str(datasets_dir / 'nemotron-v3' / 'math-proofs'),
+            'config': None
+        },
+        # V3 datasets (Post-Training Nano v3 Collection) - Preview (not yet downloadable)
+        'v3-rl-blend': {
+            'hf_name': 'nvidia/Nemotron-3-Nano-RL-Training-Blend',
+            'cache_dir': str(datasets_dir / 'nemotron-v3' / 'rl-blend'),
+            'config': None
+        },
+        'v3-agentic': {
+            'hf_name': 'nvidia/Nemotron-Agentic-v1',
+            'cache_dir': str(datasets_dir / 'nemotron-v3' / 'agentic'),
+            'config': None
+        },
+        'v3-competitive-programming': {
+            'hf_name': 'nvidia/Nemotron-Competitive-Programming-v1',
+            'cache_dir': str(datasets_dir / 'nemotron-v3' / 'competitive-programming'),
+            'config': None
+        },
+        'v3-math': {
+            'hf_name': 'nvidia/Nemotron-Math-v2',
+            'cache_dir': str(datasets_dir / 'nemotron-v3' / 'math-v2'),
+            'config': None
         },
     }
     
@@ -174,7 +279,9 @@ def discover_dataset_shards(datasets_dir: Path, splits: List[str]) -> List[Dict[
             continue
         
         # Map dataset names to HuggingFace dataset names and cache dirs
+        # (must match download_nemotron_datasets.py and validate_embeddings.py)
         dataset_configs = {
+            # V1 and V2 datasets
             'v1': {
                 'hf_name': 'nvidia/Nemotron-Post-Training-Dataset-v1',
                 'cache_dir': str(datasets_dir / 'nemotron-v1'),
@@ -185,6 +292,7 @@ def discover_dataset_shards(datasets_dir: Path, splits: List[str]) -> List[Dict[
                 'cache_dir': str(datasets_dir / 'nemotron-v2'),
                 'config': None
             },
+            # Llama-Nemotron datasets
             'llama-sft': {
                 'hf_name': 'nvidia/Llama-Nemotron-Post-Training-Dataset',
                 'cache_dir': str(datasets_dir / 'llama-nemotron'),
@@ -194,6 +302,43 @@ def discover_dataset_shards(datasets_dir: Path, splits: List[str]) -> List[Dict[
                 'hf_name': 'nvidia/Llama-Nemotron-Post-Training-Dataset',
                 'cache_dir': str(datasets_dir / 'llama-nemotron'),
                 'config': 'RL'
+            },
+            # V3 datasets (Post-Training Nano v3 Collection) - Available
+            'v3-science': {
+                'hf_name': 'nvidia/Nemotron-Science-v1',
+                'cache_dir': str(datasets_dir / 'nemotron-v3' / 'science'),
+                'config': None
+            },
+            'v3-instruction-chat': {
+                'hf_name': 'nvidia/Nemotron-Instruction-Following-Chat-v1',
+                'cache_dir': str(datasets_dir / 'nemotron-v3' / 'instruction-chat'),
+                'config': None
+            },
+            'v3-math-proofs': {
+                'hf_name': 'nvidia/Nemotron-Math-Proofs-v1',
+                'cache_dir': str(datasets_dir / 'nemotron-v3' / 'math-proofs'),
+                'config': None
+            },
+            # V3 datasets (Post-Training Nano v3 Collection) - Preview (not yet downloadable)
+            'v3-rl-blend': {
+                'hf_name': 'nvidia/Nemotron-3-Nano-RL-Training-Blend',
+                'cache_dir': str(datasets_dir / 'nemotron-v3' / 'rl-blend'),
+                'config': None
+            },
+            'v3-agentic': {
+                'hf_name': 'nvidia/Nemotron-Agentic-v1',
+                'cache_dir': str(datasets_dir / 'nemotron-v3' / 'agentic'),
+                'config': None
+            },
+            'v3-competitive-programming': {
+                'hf_name': 'nvidia/Nemotron-Competitive-Programming-v1',
+                'cache_dir': str(datasets_dir / 'nemotron-v3' / 'competitive-programming'),
+                'config': None
+            },
+            'v3-math': {
+                'hf_name': 'nvidia/Nemotron-Math-v2',
+                'cache_dir': str(datasets_dir / 'nemotron-v3' / 'math-v2'),
+                'config': None
             },
         }
         
@@ -319,13 +464,13 @@ def load_model(model_name: str, device: int):
     
     tokenizer = AutoTokenizer.from_pretrained(
         model_name,
-        cache_dir='./checkpoints',
+        cache_dir=str(CHECKPOINTS_DIR),
         trust_remote_code=True
     )
     
     model = AutoModel.from_pretrained(
         model_name,
-        cache_dir='./checkpoints',
+        cache_dir=str(CHECKPOINTS_DIR),
         torch_dtype=torch.float16,
         trust_remote_code=True
     ).to(f'cuda:{device}')
@@ -732,14 +877,49 @@ Examples:
   # Extract from multiple splits using 8 GPUs
   python extract_embeddings_parallel_shards.py --splits v1:chat v2:math llama-sft:safety --num-gpus 8
   
+  # Extract from v3 datasets
+  python extract_embeddings_parallel_shards.py --splits v3-science:train v3-math:train --num-gpus 4
+  
   # Extract from ALL available dataset splits
   python extract_embeddings_parallel_shards.py --all --num-gpus 8
   
   # Custom batch size and max length
   python extract_embeddings_parallel_shards.py --all --batch-size 64 --max-text-length 8192
+  
+  # Custom directories
+  python extract_embeddings_parallel_shards.py --all \\
+      --datasets-dir /data/datasets \\
+      --checkpoints-dir /data/checkpoints \\
+      --embeddings-dir /data/embeddings
+
+Available dataset prefixes:
+  v1, v2                     - Nemotron Post-Training v1/v2
+  llama-sft, llama-rl        - Llama-Nemotron SFT/RL
+  v3-rl-blend                - Nemotron-3-Nano-RL-Training-Blend
+  v3-science                 - Nemotron-Science-v1
+  v3-instruction-chat        - Nemotron-Instruction-Following-Chat-v1
+  v3-math-proofs             - Nemotron-Math-Proofs-v1
+  v3-agentic                 - Nemotron-Agentic-v1
+  v3-competitive-programming - Nemotron-Competitive-Programming-v1
+  v3-math                    - Nemotron-Math-v2
         """
     )
     
+    # Path arguments (already parsed for env setup, but include for help text)
+    parser.add_argument(
+        '--datasets-dir', type=str, default=str(DEFAULT_DATASETS_DIR),
+        help=f'Directory for downloaded datasets (default: {DEFAULT_DATASETS_DIR})'
+    )
+    parser.add_argument(
+        '--checkpoints-dir', type=str, default=str(DEFAULT_CHECKPOINTS_DIR),
+        help=f'Directory for model checkpoints/HF cache (default: {DEFAULT_CHECKPOINTS_DIR})'
+    )
+    parser.add_argument(
+        '--embeddings-dir', type=str, default=str(DEFAULT_EMBEDDINGS_DIR),
+        help=f'Directory for extracted embeddings output (default: {DEFAULT_EMBEDDINGS_DIR})'
+    )
+    
+    # Dataset selection arguments
     parser.add_argument(
         '--splits', nargs='+', required=False,
         help='Format: v1:chat v2:math llama-sft:safety'
@@ -748,6 +928,8 @@ Examples:
         '--all', action='store_true',
         help='Extract embeddings from all available dataset splits'
     )
+    
+    # Processing arguments
     parser.add_argument(
         '--num-gpus', type=int, default=8,
         help='Number of GPUs to use (default: 8)'
@@ -755,10 +937,6 @@ Examples:
     parser.add_argument(
         '--batch-size', type=int, default=32,
         help='Batch size for inference (default: 32)'
-    )
-    parser.add_argument(
-        '--output', default='embeddings_output',
-        help='Output directory (default: embeddings_output)'
     )
     parser.add_argument(
         '--model', default='nvidia/llama-embed-nemotron-8b',
@@ -772,9 +950,11 @@ Examples:
         '--input-type', default='document', choices=['document', 'query'],
         help='Input type (default: document)'
     )
+    
+    # Legacy argument (kept for backwards compatibility, uses --embeddings-dir)
     parser.add_argument(
-        '--datasets-dir', default='./datasets',
-        help='Base datasets directory (default: ./datasets)'
+        '--output', default=None,
+        help='[DEPRECATED] Use --embeddings-dir instead'
     )
     
     args = parser.parse_args()
@@ -792,14 +972,20 @@ Examples:
         console = Console()
         console.print("[yellow]⚠️  Warning:[/yellow] Both --all and --splits specified. --all takes precedence.")
     
-    # Setup paths
-    script_dir = Path(__file__).parent.absolute()
-    datasets_dir = Path(args.datasets_dir)
-    if not datasets_dir.is_absolute():
-        datasets_dir = script_dir / datasets_dir
-    output_dir = Path(args.output)
-    if not output_dir.is_absolute():
-        output_dir = script_dir / output_dir
+    # Handle deprecated --output argument
+    if args.output is not None:
+        console = Console()
+        console.print("[yellow]⚠️  Warning:[/yellow] --output is deprecated, use --embeddings-dir instead")
+        embeddings_dir = Path(args.output)
+    else:
+        embeddings_dir = EMBEDDINGS_DIR
+    
+    # Use the globally configured paths (already set from CLI args)
+    datasets_dir = DATASETS_DIR
+    checkpoints_dir = CHECKPOINTS_DIR
+    output_dir = embeddings_dir
+    
+    # Ensure output directory exists
     output_dir.mkdir(parents=True, exist_ok=True)
     
     console = Console()
@@ -845,8 +1031,9 @@ Examples:
     config_table.add_row("Max text length", str(args.max_text_length))
     config_table.add_row("Model", args.model)
     config_table.add_row("Input type", args.input_type)
-    config_table.add_row("Output directory", str(output_dir))
-    config_table.add_row("Datasets directory", str(datasets_dir))
+    config_table.add_row("Checkpoints dir", str(checkpoints_dir))
+    config_table.add_row("Datasets dir", str(datasets_dir))
+    config_table.add_row("Embeddings output", str(output_dir))
     
     console.print("\n[bold]📊 Configuration:[/bold]")
     console.print(config_table)

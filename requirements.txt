@@ -7,31 +7,31 @@
 #   4. pip install -r requirements.txt
 
 # CORE DEPENDENCIES (Required)
---index-url https://download.pytorch.org/whl/cu130
-torch==2.9.1
+# --index-url https://download.pytorch.org/whl/cu130
+torch
 torchvision
-sentence-transformers==5.1.2
-datasets==4.4.1               # HuggingFace datasets for Nemotron data
+sentence-transformers
+datasets                      # HuggingFace datasets for Nemotron data
 requests==2.32.5              # HTTP requests for NIM API
 numpy==2.3.5                  # Numerical operations
 tqdm==4.67.1                  # Progress bars
 transformers==4.57.3          # HuggingFace transformers (required by sentence-transformers)
 
 # WEB & UTILITIES (Required for scraping/formatting)
-beautifulsoup4==4.14.3        # HTML parsing (bs4)
-rich==14.2.0                  # Beautiful terminal output
+beautifulsoup4                # HTML parsing (bs4)
+rich                          # Beautiful terminal output
 huggingface-hub==0.36.0       # HuggingFace Hub utilities
 
 # VISUALIZATION DEPENDENCIES (Recommended)
-umap-learn==0.5.9.post2       # UMAP dimensionality reduction
-matplotlib==3.10.7            # Static plots
-plotly==6.5.0                 # Interactive visualizations
-pandas==2.3.3                 # Data manipulation
-seaborn==0.13.2               # Statistical visualizations
+umap-learn                    # UMAP dimensionality reduction
+matplotlib                    # Static plots
+plotly                        # Interactive visualizations
+pandas                        # Data manipulation
+seaborn                       # Statistical visualizations
 
 # ANALYSIS TOOLS (Recommended)
 scikit-learn==1.8.0           # Similarity metrics, clustering
 
 # SYSTEM UTILITIES (Optional)
-psutil==7.1.3                 # Memory usage monitoring
+psutil                        # Memory usage monitoring
 
