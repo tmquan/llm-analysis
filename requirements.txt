@@ -28,6 +28,7 @@ matplotlib                    # Static plots
 plotly                        # Interactive visualizations
 pandas                        # Data manipulation
 seaborn                       # Statistical visualizations
+nbformat                      # Jupyter notebook format handling
 
 # ANALYSIS TOOLS (Recommended)
 scikit-learn==1.8.0           # Similarity metrics, clustering
