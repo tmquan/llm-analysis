@@ -12,15 +12,35 @@ Features:
 - Progress tracking and error handling
 - Checkpointing to avoid reprocessing
 - Memory-efficient batch processing
+- PRE-EXTRACTION VALIDATION: Checks existing embeddings before extraction
+  - Shows embedding shape, samples, shards, and size
+  - Compares with requested splits
+  - Skips already-completed shards automatically
 
 Usage:
+    # Basic extraction
     python extract_embeddings_parallel_shards.py \
         --splits v1:chat v2:math llama-sft:safety \
         --num-gpus 8 \
         --batch-size 32 \
         --max-text-length 8192
     
-    Custom paths:
+    # Dry run - only check existing embeddings without extracting
+    python extract_embeddings_parallel_shards.py \
+        --splits v1:chat v1:math \
+        --dry-run
+    
+    # Force re-extraction of existing shards
+    python extract_embeddings_parallel_shards.py \
+        --splits v1:chat \
+        --force
+    
+    # Skip pre-extraction validation for faster startup
+    python extract_embeddings_parallel_shards.py \
+        --splits v1:chat \
+        --skip-validation
+    
+    # Custom paths
     python extract_embeddings_parallel_shards.py --all \
         --datasets-dir /data/datasets \
         --checkpoints-dir /data/checkpoints \
@@ -124,6 +144,291 @@ from rich.progress import Progress, SpinnerColumn, BarColumn, TextColumn, TimeRe
 from rich.table import Table
 from rich.panel import Panel
 from rich import print as rprint
+from collections import defaultdict
+
+
+# =============================================================================
+# PRE-EXTRACTION VALIDATION FUNCTIONS
+# =============================================================================
+
+def discover_existing_embeddings(embeddings_dir: Path) -> Dict[str, Dict[str, List[Path]]]:
+    """
+    Discover all existing embedding parquet files organized by dataset and split.
+    
+    Returns:
+        Dict[dataset_name][split_name] = [list of parquet files]
+    """
+    files_by_dataset = defaultdict(lambda: defaultdict(list))
+    
+    if not embeddings_dir.exists():
+        return files_by_dataset
+    
+    # Walk through the embeddings directory
+    for dataset_dir in embeddings_dir.iterdir():
+        if not dataset_dir.is_dir():
+            continue
+        
+        dataset_name = dataset_dir.name
+        
+        for split_dir in dataset_dir.iterdir():
+            if not split_dir.is_dir():
+                continue
+            
+            split_name = split_dir.name
+            
+            # Find all parquet files
+            parquet_files = sorted(split_dir.glob("*.parquet"))
+            if parquet_files:
+                files_by_dataset[dataset_name][split_name] = parquet_files
+    
+    return files_by_dataset
+
+
+def validate_parquet_file(filepath: Path) -> Dict:
+    """
+    Validate a single parquet file and get its statistics.
+    
+    Returns:
+        Dictionary with validation results
+    """
+    import pyarrow.parquet as pq
+    
+    result = {
+        'path': filepath,
+        'valid': True,
+        'errors': [],
+        'num_samples': 0,
+        'embedding_dim': 0,
+        'file_size_mb': 0,
+    }
+    
+    try:
+        # Get file size
+        result['file_size_mb'] = filepath.stat().st_size / (1024 * 1024)
+        
+        # Read parquet file
+        table = pq.read_table(str(filepath))
+        df = table.to_pandas()
+        
+        result['num_samples'] = len(df)
+        result['columns'] = list(df.columns)
+        
+        # Check for embeddings column
+        if 'embeddings' not in df.columns:
+            result['valid'] = False
+            result['errors'].append("Missing 'embeddings' column")
+            return result
+        
+        # Get embedding dimension
+        if len(df) > 0:
+            first_embedding = df['embeddings'].iloc[0]
+            if isinstance(first_embedding, (list, np.ndarray)):
+                result['embedding_dim'] = len(first_embedding)
+            else:
+                result['valid'] = False
+                result['errors'].append(f"Invalid embedding type: {type(first_embedding)}")
+                return result
+        
+    except Exception as e:
+        result['valid'] = False
+        result['errors'].append(f"Error reading file: {str(e)}")
+    
+    return result
+
+
+def format_size(size_mb: float) -> str:
+    """Format file size for display."""
+    if size_mb >= 1024:
+        return f"{size_mb/1024:.2f} GB"
+    return f"{size_mb:.2f} MB"
+
+
+def check_existing_embeddings(
+    embeddings_dir: Path,
+    shards_to_process: List[Dict],
+    console: Console
+) -> Dict:
+    """
+    Check existing embeddings and compare with shards to be processed.
+    
+    Args:
+        embeddings_dir: Directory containing existing embeddings
+        shards_to_process: List of shard info dicts that will be processed
+        console: Rich console for output
+    
+    Returns:
+        Dictionary with summary statistics and lists of existing/pending shards
+    """
+    console.print(Panel.fit(
+        "[bold cyan]📊 Pre-Extraction Validation[/bold cyan]\n"
+        "[dim]Checking existing embeddings before extraction[/dim]",
+        border_style="cyan"
+    ))
+    
+    # Discover existing files
+    console.print("\n[cyan]🔍 Scanning existing embeddings...[/cyan]")
+    existing_files = discover_existing_embeddings(embeddings_dir)
+    
+    # Build set of existing shard identifiers
+    existing_shards = set()
+    validation_results = {}
+    
+    total_existing_samples = 0
+    total_existing_size = 0
+    embedding_dims = set()
+    invalid_files = []
+    
+    for dataset_name, splits in existing_files.items():
+        for split_name, files in splits.items():
+            for filepath in files:
+                # Extract shard info from filename
+                # Format: {dataset}-{split}-{shard:05d}-of-{total:05d}.parquet
+                filename = filepath.stem
+                shard_key = f"{dataset_name}:{split_name}:{filename}"
+                existing_shards.add(shard_key)
+                
+                # Validate the file
+                result = validate_parquet_file(filepath)
+                validation_results[str(filepath)] = result
+                
+                if result['valid']:
+                    total_existing_samples += result['num_samples']
+                    total_existing_size += result['file_size_mb']
+                    if result['embedding_dim']:
+                        embedding_dims.add(result['embedding_dim'])
+                else:
+                    invalid_files.append((filepath, result['errors']))
+    
+    # Calculate what needs to be processed
+    pending_shards = []
+    skipped_shards = []
+    
+    for shard_info in shards_to_process:
+        dataset_name = shard_info['dataset_name']
+        split_name = shard_info['split_name']
+        shard_idx = shard_info['shard_idx']
+        total_shards = shard_info['total_shards']
+        
+        # Generate expected filename
+        num_digits = 5
+        parquet_filename = (
+            f"{dataset_name}-{split_name}-"
+            f"{str(shard_idx).zfill(num_digits)}-of-"
+            f"{str(total_shards).zfill(num_digits)}"
+        )
+        
+        shard_key = f"{dataset_name}:{split_name}:{parquet_filename}"
+        
+        # Check if the actual file exists
+        expected_path = embeddings_dir / dataset_name / split_name / f"{parquet_filename}.parquet"
+        
+        if expected_path.exists():
+            skipped_shards.append(shard_info)
+        else:
+            pending_shards.append(shard_info)
+    
+    # Print summary table of existing embeddings
+    if existing_files:
+        console.print("\n[bold]📁 Existing Embeddings Summary:[/bold]")
+        
+        summary_table = Table(show_header=True, header_style="bold cyan")
+        summary_table.add_column("Dataset", style="yellow")
+        summary_table.add_column("Split", style="green")
+        summary_table.add_column("Shards", justify="right")
+        summary_table.add_column("Samples", justify="right", style="cyan")
+        summary_table.add_column("Dim", justify="right")
+        summary_table.add_column("Size", justify="right")
+        summary_table.add_column("Status", justify="center")
+        
+        for dataset_name in sorted(existing_files.keys()):
+            splits = existing_files[dataset_name]
+            for split_name in sorted(splits.keys()):
+                files = splits[split_name]
+                
+                split_samples = 0
+                split_size = 0
+                split_dim = None
+                split_valid = True
+                
+                for filepath in files:
+                    result = validation_results.get(str(filepath), {})
+                    split_samples += result.get('num_samples', 0)
+                    split_size += result.get('file_size_mb', 0)
+                    if result.get('embedding_dim'):
+                        split_dim = result['embedding_dim']
+                    if not result.get('valid', True):
+                        split_valid = False
+                
+                status = "✅" if split_valid else "❌"
+                
+                summary_table.add_row(
+                    dataset_name,
+                    split_name,
+                    str(len(files)),
+                    f"{split_samples:,}",
+                    str(split_dim) if split_dim else "-",
+                    format_size(split_size),
+                    status
+                )
+        
+        console.print(summary_table)
+        
+        # Show invalid files if any
+        if invalid_files:
+            console.print(f"\n[red]❌ Found {len(invalid_files)} invalid file(s):[/red]")
+            for filepath, errors in invalid_files[:5]:  # Show first 5
+                console.print(f"   • {filepath.name}: {', '.join(errors)}")
+            if len(invalid_files) > 5:
+                console.print(f"   ... and {len(invalid_files) - 5} more")
+    else:
+        console.print("\n[dim]📁 No existing embeddings found[/dim]")
+    
+    # Print extraction plan
+    console.print("\n[bold]📋 Extraction Plan:[/bold]")
+    
+    plan_table = Table(show_header=False, box=None, padding=(0, 2))
+    plan_table.add_column("Metric", style="cyan")
+    plan_table.add_column("Value", style="yellow")
+    
+    plan_table.add_row("Existing samples", f"{total_existing_samples:,}")
+    plan_table.add_row("Existing size", format_size(total_existing_size))
+    plan_table.add_row("Embedding dimensions", str(sorted(embedding_dims)) if embedding_dims else "N/A")
+    plan_table.add_row("", "")
+    plan_table.add_row("Total shards requested", str(len(shards_to_process)))
+    plan_table.add_row("Shards already complete", f"[green]{len(skipped_shards)}[/green]")
+    plan_table.add_row("Shards to extract", f"[yellow]{len(pending_shards)}[/yellow]")
+    
+    console.print(plan_table)
+    
+    # Show pending shards breakdown by dataset/split
+    if pending_shards:
+        console.print("\n[bold]🔄 Shards to Extract:[/bold]")
+        
+        pending_by_split = defaultdict(list)
+        for shard in pending_shards:
+            key = f"{shard['dataset_name']}:{shard['split_name']}"
+            pending_by_split[key].append(shard['shard_idx'])
+        
+        for split_key in sorted(pending_by_split.keys()):
+            shard_indices = pending_by_split[split_key]
+            if len(shard_indices) <= 5:
+                indices_str = ', '.join(str(i) for i in shard_indices)
+            else:
+                indices_str = f"{shard_indices[0]}-{shard_indices[-1]} ({len(shard_indices)} shards)"
+            console.print(f"   • [cyan]{split_key}[/cyan]: shard(s) {indices_str}")
+    
+    console.print()
+    
+    return {
+        'existing_files': existing_files,
+        'validation_results': validation_results,
+        'total_existing_samples': total_existing_samples,
+        'total_existing_size': total_existing_size,
+        'embedding_dims': embedding_dims,
+        'invalid_files': invalid_files,
+        'pending_shards': pending_shards,
+        'skipped_shards': skipped_shards,
+    }
 
 
 def discover_all_splits(datasets_dir: Path) -> List[str]:
@@ -892,6 +1197,16 @@ Examples:
       --checkpoints-dir /data/checkpoints \\
       --embeddings-dir /data/embeddings
 
+  # DRY RUN: Check existing embeddings without extracting
+  python extract_embeddings_parallel_shards.py --splits v1:chat v1:math --dry-run \\
+      --embeddings-dir /raid/embeddings
+  
+  # FORCE: Re-extract even if shards already exist
+  python extract_embeddings_parallel_shards.py --splits v1:chat --force
+  
+  # SKIP VALIDATION: Faster startup without pre-checking
+  python extract_embeddings_parallel_shards.py --splits v1:chat --skip-validation
+
 Available dataset prefixes:
   v1, v2                     - Nemotron Post-Training v1/v2
   llama-sft, llama-rl        - Llama-Nemotron SFT/RL
@@ -955,6 +1270,20 @@ Available dataset prefixes:
     parser.add_argument(
         '--output', default=None,
         help='[DEPRECATED] Use --embeddings-dir instead'
+    )
+    
+    # Validation and dry-run options
+    parser.add_argument(
+        '--dry-run', action='store_true',
+        help='Only check existing embeddings and show extraction plan without actually extracting'
+    )
+    parser.add_argument(
+        '--skip-validation', action='store_true',
+        help='Skip pre-extraction validation check (faster startup)'
+    )
+    parser.add_argument(
+        '--force', '-f', action='store_true',
+        help='Force extraction even if all shards already exist'
     )
     
     args = parser.parse_args()
@@ -1034,6 +1363,10 @@ Available dataset prefixes:
     config_table.add_row("Checkpoints dir", str(checkpoints_dir))
     config_table.add_row("Datasets dir", str(datasets_dir))
     config_table.add_row("Embeddings output", str(output_dir))
+    config_table.add_row("", "")
+    config_table.add_row("Dry run", "Yes" if args.dry_run else "No")
+    config_table.add_row("Skip validation", "Yes" if args.skip_validation else "No")
+    config_table.add_row("Force re-extract", "Yes" if args.force else "No")
     
     console.print("\n[bold]📊 Configuration:[/bold]")
     console.print(config_table)
@@ -1050,6 +1383,51 @@ Available dataset prefixes:
     console.print(f"[green]✅ Found {len(dataset_shards)} shard(s) to process[/green]")
     console.print()
     
+    # ==========================================================================
+    # PRE-EXTRACTION VALIDATION
+    # ==========================================================================
+    if not args.skip_validation:
+        validation_result = check_existing_embeddings(
+            output_dir, dataset_shards, console
+        )
+        
+        pending_shards = validation_result['pending_shards']
+        skipped_shards = validation_result['skipped_shards']
+        
+        # Handle dry-run mode
+        if args.dry_run:
+            console.print(Panel.fit(
+                "[bold yellow]🔍 DRY RUN MODE[/bold yellow]\n"
+                f"Would extract [cyan]{len(pending_shards)}[/cyan] shard(s)\n"
+                f"Would skip [green]{len(skipped_shards)}[/green] existing shard(s)",
+                border_style="yellow"
+            ))
+            sys.exit(0)
+        
+        # Check if there's anything to do
+        if not pending_shards and not args.force:
+            console.print(Panel.fit(
+                "[bold green]✅ ALL EMBEDDINGS ALREADY EXIST[/bold green]\n"
+                f"All [cyan]{len(skipped_shards)}[/cyan] shard(s) are already extracted.\n"
+                "[dim]Use --force to re-extract anyway[/dim]",
+                border_style="green"
+            ))
+            sys.exit(0)
+        
+        # Use pending shards for processing (unless force is set)
+        if not args.force:
+            dataset_shards = pending_shards
+            console.print(f"[cyan]📋 Will process {len(dataset_shards)} pending shard(s)[/cyan]")
+            console.print(f"[dim]   (Skipping {len(skipped_shards)} existing shard(s))[/dim]")
+        else:
+            console.print(f"[yellow]⚠️  Force mode: Will reprocess all {len(dataset_shards)} shard(s)[/yellow]")
+        
+        console.print()
+    else:
+        console.print("[dim]⏭️  Skipping pre-extraction validation (--skip-validation)[/dim]")
+        console.print()
+    
+    # ==========================================================================
     # Create work queue, results queue, and progress tracking
     manager = Manager()
     work_queue = manager.Queue()
