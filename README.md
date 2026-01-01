@@ -352,17 +352,17 @@ See `requirements.txt` for complete list with versions.
 ### Multi-GPU Embedding Extraction
 
 ```bash
-# Optimal settings for 8x GPU setup
-python extract_embeddings_parallel_shards.py --all \
-  --num-gpus 8 \
-  --batch-size 32 \
-  --max-text-length 8192
+python download_nemotron_datasets.py --all \
+  --datasets-dir /raid/datasets \
+  --checkpoints-dir /raid/checkpoints 
 
-# For memory-constrained GPUs
 python extract_embeddings_parallel_shards.py --all \
   --num-gpus 8 \
-  --batch-size 16 \
-  --max-text-length 4096
+  --batch-size 100 \
+  --max-text-length 8192 \
+  --datasets-dir /raid/datasets \
+  --checkpoints-dir /raid/checkpoints \
+  --embeddings-dir /raid/embeddings
 ```
 
 ### Long-Running Jobs
