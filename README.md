@@ -180,6 +180,72 @@ python extract_embeddings_parallel_shards.py --all \
   --embeddings-dir /data/embeddings
 ```
 
+#### Batch Processing by Category
+
+For large-scale processing, you may want to extract embeddings by category to manage resources and prioritize certain data types.
+
+**Split Categories:**
+
+| Category | Splits |
+|----------|--------|
+| **General** | `v1:chat`, `v1:stem`, `v1:tool_calling`, `v2:stem`, `v2:chat`, `llama-sft:science`, `llama-sft:chat`, `llama-sft:safety`, `v3-science:MCQ`, `v3-science:RQA`, `v3-instruction-chat:chat_if`, `v3-instruction-chat:structured_outputs` |
+| **Code** | `v1:code`, `v2:code`, `llama-sft:code` |
+| **Math** | `v1:math`, `v2:math`, `llama-sft:math`, `v3-math-proofs:lean` |
+
+**1. General splits (without code and math):**
+
+```bash
+python extract_embeddings_parallel_shards.py \
+    --splits \
+    v1:chat v1:stem v1:tool_calling \
+    v2:stem v2:chat \
+    llama-sft:science llama-sft:chat llama-sft:safety \
+    v3-science:MCQ v3-science:RQA \
+    v3-instruction-chat:chat_if v3-instruction-chat:structured_outputs \
+    --skip-validation \
+    --batch-size 80 \
+    --max-text-length 32768 \
+    --num-gpus 8 \
+    --datasets-dir /raid/datasets \
+    --checkpoints-dir /raid/checkpoints \
+    --embeddings-dir /raid/embeddings
+```
+
+**2. Code only:**
+
+```bash
+python extract_embeddings_parallel_shards.py \
+    --splits \
+    v1:code \
+    v2:code \
+    llama-sft:code \
+    --skip-validation \
+    --batch-size 80 \
+    --max-text-length 32768 \
+    --num-gpus 8 \
+    --datasets-dir /raid/datasets \
+    --checkpoints-dir /raid/checkpoints \
+    --embeddings-dir /raid/embeddings
+```
+
+**3. Math only:**
+
+```bash
+python extract_embeddings_parallel_shards.py \
+    --splits \
+    v1:math \
+    v2:math \
+    llama-sft:math \
+    v3-math-proofs:lean \
+    --skip-validation \
+    --batch-size 80 \
+    --max-text-length 32768 \
+    --num-gpus 8 \
+    --datasets-dir /raid/datasets \
+    --checkpoints-dir /raid/checkpoints \
+    --embeddings-dir /raid/embeddings
+```
+
 **Output Format:** Parquet files organized by dataset/split:
 ```
 embeddings_output/
@@ -379,6 +445,8 @@ python extract_embeddings_parallel_shards.py --all --num-gpus 8
 ---
 
 ## Troubleshooting
+
+> 📖 **See also:** [doc/BATCHSIZES.md](doc/BATCHSIZES.md) for detailed memory/batch size guidance, [doc/TROUBLESHOOT.md](doc/TROUBLESHOOT.md) for GPU issues.
 
 ### Dataset Download Issues
 

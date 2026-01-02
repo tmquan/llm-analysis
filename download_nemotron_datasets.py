@@ -771,8 +771,8 @@ def download_nemotron_v3_rl_blend():
     return download_dataset(
         dataset_name="v3 RL Blend",
         load_fn="nvidia/Nemotron-3-Nano-RL-Training-Blend",
-        cache_dir=str(DATASETS_DIR / "nemotron-v3" / "rl-blend")
-    )
+            cache_dir=str(DATASETS_DIR / "nemotron-v3" / "rl-blend")
+        )
 
 
 def download_nemotron_v3_science():
@@ -830,8 +830,8 @@ def download_nemotron_v3_agentic():
     return download_dataset(
         dataset_name="v3 Agentic",
         load_fn="nvidia/Nemotron-Agentic-v1",
-        cache_dir=str(DATASETS_DIR / "nemotron-v3" / "agentic")
-    )
+            cache_dir=str(DATASETS_DIR / "nemotron-v3" / "agentic")
+        )
 
 
 def download_nemotron_v3_competitive_programming():
@@ -850,8 +850,8 @@ def download_nemotron_v3_competitive_programming():
     return download_dataset(
         dataset_name="v3 Competitive Programming",
         load_fn="nvidia/Nemotron-Competitive-Programming-v1",
-        cache_dir=str(DATASETS_DIR / "nemotron-v3" / "competitive-programming")
-    )
+            cache_dir=str(DATASETS_DIR / "nemotron-v3" / "competitive-programming")
+        )
 
 
 def download_nemotron_v3_math():
@@ -870,8 +870,8 @@ def download_nemotron_v3_math():
     return download_dataset(
         dataset_name="v3 Math v2",
         load_fn="nvidia/Nemotron-Math-v2",
-        cache_dir=str(DATASETS_DIR / "nemotron-v3" / "math-v2")
-    )
+            cache_dir=str(DATASETS_DIR / "nemotron-v3" / "math-v2")
+        )
 
 
 def download_all_v3():
