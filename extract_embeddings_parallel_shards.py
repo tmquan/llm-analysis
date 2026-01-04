@@ -1507,33 +1507,39 @@ Available dataset prefixes:
                 table.add_column("Progress", style="green", width=30)
                 
                 if progress_dict:
-                    for gpu_id in sorted(progress_dict.keys()):
-                        info = progress_dict[gpu_id]
-                        filename = info.get('filename', '?')
-                        current = info.get('current', 0)
-                        total = info.get('total', 1)
-                        stage = info.get('stage', 'processing')
-                        pct = (current / total * 100) if total > 0 else 0
-                        
-                        # Truncate filename if too long
-                        if len(filename) > 40:
-                            filename = "..." + filename[-37:]
-                        
-                        # Format stage
-                        stage_emoji = {
-                            'loading': '📂',
-                            'extracting': '📝',
-                            'embedding': '🔮',
-                            'saving': '💾'
-                        }
-                        stage_display = stage_emoji.get(stage, '⚙️')
-                        
-                        table.add_row(
-                            f"GPU {gpu_id}",
-                            f"{stage_display} {stage}",
-                            filename,
-                            f"{current:,}/{total:,} ({pct:.1f}%)"
-                        )
+                    # Take a snapshot of keys to avoid race condition
+                    gpu_ids = list(progress_dict.keys())
+                    for gpu_id in sorted(gpu_ids):
+                        try:
+                            info = progress_dict[gpu_id]
+                            filename = info.get('filename', '?')
+                            current = info.get('current', 0)
+                            total = info.get('total', 1)
+                            stage = info.get('stage', 'processing')
+                            pct = (current / total * 100) if total > 0 else 0
+                            
+                            # Truncate filename if too long
+                            if len(filename) > 40:
+                                filename = "..." + filename[-37:]
+                            
+                            # Format stage
+                            stage_emoji = {
+                                'loading': '📂',
+                                'extracting': '📝',
+                                'embedding': '🔮',
+                                'saving': '💾'
+                            }
+                            stage_display = stage_emoji.get(stage, '⚙️')
+                            
+                            table.add_row(
+                                f"GPU {gpu_id}",
+                                f"{stage_display} {stage}",
+                                filename,
+                                f"{current:,}/{total:,} ({pct:.1f}%)"
+                            )
+                        except KeyError:
+                            # GPU finished processing between keys() and access - skip it
+                            continue
                 else:
                     table.add_row("—", "—", "No active processing", "—")
                 

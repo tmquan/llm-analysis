@@ -137,6 +137,7 @@ HF_TOKEN = os.environ.get('HF_TOKEN', True)  # Fall back to True to use cached t
 # Global flags (set by CLI)
 VERBOSE = False
 USE_JSONL = False  # Use streaming mode and save as JSONL
+FORCE_REDOWNLOAD = False  # Force re-download of corrupted/incomplete cache files
 AUTO_CONVERT = True  # Auto-convert JSONL to parquet for problematic datasets
 
 # Known problematic datasets that need JSONL mode
@@ -562,6 +563,9 @@ def safe_download(dataset_name: str, load_fn, cache_dir: str, config: str = None
             "cache_dir": cache_dir,
             "token": HF_TOKEN
         }
+        if FORCE_REDOWNLOAD:
+            kwargs["download_mode"] = "force_redownload"
+            print("   ⚠️  Force re-download enabled, clearing cached files...")
         if config:
             dataset = load_dataset(load_fn, config, **kwargs)
         else:
@@ -579,6 +583,11 @@ def safe_download(dataset_name: str, load_fn, cache_dir: str, config: str = None
         error_type = type(e).__name__
         
         # Determine error category and provide appropriate message
+        is_corrupted_cache = (
+            isinstance(e, OSError) and
+            "Expected to be able to read" in error_msg and 
+            "bytes for message body" in error_msg
+        )
         is_data_error = (
             "DatasetGenerationError" in error_type or
             "ArrowInvalid" in error_msg or
@@ -593,7 +602,12 @@ def safe_download(dataset_name: str, load_fn, cache_dir: str, config: str = None
         is_permission_error = isinstance(e, PermissionError)
         is_connection_error = isinstance(e, (ConnectionError, TimeoutError))
         
-        if is_data_error:
+        if is_corrupted_cache:
+            print(f"\n❌ Corrupted cache detected for {dataset_name}")
+            print(f"   The cached Arrow file is incomplete/corrupted (likely from interrupted download).")
+            print(f"   Fix: Re-run with --force-redownload flag to clear cache and re-download:")
+            print(f"        python download_nemotron_datasets.py --v1 --force-redownload")
+        elif is_data_error:
             print(f"\n❌ Data generation error for {dataset_name}")
             print(f"   This is likely a data corruption issue in the HuggingFace repository.")
             print(f"   Please report this to NVIDIA on the dataset's HuggingFace page.")
@@ -1012,14 +1026,17 @@ Examples:
                         help='Use streaming mode and save as JSONL (bypasses parquet errors)')
     parser.add_argument('--no-convert', action='store_true',
                         help='Do not auto-convert JSONL to parquet for problematic datasets')
+    parser.add_argument('--force-redownload', action='store_true',
+                        help='Force re-download of datasets (clears corrupted/incomplete cache)')
     
     args = parser.parse_args()
     
     # Set global flags
-    global VERBOSE, USE_JSONL, AUTO_CONVERT
+    global VERBOSE, USE_JSONL, AUTO_CONVERT, FORCE_REDOWNLOAD
     VERBOSE = args.verbose
     USE_JSONL = args.jsonl
     AUTO_CONVERT = not args.no_convert
+    FORCE_REDOWNLOAD = args.force_redownload
     
     # Check if any v3 specific flags are set
     v3_specific = (args.v3_rl_blend or args.v3_science or args.v3_instruction_chat or 
