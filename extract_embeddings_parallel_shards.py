@@ -130,6 +130,7 @@ setup_environment(
 )
 
 # Now safe to import other libraries
+import gc
 import time
 from multiprocessing import Process, Queue, Manager, Event
 from queue import Empty
@@ -1063,6 +1064,20 @@ def process_shard(
         if progress_dict is not None and device in progress_dict:
             del progress_dict[device]
         
+        # =====================================================================
+        # EXPLICIT MEMORY CLEANUP - Prevent OOM across shards
+        # =====================================================================
+        # Delete large objects
+        del texts, indices, all_embeddings, embeddings_array, embedding_dataset
+        del shard_data, dataset
+        
+        # Force Python garbage collection
+        gc.collect()
+        
+        # Clear CUDA memory cache (returns unused memory to GPU)
+        torch.cuda.empty_cache()
+        # =====================================================================
+        
         elapsed = time.time() - start_time
         samples_per_sec = len(texts) / elapsed if elapsed > 0 else 0
         
@@ -1087,6 +1102,10 @@ def process_shard(
         # Clear progress for this GPU
         if progress_dict is not None and device in progress_dict:
             del progress_dict[device]
+        
+        # Cleanup on error to prevent memory buildup
+        gc.collect()
+        torch.cuda.empty_cache()
         
         return {
             'status': 'error',
