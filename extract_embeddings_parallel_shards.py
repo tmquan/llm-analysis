@@ -244,7 +244,7 @@ class EmbeddingEngine:
         self.model = AutoModel.from_pretrained(
             model_name,
             cache_dir=str(Config.checkpoints_dir),
-            torch_dtype=torch.float16,
+            dtype=torch.float16,
             trust_remote_code=True,
         ).to(self.cuda_device)
         
