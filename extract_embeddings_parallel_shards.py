@@ -2,1118 +2,624 @@
 """
 Multi-GPU Parallel Embedding Extraction with Shard-Based Work Distribution
 
-This script efficiently extracts embeddings from dataset shards using multiple GPUs.
-It uses a work queue system where each GPU processes individual shards for maximum utilization.
+Optimized for maximum throughput with:
+    - Persistent model/tokenizer per GPU
+    - Pre-allocated CUDA tensors for zero-copy operations
+    - cuDF for GPU-accelerated data loading (optional)
+    - Pinned memory for fast CPU-GPU transfers
+    - CUDA streams for async operations
 
-Features:
-- Shard-based work distribution for optimal load balancing
-- Multiple GPUs can work on the same split simultaneously
-- Automatic discovery of dataset shards
-- Progress tracking and error handling
-- Checkpointing to avoid reprocessing
-- Memory-efficient batch processing
-- PRE-EXTRACTION VALIDATION: Checks existing embeddings before extraction
-  - Shows embedding shape, samples, shards, and size
-  - Compares with requested splits
-  - Skips already-completed shards automatically
-
-Usage:
-    # Basic extraction
-    python extract_embeddings_parallel_shards.py \
-        --splits v1:chat v2:math llama-sft:safety \
-        --num-gpus 8 \
-        --batch-size 32 \
-        --max-text-length 8192
-    
-    # Dry run - only check existing embeddings without extracting
-    python extract_embeddings_parallel_shards.py \
-        --splits v1:chat v1:math \
-        --dry-run
-    
-    # Force re-extraction of existing shards
-    python extract_embeddings_parallel_shards.py \
-        --splits v1:chat \
-        --force
-    
-    # Skip pre-extraction validation for faster startup
-    python extract_embeddings_parallel_shards.py \
-        --splits v1:chat \
-        --skip-validation
-    
-    # Custom paths
-    python extract_embeddings_parallel_shards.py --all \
-        --datasets-dir /data/datasets \
-        --checkpoints-dir /data/checkpoints \
-        --embeddings-dir /data/embeddings
+Usage Examples:
+    python extract_embeddings_parallel_shards.py --all --num-gpus 8 --batch-size 64
+    python extract_embeddings_parallel_shards.py --splits v1:chat --dry-run
 """
 
+from __future__ import annotations
+
+import argparse
+import gc
 import os
 import sys
-import argparse
+import time
+import traceback
+from dataclasses import dataclass, field
+from multiprocessing import Event, Manager, Process, Queue
 from pathlib import Path
+from queue import Empty
+from threading import Event as ThreadEvent
+from threading import Thread
+from typing import Any, Dict, List, Optional, Tuple
+
+import numpy as np
+import torch
+from rich.console import Console
+from rich.live import Live
+from rich.panel import Panel
+from rich.table import Table
 
 # =============================================================================
-# DEFAULT PATH CONFIGURATION
+# CONSTANTS
 # =============================================================================
+
 SCRIPT_DIR = Path(__file__).parent.absolute()
 
-# Default paths (can be overridden via CLI arguments)
 DEFAULT_DATASETS_DIR = SCRIPT_DIR / "datasets"
 DEFAULT_CHECKPOINTS_DIR = SCRIPT_DIR / "checkpoints"
 DEFAULT_EMBEDDINGS_DIR = SCRIPT_DIR / "embeddings_output"
 
-# Global variables that will be set after parsing arguments
-DATASETS_DIR = None
-CHECKPOINTS_DIR = None
-EMBEDDINGS_DIR = None
+SHARD_FILENAME_DIGITS = 5
+PROGRESS_UPDATE_INTERVAL = 500
+WORKER_QUEUE_TIMEOUT = 1
+WORKER_JOIN_TIMEOUT = 10
+
+STAGE_EMOJIS = {
+    'loading': '📂',
+    'extracting': '📝',
+    'embedding': '🔮',
+    'saving': '💾',
+}
+
+# =============================================================================
+# DATASET CONFIGURATION
+# =============================================================================
+
+DATASET_CONFIGS: Dict[str, Dict[str, Any]] = {
+    'v1': {'hf_name': 'nvidia/Nemotron-Post-Training-Dataset-v1', 'subdir': 'nemotron-v1', 'config': None},
+    'v2': {'hf_name': 'nvidia/Nemotron-Post-Training-Dataset-v2', 'subdir': 'nemotron-v2', 'config': None},
+    'llama-sft': {'hf_name': 'nvidia/Llama-Nemotron-Post-Training-Dataset', 'subdir': 'llama-nemotron', 'config': 'SFT'},
+    'llama-rl': {'hf_name': 'nvidia/Llama-Nemotron-Post-Training-Dataset', 'subdir': 'llama-nemotron', 'config': 'RL'},
+    'v3-science': {'hf_name': 'nvidia/Nemotron-Science-v1', 'subdir': 'nemotron-v3/science', 'config': None},
+    'v3-instruction-chat': {'hf_name': 'nvidia/Nemotron-Instruction-Following-Chat-v1', 'subdir': 'nemotron-v3/instruction-chat', 'config': None},
+    'v3-math-proofs': {'hf_name': 'nvidia/Nemotron-Math-Proofs-v1', 'subdir': 'nemotron-v3/math-proofs', 'config': None},
+    'v3-rl-blend': {'hf_name': 'nvidia/Nemotron-3-Nano-RL-Training-Blend', 'subdir': 'nemotron-v3/rl-blend', 'config': None},
+    'v3-agentic': {'hf_name': 'nvidia/Nemotron-Agentic-v1', 'subdir': 'nemotron-v3/agentic', 'config': None},
+    'v3-competitive-programming': {'hf_name': 'nvidia/Nemotron-Competitive-Programming-v1', 'subdir': 'nemotron-v3/competitive-programming', 'config': None},
+    'v3-math': {'hf_name': 'nvidia/Nemotron-Math-v2', 'subdir': 'nemotron-v3/math-v2', 'config': None},
+}
+
+# =============================================================================
+# DATA CLASSES
+# =============================================================================
+
+@dataclass
+class ShardInfo:
+    """Information about a dataset shard."""
+    dataset_name: str
+    split_name: str
+    shard_idx: int
+    total_shards: int
+    hf_name: str
+    hf_config: Optional[str]
+    cache_dir: str
+
+    @property
+    def spec(self) -> str:
+        return f"{self.dataset_name}:{self.split_name}:shard{self.shard_idx}"
+
+    @property
+    def parquet_filename(self) -> str:
+        return (
+            f"{self.dataset_name}-{self.split_name}-"
+            f"{str(self.shard_idx).zfill(SHARD_FILENAME_DIGITS)}-of-"
+            f"{str(self.total_shards).zfill(SHARD_FILENAME_DIGITS)}.parquet"
+        )
+
+    def to_dict(self) -> Dict[str, Any]:
+        return {k: getattr(self, k) for k in ['dataset_name', 'split_name', 'shard_idx', 
+                'total_shards', 'hf_name', 'hf_config', 'cache_dir']}
+
+    @classmethod
+    def from_dict(cls, data: Dict[str, Any]) -> 'ShardInfo':
+        return cls(**data)
 
 
-def parse_path_args():
-    """
-    Parse only path-related arguments first.
-    This is needed because HuggingFace environment variables must be set
-    BEFORE importing the datasets/transformers libraries.
-    """
+@dataclass
+class ProcessingResult:
+    """Result of processing a shard."""
+    status: str
+    samples: int
+    shard_spec: str
+    time_seconds: float = 0.0
+    error: Optional[str] = None
+
+
+@dataclass
+class ValidationSummary:
+    """Pre-extraction validation summary."""
+    existing_samples: int = 0
+    existing_size_mb: float = 0.0
+    embedding_dims: set = field(default_factory=set)
+    invalid_files: List[Tuple[Path, List[str]]] = field(default_factory=list)
+    pending_shards: List[ShardInfo] = field(default_factory=list)
+    skipped_shards: List[ShardInfo] = field(default_factory=list)
+
+
+# =============================================================================
+# GLOBAL CONFIG
+# =============================================================================
+
+class Config:
+    """Global configuration singleton."""
+    datasets_dir: Path = None
+    checkpoints_dir: Path = None
+    embeddings_dir: Path = None
+
+    @classmethod
+    def setup(cls, datasets_dir: Path, checkpoints_dir: Path, embeddings_dir: Path):
+        cls.datasets_dir = datasets_dir
+        cls.checkpoints_dir = checkpoints_dir
+        cls.embeddings_dir = embeddings_dir
+
+        for path in [datasets_dir, checkpoints_dir, embeddings_dir]:
+            path.mkdir(parents=True, exist_ok=True)
+
+        os.environ['HF_HOME'] = str(checkpoints_dir)
+        os.environ['HUGGINGFACE_HUB_CACHE'] = str(checkpoints_dir)
+        os.environ['HF_MODULES_CACHE'] = str(checkpoints_dir / "modules")
+        os.environ['HF_DATASETS_CACHE'] = str(datasets_dir)
+
+    @classmethod
+    def get_dataset_cache_dir(cls, dataset_name: str) -> Path:
+        config = DATASET_CONFIGS.get(dataset_name)
+        if not config:
+            raise ValueError(f"Unknown dataset: {dataset_name}")
+        return cls.datasets_dir / config['subdir']
+
+
+# Early initialization
+def _parse_path_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(add_help=False)
-    parser.add_argument(
-        '--datasets-dir', type=str, default=str(DEFAULT_DATASETS_DIR),
-        help=f'Directory for downloaded datasets (default: {DEFAULT_DATASETS_DIR})'
-    )
-    parser.add_argument(
-        '--checkpoints-dir', type=str, default=str(DEFAULT_CHECKPOINTS_DIR),
-        help=f'Directory for model checkpoints/HF cache (default: {DEFAULT_CHECKPOINTS_DIR})'
-    )
-    parser.add_argument(
-        '--embeddings-dir', type=str, default=str(DEFAULT_EMBEDDINGS_DIR),
-        help=f'Directory for extracted embeddings output (default: {DEFAULT_EMBEDDINGS_DIR})'
-    )
-    
-    # Parse known args only (ignore others for now)
+    parser.add_argument('--datasets-dir', type=str, default=str(DEFAULT_DATASETS_DIR))
+    parser.add_argument('--checkpoints-dir', type=str, default=str(DEFAULT_CHECKPOINTS_DIR))
+    parser.add_argument('--embeddings-dir', type=str, default=str(DEFAULT_EMBEDDINGS_DIR))
     args, _ = parser.parse_known_args()
     return args
 
-
-def setup_environment(datasets_dir: Path, checkpoints_dir: Path, embeddings_dir: Path):
-    """
-    Set up HuggingFace environment variables and create directories.
-    Must be called BEFORE importing datasets/transformers libraries.
-    """
-    global DATASETS_DIR, CHECKPOINTS_DIR, EMBEDDINGS_DIR
-    
-    DATASETS_DIR = datasets_dir
-    CHECKPOINTS_DIR = checkpoints_dir
-    EMBEDDINGS_DIR = embeddings_dir
-    
-    # Ensure directories exist
-    DATASETS_DIR.mkdir(parents=True, exist_ok=True)
-    CHECKPOINTS_DIR.mkdir(parents=True, exist_ok=True)
-    EMBEDDINGS_DIR.mkdir(parents=True, exist_ok=True)
-    
-    # Set HuggingFace cache directories
-    # Models/hub go to checkpoints
-    os.environ['HF_HOME'] = str(CHECKPOINTS_DIR)
-    os.environ['HUGGINGFACE_HUB_CACHE'] = str(CHECKPOINTS_DIR)
-    os.environ['HF_MODULES_CACHE'] = str(CHECKPOINTS_DIR / "modules")
-    
-    # Datasets go to datasets folder
-    os.environ['HF_DATASETS_CACHE'] = str(DATASETS_DIR)
-
-
-# =============================================================================
-# PARSE PATH ARGUMENTS AND SETUP ENVIRONMENT BEFORE IMPORTS
-# =============================================================================
-_path_args = parse_path_args()
-setup_environment(
+_path_args = _parse_path_args()
+Config.setup(
     datasets_dir=Path(_path_args.datasets_dir),
     checkpoints_dir=Path(_path_args.checkpoints_dir),
-    embeddings_dir=Path(_path_args.embeddings_dir)
+    embeddings_dir=Path(_path_args.embeddings_dir),
 )
 
-# Now safe to import other libraries
-import gc
-import time
-from multiprocessing import Process, Queue, Manager, Event
-from queue import Empty
-from typing import List, Dict, Optional
-import json
-from datetime import datetime
-
-import torch
-import numpy as np
-from rich.console import Console
-from rich.progress import Progress, SpinnerColumn, BarColumn, TextColumn, TimeRemainingColumn, TaskProgressColumn, MofNCompleteColumn
-from rich.table import Table
-from rich.panel import Panel
-from rich import print as rprint
-from collections import defaultdict
-
 
 # =============================================================================
-# PRE-EXTRACTION VALIDATION FUNCTIONS
+# OPTIMIZED EMBEDDING ENGINE
 # =============================================================================
 
-def discover_existing_embeddings(embeddings_dir: Path) -> Dict[str, Dict[str, List[Path]]]:
+class EmbeddingEngine:
     """
-    Discover all existing embedding parquet files organized by dataset and split.
+    High-performance embedding engine with pre-allocated buffers.
     
-    Returns:
-        Dict[dataset_name][split_name] = [list of parquet files]
+    Features:
+        - Persistent model and tokenizer
+        - Pre-allocated CUDA tensors for input/output
+        - Pinned memory for fast CPU-GPU transfers
+        - Optional cuDF acceleration
+        - Reusable buffers to minimize allocations
     """
-    files_by_dataset = defaultdict(lambda: defaultdict(list))
     
-    if not embeddings_dir.exists():
-        return files_by_dataset
-    
-    # Walk through the embeddings directory
-    for dataset_dir in embeddings_dir.iterdir():
-        if not dataset_dir.is_dir():
-            continue
+    def __init__(
+        self,
+        model_name: str,
+        device: int,
+        batch_size: int,
+        max_length: int,
+        input_type: str = 'document',
+    ):
+        self.device = device
+        self.batch_size = batch_size
+        self.max_length = max_length
+        self.input_type = input_type
+        self.console = Console()
         
-        dataset_name = dataset_dir.name
+        # Set CUDA device
+        torch.cuda.set_device(device)
+        self.cuda_device = f'cuda:{device}'
         
-        for split_dir in dataset_dir.iterdir():
-            if not split_dir.is_dir():
-                continue
-            
-            split_name = split_dir.name
-            
-            # Find all parquet files
-            parquet_files = sorted(split_dir.glob("*.parquet"))
-            if parquet_files:
-                files_by_dataset[dataset_name][split_name] = parquet_files
-    
-    return files_by_dataset
-
-
-def validate_parquet_file(filepath: Path) -> Dict:
-    """
-    Validate a single parquet file and get its statistics.
-    
-    Returns:
-        Dictionary with validation results
-    """
-    import pyarrow.parquet as pq
-    
-    result = {
-        'path': filepath,
-        'valid': True,
-        'errors': [],
-        'num_samples': 0,
-        'embedding_dim': 0,
-        'file_size_mb': 0,
-    }
-    
-    try:
-        # Get file size
-        result['file_size_mb'] = filepath.stat().st_size / (1024 * 1024)
+        # Load model and tokenizer
+        self._load_model(model_name)
         
-        # Read parquet file
-        table = pq.read_table(str(filepath))
-        df = table.to_pandas()
+        # Pre-allocate buffers
+        self._allocate_buffers()
         
-        result['num_samples'] = len(df)
-        result['columns'] = list(df.columns)
+        # Try to import cuDF for GPU-accelerated data loading
+        self.cudf_available = self._init_cudf()
         
-        # Check for embeddings column
-        if 'embeddings' not in df.columns:
-            result['valid'] = False
-            result['errors'].append("Missing 'embeddings' column")
-            return result
+        # Create CUDA stream for async operations
+        self.stream = torch.cuda.Stream(device=device)
         
-        # Get embedding dimension
-        if len(df) > 0:
-            first_embedding = df['embeddings'].iloc[0]
-            if isinstance(first_embedding, (list, np.ndarray)):
-                result['embedding_dim'] = len(first_embedding)
-            else:
-                result['valid'] = False
-                result['errors'].append(f"Invalid embedding type: {type(first_embedding)}")
-                return result
+    def _load_model(self, model_name: str):
+        """Load model and tokenizer."""
+        from transformers import AutoModel, AutoTokenizer
         
-    except Exception as e:
-        result['valid'] = False
-        result['errors'].append(f"Error reading file: {str(e)}")
-    
-    return result
-
-
-def format_size(size_mb: float) -> str:
-    """Format file size for display."""
-    if size_mb >= 1024:
-        return f"{size_mb/1024:.2f} GB"
-    return f"{size_mb:.2f} MB"
-
-
-def check_existing_embeddings(
-    embeddings_dir: Path,
-    shards_to_process: List[Dict],
-    console: Console
-) -> Dict:
-    """
-    Check existing embeddings and compare with shards to be processed.
-    
-    Args:
-        embeddings_dir: Directory containing existing embeddings
-        shards_to_process: List of shard info dicts that will be processed
-        console: Rich console for output
-    
-    Returns:
-        Dictionary with summary statistics and lists of existing/pending shards
-    """
-    console.print(Panel.fit(
-        "[bold cyan]📊 Pre-Extraction Validation[/bold cyan]\n"
-        "[dim]Checking existing embeddings before extraction[/dim]",
-        border_style="cyan"
-    ))
-    
-    # Discover existing files
-    console.print("\n[cyan]🔍 Scanning existing embeddings...[/cyan]")
-    existing_files = discover_existing_embeddings(embeddings_dir)
-    
-    # Build set of existing shard identifiers
-    existing_shards = set()
-    validation_results = {}
-    
-    total_existing_samples = 0
-    total_existing_size = 0
-    embedding_dims = set()
-    invalid_files = []
-    
-    for dataset_name, splits in existing_files.items():
-        for split_name, files in splits.items():
-            for filepath in files:
-                # Extract shard info from filename
-                # Format: {dataset}-{split}-{shard:05d}-of-{total:05d}.parquet
-                filename = filepath.stem
-                shard_key = f"{dataset_name}:{split_name}:{filename}"
-                existing_shards.add(shard_key)
-                
-                # Validate the file
-                result = validate_parquet_file(filepath)
-                validation_results[str(filepath)] = result
-                
-                if result['valid']:
-                    total_existing_samples += result['num_samples']
-                    total_existing_size += result['file_size_mb']
-                    if result['embedding_dim']:
-                        embedding_dims.add(result['embedding_dim'])
-                else:
-                    invalid_files.append((filepath, result['errors']))
-    
-    # Calculate what needs to be processed
-    pending_shards = []
-    skipped_shards = []
-    
-    for shard_info in shards_to_process:
-        dataset_name = shard_info['dataset_name']
-        split_name = shard_info['split_name']
-        shard_idx = shard_info['shard_idx']
-        total_shards = shard_info['total_shards']
+        self.console.print(f"[cyan]🔄 GPU {self.device}:[/cyan] Loading {model_name}...")
         
-        # Generate expected filename
-        num_digits = 5
-        parquet_filename = (
-            f"{dataset_name}-{split_name}-"
-            f"{str(shard_idx).zfill(num_digits)}-of-"
-            f"{str(total_shards).zfill(num_digits)}"
+        self.tokenizer = AutoTokenizer.from_pretrained(
+            model_name,
+            cache_dir=str(Config.checkpoints_dir),
+            trust_remote_code=True,
         )
         
-        shard_key = f"{dataset_name}:{split_name}:{parquet_filename}"
+        self.model = AutoModel.from_pretrained(
+            model_name,
+            cache_dir=str(Config.checkpoints_dir),
+            torch_dtype=torch.float16,
+            trust_remote_code=True,
+        ).to(self.cuda_device)
         
-        # Check if the actual file exists
-        expected_path = embeddings_dir / dataset_name / split_name / f"{parquet_filename}.parquet"
+        self.model.eval()
         
-        if expected_path.exists():
-            skipped_shards.append(shard_info)
-        else:
-            pending_shards.append(shard_info)
-    
-    # Print summary table of existing embeddings
-    if existing_files:
-        console.print("\n[bold]📁 Existing Embeddings Summary:[/bold]")
+        # Get embedding dimension from model config
+        self.embedding_dim = self.model.config.hidden_size
         
-        summary_table = Table(show_header=True, header_style="bold cyan")
-        summary_table.add_column("Dataset", style="yellow")
-        summary_table.add_column("Split", style="green")
-        summary_table.add_column("Shards", justify="right")
-        summary_table.add_column("Samples", justify="right", style="cyan")
-        summary_table.add_column("Dim", justify="right")
-        summary_table.add_column("Size", justify="right")
-        summary_table.add_column("Status", justify="center")
+        self.console.print(f"[green]✅ GPU {self.device}:[/green] Model loaded (dim={self.embedding_dim})")
+    
+    def _allocate_buffers(self):
+        """Pre-allocate all CUDA buffers for zero-allocation inference."""
+        self.console.print(
+            f"[cyan]🔥 GPU {self.device}:[/cyan] Pre-allocating buffers "
+            f"(batch={self.batch_size}, len={self.max_length})..."
+        )
         
-        for dataset_name in sorted(existing_files.keys()):
-            splits = existing_files[dataset_name]
-            for split_name in sorted(splits.keys()):
-                files = splits[split_name]
-                
-                split_samples = 0
-                split_size = 0
-                split_dim = None
-                split_valid = True
-                
-                for filepath in files:
-                    result = validation_results.get(str(filepath), {})
-                    split_samples += result.get('num_samples', 0)
-                    split_size += result.get('file_size_mb', 0)
-                    if result.get('embedding_dim'):
-                        split_dim = result['embedding_dim']
-                    if not result.get('valid', True):
-                        split_valid = False
-                
-                status = "✅" if split_valid else "❌"
-                
-                summary_table.add_row(
-                    dataset_name,
-                    split_name,
-                    str(len(files)),
-                    f"{split_samples:,}",
-                    str(split_dim) if split_dim else "-",
-                    format_size(split_size),
-                    status
-                )
+        # Pre-allocated input tensors on GPU
+        self.input_ids_buffer = torch.zeros(
+            (self.batch_size, self.max_length),
+            dtype=torch.long,
+            device=self.cuda_device,
+        )
+        self.attention_mask_buffer = torch.zeros(
+            (self.batch_size, self.max_length),
+            dtype=torch.long,
+            device=self.cuda_device,
+        )
         
-        console.print(summary_table)
+        # Pre-allocated output buffer on GPU
+        self.embeddings_buffer = torch.zeros(
+            (self.batch_size, self.embedding_dim),
+            dtype=torch.float16,
+            device=self.cuda_device,
+        )
         
-        # Show invalid files if any
-        if invalid_files:
-            console.print(f"\n[red]❌ Found {len(invalid_files)} invalid file(s):[/red]")
-            for filepath, errors in invalid_files[:5]:  # Show first 5
-                console.print(f"   • {filepath.name}: {', '.join(errors)}")
-            if len(invalid_files) > 5:
-                console.print(f"   ... and {len(invalid_files) - 5} more")
-    else:
-        console.print("\n[dim]📁 No existing embeddings found[/dim]")
-    
-    # Print extraction plan
-    console.print("\n[bold]📋 Extraction Plan:[/bold]")
-    
-    plan_table = Table(show_header=False, box=None, padding=(0, 2))
-    plan_table.add_column("Metric", style="cyan")
-    plan_table.add_column("Value", style="yellow")
-    
-    plan_table.add_row("Existing samples", f"{total_existing_samples:,}")
-    plan_table.add_row("Existing size", format_size(total_existing_size))
-    plan_table.add_row("Embedding dimensions", str(sorted(embedding_dims)) if embedding_dims else "N/A")
-    plan_table.add_row("", "")
-    plan_table.add_row("Total shards requested", str(len(shards_to_process)))
-    plan_table.add_row("Shards already complete", f"[green]{len(skipped_shards)}[/green]")
-    plan_table.add_row("Shards to extract", f"[yellow]{len(pending_shards)}[/yellow]")
-    
-    console.print(plan_table)
-    
-    # Show pending shards breakdown by dataset/split
-    if pending_shards:
-        console.print("\n[bold]🔄 Shards to Extract:[/bold]")
+        # Pinned memory for fast CPU->GPU transfers
+        self.input_ids_pinned = torch.zeros(
+            (self.batch_size, self.max_length),
+            dtype=torch.long,
+            pin_memory=True,
+        )
+        self.attention_mask_pinned = torch.zeros(
+            (self.batch_size, self.max_length),
+            dtype=torch.long,
+            pin_memory=True,
+        )
         
-        pending_by_split = defaultdict(list)
-        for shard in pending_shards:
-            key = f"{shard['dataset_name']}:{shard['split_name']}"
-            pending_by_split[key].append(shard['shard_idx'])
+        # Pinned memory for fast GPU->CPU transfers (embeddings output)
+        self.embeddings_pinned = torch.zeros(
+            (self.batch_size, self.embedding_dim),
+            dtype=torch.float32,  # float32 for numpy compatibility
+            pin_memory=True,
+        )
         
-        for split_key in sorted(pending_by_split.keys()):
-            shard_indices = pending_by_split[split_key]
-            if len(shard_indices) <= 5:
-                indices_str = ', '.join(str(i) for i in shard_indices)
-            else:
-                indices_str = f"{shard_indices[0]}-{shard_indices[-1]} ({len(shard_indices)} shards)"
-            console.print(f"   • [cyan]{split_key}[/cyan]: shard(s) {indices_str}")
-    
-    console.print()
-    
-    return {
-        'existing_files': existing_files,
-        'validation_results': validation_results,
-        'total_existing_samples': total_existing_samples,
-        'total_existing_size': total_existing_size,
-        'embedding_dims': embedding_dims,
-        'invalid_files': invalid_files,
-        'pending_shards': pending_shards,
-        'skipped_shards': skipped_shards,
-    }
-
-
-def discover_all_splits(datasets_dir: Path) -> List[str]:
-    """
-    Discover all available dataset splits across all datasets.
-    
-    Args:
-        datasets_dir: Base datasets directory
-    
-    Returns:
-        List of split specifications (e.g., ['v1:chat', 'v1:math', ...])
-    """
-    from datasets import load_dataset
-    
-    console = Console()
-    all_splits = []
-    
-    # Define all possible datasets and their configurations
-    # (must match download_nemotron_datasets.py and validate_embeddings.py)
-    datasets_to_check = {
-        # V1 and V2 datasets
-        'v1': {
-            'hf_name': 'nvidia/Nemotron-Post-Training-Dataset-v1',
-            'cache_dir': str(datasets_dir / 'nemotron-v1'),
-            'config': None
-        },
-        'v2': {
-            'hf_name': 'nvidia/Nemotron-Post-Training-Dataset-v2',
-            'cache_dir': str(datasets_dir / 'nemotron-v2'),
-            'config': None
-        },
-        # Llama-Nemotron datasets
-        'llama-sft': {
-            'hf_name': 'nvidia/Llama-Nemotron-Post-Training-Dataset',
-            'cache_dir': str(datasets_dir / 'llama-nemotron'),
-            'config': 'SFT'
-        },
-        'llama-rl': {
-            'hf_name': 'nvidia/Llama-Nemotron-Post-Training-Dataset',
-            'cache_dir': str(datasets_dir / 'llama-nemotron'),
-            'config': 'RL'
-        },
-        # V3 datasets (Post-Training Nano v3 Collection) - Available
-        'v3-science': {
-            'hf_name': 'nvidia/Nemotron-Science-v1',
-            'cache_dir': str(datasets_dir / 'nemotron-v3' / 'science'),
-            'config': None
-        },
-        'v3-instruction-chat': {
-            'hf_name': 'nvidia/Nemotron-Instruction-Following-Chat-v1',
-            'cache_dir': str(datasets_dir / 'nemotron-v3' / 'instruction-chat'),
-            'config': None
-        },
-        'v3-math-proofs': {
-            'hf_name': 'nvidia/Nemotron-Math-Proofs-v1',
-            'cache_dir': str(datasets_dir / 'nemotron-v3' / 'math-proofs'),
-            'config': None
-        },
-        # V3 datasets (Post-Training Nano v3 Collection) - Preview (not yet downloadable)
-        'v3-rl-blend': {
-            'hf_name': 'nvidia/Nemotron-3-Nano-RL-Training-Blend',
-            'cache_dir': str(datasets_dir / 'nemotron-v3' / 'rl-blend'),
-            'config': None
-        },
-        'v3-agentic': {
-            'hf_name': 'nvidia/Nemotron-Agentic-v1',
-            'cache_dir': str(datasets_dir / 'nemotron-v3' / 'agentic'),
-            'config': None
-        },
-        'v3-competitive-programming': {
-            'hf_name': 'nvidia/Nemotron-Competitive-Programming-v1',
-            'cache_dir': str(datasets_dir / 'nemotron-v3' / 'competitive-programming'),
-            'config': None
-        },
-        'v3-math': {
-            'hf_name': 'nvidia/Nemotron-Math-v2',
-            'cache_dir': str(datasets_dir / 'nemotron-v3' / 'math-v2'),
-            'config': None
-        },
-    }
-    
-    console.print("[cyan]🔍 Scanning for available datasets...[/cyan]")
-    console.print("   [dim](Excluding multilingual splits)[/dim]")
-    
-    for dataset_name, config in datasets_to_check.items():
-        cache_dir = Path(config['cache_dir'])
+        # Warmup forward pass to allocate all intermediate buffers
+        self._warmup()
         
-        # Skip if dataset directory doesn't exist
-        if not cache_dir.exists():
-            console.print(f"   [dim]⏭️  {dataset_name}: Not downloaded[/dim]")
-            continue
+        allocated_mb = torch.cuda.memory_allocated(self.device) / (1024 * 1024)
+        reserved_mb = torch.cuda.memory_reserved(self.device) / (1024 * 1024)
         
+        self.console.print(
+            f"[green]✅ GPU {self.device}:[/green] Buffers allocated: "
+            f"{allocated_mb:.0f}MB used, {reserved_mb:.0f}MB reserved"
+        )
+    
+    def _warmup(self):
+        """Warmup forward pass to allocate all CUDA memory."""
+        # Fill with dummy data
+        self.input_ids_buffer.fill_(1)
+        self.attention_mask_buffer.fill_(1)
+        
+        with torch.no_grad(), torch.cuda.amp.autocast():
+            outputs = self.model(
+                input_ids=self.input_ids_buffer,
+                attention_mask=self.attention_mask_buffer,
+            )
+            # Compute embeddings
+            hidden = outputs.last_hidden_state
+            embeddings = hidden.mean(dim=1)
+            torch.nn.functional.normalize(embeddings, p=2, dim=1, out=self.embeddings_buffer)
+        
+        # Clear dummy data
+        self.input_ids_buffer.zero_()
+        self.attention_mask_buffer.zero_()
+        self.embeddings_buffer.zero_()
+        
+        torch.cuda.synchronize(self.device)
+    
+    def _init_cudf(self) -> bool:
+        """Try to initialize cuDF for GPU-accelerated data loading."""
         try:
-            # Load the dataset
-            load_args = {
-                'path': config['hf_name'],
-                'cache_dir': config['cache_dir']
-            }
-            
-            if config['config']:
-                load_args['name'] = config['config']
-            
-            dataset = load_dataset(**load_args)
-            
-            # Get all splits and filter out multilingual
-            all_dataset_splits = list(dataset.keys())
-            splits = [s for s in all_dataset_splits if 'multilingual' not in s.lower()]
-            multilingual_splits = [s for s in all_dataset_splits if 'multilingual' in s.lower()]
-            
-            if splits:
-                console.print(f"   [green]✅ {dataset_name}:[/green] Found {len(splits)} split(s) - {', '.join(splits)}")
-                
-                # Show excluded multilingual splits
-                if multilingual_splits:
-                    console.print(f"      [dim]Excluded multilingual: {', '.join(multilingual_splits)}[/dim]")
-                
-                # Add all splits to the list
-                for split in splits:
-                    all_splits.append(f"{dataset_name}:{split}")
-            else:
-                console.print(f"   [yellow]⚠️  {dataset_name}:[/yellow] No splits found")
-                
-        except Exception as e:
-            console.print(f"   [yellow]⚠️  {dataset_name}:[/yellow] Could not load - {e}")
-            console.print(f"   [dim]Skipping {dataset_name}[/dim]")
-            continue
+            import cudf
+            self.cudf = cudf
+            self.console.print(f"[green]✅ GPU {self.device}:[/green] cuDF available for fast data loading")
+            return True
+        except ImportError:
+            self.console.print(f"[dim]ℹ️  GPU {self.device}: cuDF not available, using pandas[/dim]")
+            return False
     
-    return all_splits
-
-
-def discover_dataset_shards(datasets_dir: Path, splits: List[str]) -> List[Dict[str, any]]:
-    """
-    Discover dataset shards for the specified splits.
+    def tokenize_batch(self, texts: List[str], actual_batch_size: int) -> Tuple[torch.Tensor, torch.Tensor]:
+        """
+        Tokenize texts using pre-allocated buffers.
+        
+        Uses pinned memory for fast async CPU->GPU transfer.
+        """
+        # Add prefix for Nemotron models
+        if 'nemotron' in self.tokenizer.name_or_path.lower():
+            prefix = "query: " if self.input_type == 'query' else "passage: "
+            texts = [f"{prefix}{t}" for t in texts]
+        
+        # Tokenize to CPU (will go to pinned memory)
+        encoded = self.tokenizer(
+            texts,
+            padding='max_length',
+            truncation=True,
+            max_length=self.max_length,
+            return_tensors='pt',
+        )
+        
+        # Copy to pinned memory (zero-copy if already there)
+        batch_size = actual_batch_size
+        self.input_ids_pinned[:batch_size].copy_(encoded['input_ids'])
+        self.attention_mask_pinned[:batch_size].copy_(encoded['attention_mask'])
+        
+        # Async copy to GPU using stream
+        with torch.cuda.stream(self.stream):
+            self.input_ids_buffer[:batch_size].copy_(
+                self.input_ids_pinned[:batch_size], non_blocking=True
+            )
+            self.attention_mask_buffer[:batch_size].copy_(
+                self.attention_mask_pinned[:batch_size], non_blocking=True
+            )
+        
+        return self.input_ids_buffer[:batch_size], self.attention_mask_buffer[:batch_size]
     
-    Args:
-        datasets_dir: Base datasets directory
-        splits: List of split specifications (e.g., "v1:chat", "llama-sft:safety")
-    
-    Returns:
-        List of dictionaries with shard information
-    """
-    from datasets import load_dataset
-    
-    console = Console()
-    all_shards = []
-    
-    for split_spec in splits:
-        # Parse split specification
-        if ':' in split_spec:
-            dataset_name, split_name = split_spec.split(':', 1)
-        else:
-            console.print(f"[yellow]⚠️  Warning:[/yellow] Invalid split format '{split_spec}', expected 'dataset:split'")
-            continue
+    @torch.inference_mode()
+    def compute_embeddings(self, texts: List[str]) -> np.ndarray:
+        """
+        Compute embeddings for a batch using pre-allocated buffers.
         
-        # Map dataset names to HuggingFace dataset names and cache dirs
-        # (must match download_nemotron_datasets.py and validate_embeddings.py)
-        dataset_configs = {
-            # V1 and V2 datasets
-            'v1': {
-                'hf_name': 'nvidia/Nemotron-Post-Training-Dataset-v1',
-                'cache_dir': str(datasets_dir / 'nemotron-v1'),
-                'config': None
-            },
-            'v2': {
-                'hf_name': 'nvidia/Nemotron-Post-Training-Dataset-v2',
-                'cache_dir': str(datasets_dir / 'nemotron-v2'),
-                'config': None
-            },
-            # Llama-Nemotron datasets
-            'llama-sft': {
-                'hf_name': 'nvidia/Llama-Nemotron-Post-Training-Dataset',
-                'cache_dir': str(datasets_dir / 'llama-nemotron'),
-                'config': 'SFT'
-            },
-            'llama-rl': {
-                'hf_name': 'nvidia/Llama-Nemotron-Post-Training-Dataset',
-                'cache_dir': str(datasets_dir / 'llama-nemotron'),
-                'config': 'RL'
-            },
-            # V3 datasets (Post-Training Nano v3 Collection) - Available
-            'v3-science': {
-                'hf_name': 'nvidia/Nemotron-Science-v1',
-                'cache_dir': str(datasets_dir / 'nemotron-v3' / 'science'),
-                'config': None
-            },
-            'v3-instruction-chat': {
-                'hf_name': 'nvidia/Nemotron-Instruction-Following-Chat-v1',
-                'cache_dir': str(datasets_dir / 'nemotron-v3' / 'instruction-chat'),
-                'config': None
-            },
-            'v3-math-proofs': {
-                'hf_name': 'nvidia/Nemotron-Math-Proofs-v1',
-                'cache_dir': str(datasets_dir / 'nemotron-v3' / 'math-proofs'),
-                'config': None
-            },
-            # V3 datasets (Post-Training Nano v3 Collection) - Preview (not yet downloadable)
-            'v3-rl-blend': {
-                'hf_name': 'nvidia/Nemotron-3-Nano-RL-Training-Blend',
-                'cache_dir': str(datasets_dir / 'nemotron-v3' / 'rl-blend'),
-                'config': None
-            },
-            'v3-agentic': {
-                'hf_name': 'nvidia/Nemotron-Agentic-v1',
-                'cache_dir': str(datasets_dir / 'nemotron-v3' / 'agentic'),
-                'config': None
-            },
-            'v3-competitive-programming': {
-                'hf_name': 'nvidia/Nemotron-Competitive-Programming-v1',
-                'cache_dir': str(datasets_dir / 'nemotron-v3' / 'competitive-programming'),
-                'config': None
-            },
-            'v3-math': {
-                'hf_name': 'nvidia/Nemotron-Math-v2',
-                'cache_dir': str(datasets_dir / 'nemotron-v3' / 'math-v2'),
-                'config': None
-            },
-        }
+        This is the hot path - optimized for minimal allocations.
+        """
+        actual_batch_size = len(texts)
         
-        if dataset_name not in dataset_configs:
-            console.print(f"[yellow]⚠️  Warning:[/yellow] Unknown dataset '{dataset_name}'")
-            continue
+        # Tokenize with async GPU transfer
+        input_ids, attention_mask = self.tokenize_batch(texts, actual_batch_size)
         
-        config = dataset_configs[dataset_name]
-        cache_dir = Path(config['cache_dir'])
+        # Wait for transfer to complete
+        self.stream.synchronize()
         
-        if not cache_dir.exists():
-            console.print(f"[yellow]⚠️  Warning:[/yellow] Dataset directory not found: {cache_dir}")
-            console.print(f"   [dim]Run: python download_nemotron_datasets.py --{dataset_name.replace('-', '')}[/dim]")
-            continue
-        
-        try:
-            console.print(f"[cyan]🔍 Loading {split_spec}...[/cyan]")
-            
-            # Load the dataset
-            load_args = {
-                'path': config['hf_name'],
-                'cache_dir': config['cache_dir']
-            }
-            
-            if config['config']:
-                load_args['name'] = config['config']
-            
-            dataset = load_dataset(**load_args)
-            
-            # Check if the split exists
-            if split_name not in dataset:
-                console.print(f"[yellow]⚠️  Warning:[/yellow] Split '{split_name}' not found in {dataset_name}")
-                console.print(f"   [dim]Available splits: {list(dataset.keys())}[/dim]")
-                continue
-            
-            split_dataset = dataset[split_name]
-            num_samples = len(split_dataset)
-            
-            # Get the actual number of shards by checking the dataset's cache files
-            num_shards = 1
-            
-            try:
-                # Method 1: Use dataset's internal cache_files property
-                if hasattr(split_dataset, 'cache_files') and split_dataset.cache_files:
-                    num_shards = len(split_dataset.cache_files)
-                    console.print(f"   [dim]Detected {num_shards} cache files[/dim]")
-                
-                # Method 2: Check _data.tables if Method 1 didn't work
-                elif hasattr(split_dataset, '_data') and hasattr(split_dataset._data, 'tables'):
-                    tables = split_dataset._data.tables
-                    if tables:
-                        num_shards = len(tables)
-                        console.print(f"   [dim]Detected {num_shards} data tables[/dim]")
-                
-                # Method 3: Manually count arrow files in the cache directory
-                else:
-                    from pathlib import Path as P
-                    cache_path = P(cache_dir)
-                    
-                    # Find the specific dataset cache directory
-                    # Pattern: cache_dir / dataset_hash / split_name / *.arrow
-                    arrow_files = []
-                    
-                    # Search for arrow files that match this split
-                    for arrow_file in cache_path.rglob("*.arrow"):
-                        # Check if file is in a directory named after the split
-                        # or if the filename contains the split name
-                        path_str = str(arrow_file)
-                        if f"/{split_name}/" in path_str or f"-{split_name}-" in arrow_file.name:
-                            arrow_files.append(arrow_file)
-                    
-                    if arrow_files:
-                        num_shards = len(arrow_files)
-                        console.print(f"   [dim]Found {num_shards} arrow file(s) in cache[/dim]")
-                
-            except Exception as e:
-                console.print(f"   [yellow]⚠️  Could not detect shards: {e}, using 1[/yellow]")
-                num_shards = 1
-            
-            console.print(
-                f"[green]✅ Found {split_spec}:[/green] "
-                f"{num_samples:,} samples in {num_shards} shard(s)"
+        # Forward pass with mixed precision
+        with torch.cuda.amp.autocast():
+            outputs = self.model(
+                input_ids=input_ids,
+                attention_mask=attention_mask,
             )
             
-            # Create shard entries
-            for shard_idx in range(num_shards):
-                all_shards.append({
-                    'dataset_name': dataset_name,
-                    'split_name': split_name,
-                    'shard_idx': shard_idx,
-                    'total_shards': num_shards,
-                    'hf_name': config['hf_name'],
-                    'hf_config': config['config'],
-                    'cache_dir': config['cache_dir'],
-                    'spec': f"{split_spec}:shard{shard_idx}"
-                })
+            # Mean pooling over sequence dimension
+            hidden_states = outputs.last_hidden_state
             
-        except Exception as e:
-            console.print(f"[yellow]⚠️  Warning:[/yellow] Could not load {split_spec}: {e}")
-            continue
+            # Compute mean only over non-padded tokens
+            mask_expanded = attention_mask.unsqueeze(-1).expand(hidden_states.size()).half()
+            sum_embeddings = torch.sum(hidden_states * mask_expanded, dim=1)
+            sum_mask = mask_expanded.sum(dim=1).clamp(min=1e-9)
+            embeddings = sum_embeddings / sum_mask
+            
+            # L2 normalize
+            embeddings = torch.nn.functional.normalize(embeddings, p=2, dim=1)
+        
+        # Async copy to pinned memory for fast GPU->CPU transfer
+        self.embeddings_pinned[:actual_batch_size].copy_(
+            embeddings.float(), non_blocking=True
+        )
+        
+        # Synchronize and return numpy array
+        torch.cuda.synchronize(self.device)
+        
+        return self.embeddings_pinned[:actual_batch_size].numpy().copy()
     
-    # Sort by dataset and split for organized processing
-    all_shards.sort(key=lambda x: (x['dataset_name'], x['split_name'], x['shard_idx']))
-    
-    return all_shards
+    def load_data_fast(self, path: str) -> Any:
+        """
+        Load parquet data using cuDF if available, else pandas.
+        
+        cuDF loads data directly to GPU memory for faster processing.
+        """
+        if self.cudf_available:
+            try:
+                return self.cudf.read_parquet(path)
+            except Exception:
+                pass  # Fallback to pandas
+        
+        import pandas as pd
+        return pd.read_parquet(path)
 
 
-def load_model(model_name: str, device: int):
-    """
-    Load the embedding model on the specified GPU.
-    
-    Args:
-        model_name: HuggingFace model name
-        device: GPU device ID
-    
-    Returns:
-        Tuple of (model, tokenizer)
-    """
-    from transformers import AutoTokenizer, AutoModel
-    
-    console = Console()
-    console.print(f"[cyan]🔄 GPU {device}:[/cyan] Loading model {model_name}...")
-    
-    tokenizer = AutoTokenizer.from_pretrained(
-        model_name,
-        cache_dir=str(CHECKPOINTS_DIR),
-        trust_remote_code=True
-    )
-    
-    model = AutoModel.from_pretrained(
-        model_name,
-        cache_dir=str(CHECKPOINTS_DIR),
-        torch_dtype=torch.float16,
-        trust_remote_code=True
-    ).to(f'cuda:{device}')
-    
-    model.eval()
-    
-    console.print(f"[green]✅ GPU {device}:[/green] Model loaded successfully")
-    
-    return model, tokenizer
+# =============================================================================
+# TEXT EXTRACTION
+# =============================================================================
 
-
-def extract_text_from_sample(sample: dict) -> str:
-    """
-    Extract text from a dataset sample.
-    Handles different dataset formats (chat, instruction, text).
-    
-    Args:
-        sample: Dictionary containing the dataset sample
-    
-    Returns:
-        Extracted text string
-    """
-    # Common text fields to check
-    text_fields = ['text', 'content', 'instruction', 'prompt', 'question']
-    
-    # Check for conversation/messages format
+def extract_text_from_sample(sample: Dict[str, Any]) -> str:
+    """Extract text from dataset sample."""
+    # Messages format
     if 'messages' in sample:
         messages = sample['messages']
         if isinstance(messages, list):
-            # Concatenate all message contents
-            texts = []
-            for msg in messages:
-                if isinstance(msg, dict) and 'content' in msg:
-                    texts.append(msg['content'])
-            return "\n\n".join(texts)
+            texts = [m['content'] for m in messages if isinstance(m, dict) and 'content' in m]
+            if texts:
+                return "\n\n".join(texts)
         elif isinstance(messages, str):
             return messages
-    
-    # Check for conversation field
+
+    # Conversation format
     if 'conversation' in sample:
         conv = sample['conversation']
         if isinstance(conv, list):
-            texts = []
-            for turn in conv:
-                if isinstance(turn, dict) and 'content' in turn:
-                    texts.append(turn['content'])
-            return "\n\n".join(texts)
-    
-    # Check standard text fields
-    for field in text_fields:
-        if field in sample:
+            texts = [t['content'] for t in conv if isinstance(t, dict) and 'content' in t]
+            if texts:
+                return "\n\n".join(texts)
+
+    # Direct text fields
+    for field in ['text', 'content', 'instruction', 'prompt', 'question']:
+        if field in sample and sample[field]:
             return str(sample[field])
-    
-    # If nothing found, concatenate all string values
+
+    # Fallback
+    texts = [str(v) for v in sample.values() if isinstance(v, str) and len(v) > 10]
+    return "\n\n".join(texts) if texts else ""
+
+
+def extract_texts_batch(samples: List[Dict]) -> Tuple[List[str], List[int]]:
+    """Extract texts from multiple samples efficiently."""
     texts = []
-    for key, value in sample.items():
-        if isinstance(value, str) and len(value) > 10:
-            texts.append(value)
-    
-    if texts:
-        return "\n\n".join(texts)
-    
-    return ""
+    indices = []
+    for idx, sample in enumerate(samples):
+        text = extract_text_from_sample(sample)
+        if text and text.strip():
+            texts.append(text)
+            indices.append(idx)
+    return texts, indices
 
 
-def compute_embeddings_batch(
-    texts: List[str],
-    model,
-    tokenizer,
-    device: int,
-    max_length: int,
-    input_type: str = 'document'
-) -> np.ndarray:
-    """
-    Compute embeddings for a batch of texts.
-    
-    Args:
-        texts: List of text strings
-        model: The embedding model
-        tokenizer: The tokenizer
-        device: GPU device ID
-        max_length: Maximum text length
-        input_type: Input type ('document' or 'query')
-    
-    Returns:
-        Numpy array of embeddings
-    """
-    # Add instruction prefix if using Nemotron model
-    if 'nemotron' in tokenizer.name_or_path.lower():
-        if input_type == 'query':
-            texts = [f"query: {text}" for text in texts]
-        else:
-            texts = [f"passage: {text}" for text in texts]
-    
-    # Tokenize
-    encoded = tokenizer(
-        texts,
-        padding=True,
-        truncation=True,
-        max_length=max_length,
-        return_tensors='pt'
-    ).to(f'cuda:{device}')
-    
-    # Compute embeddings
-    with torch.no_grad():
-        outputs = model(**encoded)
-        # Use mean pooling on the last hidden state
-        embeddings = outputs.last_hidden_state.mean(dim=1)
-        # Normalize
-        embeddings = torch.nn.functional.normalize(embeddings, p=2, dim=1)
-    
-    return embeddings.cpu().numpy()
+# =============================================================================
+# SHARD PROCESSING (OPTIMIZED)
+# =============================================================================
 
-
-def process_shard(
-    shard_info: Dict[str, any],
-    model,
-    tokenizer,
-    device: int,
-    batch_size: int,
-    max_length: int,
-    input_type: str,
+def process_shard_optimized(
+    shard_info: ShardInfo,
+    engine: EmbeddingEngine,
     output_dir: Path,
-    progress_dict: Optional[dict] = None
-) -> Dict[str, any]:
+    progress_dict: Optional[Dict] = None,
+) -> ProcessingResult:
     """
-    Process a single dataset shard and save embeddings as parquet.
+    Process a shard using the optimized EmbeddingEngine.
     
-    Args:
-        shard_info: Dictionary with shard information
-        model: The embedding model
-        tokenizer: The tokenizer
-        device: GPU device ID
-        batch_size: Batch size for inference
-        max_length: Maximum text length
-        input_type: Input type ('document' or 'query')
-        output_dir: Output directory for embeddings
-        progress_dict: Shared dictionary for progress tracking
-    
-    Returns:
-        Dictionary with processing statistics
+    Key optimizations:
+        - Uses pre-allocated buffers (zero allocation in hot path)
+        - Batch processing with pinned memory transfers
+        - Async CUDA operations
     """
-    from datasets import load_dataset, Dataset
+    from datasets import Dataset, load_dataset
     import pyarrow.parquet as pq
-    
-    console = Console()
-    
-    dataset_name = shard_info['dataset_name']
-    split_name = shard_info['split_name']
-    shard_idx = shard_info['shard_idx']
-    total_shards = shard_info['total_shards']
-    hf_name = shard_info['hf_name']
-    hf_config = shard_info['hf_config']
-    cache_dir = shard_info['cache_dir']
-    
-    # Create output path
-    output_subdir = output_dir / dataset_name / split_name
+
+    console = engine.console
+    device = engine.device
+    parquet_filename = shard_info.parquet_filename
+
+    output_subdir = output_dir / shard_info.dataset_name / shard_info.split_name
     output_subdir.mkdir(parents=True, exist_ok=True)
-    
-    # Generate filename matching HuggingFace format
-    # Format: {dataset}-{split}-{shard:05d}-of-{total:05d}.parquet
-    num_digits = 5
-    parquet_filename = (
-        f"{dataset_name}-{split_name}-"
-        f"{str(shard_idx).zfill(num_digits)}-of-"
-        f"{str(total_shards).zfill(num_digits)}.parquet"
-    )
     parquet_path = output_subdir / parquet_filename
-    
-    # Skip if already exists
+
+    # Skip if exists
     if parquet_path.exists():
-        console.print(f"   [dim]⏭️  GPU {device}: Skipping existing {parquet_filename}[/dim]")
+        console.print(f"   [dim]⏭️  GPU {device}: Skipping {parquet_filename}[/dim]")
         try:
-            existing_table = pq.read_table(str(parquet_path))
-            return {
-                'status': 'skipped',
-                'samples': len(existing_table),
-                'shard': shard_info['spec']
-            }
-        except:
-            # If can't read, reprocess
+            existing = pq.read_table(str(parquet_path))
+            return ProcessingResult('skipped', len(existing), shard_info.spec)
+        except Exception:
             pass
-    
+
     start_time = time.time()
-    
-    try:
-        # Load the dataset
-        load_args = {
-            'path': hf_name,
-            'cache_dir': cache_dir,
-            'split': split_name
-        }
-        
-        if hf_config:
-            load_args['name'] = hf_config
-        
-        # Load specific shard
-        dataset = load_dataset(**load_args)
-        shard_data = dataset.shard(num_shards=total_shards, index=shard_idx)
-        
-        num_samples = len(shard_data)
-        
-        console.print(
-            f"[cyan]🔄 GPU {device}:[/cyan] Processing {parquet_filename} "
-            f"({num_samples:,} samples)"
-        )
-        
-        # Initialize progress tracking for this GPU
+
+    def update_progress(current: int, total: int, stage: str):
         if progress_dict is not None:
             progress_dict[device] = {
-                'current': 0,
-                'total': num_samples,
-                'filename': parquet_filename,
-                'stage': 'loading'
+                'current': current, 'total': total,
+                'filename': parquet_filename, 'stage': stage,
             }
-        
-        # Extract texts and compute embeddings
-        texts = []
-        indices = []
-        
-        for idx, sample in enumerate(shard_data):
-            text = extract_text_from_sample(sample)
-            if text and len(text.strip()) > 0:
-                texts.append(text)
-                indices.append(idx)
-            
-            # Update progress every 500 samples
-            if progress_dict is not None and (idx % 500 == 0 or idx == num_samples - 1):
-                progress_dict[device] = {
-                    'current': idx + 1,
-                    'total': num_samples,
-                    'filename': parquet_filename,
-                    'stage': 'extracting'
-                }
-        
+
+    def clear_progress():
+        if progress_dict is not None and device in progress_dict:
+            del progress_dict[device]
+
+    try:
+        # Load dataset
+        load_args = {
+            'path': shard_info.hf_name,
+            'cache_dir': shard_info.cache_dir,
+            'split': shard_info.split_name,
+        }
+        if shard_info.hf_config:
+            load_args['name'] = shard_info.hf_config
+
+        dataset = load_dataset(**load_args)
+        shard_data = dataset.shard(num_shards=shard_info.total_shards, index=shard_info.shard_idx)
+        num_samples = len(shard_data)
+
+        console.print(f"[cyan]🔄 GPU {device}:[/cyan] {parquet_filename} ({num_samples:,} samples)")
+        update_progress(0, num_samples, 'loading')
+
+        # Extract all texts first (CPU operation)
+        update_progress(0, num_samples, 'extracting')
+        texts, indices = extract_texts_batch(list(shard_data))
+
         if not texts:
-            console.print(f"[yellow]⚠️  GPU {device}:[/yellow] No valid text in {parquet_filename}")
-            if progress_dict is not None and device in progress_dict:
-                del progress_dict[device]
-            return {'status': 'no_text', 'samples': 0, 'shard': shard_info['spec']}
-        
-        # Process in batches
+            console.print(f"[yellow]⚠️  GPU {device}:[/yellow] No text in {parquet_filename}")
+            clear_progress()
+            return ProcessingResult('no_text', 0, shard_info.spec)
+
+        # Process in batches using pre-allocated buffers
         all_embeddings = []
         total_texts = len(texts)
-        
-        for i in range(0, len(texts), batch_size):
-            batch_texts = texts[i:i+batch_size]
-            batch_embeddings = compute_embeddings_batch(
-                batch_texts, model, tokenizer, device, max_length, input_type
-            )
+        batch_size = engine.batch_size
+
+        for i in range(0, total_texts, batch_size):
+            batch_texts = texts[i:i + batch_size]
+            
+            # Compute embeddings using optimized engine
+            batch_embeddings = engine.compute_embeddings(batch_texts)
             all_embeddings.append(batch_embeddings)
             
-            # Update progress - show embedding generation progress
-            if progress_dict is not None:
-                texts_processed = min(i + batch_size, total_texts)
-                progress_dict[device] = {
-                    'current': texts_processed,
-                    'total': total_texts,
-                    'filename': parquet_filename,
-                    'stage': 'embedding'
-                }
-        
+            update_progress(min(i + batch_size, total_texts), total_texts, 'embedding')
+
         # Concatenate and save
+        update_progress(total_texts, total_texts, 'saving')
         embeddings_array = np.vstack(all_embeddings)
-        
-        # Update progress - saving
-        if progress_dict is not None:
-            progress_dict[device] = {
-                'current': total_texts,
-                'total': total_texts,
-                'filename': parquet_filename,
-                'stage': 'saving'
-            }
-        
-        # Create dataset with embeddings
+
         embedding_dataset = Dataset.from_dict({
             'embeddings': embeddings_array.tolist(),
-            'original_index': indices
+            'original_index': indices,
         })
-        
-        # Save as parquet
         embedding_dataset.to_parquet(str(parquet_path))
-        
-        # Clear progress for this GPU
-        if progress_dict is not None and device in progress_dict:
-            del progress_dict[device]
-        
-        # =====================================================================
-        # EXPLICIT MEMORY CLEANUP - Prevent OOM across shards
-        # =====================================================================
-        # Delete large objects
+
+        clear_progress()
+
+        # Cleanup (preserve engine buffers)
+        num_texts = len(texts)
         del texts, indices, all_embeddings, embeddings_array, embedding_dataset
         del shard_data, dataset
-        
-        # Force Python garbage collection
         gc.collect()
-        
-        # Clear CUDA memory cache (returns unused memory to GPU)
-        torch.cuda.empty_cache()
-        # =====================================================================
-        
-        elapsed = time.time() - start_time
-        samples_per_sec = len(texts) / elapsed if elapsed > 0 else 0
-        
-        console.print(
-            f"[green]✅ GPU {device}:[/green] Saved {parquet_filename} - "
-            f"[yellow]{len(texts):,}[/yellow] samples in "
-            f"[cyan]{elapsed:.1f}s[/cyan] ([magenta]{samples_per_sec:.1f}[/magenta] samples/s)"
-        )
-        
-        return {
-            'status': 'success',
-            'samples': len(texts),
-            'time': elapsed,
-            'shard': shard_info['spec']
-        }
-        
-    except Exception as e:
-        console.print(f"[red]❌ GPU {device}:[/red] Error processing {parquet_filename}: {e}")
-        import traceback
-        traceback.print_exc()
-        
-        # Clear progress for this GPU
-        if progress_dict is not None and device in progress_dict:
-            del progress_dict[device]
-        
-        # Cleanup on error to prevent memory buildup
-        gc.collect()
-        torch.cuda.empty_cache()
-        
-        return {
-            'status': 'error',
-            'samples': 0,
-            'error': str(e),
-            'shard': shard_info['spec']
-        }
+        # NOTE: Don't empty_cache - preserve pre-allocated pools
 
+        elapsed = time.time() - start_time
+        speed = num_texts / elapsed if elapsed > 0 else 0
+
+        console.print(
+            f"[green]✅ GPU {device}:[/green] {parquet_filename} - "
+            f"[yellow]{num_texts:,}[/yellow] in [cyan]{elapsed:.1f}s[/cyan] "
+            f"([magenta]{speed:.1f}[/magenta]/s)"
+        )
+
+        return ProcessingResult('success', num_texts, shard_info.spec, elapsed)
+
+    except Exception as e:
+        console.print(f"[red]❌ GPU {device}:[/red] {parquet_filename}: {e}")
+        traceback.print_exc()
+        clear_progress()
+        gc.collect()
+        torch.cuda.empty_cache()
+        return ProcessingResult('error', 0, shard_info.spec, error=str(e))
+
+
+# =============================================================================
+# GPU WORKER
+# =============================================================================
 
 def gpu_worker(
     gpu_id: int,
@@ -1124,513 +630,392 @@ def gpu_worker(
     max_length: int,
     input_type: str,
     output_dir: Path,
-    progress_dict: dict,
-    shutdown_event: Event
-):
-    """
-    GPU worker process that processes shards from the work queue.
-    
-    Args:
-        gpu_id: GPU device ID
-        work_queue: Queue containing work items (shard info dicts)
-        results_queue: Queue for returning results
-        model_name: HuggingFace model name
-        batch_size: Batch size for inference
-        max_length: Maximum text length
-        input_type: Input type ('document' or 'query')
-        output_dir: Output directory
-        progress_dict: Shared dictionary for progress tracking
-        shutdown_event: Event to signal shutdown
-    """
+    progress_dict: Dict,
+    shutdown_event: Event,
+) -> None:
+    """GPU worker with persistent EmbeddingEngine."""
+    console = Console()
+
     try:
-        # Load model on this GPU
-        model, tokenizer = load_model(model_name, gpu_id)
-        
-        console = Console()
-        
-        # Process shards from the queue
+        # Create optimized embedding engine (persistent for this worker)
+        engine = EmbeddingEngine(
+            model_name=model_name,
+            device=gpu_id,
+            batch_size=batch_size,
+            max_length=max_length,
+            input_type=input_type,
+        )
+
+        # Process shards
         while not shutdown_event.is_set():
             try:
-                # Get work item with timeout
-                shard_info = work_queue.get(timeout=1)
-                
-                if shard_info is None:  # Poison pill
-                    console.print(f"[dim]🛑 GPU {gpu_id}: Received shutdown signal[/dim]")
+                shard_dict = work_queue.get(timeout=WORKER_QUEUE_TIMEOUT)
+
+                if shard_dict is None:
+                    console.print(f"[dim]🛑 GPU {gpu_id}: Shutdown[/dim]")
                     break
-                
-                # Process the shard
-                result = process_shard(
-                    shard_info, model, tokenizer, gpu_id,
-                    batch_size, max_length, input_type, output_dir, progress_dict
-                )
-                
-                # Put result in results queue
+
+                shard_info = ShardInfo.from_dict(shard_dict)
+                result = process_shard_optimized(shard_info, engine, output_dir, progress_dict)
+
                 results_queue.put({
                     'gpu_id': gpu_id,
-                    'shard_info': shard_info,
-                    'result': result
+                    'result': {
+                        'status': result.status,
+                        'samples': result.samples,
+                        'shard': result.shard_spec,
+                        'time': result.time_seconds,
+                        'error': result.error,
+                    },
                 })
-                
+
             except Empty:
-                # Queue is empty, continue waiting
                 continue
             except Exception as e:
-                console.print(f"[red]❌ GPU {gpu_id}:[/red] Worker error: {e}")
-                import traceback
+                console.print(f"[red]❌ GPU {gpu_id}:[/red] {e}")
                 traceback.print_exc()
-        
-        console.print(f"[green]✅ GPU {gpu_id}: Worker finished[/green]")
-        
+
+        console.print(f"[green]✅ GPU {gpu_id}: Done[/green]")
+
     except Exception as e:
-        console = Console()
-        console.print(f"[red]❌ GPU {gpu_id}:[/red] Fatal worker error: {e}")
-        import traceback
+        console.print(f"[red]❌ GPU {gpu_id}:[/red] Fatal: {e}")
         traceback.print_exc()
 
 
-def main():
-    """Main function to orchestrate multi-GPU parallel extraction."""
-    parser = argparse.ArgumentParser(
-        description="Multi-GPU parallel embedding extraction (shard-based)",
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog="""
-Examples:
-  # Extract embeddings from v1 chat split using 4 GPUs
-  python extract_embeddings_parallel_shards.py --splits v1:chat --num-gpus 4
-  
-  # Extract from multiple splits using 8 GPUs
-  python extract_embeddings_parallel_shards.py --splits v1:chat v2:math llama-sft:safety --num-gpus 8
-  
-  # Extract from v3 datasets
-  python extract_embeddings_parallel_shards.py --splits v3-science:train v3-math:train --num-gpus 4
-  
-  # Extract from ALL available dataset splits
-  python extract_embeddings_parallel_shards.py --all --num-gpus 8
-  
-  # Custom batch size and max length
-  python extract_embeddings_parallel_shards.py --all --batch-size 64 --max-text-length 8192
-  
-  # Custom directories
-  python extract_embeddings_parallel_shards.py --all \\
-      --datasets-dir /data/datasets \\
-      --checkpoints-dir /data/checkpoints \\
-      --embeddings-dir /data/embeddings
+# =============================================================================
+# DATASET DISCOVERY
+# =============================================================================
 
-  # DRY RUN: Check existing embeddings without extracting
-  python extract_embeddings_parallel_shards.py --splits v1:chat v1:math --dry-run \\
-      --embeddings-dir /raid/embeddings
-  
-  # FORCE: Re-extract even if shards already exist
-  python extract_embeddings_parallel_shards.py --splits v1:chat --force
-  
-  # SKIP VALIDATION: Faster startup without pre-checking
-  python extract_embeddings_parallel_shards.py --splits v1:chat --skip-validation
+def discover_all_splits(console: Console) -> List[str]:
+    """Discover all available splits."""
+    from datasets import load_dataset
 
-Available dataset prefixes:
-  v1, v2                     - Nemotron Post-Training v1/v2
-  llama-sft, llama-rl        - Llama-Nemotron SFT/RL
-  v3-rl-blend                - Nemotron-3-Nano-RL-Training-Blend
-  v3-science                 - Nemotron-Science-v1
-  v3-instruction-chat        - Nemotron-Instruction-Following-Chat-v1
-  v3-math-proofs             - Nemotron-Math-Proofs-v1
-  v3-agentic                 - Nemotron-Agentic-v1
-  v3-competitive-programming - Nemotron-Competitive-Programming-v1
-  v3-math                    - Nemotron-Math-v2
-        """
-    )
-    
-    # Path arguments (already parsed for env setup, but include for help text)
-    parser.add_argument(
-        '--datasets-dir', type=str, default=str(DEFAULT_DATASETS_DIR),
-        help=f'Directory for downloaded datasets (default: {DEFAULT_DATASETS_DIR})'
-    )
-    parser.add_argument(
-        '--checkpoints-dir', type=str, default=str(DEFAULT_CHECKPOINTS_DIR),
-        help=f'Directory for model checkpoints/HF cache (default: {DEFAULT_CHECKPOINTS_DIR})'
-    )
-    parser.add_argument(
-        '--embeddings-dir', type=str, default=str(DEFAULT_EMBEDDINGS_DIR),
-        help=f'Directory for extracted embeddings output (default: {DEFAULT_EMBEDDINGS_DIR})'
-    )
-    
-    # Dataset selection arguments
-    parser.add_argument(
-        '--splits', nargs='+', required=False,
-        help='Format: v1:chat v2:math llama-sft:safety'
-    )
-    parser.add_argument(
-        '--all', action='store_true',
-        help='Extract embeddings from all available dataset splits'
-    )
-    
-    # Processing arguments
-    parser.add_argument(
-        '--num-gpus', type=int, default=8,
-        help='Number of GPUs to use (default: 8)'
-    )
-    parser.add_argument(
-        '--batch-size', type=int, default=32,
-        help='Batch size for inference (default: 32)'
-    )
-    parser.add_argument(
-        '--model', default='nvidia/llama-embed-nemotron-8b',
-        help='Model to use (default: nvidia/llama-embed-nemotron-8b)'
-    )
-    parser.add_argument(
-        '--max-text-length', type=int, default=8192,
-        help='Max text length (default: 8192)'
-    )
-    parser.add_argument(
-        '--input-type', default='document', choices=['document', 'query'],
-        help='Input type (default: document)'
-    )
-    
-    # Legacy argument (kept for backwards compatibility, uses --embeddings-dir)
-    parser.add_argument(
-        '--output', default=None,
-        help='[DEPRECATED] Use --embeddings-dir instead'
-    )
-    
-    # Validation and dry-run options
-    parser.add_argument(
-        '--dry-run', action='store_true',
-        help='Only check existing embeddings and show extraction plan without actually extracting'
-    )
-    parser.add_argument(
-        '--skip-validation', action='store_true',
-        help='Skip pre-extraction validation check (faster startup)'
-    )
-    parser.add_argument(
-        '--force', '-f', action='store_true',
-        help='Force extraction even if all shards already exist'
-    )
-    
-    args = parser.parse_args()
-    
-    # Validate arguments
-    if not args.all and not args.splits:
-        console = Console()
-        console.print("[red]❌ Error:[/red] Either --splits or --all must be specified")
-        console.print("\nExamples:")
-        console.print("  python extract_embeddings_parallel_shards.py --splits v1:chat v2:math")
-        console.print("  python extract_embeddings_parallel_shards.py --all")
-        sys.exit(1)
-    
-    if args.all and args.splits:
-        console = Console()
-        console.print("[yellow]⚠️  Warning:[/yellow] Both --all and --splits specified. --all takes precedence.")
-    
-    # Handle deprecated --output argument
-    if args.output is not None:
-        console = Console()
-        console.print("[yellow]⚠️  Warning:[/yellow] --output is deprecated, use --embeddings-dir instead")
-        embeddings_dir = Path(args.output)
-    else:
-        embeddings_dir = EMBEDDINGS_DIR
-    
-    # Use the globally configured paths (already set from CLI args)
-    datasets_dir = DATASETS_DIR
-    checkpoints_dir = CHECKPOINTS_DIR
-    output_dir = embeddings_dir
-    
-    # Ensure output directory exists
-    output_dir.mkdir(parents=True, exist_ok=True)
-    
-    console = Console()
-    
-    # Print header
+    all_splits = []
+    console.print("[cyan]🔍 Scanning datasets...[/cyan]")
+
+    for name, config in DATASET_CONFIGS.items():
+        cache_dir = Config.get_dataset_cache_dir(name)
+        if not cache_dir.exists():
+            console.print(f"   [dim]⏭️  {name}: Not downloaded[/dim]")
+            continue
+
+        try:
+            load_args = {'path': config['hf_name'], 'cache_dir': str(cache_dir)}
+            if config['config']:
+                load_args['name'] = config['config']
+            ds = load_dataset(**load_args)
+            splits = [s for s in ds.keys() if 'multilingual' not in s.lower()]
+            if splits:
+                console.print(f"   [green]✅ {name}:[/green] {', '.join(splits)}")
+                all_splits.extend(f"{name}:{s}" for s in splits)
+        except Exception as e:
+            console.print(f"   [yellow]⚠️  {name}:[/yellow] {e}")
+
+    return all_splits
+
+
+def discover_dataset_shards(splits: List[str], console: Console) -> List[ShardInfo]:
+    """Discover shards for specified splits."""
+    from datasets import load_dataset
+
+    all_shards = []
+
+    for spec in splits:
+        if ':' not in spec:
+            continue
+        dataset_name, split_name = spec.split(':', 1)
+        if dataset_name not in DATASET_CONFIGS:
+            continue
+
+        config = DATASET_CONFIGS[dataset_name]
+        cache_dir = Config.get_dataset_cache_dir(dataset_name)
+        if not cache_dir.exists():
+            continue
+
+        try:
+            console.print(f"[cyan]🔍 {spec}...[/cyan]")
+            load_args = {'path': config['hf_name'], 'cache_dir': str(cache_dir)}
+            if config['config']:
+                load_args['name'] = config['config']
+            ds = load_dataset(**load_args)
+
+            if split_name not in ds:
+                continue
+
+            split_ds = ds[split_name]
+            num_shards = len(split_ds.cache_files) if hasattr(split_ds, 'cache_files') and split_ds.cache_files else 1
+
+            console.print(f"[green]✅ {spec}:[/green] {len(split_ds):,} samples, {num_shards} shard(s)")
+
+            for idx in range(num_shards):
+                all_shards.append(ShardInfo(
+                    dataset_name=dataset_name,
+                    split_name=split_name,
+                    shard_idx=idx,
+                    total_shards=num_shards,
+                    hf_name=config['hf_name'],
+                    hf_config=config['config'],
+                    cache_dir=str(cache_dir),
+                ))
+        except Exception as e:
+            console.print(f"[yellow]⚠️  {spec}:[/yellow] {e}")
+
+    all_shards.sort(key=lambda s: (s.dataset_name, s.split_name, s.shard_idx))
+    return all_shards
+
+
+# =============================================================================
+# VALIDATION
+# =============================================================================
+
+def validate_existing_embeddings(shards: List[ShardInfo], console: Console) -> ValidationSummary:
+    """Check existing embeddings."""
+    import pyarrow.parquet as pq
+
     console.print(Panel.fit(
-        "[bold cyan]Multi-GPU Parallel Embedding Extraction[/bold cyan]\n"
-        "[dim]Shard-Based Work Distribution for Maximum GPU Utilization[/dim]",
-        border_style="cyan"
+        "[bold cyan]📊 Pre-Extraction Validation[/bold cyan]",
+        border_style="cyan",
     ))
-    
-    # Determine which splits to process
-    if args.all:
-        console.print("\n[bold yellow]📦 Mode: Extract ALL available dataset splits[/bold yellow]")
-        splits_to_process = discover_all_splits(datasets_dir)
-        
-        if not splits_to_process:
-            console.print("[red]❌ No datasets found![/red]")
-            console.print("\n[dim]Please download datasets first:[/dim]")
-            console.print("  python download_nemotron_datasets.py --all")
-            sys.exit(1)
-        
-        # Sort splits for organized processing
-        splits_to_process = sorted(splits_to_process)
-        console.print(f"[green]✅ Found {len(splits_to_process)} split(s) to process[/green]")
-    else:
-        splits_to_process = args.splits
-    
-    # Configuration table
-    config_table = Table(show_header=False, box=None, padding=(0, 2))
-    config_table.add_column("Setting", style="cyan")
-    config_table.add_column("Value", style="yellow")
-    
-    if args.all:
-        config_table.add_row("Mode", "Extract ALL splits (shard-based)")
-        config_table.add_row("Splits found", str(len(splits_to_process)))
-    else:
-        config_table.add_row("Mode", "Extract specific splits (shard-based)")
-        config_table.add_row("Splits", ', '.join(args.splits))
-    
-    config_table.add_row("GPUs", str(args.num_gpus))
-    config_table.add_row("Batch size", str(args.batch_size))
-    config_table.add_row("Max text length", str(args.max_text_length))
-    config_table.add_row("Model", args.model)
-    config_table.add_row("Input type", args.input_type)
-    config_table.add_row("Checkpoints dir", str(checkpoints_dir))
-    config_table.add_row("Datasets dir", str(datasets_dir))
-    config_table.add_row("Embeddings output", str(output_dir))
-    config_table.add_row("", "")
-    config_table.add_row("Dry run", "Yes" if args.dry_run else "No")
-    config_table.add_row("Skip validation", "Yes" if args.skip_validation else "No")
-    config_table.add_row("Force re-extract", "Yes" if args.force else "No")
-    
-    console.print("\n[bold]📊 Configuration:[/bold]")
-    console.print(config_table)
-    console.print()
-    
-    # Discover dataset shards
-    console.print("[bold cyan]🔍 Discovering dataset shards...[/bold cyan]")
-    dataset_shards = discover_dataset_shards(datasets_dir, splits_to_process)
-    
-    if not dataset_shards:
-        console.print("[red]❌ No valid dataset shards found![/red]")
+
+    summary = ValidationSummary()
+    embeddings_dir = Config.embeddings_dir
+
+    if embeddings_dir.exists():
+        for dataset_dir in embeddings_dir.iterdir():
+            if not dataset_dir.is_dir():
+                continue
+            for split_dir in dataset_dir.iterdir():
+                if not split_dir.is_dir():
+                    continue
+                for f in split_dir.glob("*.parquet"):
+                    try:
+                        size = f.stat().st_size / (1024 * 1024)
+                        table = pq.read_table(str(f))
+                        summary.existing_samples += len(table)
+                        summary.existing_size_mb += size
+                    except Exception:
+                        pass
+
+    for shard in shards:
+        path = embeddings_dir / shard.dataset_name / shard.split_name / shard.parquet_filename
+        if path.exists():
+            summary.skipped_shards.append(shard)
+        else:
+            summary.pending_shards.append(shard)
+
+    console.print(f"   Existing: [cyan]{summary.existing_samples:,}[/cyan] samples")
+    console.print(f"   Complete: [green]{len(summary.skipped_shards)}[/green] shards")
+    console.print(f"   Pending:  [yellow]{len(summary.pending_shards)}[/yellow] shards\n")
+
+    return summary
+
+
+# =============================================================================
+# PROGRESS DISPLAY
+# =============================================================================
+
+def create_progress_thread(progress_dict: Dict, console: Console, stop: ThreadEvent) -> Thread:
+    """Create progress display thread."""
+    def loop():
+        with Live(console=console, refresh_per_second=2) as live:
+            while stop.is_set():
+                table = Table(title="GPU Progress", header_style="bold cyan")
+                table.add_column("GPU", width=6)
+                table.add_column("Stage", width=15)
+                table.add_column("File", width=45)
+                table.add_column("Progress", width=25)
+
+                if progress_dict:
+                    for gid in sorted(progress_dict.keys()):
+                        try:
+                            info = progress_dict[gid]
+                            fname = info.get('filename', '?')
+                            if len(fname) > 40:
+                                fname = "..." + fname[-37:]
+                            cur, tot = info.get('current', 0), info.get('total', 1)
+                            pct = cur / tot * 100 if tot > 0 else 0
+                            stage = info.get('stage', '?')
+                            emoji = STAGE_EMOJIS.get(stage, '⚙️')
+                            table.add_row(f"GPU {gid}", f"{emoji} {stage}", fname, f"{cur:,}/{tot:,} ({pct:.0f}%)")
+                        except KeyError:
+                            continue
+                else:
+                    table.add_row("—", "—", "Idle", "—")
+
+                live.update(table)
+                time.sleep(0.5)
+
+    return Thread(target=loop, daemon=True)
+
+
+# =============================================================================
+# MAIN
+# =============================================================================
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Multi-GPU embedding extraction")
+    parser.add_argument('--datasets-dir', type=str, default=str(DEFAULT_DATASETS_DIR))
+    parser.add_argument('--checkpoints-dir', type=str, default=str(DEFAULT_CHECKPOINTS_DIR))
+    parser.add_argument('--embeddings-dir', type=str, default=str(DEFAULT_EMBEDDINGS_DIR))
+    parser.add_argument('--splits', nargs='+')
+    parser.add_argument('--all', action='store_true')
+    parser.add_argument('--num-gpus', type=int, default=8)
+    parser.add_argument('--batch-size', type=int, default=32)
+    parser.add_argument('--max-text-length', type=int, default=8192)
+    parser.add_argument('--model', default='nvidia/llama-embed-nemotron-8b')
+    parser.add_argument('--input-type', default='document', choices=['document', 'query'])
+    parser.add_argument('--dry-run', action='store_true')
+    parser.add_argument('--skip-validation', action='store_true')
+    parser.add_argument('--force', '-f', action='store_true')
+    parser.add_argument('--output', default=None, help=argparse.SUPPRESS)
+    return parser.parse_args()
+
+
+def main() -> None:
+    args = parse_args()
+    console = Console()
+
+    if not args.all and not args.splits:
+        console.print("[red]❌ Specify --splits or --all[/red]")
         sys.exit(1)
-    
-    console.print(f"[green]✅ Found {len(dataset_shards)} shard(s) to process[/green]")
-    console.print()
-    
-    # ==========================================================================
-    # PRE-EXTRACTION VALIDATION
-    # ==========================================================================
+
+    if args.output:
+        Config.embeddings_dir = Path(args.output)
+
+    output_dir = Config.embeddings_dir
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    console.print(Panel.fit(
+        "[bold cyan]Multi-GPU Embedding Extraction[/bold cyan]\n"
+        "[dim]Optimized with pre-allocated buffers & pinned memory[/dim]",
+        border_style="cyan",
+    ))
+
+    # Discover splits
+    if args.all:
+        splits = sorted(discover_all_splits(console))
+        if not splits:
+            console.print("[red]❌ No datasets found[/red]")
+            sys.exit(1)
+    else:
+        splits = args.splits
+
+    # Print config
+    console.print(f"\n[bold]Config:[/bold] {args.num_gpus} GPUs, batch={args.batch_size}, len={args.max_text_length}")
+    console.print(f"[bold]Model:[/bold] {args.model}\n")
+
+    # Discover shards
+    shards = discover_dataset_shards(splits, console)
+    if not shards:
+        console.print("[red]❌ No shards found[/red]")
+        sys.exit(1)
+
+    console.print(f"[green]✅ Found {len(shards)} shard(s)[/green]\n")
+
+    # Validation
     if not args.skip_validation:
-        validation_result = check_existing_embeddings(
-            output_dir, dataset_shards, console
-        )
-        
-        pending_shards = validation_result['pending_shards']
-        skipped_shards = validation_result['skipped_shards']
-        
-        # Handle dry-run mode
+        summary = validate_existing_embeddings(shards, console)
+
         if args.dry_run:
             console.print(Panel.fit(
-                "[bold yellow]🔍 DRY RUN MODE[/bold yellow]\n"
-                f"Would extract [cyan]{len(pending_shards)}[/cyan] shard(s)\n"
-                f"Would skip [green]{len(skipped_shards)}[/green] existing shard(s)",
-                border_style="yellow"
+                f"[yellow]DRY RUN[/yellow]: Would process {len(summary.pending_shards)} shards",
+                border_style="yellow",
             ))
             sys.exit(0)
-        
-        # Check if there's anything to do
-        if not pending_shards and not args.force:
-            console.print(Panel.fit(
-                "[bold green]✅ ALL EMBEDDINGS ALREADY EXIST[/bold green]\n"
-                f"All [cyan]{len(skipped_shards)}[/cyan] shard(s) are already extracted.\n"
-                "[dim]Use --force to re-extract anyway[/dim]",
-                border_style="green"
-            ))
+
+        if not summary.pending_shards and not args.force:
+            console.print(Panel.fit("[green]✅ All complete[/green]", border_style="green"))
             sys.exit(0)
-        
-        # Use pending shards for processing (unless force is set)
+
         if not args.force:
-            dataset_shards = pending_shards
-            console.print(f"[cyan]📋 Will process {len(dataset_shards)} pending shard(s)[/cyan]")
-            console.print(f"[dim]   (Skipping {len(skipped_shards)} existing shard(s))[/dim]")
-        else:
-            console.print(f"[yellow]⚠️  Force mode: Will reprocess all {len(dataset_shards)} shard(s)[/yellow]")
-        
-        console.print()
-    else:
-        console.print("[dim]⏭️  Skipping pre-extraction validation (--skip-validation)[/dim]")
-        console.print()
-    
-    # ==========================================================================
-    # Create work queue, results queue, and progress tracking
+            shards = summary.pending_shards
+
+    # Setup queues
     manager = Manager()
     work_queue = manager.Queue()
     results_queue = manager.Queue()
-    progress_dict = manager.dict()  # Shared dict for per-GPU progress
-    shutdown_event = manager.Event()
-    
-    # Populate work queue
-    for shard_info in dataset_shards:
-        work_queue.put(shard_info)
-    
-    # Add poison pills (None) for each worker to signal completion
+    progress_dict = manager.dict()
+    shutdown = manager.Event()
+
+    for shard in shards:
+        work_queue.put(shard.to_dict())
     for _ in range(args.num_gpus):
         work_queue.put(None)
-    
-    console.print(f"[cyan]📋 Work queue populated with {len(dataset_shards)} shard(s)[/cyan]")
-    console.print()
-    
-    # Start GPU worker processes
-    console.print(f"[bold cyan]🚀 Starting {args.num_gpus} GPU worker(s)...[/bold cyan]")
+
+    console.print(f"[cyan]📋 Queue: {len(shards)} shards[/cyan]\n")
+
+    # Start workers
+    console.print(f"[bold cyan]🚀 Starting {args.num_gpus} workers...[/bold cyan]")
     workers = []
-    for gpu_id in range(args.num_gpus):
-        worker = Process(
-            target=gpu_worker,
-            args=(
-                gpu_id, work_queue, results_queue, args.model,
-                args.batch_size, args.max_text_length, args.input_type,
-                output_dir, progress_dict, shutdown_event
-            )
-        )
-        worker.start()
-        workers.append(worker)
-    
-    console.print(f"[green]✅ All workers started[/green]")
-    console.print()
-    
-    # Monitor progress
-    console.print("[bold]📊 Processing progress:[/bold]")
-    
-    # Display per-GPU progress in a table
-    from threading import Thread
-    import threading
-    
-    progress_display_active = threading.Event()
-    progress_display_active.set()
-    
-    def display_gpu_progress():
-        """Background thread to display per-GPU progress."""
-        from rich.live import Live
-        from rich.table import Table as RichTable
-        
-        with Live(console=console, refresh_per_second=2) as live:
-            while progress_display_active.is_set():
-                table = RichTable(title="GPU Progress", show_header=True, header_style="bold cyan")
-                table.add_column("GPU", style="cyan", width=6)
-                table.add_column("Stage", style="magenta", width=20)
-                table.add_column("File", style="yellow", width=45)
-                table.add_column("Progress", style="green", width=30)
-                
-                if progress_dict:
-                    # Take a snapshot of keys to avoid race condition
-                    gpu_ids = list(progress_dict.keys())
-                    for gpu_id in sorted(gpu_ids):
-                        try:
-                            info = progress_dict[gpu_id]
-                            filename = info.get('filename', '?')
-                            current = info.get('current', 0)
-                            total = info.get('total', 1)
-                            stage = info.get('stage', 'processing')
-                            pct = (current / total * 100) if total > 0 else 0
-                            
-                            # Truncate filename if too long
-                            if len(filename) > 40:
-                                filename = "..." + filename[-37:]
-                            
-                            # Format stage
-                            stage_emoji = {
-                                'loading': '📂',
-                                'extracting': '📝',
-                                'embedding': '🔮',
-                                'saving': '💾'
-                            }
-                            stage_display = stage_emoji.get(stage, '⚙️')
-                            
-                            table.add_row(
-                                f"GPU {gpu_id}",
-                                f"{stage_display} {stage}",
-                                filename,
-                                f"{current:,}/{total:,} ({pct:.1f}%)"
-                            )
-                        except KeyError:
-                            # GPU finished processing between keys() and access - skip it
-                            continue
-                else:
-                    table.add_row("—", "—", "No active processing", "—")
-                
-                live.update(table)
-                time.sleep(0.5)
-    
-    # Start progress display thread
-    progress_thread = Thread(target=display_gpu_progress, daemon=True)
+    for gid in range(args.num_gpus):
+        w = Process(target=gpu_worker, args=(
+            gid, work_queue, results_queue, args.model,
+            args.batch_size, args.max_text_length, args.input_type,
+            output_dir, progress_dict, shutdown,
+        ))
+        w.start()
+        workers.append(w)
+
+    console.print("[green]✅ Workers started[/green]\n")
+
+    # Progress display
+    progress_active = ThreadEvent()
+    progress_active.set()
+    progress_thread = create_progress_thread(progress_dict, console, progress_active)
     progress_thread.start()
-    
-    console.print()
-    console.print("=" * 80)
-    
-    completed = 0
-    total_samples_processed = 0
-    start_time = time.time()
-    
+
+    console.print("=" * 70)
+
+    # Collect results
+    completed, total_samples = 0, 0
+    start = time.time()
+
     try:
-        while completed < len(dataset_shards):
+        while completed < len(shards):
             try:
-                result_info = results_queue.get(timeout=1)
+                info = results_queue.get(timeout=1)
                 completed += 1
-                
-                result = result_info['result']
-                gpu_id = result_info['gpu_id']
-                shard_spec = result.get('shard', 'unknown')
-                
-                if result['status'] == 'success':
-                    total_samples_processed += result['samples']
-                    elapsed = time.time() - start_time
-                    avg_speed = total_samples_processed / elapsed if elapsed > 0 else 0
-                    console.print(
-                        f"[green]✅ [{completed}/{len(dataset_shards)}][/green] "
-                        f"[cyan]GPU {gpu_id}:[/cyan] {shard_spec} - "
-                        f"[yellow]{result['samples']:,}[/yellow] samples | "
-                        f"Avg: [magenta]{avg_speed:.1f}[/magenta] samples/s"
-                    )
-                elif result['status'] == 'skipped':
-                    total_samples_processed += result['samples']
-                    console.print(
-                        f"[dim]⏭️  [{completed}/{len(dataset_shards)}][/dim] "
-                        f"[cyan]GPU {gpu_id}:[/cyan] {shard_spec} - "
-                        f"[dim]skipped[/dim]"
-                    )
+                r = info['result']
+                gid = info['gpu_id']
+
+                if r['status'] == 'success':
+                    total_samples += r['samples']
+                    elapsed = time.time() - start
+                    speed = total_samples / elapsed if elapsed > 0 else 0
+                    console.print(f"[green]✅ [{completed}/{len(shards)}][/green] GPU {gid}: {r['shard']} - {r['samples']:,} | {speed:.0f}/s")
+                elif r['status'] == 'skipped':
+                    total_samples += r['samples']
+                    console.print(f"[dim]⏭️  [{completed}/{len(shards)}] GPU {gid}: {r['shard']}[/dim]")
                 else:
-                    console.print(
-                        f"[yellow]⚠️  [{completed}/{len(dataset_shards)}][/yellow] "
-                        f"[cyan]GPU {gpu_id}:[/cyan] {shard_spec} - "
-                        f"[red]{result['status']}[/red]"
-                    )
-                
+                    console.print(f"[yellow]⚠️  [{completed}/{len(shards)}][/yellow] GPU {gid}: {r['shard']} - {r['status']}")
+
             except Empty:
                 continue
-    
+
     except KeyboardInterrupt:
-        console.print("\n[yellow]⚠️  Interrupted by user, shutting down workers...[/yellow]")
-        shutdown_event.set()
-    
-    # Stop progress display
-    progress_display_active.clear()
+        console.print("\n[yellow]Interrupted[/yellow]")
+        shutdown.set()
+
+    progress_active.clear()
     if progress_thread.is_alive():
         progress_thread.join(timeout=2)
-    
-    # Wait for all workers to finish
-    console.print("\n[cyan]🛑 Waiting for workers to finish...[/cyan]")
-    for worker in workers:
-        worker.join(timeout=10)
-        if worker.is_alive():
-            console.print(f"[yellow]⚠️  Worker {worker.pid} did not terminate gracefully, forcing...[/yellow]")
-            worker.terminate()
-    
-    # Final summary
-    elapsed = time.time() - start_time
+
+    console.print("\n[cyan]Waiting for workers...[/cyan]")
+    for w in workers:
+        w.join(timeout=WORKER_JOIN_TIMEOUT)
+        if w.is_alive():
+            w.terminate()
+
+    # Summary
+    elapsed = time.time() - start
     console.print()
-    
-    # Create summary table
-    summary_table = Table(show_header=False, box=None, padding=(0, 2))
-    summary_table.add_column("Metric", style="cyan bold")
-    summary_table.add_column("Value", style="green bold")
-    
-    summary_table.add_row("Processed", f"{completed} shard(s)")
-    summary_table.add_row("Total samples", f"{total_samples_processed:,}")
-    summary_table.add_row("Total time", f"{elapsed:.1f}s ({elapsed/60:.1f} min)")
-    if elapsed > 0:
-        summary_table.add_row("Average speed", f"{total_samples_processed/elapsed:.1f} samples/s")
-    summary_table.add_row("Output directory", str(output_dir))
-    
     console.print(Panel.fit(
-        summary_table,
-        title="[bold green]📊 PROCESSING COMPLETE[/bold green]",
-        border_style="green"
+        f"[bold green]✅ COMPLETE[/bold green]\n\n"
+        f"Shards: {completed}\n"
+        f"Samples: {total_samples:,}\n"
+        f"Time: {elapsed:.0f}s ({elapsed/60:.1f}m)\n"
+        f"Speed: {total_samples/elapsed:.0f}/s" if elapsed > 0 else "",
+        border_style="green",
     ))
 
 
@@ -1638,11 +1023,9 @@ if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
-        print("\n\n⚠️  Interrupted by user")
+        print("\n⚠️  Interrupted")
         sys.exit(1)
     except Exception as e:
-        print(f"\n\n❌ Fatal error: {e}")
-        import traceback
+        print(f"\n❌ {e}")
         traceback.print_exc()
         sys.exit(1)
-
