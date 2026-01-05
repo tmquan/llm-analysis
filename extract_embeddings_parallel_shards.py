@@ -396,6 +396,42 @@ class EmbeddingEngine:
         # Wait for transfer to complete
         self.stream.synchronize()
         
+        return self._forward_pass(input_ids, attention_mask, actual_batch_size)
+    
+    @torch.inference_mode()
+    def compute_embeddings_pretokenized(self, input_ids: torch.Tensor, 
+                                         attention_mask: torch.Tensor) -> np.ndarray:
+        """
+        Compute embeddings from pre-tokenized tensors.
+        
+        Used with DataPrefetcher for maximum throughput.
+        """
+        actual_batch_size = input_ids.shape[0]
+        
+        # Copy to pinned memory
+        self.input_ids_pinned[:actual_batch_size].copy_(input_ids)
+        self.attention_mask_pinned[:actual_batch_size].copy_(attention_mask)
+        
+        # Async copy to GPU
+        with torch.cuda.stream(self.stream):
+            self.input_ids_buffer[:actual_batch_size].copy_(
+                self.input_ids_pinned[:actual_batch_size], non_blocking=True
+            )
+            self.attention_mask_buffer[:actual_batch_size].copy_(
+                self.attention_mask_pinned[:actual_batch_size], non_blocking=True
+            )
+        
+        self.stream.synchronize()
+        
+        return self._forward_pass(
+            self.input_ids_buffer[:actual_batch_size],
+            self.attention_mask_buffer[:actual_batch_size],
+            actual_batch_size
+        )
+    
+    def _forward_pass(self, input_ids: torch.Tensor, attention_mask: torch.Tensor,
+                      actual_batch_size: int) -> np.ndarray:
+        """Core forward pass logic."""
         # Forward pass with mixed precision
         with torch.cuda.amp.autocast():
             outputs = self.model(
@@ -442,8 +478,15 @@ class EmbeddingEngine:
 
 
 # =============================================================================
-# TEXT EXTRACTION
+# TEXT EXTRACTION (MULTI-THREADED)
 # =============================================================================
+
+from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor
+import multiprocessing as mp
+
+# Number of CPU workers for data loading
+NUM_DATA_WORKERS = min(8, mp.cpu_count())
+
 
 def extract_text_from_sample(sample: Dict[str, Any]) -> str:
     """Extract text from dataset sample."""
@@ -475,16 +518,111 @@ def extract_text_from_sample(sample: Dict[str, Any]) -> str:
     return "\n\n".join(texts) if texts else ""
 
 
-def extract_texts_batch(samples: List[Dict]) -> Tuple[List[str], List[int]]:
-    """Extract texts from multiple samples efficiently."""
-    texts = []
-    indices = []
-    for idx, sample in enumerate(samples):
-        text = extract_text_from_sample(sample)
-        if text and text.strip():
+def _extract_single(args: Tuple[int, Dict]) -> Tuple[int, str]:
+    """Helper for parallel extraction."""
+    idx, sample = args
+    text = extract_text_from_sample(sample)
+    return (idx, text) if text and text.strip() else (idx, "")
+
+
+def extract_texts_parallel(samples: List[Dict], num_workers: int = NUM_DATA_WORKERS) -> Tuple[List[str], List[int]]:
+    """
+    Extract texts using multiple CPU threads.
+    
+    Much faster than sequential for large batches.
+    """
+    if len(samples) < 100:
+        # Small batch - sequential is faster due to overhead
+        texts, indices = [], []
+        for idx, sample in enumerate(samples):
+            text = extract_text_from_sample(sample)
+            if text and text.strip():
+                texts.append(text)
+                indices.append(idx)
+        return texts, indices
+    
+    # Large batch - use thread pool
+    texts, indices = [], []
+    with ThreadPoolExecutor(max_workers=num_workers) as executor:
+        results = list(executor.map(_extract_single, enumerate(samples)))
+    
+    for idx, text in results:
+        if text:
             texts.append(text)
             indices.append(idx)
+    
     return texts, indices
+
+
+class DataPrefetcher:
+    """
+    Prefetch and prepare data batches in background threads.
+    
+    Ensures GPU never waits for CPU data preparation.
+    """
+    
+    def __init__(self, texts: List[str], batch_size: int, tokenizer, max_length: int, 
+                 input_type: str, num_workers: int = 4):
+        self.texts = texts
+        self.batch_size = batch_size
+        self.tokenizer = tokenizer
+        self.max_length = max_length
+        self.input_type = input_type
+        self.num_workers = num_workers
+        self.total_batches = (len(texts) + batch_size - 1) // batch_size
+        
+        # Prefetch queue
+        self._queue = []
+        self._executor = ThreadPoolExecutor(max_workers=num_workers)
+        self._futures = []
+        
+        # Start prefetching
+        self._start_prefetch()
+    
+    def _tokenize_batch(self, batch_idx: int) -> Dict[str, Any]:
+        """Tokenize a single batch (runs in thread)."""
+        start = batch_idx * self.batch_size
+        end = min(start + self.batch_size, len(self.texts))
+        batch_texts = self.texts[start:end]
+        
+        # Add prefix for Nemotron
+        if 'nemotron' in self.tokenizer.name_or_path.lower():
+            prefix = "query: " if self.input_type == 'query' else "passage: "
+            batch_texts = [f"{prefix}{t}" for t in batch_texts]
+        
+        # Tokenize
+        encoded = self.tokenizer(
+            batch_texts,
+            padding='max_length',
+            truncation=True,
+            max_length=self.max_length,
+            return_tensors='pt',
+        )
+        
+        return {
+            'input_ids': encoded['input_ids'],
+            'attention_mask': encoded['attention_mask'],
+            'batch_idx': batch_idx,
+            'batch_size': len(batch_texts),
+        }
+    
+    def _start_prefetch(self):
+        """Start prefetching all batches."""
+        for batch_idx in range(self.total_batches):
+            future = self._executor.submit(self._tokenize_batch, batch_idx)
+            self._futures.append(future)
+    
+    def __iter__(self):
+        """Iterate over prefetched batches."""
+        for future in self._futures:
+            yield future.result()
+    
+    def __len__(self):
+        return self.total_batches
+    
+    def close(self):
+        """Cleanup executor."""
+        self._executor.shutdown(wait=False)
 
 
 # =============================================================================
@@ -501,9 +639,10 @@ def process_shard_optimized(
     Process a shard using the optimized EmbeddingEngine.
     
     Key optimizations:
-        - Uses pre-allocated buffers (zero allocation in hot path)
-        - Batch processing with pinned memory transfers
-        - Async CUDA operations
+        - Multi-threaded text extraction (CPU)
+        - Prefetched tokenization in background threads
+        - Pre-allocated GPU buffers (zero allocation in hot path)
+        - Async CUDA operations with pinned memory
     """
     from datasets import Dataset, load_dataset
     import pyarrow.parquet as pq
@@ -555,28 +694,44 @@ def process_shard_optimized(
         console.print(f"[cyan]🔄 GPU {device}:[/cyan] {parquet_filename} ({num_samples:,} samples)")
         update_progress(0, num_samples, 'loading')
 
-        # Extract all texts first (CPU operation)
+        # ===== OPTIMIZATION: Parallel text extraction =====
         update_progress(0, num_samples, 'extracting')
-        texts, indices = extract_texts_batch(list(shard_data))
+        texts, indices = extract_texts_parallel(list(shard_data), num_workers=NUM_DATA_WORKERS)
 
         if not texts:
             console.print(f"[yellow]⚠️  GPU {device}:[/yellow] No text in {parquet_filename}")
             clear_progress()
             return ProcessingResult('no_text', 0, shard_info.spec)
 
-        # Process in batches using pre-allocated buffers
-        all_embeddings = []
         total_texts = len(texts)
         batch_size = engine.batch_size
 
-        for i in range(0, total_texts, batch_size):
-            batch_texts = texts[i:i + batch_size]
-            
-            # Compute embeddings using optimized engine
-            batch_embeddings = engine.compute_embeddings(batch_texts)
+        # ===== OPTIMIZATION: Prefetch tokenized batches in background =====
+        prefetcher = DataPrefetcher(
+            texts=texts,
+            batch_size=batch_size,
+            tokenizer=engine.tokenizer,
+            max_length=engine.max_length,
+            input_type=engine.input_type,
+            num_workers=4,  # 4 threads for tokenization
+        )
+
+        # Process prefetched batches - GPU never waits for CPU
+        all_embeddings = []
+        processed = 0
+
+        for batch_data in prefetcher:
+            # Batch is already tokenized, just transfer and compute
+            batch_embeddings = engine.compute_embeddings_pretokenized(
+                batch_data['input_ids'],
+                batch_data['attention_mask'],
+            )
             all_embeddings.append(batch_embeddings)
             
-            update_progress(min(i + batch_size, total_texts), total_texts, 'embedding')
+            processed += batch_data['batch_size']
+            update_progress(processed, total_texts, 'embedding')
+
+        prefetcher.close()
 
         # Concatenate and save
         update_progress(total_texts, total_texts, 'saving')
