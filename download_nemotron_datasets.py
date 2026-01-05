@@ -588,17 +588,29 @@ def safe_download(dataset_name: str, load_fn, cache_dir: str, config: str = None
             "Expected to be able to read" in error_msg and 
             "bytes for message body" in error_msg
         )
+        is_server_error = (
+            "502 Server Error" in error_msg or
+            "503 Server Error" in error_msg or
+            "504 Server Error" in error_msg or
+            "500 Server Error" in error_msg or
+            "Bad Gateway" in error_msg or
+            "Service Unavailable" in error_msg
+        )
         is_data_error = (
             "DatasetGenerationError" in error_type or
             "ArrowInvalid" in error_msg or
             "An error occurred while generating" in error_msg or
             "Couldn't cast array" in error_msg
         )
+        # More specific auth error detection (avoid matching URLs containing "token")
         is_auth_error = (
-            "gated" in error_msg.lower() or 
-            "authentication" in error_msg.lower() or
-            "token" in error_msg.lower()
-        )
+            ("gated" in error_msg.lower() and "dataset" in error_msg.lower()) or
+            "authentication required" in error_msg.lower() or
+            "401 Client Error" in error_msg or
+            "403 Client Error" in error_msg or
+            ("invalid token" in error_msg.lower()) or
+            ("access denied" in error_msg.lower())
+        ) and not is_server_error  # Server errors take precedence
         is_permission_error = isinstance(e, PermissionError)
         is_connection_error = isinstance(e, (ConnectionError, TimeoutError))
         
@@ -607,6 +619,13 @@ def safe_download(dataset_name: str, load_fn, cache_dir: str, config: str = None
             print(f"   The cached Arrow file is incomplete/corrupted (likely from interrupted download).")
             print(f"   Fix: Re-run with --force-redownload flag to clear cache and re-download:")
             print(f"        python download_nemotron_datasets.py --v1 --force-redownload")
+        elif is_server_error:
+            print(f"\n❌ HuggingFace server error for {dataset_name}")
+            print(f"   The HuggingFace server returned a temporary error (502/503/504).")
+            print(f"   This is a server-side issue, not a problem with your setup.")
+            print(f"   Fix: Wait a few minutes and try again.")
+            if not VERBOSE:
+                print(f"   Error: {error_msg[:150]}...")
         elif is_data_error:
             print(f"\n❌ Data generation error for {dataset_name}")
             print(f"   This is likely a data corruption issue in the HuggingFace repository.")
