@@ -554,45 +554,35 @@ def extract_texts_parallel(samples: List[Dict], num_workers: int = NUM_DATA_WORK
     return texts, indices
 
 
-class DataPrefetcher:
+class TextDataset(torch.utils.data.Dataset):
     """
-    Prefetch and prepare data batches in background threads.
+    PyTorch Dataset for text tokenization.
     
-    Ensures GPU never waits for CPU data preparation.
+    Used with DataLoader for multi-process prefetching.
     """
     
-    def __init__(self, texts: List[str], batch_size: int, tokenizer, max_length: int, 
-                 input_type: str, num_workers: int = 4):
+    def __init__(self, texts: List[str], indices: List[int], tokenizer, 
+                 max_length: int, input_type: str = 'document'):
         self.texts = texts
-        self.batch_size = batch_size
+        self.indices = indices
         self.tokenizer = tokenizer
         self.max_length = max_length
         self.input_type = input_type
-        self.num_workers = num_workers
-        self.total_batches = (len(texts) + batch_size - 1) // batch_size
         
-        # Prefetch queue
-        self._queue = []
-        self._executor = ThreadPoolExecutor(max_workers=num_workers)
-        self._futures = []
-        
-        # Start prefetching
-        self._start_prefetch()
+        # Determine prefix once
+        self.prefix = ""
+        if 'nemotron' in tokenizer.name_or_path.lower():
+            self.prefix = "query: " if input_type == 'query' else "passage: "
     
-    def _tokenize_batch(self, batch_idx: int) -> Dict[str, Any]:
-        """Tokenize a single batch (runs in thread)."""
-        start = batch_idx * self.batch_size
-        end = min(start + self.batch_size, len(self.texts))
-        batch_texts = self.texts[start:end]
+    def __len__(self) -> int:
+        return len(self.texts)
+    
+    def __getitem__(self, idx: int) -> Dict[str, torch.Tensor]:
+        """Tokenize single text (called by DataLoader workers)."""
+        text = self.prefix + self.texts[idx]
         
-        # Add prefix for Nemotron
-        if 'nemotron' in self.tokenizer.name_or_path.lower():
-            prefix = "query: " if self.input_type == 'query' else "passage: "
-            batch_texts = [f"{prefix}{t}" for t in batch_texts]
-        
-        # Tokenize
         encoded = self.tokenizer(
-            batch_texts,
+            text,
             padding='max_length',
             truncation=True,
             max_length=self.max_length,
@@ -600,29 +590,67 @@ class DataPrefetcher:
         )
         
         return {
-            'input_ids': encoded['input_ids'],
-            'attention_mask': encoded['attention_mask'],
-            'batch_idx': batch_idx,
-            'batch_size': len(batch_texts),
+            'input_ids': encoded['input_ids'].squeeze(0),
+            'attention_mask': encoded['attention_mask'].squeeze(0),
+            'original_idx': self.indices[idx],
         }
+
+
+def collate_fn(batch: List[Dict]) -> Dict[str, torch.Tensor]:
+    """Custom collate function for DataLoader."""
+    return {
+        'input_ids': torch.stack([b['input_ids'] for b in batch]),
+        'attention_mask': torch.stack([b['attention_mask'] for b in batch]),
+        'original_indices': [b['original_idx'] for b in batch],
+        'batch_size': len(batch),
+    }
+
+
+def create_dataloader(
+    texts: List[str],
+    indices: List[int],
+    tokenizer,
+    batch_size: int,
+    max_length: int,
+    input_type: str = 'document',
+    num_workers: int = 8,
+    prefetch_factor: int = 4,
+) -> torch.utils.data.DataLoader:
+    """
+    Create optimized DataLoader with multi-process prefetching.
     
-    def _start_prefetch(self):
-        """Start prefetching all batches."""
-        for batch_idx in range(self.total_batches):
-            future = self._executor.submit(self._tokenize_batch, batch_idx)
-            self._futures.append(future)
+    Args:
+        texts: List of text strings
+        indices: Original indices in dataset
+        tokenizer: HuggingFace tokenizer
+        batch_size: Batch size
+        max_length: Max sequence length
+        input_type: 'document' or 'query'
+        num_workers: Number of worker processes for data loading
+        prefetch_factor: Batches to prefetch per worker
     
-    def __iter__(self):
-        """Iterate over prefetched batches."""
-        for future in self._futures:
-            yield future.result()
+    Returns:
+        DataLoader with prefetching enabled
+    """
+    dataset = TextDataset(
+        texts=texts,
+        indices=indices,
+        tokenizer=tokenizer,
+        max_length=max_length,
+        input_type=input_type,
+    )
     
-    def __len__(self):
-        return self.total_batches
-    
-    def close(self):
-        """Cleanup executor."""
-        self._executor.shutdown(wait=False)
+    return torch.utils.data.DataLoader(
+        dataset,
+        batch_size=batch_size,
+        shuffle=False,
+        num_workers=num_workers,
+        pin_memory=True,  # Fast CPU->GPU transfer
+        prefetch_factor=prefetch_factor,  # Prefetch batches per worker
+        persistent_workers=True if num_workers > 0 else False,  # Keep workers alive
+        collate_fn=collate_fn,
+        drop_last=False,
+    )
 
 
 # =============================================================================
@@ -706,32 +734,37 @@ def process_shard_optimized(
         total_texts = len(texts)
         batch_size = engine.batch_size
 
-        # ===== OPTIMIZATION: Prefetch tokenized batches in background =====
-        prefetcher = DataPrefetcher(
+        # ===== OPTIMIZATION: PyTorch DataLoader with multi-process prefetching =====
+        dataloader = create_dataloader(
             texts=texts,
-            batch_size=batch_size,
+            indices=indices,
             tokenizer=engine.tokenizer,
+            batch_size=batch_size,
             max_length=engine.max_length,
             input_type=engine.input_type,
-            num_workers=4,  # 4 threads for tokenization
+            num_workers=NUM_DATA_WORKERS,  # Worker processes for tokenization
+            prefetch_factor=4,  # Prefetch 4 batches per worker
         )
 
-        # Process prefetched batches - GPU never waits for CPU
+        # Process batches - GPU never waits thanks to prefetching
         all_embeddings = []
+        all_indices = []
         processed = 0
 
-        for batch_data in prefetcher:
-            # Batch is already tokenized, just transfer and compute
+        for batch_data in dataloader:
+            # Batch is pre-tokenized and in pinned memory, fast GPU transfer
             batch_embeddings = engine.compute_embeddings_pretokenized(
                 batch_data['input_ids'],
                 batch_data['attention_mask'],
             )
             all_embeddings.append(batch_embeddings)
+            all_indices.extend(batch_data['original_indices'])
             
             processed += batch_data['batch_size']
             update_progress(processed, total_texts, 'embedding')
 
-        prefetcher.close()
+        # Cleanup dataloader workers
+        del dataloader
 
         # Concatenate and save
         update_progress(total_texts, total_texts, 'saving')
@@ -739,7 +772,7 @@ def process_shard_optimized(
 
         embedding_dataset = Dataset.from_dict({
             'embeddings': embeddings_array.tolist(),
-            'original_index': indices,
+            'original_index': all_indices,
         })
         embedding_dataset.to_parquet(str(parquet_path))
 
@@ -747,7 +780,7 @@ def process_shard_optimized(
 
         # Cleanup (preserve engine buffers)
         num_texts = len(texts)
-        del texts, indices, all_embeddings, embeddings_array, embedding_dataset
+        del texts, indices, all_indices, all_embeddings, embeddings_array, embedding_dataset
         del shard_data, dataset
         gc.collect()
         # NOTE: Don't empty_cache - preserve pre-allocated pools

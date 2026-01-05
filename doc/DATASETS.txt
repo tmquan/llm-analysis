@@ -1,0 +1,388 @@
+⚠️  NeMo Curator not installed. Running in exploration-only mode.
+   Install with: pip install nemo-curator
+
+🔍 Discovering datasets in: /raid/datasets
+
+  📄 Searching for JSONL files...
+     Found 5 JSONL dataset(s)
+  📊 Searching for Arrow/HuggingFace cached datasets...
+     Found 6 Arrow dataset(s)
+  📁 Searching for standalone Parquet files...
+     Found 1 Parquet dataset(s)
+
+✅ Total datasets discovered: 12
+
+                                                               📚 Dataset Discovery Summary                                                               
+╭──────────────────────────────────────────┬─────────┬───────────────────────────────────────┬───────┬────────────┬──────────────────────────────────────╮
+│ Dataset Name                             │ Format  │ Splits                                │ Files │    Samples │ Embedding Columns                    │
+├──────────────────────────────────────────┼─────────┼───────────────────────────────────────┼───────┼────────────┼──────────────────────────────────────┤
+│ jsonl-v3-agentic                         │ JSONL   │ interactive_agent                     │     1 │        N/A │ messages, reasoning                  │
+│ jsonl-llama-nemotron                     │ JSONL   │ instruction_following                 │     1 │        N/A │ input, reasoning, system_prompt      │
+│ jsonl-v3-rl-blend                        │ JSONL   │ train                                 │     1 │        N/A │ responses_create_params,             │
+│                                          │         │                                       │       │            │ expected_answer,                     │
+│                                          │         │                                       │       │            │ instruction_id_list, prompt          │
+│ jsonl-llama-rl                           │ JSONL   │ instruction_following                 │     1 │        N/A │ input, reasoning, system_prompt      │
+│ nemotron-v3-jsonl-rl-blend               │ JSONL   │ train                                 │     1 │        N/A │ responses_create_params,             │
+│                                          │         │                                       │       │            │ expected_answer,                     │
+│                                          │         │                                       │       │            │ instruction_id_list, prompt          │
+│ nemotron-post-training-dataset-v2        │ ARROW   │ stem, chat, math, code,               │   196 │  6,341,414 │ reasoning, messages                  │
+│                                          │         │ multilingual_ja, multilingual_de,     │       │            │                                      │
+│                                          │         │ multilingual_it, multilingual_es,     │       │            │                                      │
+│                                          │         │ multilingual_fr                       │       │            │                                      │
+│ nemotron-post-training-dataset-v1        │ ARROW   │ chat, code, math, stem, tool_calling  │   997 │ 25,659,642 │ reasoning, messages                  │
+│ llama-nemotron-post-training-dataset:SFT │ ARROW   │ code, math, science, chat, safety     │   246 │ 32,955,418 │ input, output, reasoning,            │
+│                                          │         │                                       │       │            │ system_prompt                        │
+│ nemotron-science-v1                      │ ARROW   │ MCQ, RQA                              │     6 │    226,334 │ messages                             │
+│ nemotron-math-proofs-v1                  │ ARROW   │ lean                                  │    57 │  1,376,663 │ messages                             │
+│ nemotron-instruction-following-chat-v1   │ ARROW   │ chat_if, structured_outputs           │    15 │    430,978 │ messages, reasoning                  │
+│ llama-nemotron                           │ PARQUET │ default                               │     1 │        N/A │ input, reasoning, system_prompt      │
+╰──────────────────────────────────────────┴─────────┴───────────────────────────────────────┴───────┴────────────┴──────────────────────────────────────╯
+
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ jsonl-v3-agentic                                                                                                                                       │
+│ ├── 📋 Basic Info                                                                                                                                      │
+│ │   ├── Path: /raid/datasets/jsonl/v3-agentic                                                                                                          │
+│ │   └── Format: JSONL                                                                                                                                  │
+│ ├── 📊 Splits                                                                                                                                          │
+│ │   └── interactive_agent: 1 file(s)                                                                                                                   │
+│ ├── 📝 Columns                                                                                                                                         │
+│ │   ├── uuid: str                                                                                                                                      │
+│ │   ├── messages: List[Dict] ✓ (embedding candidate)                                                                                                   │
+│ │   │       Fields: role, content, tool_calls, reasoning_content, tool_call_id                                                                         │
+│ │   ├── license: str                                                                                                                                   │
+│ │   ├── used_in: List                                                                                                                                  │
+│ │   ├── tools: List[Dict]                                                                                                                              │
+│ │   │       Fields: type, function                                                                                                                     │
+│ │   └── reasoning: str ✓ (embedding candidate)                                                                                                         │
+│ └── 🎯 Recommended for Embedding Extraction                                                                                                            │
+│     ├── messages (List[Dict])                                                                                                                          │
+│     └── reasoning (str)                                                                                                                                │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ jsonl-llama-nemotron                                                                                                                                   │
+│ ├── 📋 Basic Info                                                                                                                                      │
+│ │   ├── Path: /raid/datasets/jsonl/llama-nemotron                                                                                                      │
+│ │   └── Format: JSONL                                                                                                                                  │
+│ ├── 📊 Splits                                                                                                                                          │
+│ │   └── instruction_following: 1 file(s)                                                                                                               │
+│ ├── 📝 Columns                                                                                                                                         │
+│ │   ├── input: List[Dict] ✓ (embedding candidate)                                                                                                      │
+│ │   │       Fields: role, content                                                                                                                      │
+│ │   ├── args: Dict                                                                                                                                     │
+│ │   │       Fields: instruction_id_list, instruction_kwargs, task, num_requirements                                                                    │
+│ │   ├── category: str                                                                                                                                  │
+│ │   ├── license: str                                                                                                                                   │
+│ │   ├── reasoning: str ✓ (embedding candidate)                                                                                                         │
+│ │   ├── used_in_training: str                                                                                                                          │
+│ │   ├── version: str                                                                                                                                   │
+│ │   └── system_prompt: str ✓ (embedding candidate)                                                                                                     │
+│ └── 🎯 Recommended for Embedding Extraction                                                                                                            │
+│     ├── input (List[Dict])                                                                                                                             │
+│     ├── reasoning (str)                                                                                                                                │
+│     └── system_prompt (str)                                                                                                                            │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ jsonl-v3-rl-blend                                                                                                                                      │
+│ ├── 📋 Basic Info                                                                                                                                      │
+│ │   ├── Path: /raid/datasets/jsonl/v3-rl-blend                                                                                                         │
+│ │   └── Format: JSONL                                                                                                                                  │
+│ ├── 📊 Splits                                                                                                                                          │
+│ │   └── train: 1 file(s)                                                                                                                               │
+│ ├── 📝 Columns                                                                                                                                         │
+│ │   ├── id: int                                                                                                                                        │
+│ │   ├── responses_create_params: Dict ✓ (embedding candidate)                                                                                          │
+│ │   │       Fields: input, tools, parallel_tool_calls, temperature                                                                                     │
+│ │   ├── ground_truth: List[Dict]                                                                                                                       │
+│ │   │       Fields: name, arguments                                                                                                                    │
+│ │   ├── category: str                                                                                                                                  │
+│ │   ├── environment_name: str                                                                                                                          │
+│ │   ├── agent_ref: Dict                                                                                                                                │
+│ │   │       Fields: type, name                                                                                                                         │
+│ │   ├── pass_rate: float                                                                                                                               │
+│ │   ├── pass_rate_total: int                                                                                                                           │
+│ │   ├── pass_rate_passed: int                                                                                                                          │
+│ │   ├── dataset: str                                                                                                                                   │
+│ │   ├── expected_answer: NoneType ✓ (embedding candidate)                                                                                              │
+│ │   ├── uuid: NoneType                                                                                                                                 │
+│ │   ├── options: NoneType                                                                                                                              │
+│ │   ├── reward_profiles: NoneType                                                                                                                      │
+│ │   ├── template_metadata: NoneType                                                                                                                    │
+│ │   ├── instruction_id_list: NoneType ✓ (embedding candidate)                                                                                          │
+│ │   ├── prompt: NoneType ✓ (embedding candidate)                                                                                                       │
+│ │   ├── kwargs: NoneType                                                                                                                               │
+│ │   ├── _hf_placeholder: NoneType                                                                                                                      │
+│ │   ├── verifier_metadata: NoneType                                                                                                                    │
+│ │   ├── hash_id: NoneType                                                                                                                              │
+│ │   ├── source: NoneType                                                                                                                               │
+│ │   ├── schema_str: NoneType                                                                                                                           │
+│ │   ├── schema_type: NoneType                                                                                                                          │
+│ │   └── schema_fields_count: NoneType                                                                                                                  │
+│ └── 🎯 Recommended for Embedding Extraction                                                                                                            │
+│     ├── responses_create_params (Dict)                                                                                                                 │
+│     ├── expected_answer (NoneType)                                                                                                                     │
+│     ├── instruction_id_list (NoneType)                                                                                                                 │
+│     └── prompt (NoneType)                                                                                                                              │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ jsonl-llama-rl                                                                                                                                         │
+│ ├── 📋 Basic Info                                                                                                                                      │
+│ │   ├── Path: /raid/datasets/jsonl/llama-rl                                                                                                            │
+│ │   └── Format: JSONL                                                                                                                                  │
+│ ├── 📊 Splits                                                                                                                                          │
+│ │   └── instruction_following: 1 file(s)                                                                                                               │
+│ ├── 📝 Columns                                                                                                                                         │
+│ │   ├── input: List[Dict] ✓ (embedding candidate)                                                                                                      │
+│ │   │       Fields: role, content                                                                                                                      │
+│ │   ├── args: Dict                                                                                                                                     │
+│ │   │       Fields: instruction_id_list, instruction_kwargs, task, num_requirements                                                                    │
+│ │   ├── category: str                                                                                                                                  │
+│ │   ├── license: str                                                                                                                                   │
+│ │   ├── reasoning: str ✓ (embedding candidate)                                                                                                         │
+│ │   ├── used_in_training: str                                                                                                                          │
+│ │   ├── version: str                                                                                                                                   │
+│ │   └── system_prompt: str ✓ (embedding candidate)                                                                                                     │
+│ └── 🎯 Recommended for Embedding Extraction                                                                                                            │
+│     ├── input (List[Dict])                                                                                                                             │
+│     ├── reasoning (str)                                                                                                                                │
+│     └── system_prompt (str)                                                                                                                            │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ nemotron-v3-jsonl-rl-blend                                                                                                                             │
+│ ├── 📋 Basic Info                                                                                                                                      │
+│ │   ├── Path: /raid/datasets/nemotron-v3/jsonl/rl-blend                                                                                                │
+│ │   └── Format: JSONL                                                                                                                                  │
+│ ├── 📊 Splits                                                                                                                                          │
+│ │   └── train: 1 file(s)                                                                                                                               │
+│ ├── 📝 Columns                                                                                                                                         │
+│ │   ├── id: int                                                                                                                                        │
+│ │   ├── responses_create_params: Dict ✓ (embedding candidate)                                                                                          │
+│ │   │       Fields: input, tools, parallel_tool_calls, temperature                                                                                     │
+│ │   ├── ground_truth: List[Dict]                                                                                                                       │
+│ │   │       Fields: name, arguments                                                                                                                    │
+│ │   ├── category: str                                                                                                                                  │
+│ │   ├── environment_name: str                                                                                                                          │
+│ │   ├── agent_ref: Dict                                                                                                                                │
+│ │   │       Fields: type, name                                                                                                                         │
+│ │   ├── pass_rate: float                                                                                                                               │
+│ │   ├── pass_rate_total: int                                                                                                                           │
+│ │   ├── pass_rate_passed: int                                                                                                                          │
+│ │   ├── dataset: str                                                                                                                                   │
+│ │   ├── expected_answer: NoneType ✓ (embedding candidate)                                                                                              │
+│ │   ├── uuid: NoneType                                                                                                                                 │
+│ │   ├── options: NoneType                                                                                                                              │
+│ │   ├── reward_profiles: NoneType                                                                                                                      │
+│ │   ├── template_metadata: NoneType                                                                                                                    │
+│ │   ├── instruction_id_list: NoneType ✓ (embedding candidate)                                                                                          │
+│ │   ├── prompt: NoneType ✓ (embedding candidate)                                                                                                       │
+│ │   ├── kwargs: NoneType                                                                                                                               │
+│ │   ├── _hf_placeholder: NoneType                                                                                                                      │
+│ │   ├── verifier_metadata: NoneType                                                                                                                    │
+│ │   ├── hash_id: NoneType                                                                                                                              │
+│ │   ├── source: NoneType                                                                                                                               │
+│ │   ├── schema_str: NoneType                                                                                                                           │
+│ │   ├── schema_type: NoneType                                                                                                                          │
+│ │   └── schema_fields_count: NoneType                                                                                                                  │
+│ └── 🎯 Recommended for Embedding Extraction                                                                                                            │
+│     ├── responses_create_params (Dict)                                                                                                                 │
+│     ├── expected_answer (NoneType)                                                                                                                     │
+│     ├── instruction_id_list (NoneType)                                                                                                                 │
+│     └── prompt (NoneType)                                                                                                                              │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ nemotron-post-training-dataset-v2                                                                                                                      │
+│ ├── 📋 Basic Info                                                                                                                                      │
+│ │   ├── Path: /raid/datasets/nemotron-v2/nvidia___nemotron-post-training-dataset-v2/default/0.0.0/5c89e01dd720ae0f4058445ed49c5fb68a03c76e             │
+│ │   ├── Format: ARROW                                                                                                                                  │
+│ │   ├── HuggingFace: nvidia/Nemotron-Post-Training-Dataset-v2                                                                                          │
+│ │   └── Description: Nemotron Post-Training Dataset Version 2                                                                                          │
+│ ├── 📊 Splits                                                                                                                                          │
+│ │   ├── stem: 2 file(s), 355,000 samples                                                                                                               │
+│ │   ├── chat: 12 file(s), 627,720 samples                                                                                                              │
+│ │   ├── math: 2 file(s), 239,467 samples                                                                                                               │
+│ │   ├── code: 2 file(s), 175,000 samples                                                                                                               │
+│ │   ├── multilingual_ja: 36 file(s), 975,202 samples                                                                                                   │
+│ │   ├── multilingual_de: 37 file(s), 1,015,314 samples                                                                                                 │
+│ │   ├── multilingual_it: 37 file(s), 1,016,503 samples                                                                                                 │
+│ │   ├── multilingual_es: 32 file(s), 935,704 samples                                                                                                   │
+│ │   └── multilingual_fr: 36 file(s), 1,001,504 samples                                                                                                 │
+│ ├── 📝 Columns                                                                                                                                         │
+│ │   ├── uuid: string                                                                                                                                   │
+│ │   ├── license: string                                                                                                                                │
+│ │   ├── generator: string                                                                                                                              │
+│ │   ├── version: string                                                                                                                                │
+│ │   ├── category: string                                                                                                                               │
+│ │   ├── reasoning: string ✓ (embedding candidate)                                                                                                      │
+│ │   └── messages: List[Dict] ✓ (embedding candidate)                                                                                                   │
+│ │           Fields: role, content                                                                                                                      │
+│ └── 🎯 Recommended for Embedding Extraction                                                                                                            │
+│     ├── reasoning (string)                                                                                                                             │
+│     └── messages (List[Dict])                                                                                                                          │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ nemotron-post-training-dataset-v1                                                                                                                      │
+│ ├── 📋 Basic Info                                                                                                                                      │
+│ │   ├── Path: /raid/datasets/nemotron-v1/nvidia___nemotron-post-training-dataset-v1/default/0.0.0/74e23eb6f830fef4a9e96a92f6f6262214cbb9a8             │
+│ │   ├── Format: ARROW                                                                                                                                  │
+│ │   ├── HuggingFace: nvidia/Nemotron-Post-Training-Dataset-v1                                                                                          │
+│ │   └── Description: Nemotron Post-Training Dataset Version 1                                                                                          │
+│ ├── 📊 Splits                                                                                                                                          │
+│ │   ├── chat: 8 file(s), 746,622 samples                                                                                                               │
+│ │   ├── code: 175 file(s), 1,896,395 samples                                                                                                           │
+│ │   ├── math: 152 file(s), 2,044,407 samples                                                                                                           │
+│ │   ├── stem: 649 file(s), 20,662,167 samples                                                                                                          │
+│ │   └── tool_calling: 13 file(s), 310,051 samples                                                                                                      │
+│ ├── 📝 Columns                                                                                                                                         │
+│ │   ├── uuid: string                                                                                                                                   │
+│ │   ├── license: string                                                                                                                                │
+│ │   ├── generator: string                                                                                                                              │
+│ │   ├── version: string                                                                                                                                │
+│ │   ├── category: string                                                                                                                               │
+│ │   ├── reasoning: string ✓ (embedding candidate)                                                                                                      │
+│ │   ├── messages: List[Dict] ✓ (embedding candidate)                                                                                                   │
+│ │   │       Fields: role, content, tool_calls                                                                                                          │
+│ │   └── metadata: string                                                                                                                               │
+│ └── 🎯 Recommended for Embedding Extraction                                                                                                            │
+│     ├── reasoning (string)                                                                                                                             │
+│     └── messages (List[Dict])                                                                                                                          │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ llama-nemotron-post-training-dataset:SFT                                                                                                               │
+│ ├── 📋 Basic Info                                                                                                                                      │
+│ │   ├── Path: /raid/datasets/llama-nemotron/nvidia___llama-nemotron-post-training-dataset/SFT/0.0.0/ab2a40d258a6a4d9d4c277d702aeea445081766c           │
+│ │   ├── Format: ARROW                                                                                                                                  │
+│ │   ├── HuggingFace: nvidia/Llama-Nemotron-Post-Training-Dataset                                                                                       │
+│ │   └── Description: Llama-Nemotron Supervised Fine-Tuning Dataset                                                                                     │
+│ ├── 📊 Splits                                                                                                                                          │
+│ │   ├── code: 91 file(s), 10,108,883 samples                                                                                                           │
+│ │   ├── math: 141 file(s), 22,066,397 samples                                                                                                          │
+│ │   ├── science: 12 file(s), 708,920 samples                                                                                                           │
+│ │   ├── chat: 1 file(s), 39,792 samples                                                                                                                │
+│ │   └── safety: 1 file(s), 31,426 samples                                                                                                              │
+│ ├── 📝 Columns                                                                                                                                         │
+│ │   ├── input: List[Dict] ✓ (embedding candidate)                                                                                                      │
+│ │   │       Fields: role, content                                                                                                                      │
+│ │   ├── output: string ✓ (embedding candidate)                                                                                                         │
+│ │   ├── category: string                                                                                                                               │
+│ │   ├── license: string                                                                                                                                │
+│ │   ├── reasoning: string ✓ (embedding candidate)                                                                                                      │
+│ │   ├── generator: string                                                                                                                              │
+│ │   ├── used_in_training: string                                                                                                                       │
+│ │   ├── version: string                                                                                                                                │
+│ │   └── system_prompt: string ✓ (embedding candidate)                                                                                                  │
+│ └── 🎯 Recommended for Embedding Extraction                                                                                                            │
+│     ├── input (List[Dict])                                                                                                                             │
+│     ├── output (string)                                                                                                                                │
+│     ├── reasoning (string)                                                                                                                             │
+│     └── system_prompt (string)                                                                                                                         │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ nemotron-science-v1                                                                                                                                    │
+│ ├── 📋 Basic Info                                                                                                                                      │
+│ │   ├── Path: /raid/datasets/nemotron-v3/science/nvidia___nemotron-science-v1/default/0.0.0/82e1af468197076b4f0f392c239274eac032adc7                   │
+│ │   ├── Format: ARROW                                                                                                                                  │
+│ │   ├── HuggingFace: nvidia/Nemotron-Science-v1                                                                                                        │
+│ │   └── Description: Nemotron Science Dataset (MCQ & RQA)                                                                                              │
+│ ├── 📊 Splits                                                                                                                                          │
+│ │   ├── MCQ: 4 file(s), 174,155 samples                                                                                                                │
+│ │   └── RQA: 2 file(s), 52,179 samples                                                                                                                 │
+│ ├── 📝 Columns                                                                                                                                         │
+│ │   ├── uuid: string                                                                                                                                   │
+│ │   ├── messages: List[Dict] ✓ (embedding candidate)                                                                                                   │
+│ │   │       Fields: role, content, reasoning_content                                                                                                   │
+│ │   ├── license: string                                                                                                                                │
+│ │   ├── used_in: List                                                                                                                                  │
+│ │   └── tools: List                                                                                                                                    │
+│ └── 🎯 Recommended for Embedding Extraction                                                                                                            │
+│     └── messages (List[Dict])                                                                                                                          │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ nemotron-math-proofs-v1                                                                                                                                │
+│ ├── 📋 Basic Info                                                                                                                                      │
+│ │   ├── Path: /raid/datasets/nemotron-v3/math-proofs/nvidia___nemotron-math-proofs-v1/default/0.0.0/82ca7f294d6e0dc533f7df3aebf28d75257e7d0f           │
+│ │   ├── Format: ARROW                                                                                                                                  │
+│ │   ├── HuggingFace: nvidia/Nemotron-Math-Proofs-v1                                                                                                    │
+│ │   └── Description: Nemotron Mathematical Proofs (Lean) Dataset                                                                                       │
+│ ├── 📊 Splits                                                                                                                                          │
+│ │   └── lean: 57 file(s), 1,376,663 samples                                                                                                            │
+│ ├── 📝 Columns                                                                                                                                         │
+│ │   ├── problem: string                                                                                                                                │
+│ │   ├── source: string                                                                                                                                 │
+│ │   ├── formal_statement: string                                                                                                                       │
+│ │   ├── lean_header: string                                                                                                                            │
+│ │   ├── url: string                                                                                                                                    │
+│ │   ├── user_name: string                                                                                                                              │
+│ │   ├── user_url: string                                                                                                                               │
+│ │   ├── sft_line_number: int64                                                                                                                         │
+│ │   ├── messages: List[Dict] ✓ (embedding candidate)                                                                                                   │
+│ │   │       Fields: role, content, reasoning_content                                                                                                   │
+│ │   ├── uuid: string                                                                                                                                   │
+│ │   ├── used_in: List                                                                                                                                  │
+│ │   ├── tools: List                                                                                                                                    │
+│ │   └── license: string                                                                                                                                │
+│ └── 🎯 Recommended for Embedding Extraction                                                                                                            │
+│     └── messages (List[Dict])                                                                                                                          │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ nemotron-instruction-following-chat-v1                                                                                                                 │
+│ ├── 📋 Basic Info                                                                                                                                      │
+│ │   ├── Path:                                                                                                                                          │
+│ │   │   /raid/datasets/nemotron-v3/instruction-chat/nvidia___nemotron-instruction-following-chat-v1/default/0.0.0/83dcd3aded0d289b0bbc018d3f9af4c5dd40 │
+│ │   │   05df                                                                                                                                           │
+│ │   ├── Format: ARROW                                                                                                                                  │
+│ │   ├── HuggingFace: nvidia/Nemotron-Instruction-Following-Chat-v1                                                                                     │
+│ │   └── Description: Nemotron Instruction Following & Chat Dataset                                                                                     │
+│ ├── 📊 Splits                                                                                                                                          │
+│ │   ├── chat_if: 14 file(s), 426,009 samples                                                                                                           │
+│ │   └── structured_outputs: 1 file(s), 4,969 samples                                                                                                   │
+│ ├── 📝 Columns                                                                                                                                         │
+│ │   ├── uuid: string                                                                                                                                   │
+│ │   ├── messages: List[Dict] ✓ (embedding candidate)                                                                                                   │
+│ │   │       Fields: role, content, reasoning_content                                                                                                   │
+│ │   ├── license: string                                                                                                                                │
+│ │   ├── used_in: List                                                                                                                                  │
+│ │   ├── tools: List                                                                                                                                    │
+│ │   ├── reasoning: string ✓ (embedding candidate)                                                                                                      │
+│ │   └── capability_target: string                                                                                                                      │
+│ └── 🎯 Recommended for Embedding Extraction                                                                                                            │
+│     ├── messages (List[Dict])                                                                                                                          │
+│     └── reasoning (string)                                                                                                                             │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ llama-nemotron                                                                                                                                         │
+│ ├── 📋 Basic Info                                                                                                                                      │
+│ │   ├── Path: /raid/datasets/llama-nemotron                                                                                                            │
+│ │   └── Format: PARQUET                                                                                                                                │
+│ ├── 📊 Splits                                                                                                                                          │
+│ │   └── default: 1 file(s)                                                                                                                             │
+│ ├── 📝 Columns                                                                                                                                         │
+│ │   ├── input: list<element: struct<content: string, role: string>> ✓ (embedding candidate)                                                            │
+│ │   │       Fields: content, role                                                                                                                      │
+│ │   ├── args: struct<instruction_id_list: list<element: string>, instruction_kwargs: list<element: struct<capital_frequency: int64, capital_relation:  │
+│ │   │   string, end_phrase: string, first_word: string, forbidden_words: list<element: string>, frequency: int64, keyword: string, keywords:           │
+│ │   │   list<element: string>, let_frequency: int64, let_relation: string, letter: string, nth_paragraph: int64, num_bullets: int64, num_highlights:   │
+│ │   │   int64, num_paragraphs: int64, num_placeholders: int64, num_sections: int64, num_sentences: int64, num_words: int64, postscript_marker: string, │
+│ │   │   relation: string, section_spliter: string>>, num_requirements: int64, task: string>                                                            │
+│ │   │       Fields: instruction_id_list, instruction_kwargs, num_requirements, task                                                                    │
+│ │   ├── category: string                                                                                                                               │
+│ │   ├── license: string                                                                                                                                │
+│ │   ├── reasoning: string ✓ (embedding candidate)                                                                                                      │
+│ │   ├── used_in_training: string                                                                                                                       │
+│ │   ├── version: string                                                                                                                                │
+│ │   └── system_prompt: string ✓ (embedding candidate)                                                                                                  │
+│ └── 🎯 Recommended for Embedding Extraction                                                                                                            │
+│     ├── input (list<element: struct<content: string, role: string>>)                                                                                   │
+│     ├── reasoning (string)                                                                                                                             │
+│     └── system_prompt (string)                                                                                                                         │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
